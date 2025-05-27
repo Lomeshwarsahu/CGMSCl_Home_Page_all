@@ -1,0 +1,1588 @@
+
+<app-navbar></app-navbar>
+<!-- <div class="container my-4">
+  <button class="btn btn-outline-primary d-flex align-items-center" type="button" (click)="toggleCollapse()"
+    aria-expanded="false" aria-controls="colorPickerCollapse">
+    🎨
+  </button>
+  <div id="colorPickerCollapse" [style.height]="isCollapsed ? '150px' : '0'" [style.opacity]="isCollapsed ? '1' : '0'"
+    [style.overflow]="isCollapsed ? 'visible' : 'hidden'"
+    style="transition: height 0.5s ease, opacity 0.5s ease; background: white; border-radius: 10px; margin-top: 10px;">
+
+    <div class="card-body p-3">
+      <label for="colorPicker" class="form-label">Choose a Color:</label>
+      <input type="color" class="form-control form-control-color" id="colorPicker" [(ngModel)]="selectedColor"
+        title="Choose your color">
+    </div>
+
+  </div>
+
+</div>
+<div class="p-5 text-white mt-4 rounded" [style.background]="selectedColor" style="transition: background 0.5s;">
+  <h2>Live Theme Preview</h2>
+  <p>The background changes based on your color choice!</p>
+</div> -->
+<!-- F:\CGMSC\CGMSC_Home_Page\src\assets\images\equipment-reagents.jpg
+  F:\CGMSC\CGMSC_Home_Page\src\assets\images\doctor-s-hand-holding-pills.jpg
+  F:\CGMSC\CGMSC_Home_Page\src\assets\images\infrastructure.jpg 
+  F:\CGMSC\CGMSC_Home_Page\src\assets\images\hero Grouped medicines 1600px.png-->
+<!-- <div *ngIf="isDefaultDashboardRoute"> -->
+<section class="image-section border-top  ">
+  <div class="carousel slide h-100 " id="imageSectionCarousel" data-bs-ride="carousel">
+    <div class="carousel-inner h-100 ">
+      <!-- <div class="carousel-item h-100" 
+    *ngFor="let img of images3; let i = index"
+    [class.active]="i === 0">
+    <img [src]="img" class="d-block w-100 h-100 object-fit-cover" alt="Image {{ i + 1 }}">
+  </div> -->
+      <!-- <div class="carousel-item h-100 " 
+    *ngFor="let img of images3; let i = index"
+    [class.active]="i === 0">
+    <img [src]="img" class="d-block w-100 h-100 object-fit-cover " alt="Image {{ i + 1 }}" >
+  </div> -->
+  <div class="carousel-item h-100"
+     *ngFor="let img of images3; let i = index"
+     [class.active]="i === 0">
+  <img [src]="img" 
+       class="d-block w-100 h-100 imagessizecenter"  alt="Image {{ i + 1 }}"
+       >
+</div>
+
+  <!-- <div class="carousel-item h-100 d-flex align-items-center justify-content-center"
+     *ngFor="let img of images3; let i = index"
+     [class.active]="i === 0">
+  <img [src]="img"  class="d-block w-100 h-100" alt="Image {{ i + 1 }}" >
+</div> -->
+
+      <!-- <div class="carousel-item h-100">
+        <img src="\assets\images\doctor-s-hand-holding-pills.jpg" class="d-block w-100 h-100 object-fit-cover" alt="img2">
+      </div>
+      <div class="carousel-item h-100">
+        <img src="\assets\images\infrastructure.jpg " class="d-block w-100 h-100 object-fit-cover" alt="img3">
+      </div>
+      <div class="carousel-item h-100">
+        <img src="\assets\images\hero Grouped medicines 1600px.png" class="d-block w-100 h-100 object-fit-cover" alt="img4">
+      </div> -->
+    </div>
+
+    <!-- Optional Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#imageSectionCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#imageSectionCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+<section class="mb-5 pb-0 py-5 px-5"  >
+  <div class="container-fluid py-0 px-0"  >
+    <div class="row">
+      <!-- Left Side: About CGMSCL  data-aos="fade-up" data-aos-duration="1000" -->
+      <div class="col-12 col-lg-6 mb-4 mb-lg-0"  >
+        <h2 class="mb-3 fw-semibold Heading-font-family" style="font-size: 26px;">About CGMSCL</h2>
+        <p class="mb-3">
+          Welcome to <strong>CGMSCL</strong> — Chhattisgarh Medical Services Corporation Limited is incorporated on
+          <strong>7th October 2010</strong> under the Companies Act, 1956. The company operates under the
+          <strong>Health & Family Welfare Department</strong> of Chhattisgarh.
+        </p>
+        <!-- <p class="mb-4">
+          <strong>CIN No:</strong> U85110CT2010SGC022089
+        </p> -->
+        <a class="btn btn-outline-light d-inline-flex align-items-center theme-navbar text-white" routerLink="/AboutCGMSC" routerLinkActive="active">
+          <i class="bi bi-book-fill me-2 "></i> Read More...
+        </a>
+        <!-- <div class="accordion-item custom-accordion">
+        <h2 class="accordion-header" style="z-index: 99999;">
+          <button 
+            class="accordion-button text-dark fw-bold custom-btn"
+            [class.collapsed]="!isAccordionOpen"
+            (click)="toggleAccordion()" 
+            type="button"
+            [attr.aria-expanded]="isAccordionOpen">
+            Click here
+          </button>
+        </h2>
+        </div> -->
+       
+        <!-- <a class="btn btn-outline-primary d-inline-flex align-items-center"
+        [routerLink]="['/dashboard', 'AboutCGMSC']" 
+        [routerLinkActive]="'active'">
+       <i class="bi bi-book-fill me-2"></i> Read More...
+     </a> -->
+     <!-- <a class="btn btn-outline-primary d-inline-flex align-items-center"
+     [routerLink]="['AboutCGMSC']" 
+     [routerLinkActive]="'active'">
+    <i class="bi bi-book-fill me-2"></i> Read More... </a> -->
+       
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <!-- <div class="col-12 col-lg-4 card "> -->
+        <div class="row justify-content-center mt-2">
+          <div class="col-12 text-center">
+            <div class="marquee-container bg-lightt">
+              <div class="marquee-images">
+                <div>
+                  <img src="assets/images/CM.jpeg" alt="Image 3">
+                  <div class="image-name" style="font-size: 13px;"> 
+                    <!-- माननीय श्री विष्णु देव साय
+                    मुख्यमंत्री छत्तीसगढ़ -->
+                    Shri Vishnu Deo Sai
+                    Hon'ble Chief Minister
+                  </div>
+                </div>
+                <div>
+                  <img src="assets/images/HM.jpeg" alt="Image 4">
+                  <div class="image-name" style="font-size: 13px;"> <!-- मान. श्री श्याम बिहारी जायसवाल
+                    मंत्री, लो. स्वा. परि. कल्या. ,चिकि. शिक्षा   -->
+                    Shri  Shyam Bihari Jaiswal
+                    Hon'ble Minister Health & Family Welfare and
+                    Med. Edu.</div>
+                </div>
+                <div>
+                  <img src="assets/images/chairman.jpeg" alt="Image 2">
+                  <div class="image-name" style="font-size: 13px;"> 
+                    Shri Deepak Mhaskey
+                    Hon'ble Chairman, CGMSCL
+                  </div>
+                </div>
+                <div>
+                  <img src="assets/images/amit-kataria.jpg" alt="Image 1">
+                  <div class="image-name" style="font-size: 13px;">
+                    Shri Amit Kataria (IAS)
+                    Secretary, Health and Family Welfare 
+                    and Medical Education
+                  </div>
+                </div>
+                
+                <!-- <div>
+                  <img src="assets/images/kiranKaushal.jpg" alt="Image 2">
+                 
+                  <div class="image-name" style="font-size: 13px;"> 
+                    Smt Kiran Kaushal (IAS)
+                    Commissioner Medical Education
+                  </div>
+                </div> -->
+                <div>
+                  <img src="assets/images/Dr.Priyanka_Sukla.jpeg" alt="Image 2">
+                  <div class="image-name" style="font-size: 13px;">
+                    
+                      Dr. Priyanka Shukla (IAS)
+                      Commissioner-cum-Director of 
+                      Health Services
+                    </div>
+                </div>
+                <div>
+                  <img src="assets\images\MD.jpeg" alt="Image 2">
+                  <div class="image-name" style="font-size: 13px;">
+                    
+                      Smt. Padmini Bhoi Sahu (IAS)
+                      Managing Director CGMSCL
+                    </div>
+                </div>
+               
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- <section class="bg-white  mt-0">
+      <div class="container"> -->
+
+        <div class="row">
+          <div class="col-12">
+            <marquee behavior="scroll" direction="left">
+              <div class="d-flex flex-nowrap mt-4">
+                <!-- Static Card -->
+                <div
+                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                style="min-width: 150px; max-width: 150px;" >
+                <a
+                  href="https://cgstate.gov.in/"
+                  target="_blank"
+                  class="text-decoration-none text-dark w-100">
+                  <div class="p-2 d-flex justify-content-center">
+                    <img
+                      src="./assets/cgmsc imgs/Govt-of-Chattisgarh.webp"
+                      class="rounded-circle"
+                      alt="..."
+                      style="width: 80px; height: 80px; object-fit: cover;"
+                    />
+                  </div>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">Chhattisgarh Gov</h3>
+                </a>
+              </div>
+                <div class="card custom-card d-flex flex-column align-items-center text-center bg-light p-2 mb-3 mx-2"
+                style="min-width: 150px; max-width: 150px;">
+                <a
+                  href="https://cghealth.nic.in/public/#/"
+                  target="_blank"
+                  class="text-decoration-none text-dark w-100"
+                >
+                  <div class="p-2 d-flex justify-content-center">
+                    <img
+                      src="./assets/cgmsc imgs/health-logo.png"
+                      class="img-fluid rounded"
+                      alt="..."
+                      style="max-width: 70%; height: auto;"
+                    />
+                  </div>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">CG Health</h3>
+                </a>
+              </div>
+              
+              
+        
+                <!-- Dynamic Cards -->
+                <div
+                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                style="min-width: 150px; max-width: 150px;">
+                <a
+                href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do"
+                target="_blank"
+                  class="text-decoration-none text-dark w-100" >
+                  <div class="p-2 d-flex justify-content-center">
+                    <img
+                    src='./assets/cgmsc imgs/CHEPS2.jfif' class="img-fluid rounded" alt="..." style="width: 150%; height: auto; " />
+                  </div>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">CG - e-Procurement</h3>
+                </a>
+              </div>
+                <div
+                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                style="min-width: 150px; max-width: 150px;">
+                <a
+                href="https://gem.gov.in/"
+                target="_blank"
+                  class="text-decoration-none text-dark w-100" >
+                  <div class="p-2 d-flex justify-content-center">
+                    <img
+                    src='./assets/cgmsc imgs/gem-logo.png' class="img-fluid rounded" alt="..." style="width: 150%; height: auto; " />
+                  </div>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">GeM</h3>
+                </a>
+              </div>
+                <div
+                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                style="min-width: 150px; max-width: 150px;">
+                <a
+                href="https://dvdms.mohfw.gov.in/"
+                target="_blank"
+                  class="text-decoration-none text-dark w-100" >
+                  <div class="p-2 d-flex justify-content-center">
+                    <img
+                    src='./assets/cgmsc imgs/cg.JPG' class="img-fluid rounded" alt="..." style="width: 200%; height: 200%; " />
+                  </div>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3>
+                  <!-- State Gov. in -->
+                </a>
+              </div>
+             </div>
+            </marquee>
+          </div>
+        </div>
+  </div>
+
+  <!-- <div class="accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button fw-bold text-dark"
+                [class.collapsed]="!isOpen"
+                (click)="toggle()"
+                [attr.aria-expanded]="isOpen">
+          Click here
+        </button>
+      </h2>
+      <div class="accordion-collapse"
+           [ngStyle]="{
+             height: isOpen ? height + 'px' : '0',
+             opacity: isOpen ? 1 : 0,
+             padding: isOpen ? '1rem' : '0 1rem'
+           }"
+           (transitionend)="onEnd()">
+        <div class="accordion-body">hello lomesh</div>
+      </div>
+    </div>
+  </div> -->
+  
+</section>
+
+
+
+
+
+
+
+<!-- [style.background]="selectedColor" -->
+
+<!-- <section class="py-5 pt-0 text-white position-relative announce-colorr theme-navbar" 
+  >
+  <div class="container-fluid px-3 text-center py-5">
+    <p class="mb-3 Heading-font-family" >LATEST UPDATES</p>
+  </div>
+</section>
+
+
+<div class="position-relative" style="z-index: 2;">
+  <div class="container-fluid position-absolute top-100 start-50 translate-middle px-3 w-100">
+    <div class="row justify-content-center g-4 newpe">
+      <div class="container-fluid">
+        <div class="row g-4"> -->
+      <!-- FIXED START: Make cards appear below About section, not overlapping -->
+<section class="py-5 pt-0 text-white position-relative announce-colorr theme-navbar">
+  <div class="container-fluid px-3 text-center py-5">
+    <p class="mb-3 Heading-font-family">LATEST UPDATES</p>
+  </div>
+</section>
+
+<!-- REMOVE position-absolute and use normal flow style="margin-top: -5rem !important;"-->
+<div class="container-fluid px-1" > <!-- Use negative margin if you want overlap -->
+  <div class="row justify-content-center g-4 newpe" >
+    <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-md-6 col-lg-3" >
+            <div class="card shadow-lg p-4 border bg-white rounded h-100">
+              <h5 class="card-title border-bottom border-3 pb-2 text-center gradient-heading "><strong>Drug Tenders</strong></h5>
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+                <!-- <div
+                  class="scroll-container"
+                  [class.paused]="card1Pause"
+                  (mouseenter)="card1Pause = true"
+                  (mouseleave)="card1Pause = false"
+                  (touchstart)="card1Pause = true"
+                  (touchend)="card1Pause = false" > -->
+                  <div
+                  class="scroll-container"
+                  [class.paused]="card1Pause"
+                  (mouseenter)="onPauseStart(1)"
+                  (mouseleave)="onPauseEnd(1)"
+                  (touchstart)="onPauseStart(1)"
+                  (touchend)="onPauseEnd(1)" >
+                  <div *ngFor="let item of DrugTenderList" class="mb-3" style="text-align: justify;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Drug-Technical')">
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      {{ item.content_Subject }} {{ item.attachment_Id }}
+                    </a>
+                    <!-- <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge bg-danger ms-2">New</span> -->
+                  </div>
+                  <div class="text-end mt-3">
+                   
+
+                    <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderDrug">
+                      <i class="bi bi-eye me-2"></i> View More...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 2 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow-lg p-4 border bg-white rounded h-100">
+              <h5 class="card-title border-bottom border-3  pb-2 text-center gradient-heading "><strong>Equipment Tenders</strong></h5>
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+                <!-- <div class="scroll-container" [class.paused]="card2Pause" 
+                (mouseenter)="card2Pause = true" (mouseleave)="card2Pause = false" 
+                 > -->
+                <!-- (touchend)="resumeScrollWithDelay()" -->
+              <!-- <div
+                class="scroll-container"
+                [class.paused]="card2Pause"
+                (mouseenter)="card2Pause = true"
+                (mouseleave)="card2Pause = false"
+                (touchstart)="card2Pause = true"
+                (touchend)="resumeScrollWithDelay()">  -->
+                <div
+                class="scroll-container"
+                [class.paused]="card2Pause"
+                (mouseenter)="onPauseStart(2)"
+                (mouseleave)="onPauseEnd(2)"
+                (touchstart)="onPauseStart(2)"
+                (touchend)="onPauseEnd(2)" >
+              
+                  <div *ngFor="let item of EquipmentList" class="mb-3" style="text-align: justify;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Equipment-Technical')">
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      {{ item.content_Subject }} {{ item.attachment_Id }}
+                    </a>
+                  </div>
+                  <div class="text-end mt-3">
+                    <a class="btn btn-outline-light btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderEquip">
+                      <i class="bi bi-eye me-2"></i> View More...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 3 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow-lg p-4 border bg-white rounded h-100">
+              <h5 class="card-title border-bottom border-3  pb-2 text-center gradient-heading "><strong>Infrastructure Tenders</strong></h5>
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+                <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
+                  <!-- <div
+                  class="scroll-container"
+                  [class.paused]="card3Pause"
+                  (mouseenter)="card3Pause = true"
+                  (mouseleave)="card3Pause = false" (touchstart)="card3Pause = true"
+                  (touchend)="card3Pause = false"> -->
+                  <div
+                  class="scroll-container"
+                  [class.paused]="card3Pause"
+                  (mouseenter)="onPauseStart(3)"
+                  (mouseleave)="onPauseEnd(3)"
+                  (touchstart)="onPauseStart(3)"
+                  (touchend)="onPauseEnd(3)" >
+                  <div *ngFor="let item of CivilTenderList" class="mb-3" style="text-align: justify;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Civil')">
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      {{ item.content_Subject }} {{ item.attachment_Id }}
+                    </a>
+                  </div>
+                  <div class="text-end mt-3">
+                    <a class="btn btn-outline-light btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderCivil">
+                      <i class="bi bi-eye me-2"></i> View More...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 4 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow-lg p-4 border bg-white rounded h-100">
+              <h5 class="card-title border-bottom border-3  pb-2 text-center gradient-heading "><strong>Other Tenders</strong> </h5>
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+                <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
+                  <!-- <div
+                  class="scroll-container"
+                  [class.paused]="card4Pause"
+                  (mouseenter)="card4Pause = true"
+                  (mouseleave)="card4Pause = false" (touchstart)="card4Pause = true"
+                  (touchend)="card4Pause = false"> -->
+                  <div
+                  class="scroll-container"
+                  [class.paused]="card4Pause"
+                  (mouseenter)="onPauseStart(4)"
+                  (mouseleave)="onPauseEnd(4)"
+                  (touchstart)="onPauseStart(4)"
+                  (touchend)="onPauseEnd(4)">
+                  <div *ngFor="let item of OtherTenderList" class="mb-3" style="text-align: justify;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Other Tender (Technical)')">
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      {{ item.content_Subject }} {{ item.attachment_Id }}
+                    </a>
+                  </div>
+                  <div class="text-end mt-3">
+                    <a class="btn btn-outline-light btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderOther">
+                      <i class="bi bi-eye me-2"></i> View More...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    </div>
+ 
+      <!-- <div class="col-md-3">
+        <div class="card shadow-lg p-4 border bg-white rounded">
+          <h5 class="card-title border-bottom pb-2"><strong>Drug Tenders</strong></h5> <br>
+          <div class="card-body px-0 pt-2 pb-3">
+            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
+              onmouseout="this.start();" scrollamount="2" scrolldelay="50">
+              <div class="card-text" style="text-align: justify;" *ngFor="let DrugTender of DrugTenderList">
+                <a  type="link"  class="nav-link" (click)="onButtonClick(DrugTender.attachment_Id,'Drug-Technical')">
+                  {{DrugTender.content_Subject}} {{DrugTender.attachment_Id}}<br><br>
+                </a>
+              </div>
+              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderDrug" routerLinkActive="active">
+               <i class="bi bi-eye me-2"></i> View More...
+               </a>
+            </marquee>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-lg p-4 border bg-white rounded">
+          <h5 class="card-title border-bottom pb-2"><strong>Equipment Tenders</strong></h5>
+          <div class="card-body px-0 pt-2 pb-3">
+            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
+              onmouseout="this.start();" scrollamount="5" scrolldelay="50">
+              <div class="card-text text-primary" style="text-align: justify;" *ngFor="let Equipment of EquipmentList">
+                <a type="link" class="nav-link" (click)="onButtonClick(Equipment.attachment_Id, 'Equipment-Technical')">
+                  {{Equipment.content_Subject}} {{Equipment.attachment_Id}}<br><br>
+                </a>
+              </div>
+              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderEquip" routerLinkActive="active">
+                <i class="bi bi-eye me-2"></i> View More...
+                </a>
+            </marquee>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-lg p-4 border bg-white rounded">
+          <h5 class="card-title border-bottom pb-2"><strong>Infrastructure Tenders</strong></h5>
+          <div class="card-body px-0 pt-2 pb-3">
+            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
+              onmouseout="this.start();" scrollamount="4" scrolldelay="50">
+              <div class="card-text text-primary" style="text-align: justify;" *ngFor="let CivilTender of CivilTenderList">
+                <a type="link"  (click)="onButtonClick(CivilTender.attachment_Id,'Civil')">
+                  {{CivilTender.content_Subject}} {{CivilTender.attachment_Id}}<br><br>
+                </a>
+              </div>
+              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderCivil" routerLinkActive="active">
+                <i class="bi bi-eye me-2"></i> View More...
+                </a>
+            </marquee>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-lg p-4 border bg-white rounded">
+          <h5 class="card-title border-bottom pb-2"><strong>Other Tenders</strong></h5> <br>
+          <div class="card-body px-0 pt-2 pb-3">
+            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
+              onmouseout="this.start();" scrollamount="4" scrolldelay="50">
+              <div class="card-text text-primary" style="text-align: justify;" *ngFor="let OtherTender of OtherTenderList">
+                <a type="link" (click)="onButtonClick(OtherTender.attachment_Id,'Other Tender (Technical)')">
+                  {{OtherTender.content_Subject}} {{OtherTender.attachment_Id}}<br><br>
+                </a>
+              </div>
+              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderOther" routerLinkActive="active">
+                <i class="bi bi-eye me-2"></i> View More...
+                </a>
+            </marquee>
+          </div>
+        </div>
+      </div> 
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow-lg p-4 border bg-white rounded h-100">
+              <h5 class="card-title border-bottom pb-2"><strong>Drug Tenders</strong></h5>
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+                <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false">
+                  <div *ngFor="let item of DrugTenderList" class="mb-3" style="text-align: justify;">
+                    <a class="nav-link text-primary" (click)="onButtonClick(item.attachment_Id, 'Drug-Technical')">
+                      {{ item.content_Subject }} {{ item.attachment_Id }}
+                    </a>
+                  </div>
+                  <div class="text-end mt-3">
+                    <a class="btn btn-outline-primary btn-sm d-inline-flex align-items-center" routerLink="/TenderDrug">
+                      <i class="bi bi-eye me-2"></i> View More...
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div> -->
+      <!-- <div class="col-md-2" > 
+              <div class="card shadow-lg p-4 border bg-white rounded">
+                <h5 class="card-title border-bottom pb-2"><strong>Visited Content List</strong></h5>
+                <div class="card-body px-0 pt-2 pb-3">
+                  <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();" onmouseout="this.start();"
+                  scrollamount="3" scrolldelay="50" >
+                  <div class="card-text text-primary" style="text-align: justify;" *ngFor="let VisitedContent of VisitedContentList">
+                   
+                    <a type="link" (click)="onButtonClick(VisitedContent.attachment_Id,'Drug-Technical')">
+                      {{VisitedContent.content_Subject}} {{VisitedContent.content_Registration_Id}}<br><br>
+                    </a>
+                  </div>
+                  <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderOther" routerLinkActive="active">
+                    <i class="bi bi-eye me-2"></i> View More...
+                    </a>
+                    <p class="card-text text-primary" style="text-align: justify;">
+                      Ensure the reach of Quality & Affordable healthcare services ...
+                    </p>
+                    <p class="card-text text-dark" style="text-align: justify;">
+                      in a transparent and equitable manner to each and every person of the state of Bihar...
+                    </p>
+                  </marquee>
+                </div>
+              </div>
+            </div> -->
+
+   
+  <!-- 
+</div> -->
+
+
+<!-- <div class="container-fluid">
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let card of cards">
+      <div class="card shadow-lg p-4 border bg-white rounded h-100">
+        <h5 class="card-title border-bottom pb-2"><strong>{{ card.title }}</strong></h5>
+        <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+          <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false">
+            <div *ngFor="let item of card.items" class="mb-3" style="text-align: justify;">
+              <a class="nav-link text-primary" (click)="onButtonClick(item.attachment_Id, card.type)">
+                {{ item.content_Subject }} {{ item.attachment_Id }}
+              </a>
+               <p class="card-text text-primary" style="text-align: justify;">
+                Ensure the reach of Quality & Affordable healthcare services ...
+              </p>
+              <p class="card-text text-dark" style="text-align: justify;">
+                in a transparent and equitable manner to each and every person of the state of Bihar...
+              </p>
+            </div>
+          </div>
+          <div class="text-end mt-3">
+            <a class="btn btn-outline-primary btn-sm d-inline-flex align-items-center" [routerLink]="card.link">
+              <i class="bi bi-eye me-2"></i> View More...
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Overlapping Cards Start -->
+
+<!-- Section 2 - Background under the cards #fcecef; -->
+
+
+
+<section class="bg-lightt h-100 newpe1 px-0 ">
+  <div class="container-fluid  text-center pb-3 px-4 pt-5 newpe1" >
+    <!-- <section class="bg-white  w-100"> -->
+    <!-- <div class="container px-3"> -->
+    <h4 class="mb-3 text-center Heading-font-family">Latest Announcement</h4>
+    <!-- <h4 class="mb-3 text-center Heading-font-family">CGMSCL GALLERY</h4> -->
+    <!-- <p class="lead text-center">This is the section below overlapping cards.</p> -->
+
+    <div class="row mt-4">
+      <!-- Video Gallery Column -->
+
+      <div class="col-lg-6 mb-2 card rounded px-3 " style="background-color: #e7e9e8;">
+        <!-- <h5 class="text-center mb-4 gradient-heading mt-1">Video Gallery</h5> -->
+        <div class="my-1">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="border-bottom: 2px solid #f5f5f5;">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active " id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button"
+                role="tab">
+                Video Gallery
+              </button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button"
+                role="tab">
+                Latest Announcement
+             
+              </button>
+            </li> -->
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+                role="tab">
+                Circulars/User Manuals
+              </button>
+            </li>
+           
+            <!-- <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab4-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button"
+                role="tab">
+                Infrastructure 
+              </button>
+            </li> -->
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab5-tab" data-bs-toggle="tab" data-bs-target="#tab5" type="button"
+                role="tab">
+                Events
+
+              </button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab6-tab" data-bs-toggle="tab" data-bs-target="#tab6" type="button"
+              role="tab">
+              Other
+            </button>
+          </li> -->
+          </ul>
+
+          <!-- Tab content -->
+          <div class="tab-content pt-4">
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+              <h5 class="gradient-heading">Video Gallery</h5>
+              <div class="row g-2">
+
+                <div class="col-md-12 mb-3">
+                  <div class="ratio ratio-16x9">
+                    <video controls preload="none" width="100%" height="100%">
+                      <!-- F:\CGMSC\CGMSC_Home_Page\src\assets\Videos\cgmsc-video.mp4 -->
+                      <source src="./assets/Videos/cgmsc-video.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+                
+
+                  <!-- <div class="col-md-12 mb-3">
+                    <div class="ratio ratio-16x9">
+                      <iframe src="\assets\Videos\CGMSC - (4Min Video).mp4" title="Main Video"
+                        allowfullscreen></iframe>
+                      <iframe src="https://www.youtube.com/embed/6nCqzegLWVM?si=y7L8q4CXzs09zqsh" title="Main Video"
+                        allowfullscreen></iframe>
+                    </div>
+                  </div> -->
+                <!-- <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div> -->
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel">
+              <h5 class="gradient-heading">Circulars/User Manuals</h5>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab3" role="tabpanel">
+              
+              <h5 class="gradient-heading">Latest Announcement</h5>
+              <div class="row g-2">
+                <div class="col-md-8 mb-3">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/6nCqzegLWVM?si=y7L8q4CXzs09zqsh" title="Main Video"
+                      allowfullscreen></iframe>
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="ratio ratio-16x9 mb-3">
+                    <iframe src="https://www.youtube.com/embed/t1FxDbAGy5E?si=tsD0GkIiRzONuebr" title="Small Video 1"
+                      allowfullscreen></iframe>
+                  </div>
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/grAeAEE3qzE?si=xhBUwGLhpwelwr1J" title="Small Video 2"
+                      allowfullscreen></iframe>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/CcVtqTeliZg?si=ZsxHEi48Dgq735Ts" title="Bottom Video 1"
+                      allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/IUN-RdrLgJE?si=lFXB-_GcF2NOO0Ml" title="Bottom Video 3"
+                      allowfullscreen></iframe>
+
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/HeG9hLI5pvw?si=VAhlbR_x8LCpS3yx" title="Bottom Video 2"
+                      allowfullscreen></iframe>
+
+                  </div>
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-film"></i>&nbsp; Explore our video
+                  Gallery
+                </button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab5" role="tabpanel">
+              <h5 class="gradient-heading">Events</h5>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Gallery Column -->
+
+      <div class="col-lg-6 mb-2 card rounded pb-3" style="background-color: #e7e9e8;">
+        <h5 class="text-center mb-3 gradient-heading mt-1">Photo Gallery</h5>
+
+
+        <div class="my-1">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="border-bottom: 2px solid #f5f5f5;">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab6-tab" data-bs-toggle="tab" data-bs-target="#tab6" type="button"
+                role="tab">
+                News
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab7-tab" data-bs-toggle="tab" data-bs-target="#tab7" type="button"
+                role="tab">
+                Drugs
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab8-tab" data-bs-toggle="tab" data-bs-target="#tab8" type="button"
+                role="tab">
+                Equipment
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab9-tab" data-bs-toggle="tab" data-bs-target="#tab9" type="button"
+                role="tab">
+                Infrastructure
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab10-tab" data-bs-toggle="tab" data-bs-target="#tab10" type="button"
+                role="tab">
+                Events
+
+              </button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+              role="tab">
+              Other
+            </button>
+          </li> -->
+          </ul>
+
+          <!-- Tab content -->
+          <div class="tab-content pt-4">
+            <div class="tab-pane fade show active" id="tab6" role="tabpanel">
+              <h5 class="gradient-heading">News</h5>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of images1; let i = index">
+                  <img [src]="img"
+                       class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                       alt="Gallery Image"
+                       style="cursor: pointer;"
+                       (click)="openModal(i)">
+                </div>
+                <!-- <div class="col-12 col-sm-6 col-md-4">
+                  <img src="\assets\images\News\news.JPG" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                 
+                </div> 
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="\assets\images\News\Capture.JPG" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                 
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="\assets\images\News\img1.jpg.jfif"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                 
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="\assets\images\News\ba0ed618-ec63-4f2b-b977-786fbe807576.jfif" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                 
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="\assets\images\News\b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                 
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                  
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                 
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                 
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                
+                </div> -->
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab7" role="tabpanel">
+              <h5 class="gradient-heading">Drugs</h5>
+              <!-- <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="/assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div> -->
+              <div class="row g-2">
+              <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of images; let i = index">
+                <img [src]="img"
+                     class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                     alt="Gallery Image"
+                     style="cursor: pointer;"
+                     (click)="openModal(i)">
+              </div>
+              </div>
+              
+            </div>
+            <div class="tab-pane fade" id="tab8" role="tabpanel">
+              <h5 class="gradient-heading">Equipment</h5>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab9" role="tabpanel">
+              <h5 class="gradient-heading">Infrastructure</h5>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab10" role="tabpanel">
+              <h5 class="gradient-heading">Events</h5>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 5">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 6">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 7">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 8">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 9">
+                </div>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                  Gallery</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid py-2">
+  <!-- <div class="accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button type="button"
+                class="btn accordion-button fw-bold text-white theme-navbar border-0 p-2 rounded"
+                [class.collapsed]="!isOpen"
+                (click)="toggle()"
+                [attr.aria-expanded]="isOpen ? 'true' : 'false'">
+        <h5>Click me</h5>  
+        </button>
+      </h2>
+     
+    </div>
+  </div> -->
+  <!-- <div class="accordion-collapse"
+  [ngStyle]="{
+    height: isOpen ? height + 'px' : '0',
+    opacity: isOpen ? 1 : 0,
+    padding: isOpen ? '1rem' : '0 1rem'
+  }"
+  (transitionend)="onEnd()">
+  <div class="accordion-body newpee"> -->
+    <div class="container mb-5 ">
+      <div class="row g-4 justify-content-center" >
+        <div class="col-md-4">
+          <div class="card h-100 text-white p-4" style="background-color: #4891f1 ; border-radius: 10px;">
+            <h5 class="card-title border-bottom pb-2"><strong>Our Mission</strong></h5>
+            <div class="card-body px-0 pt-2 pb-3">
+              <p class="card-text" style="text-align: justify;">
+                Ensure the reach of Quality & Affordable healthcare services in a transparent and equitable manner to each
+                and every person of the state of Bihar...
+              </p>
+            </div>
+  
+            <a href="#" type="button" class="btn btn-outline-light mt-auto w-fit px-4 py-2 theme-navbar text-white"
+              >
+              <i class="bi bi-chevron-double-right me-2 "></i> Read More
+            </a>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="card h-100 text-white p-4" style="background-color: #19bcfd; border-radius: 10px; ">
+            <h5 class="card-title border-bottom pb-2"><strong>Our Vision</strong></h5>
+            <div class="card-body px-0 pt-2 pb-3">
+              <p class="card-text" style="text-align: justify;">
+                To become a leading organization in managing public healthcare logistics, ensuring availability of
+                essential supplies to all citizens...
+              </p>
+            </div>
+            <a href="#" class="btn btn-outline-light mt-auto w-fit px-4 py-2 theme-navbar text-white">
+              <i class="bi bi-chevron-double-right me-2"></i> Read More
+            </a>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="card h-100 text-white p-4" style="background-color: #19d6ad; border-radius: 10px;">
+            <h5 class="card-title border-bottom pb-2"><strong>Our Values</strong></h5>
+            <div class="card-body px-0 pt-2 pb-3">
+              <p class="card-text" style="text-align: justify; font-family: 'Times New Roman', Times, serif;">
+                We believe in transparency, accountability, timely service
+                delivery, and putting the well-being of people first in all our operations...
+              </p>
+            </div>
+            <!-- <a href="#" class="btn btn-outline-light mt-auto w-fit px-4 py-2" style="max-width: max-content;">
+              <i class="bi bi-chevron-double-right me-2"></i> Read More
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div> 
+  <!-- </div> -->
+  <!-- </div> -->
+  </section>
+
+
+ 
+
+<!-- <section class="py-4 pb-5" style="background-color: #fcecef;"> style="background-color: #fff8f2;"-->
+<section class="py-4 " >
+  <h4 class="mb-4 text-center fw-semibold Heading-font-family">Office Locations</h4>
+
+  <div class="my-1  border bg-white">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs border-0 p-2" id="myTab" role="tablist" style="border-bottom: 2px solid #f5f5f5;">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab11-tab" data-bs-toggle="tab" data-bs-target="#tab11" type="button"
+          role="tab">
+          Head Office
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab12-tab" data-bs-toggle="tab" data-bs-target="#tab12" type="button" role="tab">
+          Drug Warehouse  
+          <!-- Warehouse Location -->
+        </button>
+      </li>
+
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab13-tab" data-bs-toggle="tab" data-bs-target="#tab13" type="button" role="tab">
+          Infrastructure Division
+          <!-- Division Office -->
+        </button>
+      </li>
+      <!-- <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab13-tab" data-bs-toggle="tab" data-bs-target="#tab13" type="button"
+        role="tab">
+        Other
+      </button>
+    </li> -->
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content pt-4">
+      <div class="tab-pane fade show active" id="tab11" role="tabpanel">
+        <h5 class="text-center gradient-heading">Head Office</h5>
+        <div class="container-fluid Card">
+            <google-map
+            height="400px"
+            width="100%"
+            [center]="center"
+            [zoom]="zoom">
+          
+            <map-marker
+              [position]="center"
+              [label]="'H'"
+              [title]="'My Marker'"
+              [options]="markerOptions"
+              #marker="mapMarker"
+              (mapClick)="openInfo(marker)"
+             >
+            </map-marker>
+            <map-info-window  #infoWindow="mapInfoWindow">
+              <h3 class="border-bottom">CGMSC head office</h3>
+              <p><strong></strong> 4QPP+MMC</p>
+              <p><strong></strong>Sector 27, Nawagaon Parsatti</p>
+              <p><strong></strong> Atal Nagar-Nava Raipur, Chhattisgarh 492101  India</p>
+              </map-info-window>
+            <!-- <map-info-window  #infoWindow="mapInfoWindow">
+              <strong>CGMSC head office</strong><br />
+              4QPP+MMC<br />
+              Sector 27, Nawagaon Parsatti<br />
+              Atal Nagar-Nava Raipur, Chhattisgarh 492101<br />
+              India
+            </map-info-window> -->
+          </google-map>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tab12" role="tabpanel" >
+        <h5 class="text-center gradient-heading">Warehouse Geo Location</h5>
+        <!-- <ng-container (click)="GetWarehouse_Location()" (click)="logout()"> -->
+
+        
+        <div class="container-fluid Card">
+          <!-- [center]="center"
+          [zoom]="zoom"
+          [width]="800"
+          [height]="500" -->
+          
+       <app-warehouse-location></app-warehouse-location>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tab13" role="tabpanel">
+        <h5 class="text-center gradient-heading">Division Office</h5>
+        <div class="container-fluid Card">
+          <app-division-office-location></app-division-office-location>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--so media -->
+<div class="container-fluid bg-dark text-white py-4">
+  <div class="row">
+    <!-- Be Involved -->
+    <div class="col-md-5 mb-4">
+      <h4 class="fw-bold">Be involved</h4>
+      <p class="mb-1">collaborate, share and influence government policy</p>
+
+      <div class="d-flex align-items-center my-2">
+        <div class="me-2 bg-warning text-white px-2 py-1 fw-bold rounded">✔ DO</div>
+        <span>Mascot Contest for CyberDost</span>
+      </div>
+      <div class="d-flex align-items-center my-2">
+        <div class="me-2 bg-info text-white px-2 py-1 fw-bold rounded">💬 Discuss</div>
+        <span>Inviting Ideas for Mann Ki Baat by PM Modi</span>
+      </div>
+      <div class="d-flex align-items-center my-2">
+        <div class="me-2 bg-success text-white px-2 py-1 fw-bold rounded">📊 Poll</div>
+        <span>Wheat Procurement at MSP Survey</span>
+      </div>
+      <div class="d-flex align-items-center my-2">
+        <div class="me-2 bg-danger text-white px-2 py-1 fw-bold rounded">🎙 Talk</div>
+        <span>Tune into 122nd Episode of Mann Ki Baat</span>
+      </div>
+
+      <button class="btn btn-outline-light mt-2">View Details</button>
+    </div>
+
+    <!-- Spotlight & Transparency -->
+    <div class="col-md-4 mb-4">
+      <h4 class="fw-bold">Spotlight</h4>
+      <ul class="ps-3">
+        <li>Electronics Component Manufacturing Scheme</li>
+        <li>PM's Young Authors Mentorship Scheme (YUVA 3.0)</li>
+      </ul>
+      <button class="btn btn-outline-light btn-sm mb-3">View all</button>
+
+      <h5 class="fw-bold">Transparency</h5>
+      <p>
+        <a href="#" class="text-white text-decoration-none">Right to Information</a> |
+        <a href="#" class="text-white text-decoration-none">Open Data</a> |
+        <a href="#" class="text-white text-decoration-none">Public Grievance</a>
+      </p>
+    </div>
+
+    <!-- Social/Utility Links -->
+    <div class="col-md-3">
+      <ul class="list-unstyled">
+        <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> Feedback</li>
+        <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> Contact us</li>
+        <li class="mb-2"><i class="bi bi-share-fill me-2"></i> Share this page</li>
+        <li class="mb-2"><i class="bi bi-facebook me-2"></i> Facebook</li>
+        <li class="mb-2"><i class="bi bi-twitter-x me-2"></i> Twitter</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Image Preview Modal -->
+ <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-body p-0 position-relative image-preview-container" >
+
+        <button type="button text-white " class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <div class="hover-zone left-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 start-0 translate-middle-y" (click)="prevImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-left fs-3"></i>
+        </button></div>
+        <img [src]="selectedImage" class="img-fluid w-100 preview-image" alt="Selected Image">
+        <div class="hover-zone right-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-right fs-3"></i>
+        </button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  /* .image-preview-container {
+  position: relative;
+}
+
+.image-preview-container .nav-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1050;
+}
+
+.image-preview-container:hover .nav-btn {
+  opacity: 1;
+}
+.preview-image {
+  animation: zoomFade 0.4s ease;
+}
+.nav-btn {
+  padding: 0.75rem 1rem;
+  font-size: 1.5rem;
+}
+@keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+ } */
+
+ .hover-zone {
+  pointer-events: none; /* allow clicks to pass through */
+}
+
+/* But allow the button inside to still be clickable */
+.hover-zone .nav-btn {
+  pointer-events: auto;
+}
+  .image-preview-container {
+  position: relative;
+}
+
+.preview-image {
+  animation: zoomFade 0.4s ease;
+}
+
+@keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover zones */
+/* .hover-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 10;
+} */
+
+/* Left and Right zones */
+.left-zone {
+  left: 0;
+}
+
+.right-zone {
+  right: 0;
+}
+
+/* Buttons initially hidden */
+.nav-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show left button only on hover over left zone */
+.left-zone:hover .nav-btn {
+  opacity: 1;
+}
+
+/* Show right button only on hover over right zone */
+.right-zone:hover .nav-btn {
+  opacity: 1;
+}
+
+</style>
+<!-- <div class="modal-body p-0 position-relative image-preview-container">
+  <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+
+  <button class="nav-btn btn btn-dark position-absolute top-50 start-0 translate-middle-y" (click)="prevImage()">
+    <i class="bi bi-chevron-left fs-3"></i>
+  </button>
+
+  <img [src]="selectedImage" class="img-fluid w-100 preview-image" alt="Selected Image" />
+
+
+  <button class="nav-btn btn btn-dark position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()">
+    <i class="bi bi-chevron-right fs-3"></i>
+  </button>
+</div> -->
+

@@ -1,0 +1,50 @@
+
+  
+
+  /* .accordion-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, padding 0.3s ease;
+  }
+  
+  .accordion-collapse.show {
+    max-height: 500px; 
+    padding-top: 1rem;
+  } */
+  /* Custom styles for smooth transition */
+.custom-accordion {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-btn {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn.collapsed {
+    background-color: #e0e0e0;
+  }
+  
+  .custom-btn:hover {
+    background-color: #ddd;
+  }
+  
+  .custom-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0 1rem;
+  }
+  
+  .custom-collapse.show {
+    max-height: 500px; 
+    padding: 1rem;
+  }
+ 
+ 
+  
+  

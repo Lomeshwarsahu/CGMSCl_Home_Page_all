@@ -1,0 +1,24 @@
+
+ <google-map
+  height="400px"
+  width="100%"
+  [center]="center"
+  [zoom]="zoom">
+  
+  <map-marker 
+    *ngFor="let warehouse of warehouseInfo"
+    [position]="warehouse.position"
+    [title]="warehouse.warehousename"
+    (mapClick)="onMarkerClick(warehouse, marker)"
+    #marker="mapMarker">
+  </map-marker>
+
+  <map-info-window #infoWindow="mapInfoWindow">
+    <h3 class="border-bottom">{{selectedWarehouse?.warehousename}}</h3>
+    <p><strong>Address:</strong> {{ selectedWarehouse?.address }}</p>
+    <p><strong>Email:</strong> {{ selectedWarehouse?.email }}</p>
+    <p><strong>Number of Facilities:</strong> {{ selectedWarehouse?.nosfac }}</p>
+    <p><strong>Contact:</strong> {{ selectedWarehouse?.moB1 }}</p>
+  </map-info-window>
+</google-map> 
+

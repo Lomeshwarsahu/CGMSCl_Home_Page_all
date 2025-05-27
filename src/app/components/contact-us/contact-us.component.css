@@ -1,0 +1,39 @@
+/*  */
+
+
+/* Mobile devices (portrait and landscape) */
+@media (max-width: 768px) {
+    /* Styles for mobile devices */
+    .pading-cont {
+    
+        padding-top: 316px;
+    }
+    }
+    
+    /* Tablets (portrait and landscape) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+    /* Styles for tablets like iPads */
+    .pading-cont {
+     padding-top: 316px;
+    }
+    }
+    
+    /* Desktop devices */
+    @media (min-width: 1024px) {
+    /* Styles for desktops */
+    .pading-cont {
+      padding-top: 260px;
+    }
+   
+    }
+    
+    @media (min-width: 992px) {
+      .pading-cont {
+        /* padding-top: 1614px; */
+        
+        padding-top: 260px;
+      }
+      
+    }
+    
+    
