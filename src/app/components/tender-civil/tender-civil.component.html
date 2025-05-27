@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+<section class="container-fluid py-2">
+    <div class="card shadow p-2">
+      <h4><strong class="text-align justify-content-center d-flex ">Infrastructure Tenders</strong></h4>
+       
+    </div>
+
+</section>
+     <div class="" style="padding-right: 0px;  padding-left: 20px; padding-top: 10px; padding-bottom: 50px;">
+     <div class="container-fluid card row shadow">
+        <div class="d-flex justify-content-between align-items-center m-2">
+          <div class="filter-field flex-grow-1">
+            <input type="text" class="form-control" placeholder="Filter" (keyup)="applyTextFilter($event)">
+          </div>
+          <div class="export-menu-container">
+            <button type="button" class="btn border rounded btn-outline-secondary" mat-button
+              [matMenuTriggerFor]="exportMenu">Export</button>
+            <mat-menu #exportMenu="matMenu">
+              <button mat-menu-item
+                (click)="exporter.exportTable('xlsx', { fileName: 'WorksOrderD', sheet: 'WorksOrderD', Props: { Author: 'cgmsc' }})">Excel</button>
+              <button mat-menu-item (click)="exporter.exportTable('csv')">CSV</button>
+              <button mat-menu-item (click)="exporter.exportTable('json')">JSON</button>
+              <button mat-menu-item (click)="exporter.exportTable('txt')">TXT</button>
+              <button mat-menu-item (click)="exportToPDF()">PDF</button>
+            </mat-menu>
+          </div>
+        </div>
+  
+        <div class="table-responsive ">
+          <!-- <table class="table table-bordered table-striped border rounded " mat-table matTableExporter
+            [dataSource]="dataSource" #exporter="matTableExporter" matSort sort> -->
+            <table class="table table-bordered table-striped border rounded " mat-table matTableExporter
+            [dataSource]="dataSource" #exporter="matTableExporter" matSort #sort="matSort">
+        <!-- <table class="table table-bordered table-striped border rounded " mat-table [dataSource]="dataSource"
+         matTableExporter #exporter="matTableExporter" matSort #sort="matSort" > -->
+
+            <ng-container matColumnDef="sno">
+                <th mat-header-cell *matHeaderCellDef> S.No </th>
+                <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="subject">
+                <th mat-header-cell *matHeaderCellDef> Tender Reference </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+              </ng-container>
+              <ng-container matColumnDef="url">
+                <th mat-header-cell *matHeaderCellDef> 	Tender Ref. </th>
+                <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+              </ng-container>
+              <!-- 'sno','subject','caption','content_Publising_Date','action' -->
+              <ng-container matColumnDef="caption">
+                <th mat-header-cell *matHeaderCellDef>Document  </th>
+                <td mat-cell *matCellDef="let element"> {{element.caption}} </td>
+              </ng-container>
+              <ng-container matColumnDef="content_Subject">
+                <th mat-header-cell *matHeaderCellDef>Document Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.content_Subject}} </td>
+              </ng-container>
+              <ng-container matColumnDef="content_Publising_Date">
+                <th mat-header-cell *matHeaderCellDef> Publishing Date </th>
+                <!-- <th mat-header-cell *matHeaderCellDef>Notice Publish Date  </th> -->
+                <td mat-cell *matCellDef="let element"> {{element.content_Publising_Date?.toString() | date: 'dd/MM/yyyy'}} </td>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Attachments</th>
+                <td mat-cell *matCellDef="let element">
+                  <span class="d-flex  flex-row-reverse p-2 ">
+                    <button class="btn  btn-sm btn-outline-light align-items-center border rounded" mat-button
+                      (click)="onButtonClick(element.attachment_Id)">
+                      <!-- Open -->
+                      <i class="bi bi-folder2-open me-0 gradient-heading"></i>
+                      <!-- <i class="bi bi-file-earmark-pdf me-0 bg-danger"></i> -->
+                    </button>
+                  </span>
+                </td>
+              </ng-container>
+              <!-- <ng-container matColumnDef="content_Registration_Id">
+                <th mat-header-cell *matHeaderCellDef> Content Reg. ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.content_Registration_Id}} </td>
+              </ng-container> -->
+              <!-- <ng-container matColumnDef="attachment_Id">
+                <th mat-header-cell *matHeaderCellDef> Attachment ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.attachment_Id}} </td>
+              </ng-container> -->
+            
+              <!-- <ng-container matColumnDef="caption">
+                <th mat-header-cell *matHeaderCellDef> Caption </th>
+                <td mat-cell *matCellDef="let element"> {{element.caption}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="content_Discription">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.content_Discription}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="subject">
+                <th mat-header-cell *matHeaderCellDef> Subject </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="content_Subject">
+                <th mat-header-cell *matHeaderCellDef> Content Subject </th>
+                <td mat-cell *matCellDef="let element"> {{element.content_Subject}} </td>
+              </ng-container>
+            
+             
+            
+              <ng-container matColumnDef="expiry_Date_of">
+                <th mat-header-cell *matHeaderCellDef> Expiry Date Of </th>
+                <td mat-cell *matCellDef="let element"> {{element.expiry_Date_of}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="expiry_DateOnNotice_Board">
+                <th mat-header-cell *matHeaderCellDef> Expiry Date on Notice Board </th>
+                <td mat-cell *matCellDef="let element"> {{element.expiry_DateOnNotice_Board}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="displayNew">
+                <th mat-header-cell *matHeaderCellDef> Display New </th>
+                <td mat-cell *matCellDef="let element"> {{element.displayNew}} </td>
+              </ng-container>  -->
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator #paginator [pageSizeOptions]="[5,10, 15, 30]" showFirstLastButtons></mat-paginator>
+          <!-- <mat-paginator #paginator  [pageSizeOptions]="[5,10, 15, 30]" showFirstLastButtons></mat-paginator> -->
+        </div>
+      </div> 
+      </div> 
+  
+  
