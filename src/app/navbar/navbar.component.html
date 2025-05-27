@@ -265,8 +265,8 @@
           'active': isCGMSCLActive('DRUG'),
           'text-dark': isCGMSCLActive('DRUG'),
           'text-white': !isCGMSCLActive('DRUG')
-        }">
-            DRUG 
+        }">{{ 'DRUG' | translate }}
+             
           </a>
           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
            <li><a class="dropdown-item" routerLink="/TenderDrug" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>Tenders</a></li>
