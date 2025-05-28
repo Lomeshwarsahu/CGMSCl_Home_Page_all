@@ -38,47 +38,47 @@ export class NavbarComponent {
   activeNav = 'home';
   currentLanguage: 'en' | 'hi' = 'en';
   isCollapsed = false;
-  // selectedColor = '#563d7c'; 
-  // selectedColor = 'linear-gradient(to right, #FF6F00, #ffbf88, #2a7a2e )'; 
-  // selectedColor = 'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)'; 
+ 
   selectedColor :any; 
-  // Default color [style.background]="selectedColor" style="transition: background 0.5s;"
   userName:any;
   constructor(public authService: AuthServiceService, private router: Router,private API:ApiServiceService,private translate: TranslateService) {
-     // Load initial color
-    //  const storedColor = sessionStorage.getItem('selectedColor');
-    //  if (storedColor) {
-    //    this.selectedColor = storedColor;
-    //  }
+   
      var base = Base.baseUrl
      this.translate.setDefaultLang(this.currentLanguage);
      this.translate.use(this.currentLanguage);
-    //  if(this.currentLanguage != 'en'){
-    //   alert( this.currentLanguage)
-    //    sessionStorage.setItem('language', this.currentLanguage);
-    //  }
+   
   }
 
   ngOnInit() {
-    this.selectedColor = sessionStorage.getItem('selectedColor');
-    // var languages = sessionStorage.getItem('language');
-    // this.translate.use(languages);
+    const colorTop = sessionStorage.getItem('selectedTopColor');
+    if (colorTop) {
+      document.documentElement.style.setProperty('--theme-top', colorTop);
+    }
+  
+    const gradient = sessionStorage.getItem('selectedColor');
+    if (gradient) {
+      document.documentElement.style.setProperty('--theme-gradient', gradient);
+    }
+
+
+    // var color_top = sessionStorage.getItem('selectedTopColor');
+    // // sessionStorage.setItem('selectedTopColor',colors);
+    // // document.documentElement.style.setProperty('--theme-top', colors);
+    // if(color_top != 'rgb(49, 65, 252);'){
+    //   document.documentElement.style.setProperty('--theme-top', color_top);
+    // }
+    // this.selectedColor = sessionStorage.getItem('selectedColor');
+    // console.log('lang=',lang);
+    // if(this.selectedColor != 'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)'){
+    //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor );
+    // }
     const lang = sessionStorage.getItem('language') || 'en';
     this.translate.use(lang);
-    // this.currentLanguage = this.currentLanguage === 'en' ? 'hi' : 'lang';
-    // this.translate.use(lang as 'en' | 'hi');
-this.currentLanguage = lang === 'hi' ? 'hi' : 'en';
-console.log('lang=',lang);
-console.log('currentLanguage:', this.currentLanguage);
-    if(this.selectedColor != 'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)'){
-      document.documentElement.style.setProperty('--theme-gradient', this.selectedColor );
-    }
-    //  sessionStorage.setItem('selectedColor',this.selectedColor);
-    // var User = JSON.parse(localStorage.getItem('currentUser') || '{}')
+    this.currentLanguage = lang === 'hi' ? 'hi' : 'en';
+// 
+ 
     this.userName = localStorage.getItem('userName');
-    // var User=res.user;
-    // {"user":{"userName
-    // console.log(userName);
+  
     const childRoutes = [
       '/AboutCGMSC',
       '/ContactUs',
@@ -102,43 +102,48 @@ console.log('currentLanguage:', this.currentLanguage);
 
 
 
-  // toggleCollapse(selectedColor :any) {
-  //   // debugger
-  //   // console.log(selectedColor)
-  //   if(selectedColor!='#563d7c'){
-
-  //     sessionStorage.setItem('selectedColor',selectedColor);
-  //   }
-  //   this.isCollapsed = !this.isCollapsed;
-
-  // }
-
-  // selectedColor: string = '#FF6F00';
-// gradientStyle: string = '';
-
-// updateGradient() {
-
-//   this.gradientStyle = `linear-gradient(to right, ${this.selectedColor},#ffbf88, #2E7D32)`;
-// }
-  toggleCollapse(color: string) {
-    // debugger;
-//  this.selectedColor  = `linear-gradient(to right,#FF6F00 ,#ffbf88,${color})`;
-
-// if (color !== 'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)') {
-//       this.API.setColor(color);
-//     }
-    // this.isCollapsed = !this.isCollapsed;
-  }
-
   gradients: string[] = [
     'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)',
     'linear-gradient(180deg, #FF6000 11%, #FFA559 100%)',
-    'linear-gradient(rgb(93, 18, 210) 11%, rgb(184, 49, 252) 100%)'
+    'linear-gradient(rgb(93, 18, 210) 11%, rgb(184, 49, 252) 100%)',
+    // 'linear-gradient(180deg,rgb(255, 0, 221) 11%,rgb(210, 108, 238) 100%)',
   ];
 
-  setTheme(gradient: string) {
-    sessionStorage.setItem('selectedColor',gradient);
+  setTheme(gradient: string,index:number) {
+    const topColors = [
+      'rgb(49, 65, 252)',
+      '#ff6000',
+      'rgb(93, 18, 210)'
+    ];
+  
+    // Set gradient
+    sessionStorage.setItem('selectedColor', gradient);
     document.documentElement.style.setProperty('--theme-gradient', gradient);
+  
+    // Set top color
+    const topColor = topColors[index] || topColors[0]; // fallback to index 0 if invalid
+    sessionStorage.setItem('selectedTopColor', topColor);
+    document.documentElement.style.setProperty('--theme-top', topColor);
+    // // debugger
+    // sessionStorage.setItem('selectedColor', gradient);
+    // document.documentElement.style.setProperty('--theme-gradient', gradient);
+    // if(index==0){
+    //   var colors =' rgb(49, 65, 252)';
+    //   sessionStorage.setItem('selectedTopColor',colors);
+    //   document.documentElement.style.setProperty('--theme-top', colors);
+    // }else if(index==1){
+    //   var colors =' #ff6000';
+    //   sessionStorage.setItem('selectedTopColor',colors);
+    //   document.documentElement.style.setProperty('--theme-top', colors);
+    // }else if(index==2){
+    //   var colors =' rgb(93, 18, 210)';
+    //   sessionStorage.setItem('selectedTopColor',colors);
+    //   document.documentElement.style.setProperty('--theme-top', colors);
+    // }
+
+//  background-color: #ff6000; background-color: rgb(49, 65, 252);     background-color: rgb(93, 18, 210);
+
+ 
     
   }
 
@@ -155,33 +160,6 @@ console.log('currentLanguage:', this.currentLanguage);
     }
   }
 
-  // handleLinkClick(event: MouseEvent) {
-  //   event.preventDefault(); // prevent default anchor behavior
-  //   const offcanvasElement = document.querySelector('.offcanvas.show');
-  //   if (offcanvasElement) {
-  //     const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-  //     bsOffcanvas?.hide();
-  
-  //     // open link after small delay
-  //     setTimeout(() => {
-  //       window.open("https://govthealth.cg.gov.in/hrmis/", '_blank');
-  //     }, 300); // delay matches offcanvas animation time
-  //   } else {
-  //     window.open("https://govthealth.cg.gov.in/hrmis/", '_blank');
-  //   }
-  // }
-  // handleLinkClick(event: MouseEvent) {
-  //   event.preventDefault();
-  //   const offcanvasDismissBtn = document.querySelector('[data-bs-dismiss="offcanvas"]') as HTMLElement;
-  //   if (offcanvasDismissBtn) {
-  //     // Click the offcanvas dismiss button programmatically
-  //     offcanvasDismissBtn.click();
-  //   }
-  //   // Wait for the animation to complete before opening link
-  //   setTimeout(() => {
-  //     window.open("https://govthealth.cg.gov.in/hrmis/", '_blank');
-  //   }, 300); // Bootstrap's default transition duration
-  // }
   handleLinkClick(event: MouseEvent, url: string) {
     event.preventDefault();
   
@@ -199,30 +177,6 @@ console.log('currentLanguage:', this.currentLanguage);
   ngAfterViewInit() {
     // this.isSubmenuActive();
   }
-  // isCGMSCLActive(string:any): any {
-  //   if(string == 'CGMSCL'){
-  //     const childRoutes = [
-  //       '/AboutCGMSC',
-  //       '/ContactUs',
-  //       '/ProcurementPolicy',
-  //       '/Organogram',
-  //       '/infrastructure'
-  //     ];
-  //     return childRoutes.some(route => this.router.url.startsWith(route));
-  //   }
-  //   if(string == 'Drug'){
-  //     const childRoutes = [
-  //       '/drug',
-  //       '/equipment',
-  //       '/infrastructure',
-  //       '/infrastructure'
-  //     ];
-  //     return childRoutes.some(route => this.router.url.startsWith(route));
-  //   }
- 
- 
-  //   // return childRoutes.some(route => this.router.url.startsWith(route));
-  // }
   isCGMSCLActive(section: any): boolean {
     if (section === 'CGMSCL') {
       const childRoutes = [

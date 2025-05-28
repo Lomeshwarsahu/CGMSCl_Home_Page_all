@@ -24,7 +24,7 @@
     "Agreement Format for Drugs":"Agreement Format for Drugs",
     "Bank Guarantee":"Bank Guarantee",
     "Extension Format for PO":"Extension Format for PO",
-    "Agreement Format for Re":"Agreement Format for Reagents",
+    "Agreement Format for Reagents":"Agreement Format for Reagents",
     "EQUIPMENT":"EQUIPMENT",
     "Firms Blacklisted":"Firms Blacklisted",
     "Valid Rate Contracts of Equipment":"Valid Rate Contracts of Equipment",
@@ -33,7 +33,43 @@
     "RECRUITMENT":"RECRUITMENT",
     "Results and Notice":"Results and Notice",
     "Recruitment Archive":"Recruitment Archive",
-    "Other Department":"Other Department"
+    "Other Department":"Other Department",
+    "TENDERS":"TENDERS",
+    "Drug":"Drug",
+    "Health Infrastructure":"Health Infrastructure",
+    "Equipment":"Equipment",
+    "Other Tenders":"Other Tenders",
+    "GALLERY":"GALLERY",
+    "Warehouses":"Warehouses",
+    "News/Clippings":"News/Clippings",
+    "Health Infrastructure":"Health Infrastructure",
+    "Events":"Events",
+    "RTI":"RTI",
+    "CAREERS":"CAREERS",
+    "Apply Now":"Apply Now",
+    "LOGINS(MIS APPLICATIONS)":"LOGINS(MIS APPLICATIONS)",
+
+    "Aushadhi Darpan":"Aushadhi Darpan",
+    "DPDMIS":"DPDMIS",
+    "Warehouse Login":"Warehouse Login",
+    "Facility Online":"Facility Online",
+    "AAM/SHC Online":"AAM/SHC Online",
+    "Facility DDC Login":"Facility DDC Login",
+    "Equipment":"Equipment",
+    "EMIS":"EMIS",
+    "Infrastructure":"Infrastructure",
+    "Health Infra(HIMIS)":"Health Infra(HIMIS)",
+    "Admin":"Admin",
+    "ICMIS":"ICMIS",
+    "VidhanSabha Application":"VidhanSabha Application",
+    "HRMIS":"HRMIS",
+    "MENUS":"MENUS"
+
+
+   
+
+           
+          
     
   }
   
