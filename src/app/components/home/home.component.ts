@@ -67,12 +67,21 @@ export class HomeComponent {
     // });
   }
   ngOnInit(): void {
+    const colorTop = sessionStorage.getItem('selectedTopColor');
+    if (colorTop) {
+      document.documentElement.style.setProperty('--theme-top', colorTop);
+    }
+  
+    const gradient = sessionStorage.getItem('selectedColor');
+    if (gradient) {
+      document.documentElement.style.setProperty('--theme-gradient', gradient);
+    }
     // AOS.init();
-    //   this.selectedColor = sessionStorage.getItem('selectedColor');
-    this.ApiService.selectedColor$.subscribe((color) => {
-      // this.selectedColor = color;
-      document.documentElement.style.setProperty('--theme-gradient', color);
-    });
+    // //   this.selectedColor = sessionStorage.getItem('selectedColor');
+    // this.ApiService.selectedColor$.subscribe((color) => {
+    //   // this.selectedColor = color;
+    //   document.documentElement.style.setProperty('--theme-gradient', color);
+    // });
     // this.GetDrugTenderList();
     this.GetAllTenderLists();
   }
