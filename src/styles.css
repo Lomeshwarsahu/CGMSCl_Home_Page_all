@@ -119,7 +119,7 @@
     background-color: #ffffff8a;
     font-weight: bold;
     color: #000000 !important;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 
@@ -197,9 +197,6 @@
     font-weight: bold;
     color: #000000 !important;
     border-radius: 20px;
-      /* background-color: #e45705;
-      color: #fff;
-      border-radius: 20px; */
     }
     
     /* ✅ Right-aligned submenu */
@@ -227,28 +224,6 @@
       font-size: 10px;
     }
   }
-  
-  /* @media (min-width: 992px) {
-  .hover-dropdown:hover > .dropdown-menu {
-    display: block;
-    animation: fadeInUp 0.3s ease-in-out;
-    
-  }
-  .hover-dropdown:hover > .dropdown-submenu {
-    display: block;
-    animation: fadeInUp 0.3s ease-in-out;
-    
-  }
-  .hover-dropdown:hover > .nav-link {
-    background-color: #e45705;
-    background-color: #be12e9;
-    color: #fff; 
-    border-radius: 20px; 
-  }
-
- 
-
-} */
 /* Animation for dropdown */
 @keyframes fadeInUp {
   0% {
@@ -265,8 +240,6 @@
 .dropdown-menu {
   display: none;
   background-color: #ffffff8a;
-  /* background-color: #FF4500; */
-  /* background-color: #480878; */
 }
 
 .nav-link {
@@ -278,7 +251,6 @@ a.nav-link.dropdown-toggle::after {
 }
 
 .navbar .nav-link {
-  /* color: rgba(12, 2, 2, 0.89) !important; */
   color: white !important;
 }
 
@@ -293,9 +265,9 @@ a.nav-link.dropdown-toggle::after {
 
 .dropdown-menu .dropdown-item:hover {
   background-color: #ffffff8a;
-  /* background-color: #be12e9;  */
+ 
     color: #000; /* Text white on hover */
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 .dropdown-menu .dropdown-item {
@@ -322,7 +294,6 @@ a.nav-link.dropdown-toggle::after {
 .nav-link.active {
   font-weight: bold;
   color: #fff !important;
-  /* background-color: #e45705; */
   background-color: #ffffff8a;
   border-radius: 10px;
 }
@@ -484,7 +455,7 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 :root {
   /* --theme-gradient: linear-gradient(180deg, #FF6000 -4%, #FFA559 100%); */
   --theme-gradient: linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%);
-  
+  --theme-top:rgb(49, 65, 252);
 }
 
 /* Example: Body background */
@@ -498,7 +469,9 @@ body {
   min-height: 0px;
   min-width: 0px; */
 }
-
+.theme-topnav {
+  background: var(--theme-top);
+}
 /* Example: Button theme */
 .theme-btn {
   background: var(--theme-gradient);
