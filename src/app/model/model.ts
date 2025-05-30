@@ -97,3 +97,23 @@ export interface Employee_dpt{
   coreDept:string;
  
 }
+export interface NoticCircular {
+  sno:number;
+  countATT: string;
+  expr1: string;
+  content_Registration_Id: string;
+  content_Subject: string;
+  displayNew: string;
+  department: string;
+  content_Discription: string;
+  content_Publising_Date: string;
+  expiry_DateOnNotice_Board: string;
+  expiry_DateOnDepartment_Board: string;
+  status: string;
+  date_TimeStamp: string;
+  ip: any;
+  systemInfo: any;
+  createrUserName: string;
+  contentCategoryCode: string;
+  contentCategoryName: string;
+}

@@ -184,7 +184,7 @@
             <li><a class="dropdown-item" routerLink="/ContactUs"  routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/ProcurementPolicy" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate}}</a></li>
             <li><a class="dropdown-item" routerLink="/Organogram" routerLinkActive="active"> <i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/NoticeCircular" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/OurTeam" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Our Team' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/DrugWarehouses" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
           </ul>
@@ -373,7 +373,7 @@
       
       
           <li class="nav-item"><a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']"
-              data-bs-dismiss="offcanvas">Home</a></li>
+              data-bs-dismiss="offcanvas">{{ 'HOME' | translate }}</a></li>
       
           <li class="nav-item" >
              <a class="nav-link d-flex justify-content-between align-items-center" role="button"
@@ -382,29 +382,27 @@
                 'active': isCGMSCLActive('CGMSCL'),
                 'text-dark': isCGMSCLActive('CGMSCL'),
                 'text-white': !isCGMSCLActive('CGMSCL')
-              }">
-              
+              }">{{ 'CGMSCL' | translate }}
               <!-- [ngStyle]="isCGMSCLActive() ? {'background-color': '#ffffff8a', 'font-weight': 'bold'} : {}"> -->
-              CGMSCL
               <i class="bi" [ngClass]="isCGMSCLOpen  ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
             </a>
       
             <div class="custom-collapse ps-3" [class.show]="isCGMSCLOpen " id="servicesCollapseMobile">
               <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" routerLink="/AboutCGMSC" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>About Us</a></li>
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'About Us' | translate }}</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/ContactUs" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Contact Us</a></li>
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/ProcurementPolicy" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Procurement Policy</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/Organogram" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Organogram</a>
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/Organogram" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Notice/Circular</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/OurTeam" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Our Team</a>
+                <li class="nav-item"><a class="nav-link" routerLink="/NoticeCircular" routerLinkActive="active"
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/OurTeam" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Our Team' | translate }}</a>
                 </li>
                 <li class="nav-item"><a class="nav-link" routerLink="/DrugWarehouses" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Warehouse</a></li>
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
       
       
       

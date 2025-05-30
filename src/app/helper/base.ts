@@ -14,7 +14,6 @@ export const Base = {
 // cgmsc api
     baseUrl: 'https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
 
-
     // baseUrl: 'http://producttrackingapi.shivaminfosoft.in/api/',
     userImgUrl: 'http://producttrackingapi.shivaminfosoft.in/Uploads/Users',
 
