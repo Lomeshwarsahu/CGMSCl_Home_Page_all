@@ -1,26 +1,60 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { Router, RouterModule } from '@angular/router';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
+import { DivisionOfficeLocationComponent } from '../division-office-location/division-office-location.component';
+import { WarehouseLocationComponent } from '../warehouse-location/warehouse-location.component';
 
 @Component({
   standalone: true,
   selector: 'app-contact-us',
-  imports: [NavbarComponent],
+  imports: [
+    NavbarComponent,
+    FormsModule,
+    CommonModule,
+    RouterModule,
+    GoogleMapsModule,
+    DivisionOfficeLocationComponent,
+    WarehouseLocationComponent,
+  ],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
 })
 export class ContactUsComponent {
   selectedColor:any;
+  zoom = 20;
+  center: google.maps.LatLngLiteral = {
+    // lat: 21.136663,
+    // lng: 81.78665921
+    lat: 21.136478,
+    lng: 81.78643421,
+  };
+
+  markerOptions: google.maps.MarkerOptions = {
+    draggable: false,
+  };
+  @ViewChild(MapInfoWindow, { static: false }) infoWindow!: MapInfoWindow;
   constructor(public authService: AuthServiceService, private router: Router, private ApiService:ApiServiceService) {}
 
+  
+
   ngOnInit(): void {
-    // this.ApiService.selectedColor$.subscribe(color => {
-    //   // this.selectedColor = color;
-    //   document.documentElement.style.setProperty('--theme-gradient', color);
-    // });
-    this.selectedColor = sessionStorage.getItem('selectedColor');
-    document.documentElement.style.setProperty('--theme-gradient', this.selectedColor );
+    const colorTop = sessionStorage.getItem('selectedTopColor');
+    if (colorTop) {
+      document.documentElement.style.setProperty('--theme-top', colorTop);
+    }
+  
+    const gradient = sessionStorage.getItem('selectedColor');
+    if (gradient) {
+      document.documentElement.style.setProperty('--theme-gradient', gradient);
+    }
+  }
+
+  openInfo(marker: MapMarker) {
+    this.infoWindow.open(marker);
   }
 }

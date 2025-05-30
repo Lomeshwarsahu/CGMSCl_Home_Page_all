@@ -14,6 +14,7 @@ import { ProcurementPolicyComponent } from './components/procurement-policy/proc
 import { OrganogramComponent } from './components/organogram/organogram.component';
 import { OurTeamComponent } from './components/our-team/our-team.component';
 import { DrugWarehousesComponent } from './drug-warehouses/drug-warehouses.component';
+import { NoticeCircularComponent } from './components/notice-circular/notice-circular.component';
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   // {path:'dashboard',component:LoginComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'Organogram', component: OrganogramComponent },
   { path: 'OurTeam', component: OurTeamComponent },
   { path: 'DrugWarehouses', component: DrugWarehousesComponent },
+  { path: 'NoticeCircular', component: NoticeCircularComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, // ✅ Protected Route
 
