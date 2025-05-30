@@ -183,6 +183,7 @@ export class NavbarComponent {
         '/AboutCGMSC',
         '/ContactUs',
         '/ProcurementPolicy',
+        '/NoticeCircular',
         '/Organogram',
         '/OurTeam',
         '/DrugWarehouses',

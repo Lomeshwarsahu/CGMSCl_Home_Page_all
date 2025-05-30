@@ -38,11 +38,10 @@ export class AttachmentListComponent {
   dispatchData: ContentAttachment[] = [];
   ContentHeader_data: ContentHeader[] = [];
   selectedColor:any;
+  Notice:any;
   // displayedColumns: string[] = ['sno','caption','action'];
   displayedColumns: string[] = [
     'sno',
-
-    
     'caption',
     'action',
   ];
@@ -69,11 +68,16 @@ export class AttachmentListComponent {
     //   // this.selectedColor = color;
     // });
     this.route.queryParams.subscribe((params: { [key: string]: any }) => {
+    
       // console.log(params['Id']);
       //  var attachment_Id=params['Id'];
       // console.log(attachment_Id);
       // name: 'Drug-Technical' 
     this.name=params['name'];
+    if(this.name == 'Notice/Circular'){
+    this.Notice=this.name
+    }
+    // console.log('Name',this.name);
     this.GetContentHeader(params['Id']);
     // this.GetContentAttachment(params['Id']);
   });
