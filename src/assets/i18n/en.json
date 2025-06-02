@@ -15,6 +15,9 @@
     "Our Team":"Our Team",
     "Warehouse":"Warehouse",
     "DRUG":"DRUG",
+    "DRUG/CONSUMABLE":"DRUG/CONSUMABLE",
+    "EQUIPMENT/REAGENTS":"EQUIPMENT/REAGENTS",
+
     "Tenders":"Tenders",
     "Operational Policy":"Operational Policy",
     "Product Blacklisted":"Product Blacklisted",
@@ -59,9 +62,9 @@
     "EMIS":"EMIS",
     "Infrastructure":"Infrastructure",
     "Health Infra(HIMIS)":"Health Infra(HIMIS)",
-    "Admin":"Admin",
+    "Admin":"ADMIN/HR",
     "ICMIS":"ICMIS",
-    "VidhanSabha Application":"VidhanSabha Application",
+    "VidhanSabha Application":"RICORD(RMS)",
     "HRMIS":"HRMIS",
     "MENUS":"MENUS"
 

@@ -304,17 +304,7 @@
        </li>
         <li class="nav-item hover-dropdown"><a class="nav-link" routerLink="/rti">{{ 'RTI' | translate }}</a></li>
        
-        <li class="nav-item dropdown hover-dropdown">
-          <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-          [ngClass]="{'active': isCGMSCLActive('CAREERS'),'text-dark': isCGMSCLActive('CAREERS'),
-          'text-white': !isCGMSCLActive('CAREERS') }">{{ 'CAREERS' | translate }}
-           
-           </a>
-           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
-             <li><a class="dropdown-item" routerLink="/infrastructure"><i class="bi bi-play-fill me-2"></i>{{ 'Apply Now' | translate }}</a></li>
-            
-           </ul>
-       </li>
+     
        <li class="nav-item dropdown hover-dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
         [ngClass]="{'active': isCGMSCLActive('LOGIN TO ANOTHER'),'text-dark': isCGMSCLActive('LOGIN TO ANOTHER'),
@@ -322,7 +312,7 @@
         <!-- <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">LOGIN (MIS APPLICATIONS)</a> LOGIN TO ANOTHER (MIS APPLICATIONS)-->
         <ul class="dropdown-menu theme-navbar">
           <li class="dropdown-submenu hover-dropdown">
-            <a class="dropdown-item dropdown-toggle">{{ 'Drug' | translate }}</a>
+            <a class="dropdown-item dropdown-toggle">{{ 'DRUG/CONSUMABLE' | translate }}</a>
             <ul class="dropdown-menu theme-navbar">
               <li><a class="dropdown-item" href="https://dpdmis.in/mdang/" target="_blank" rel="noopener noreferrer" ><i class="bi bi-play-fill me-2"></i>{{ 'Aushadhi Darpan' | translate }}</a></li>
               <li><a class="dropdown-item"  href="https://dpdmis.in/" target="_blank" rel="noopener noreferrer" ><i class="bi bi-play-fill me-2"></i>{{ 'DPDMIS' | translate }}</a></li>
@@ -334,14 +324,14 @@
             </ul>
           </li>
           <li class="dropdown-submenu hover-dropdown">
-            <a class="dropdown-item dropdown-toggle">{{ 'Equipment' | translate }}</a>
+            <a class="dropdown-item dropdown-toggle">{{ 'EQUIPMENT/REAGENTS' | translate }}</a>
             <ul class="dropdown-menu theme-navbar">
               <li><a class="dropdown-item" href="http://164.100.131.160/EMSR/Home.aspx" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'EMIS' | translate }}</a></li>
              
             </ul>
           </li>
           <li class="dropdown-submenu hover-dropdown">
-            <a class="dropdown-item dropdown-toggle">{{ 'Infrastructure' | translate }}</a>
+            <a class="dropdown-item dropdown-toggle">{{ 'INFRASTRUCTURE' | translate }}</a>
             <ul class="dropdown-menu theme-navbar">
               <li><a class="dropdown-item" href="https://cgmsc.gov.in/HIMIS/" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infra(HIMIS)' | translate }}</a></li>
              
@@ -350,13 +340,24 @@
           <li class="dropdown-submenu hover-dropdown">
             <a class="dropdown-item dropdown-toggle">{{ 'Admin' | translate }}</a>
             <ul class="dropdown-menu theme-navbar">
+              <li><a class="dropdown-item" href="https://govthealth.cg.gov.in/hrmis/" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'HRMIS' | translate }}</a></li> 
               <li><a class="dropdown-item" href="http://164.100.131.160/ICM/loginAdmin.aspx" target="_blank" rel="noopener noreferrer" ><i class="bi bi-play-fill me-2"></i>{{ 'ICMIS' | translate }}</a></li>
               <li><a class="dropdown-item" href="http://164.100.131.160/VMIS/loginAdmin.aspx" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'VidhanSabha Application' | translate }}</a></li>
-              <li><a class="dropdown-item" href="https://govthealth.cg.gov.in/hrmis/" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'HRMIS' | translate }}</a></li> 
             </ul>
           </li>
         </ul>
       </li>
+      <li class="nav-item dropdown hover-dropdown">
+        <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+        [ngClass]="{'active': isCGMSCLActive('CAREERS'),'text-dark': isCGMSCLActive('CAREERS'),
+        'text-white': !isCGMSCLActive('CAREERS') }">{{ 'CAREERS' | translate }}
+         
+         </a>
+         <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
+           <li><a class="dropdown-item" routerLink="/infrastructure"><i class="bi bi-play-fill me-2"></i>{{ 'Apply Now' | translate }}</a></li>
+          
+         </ul>
+     </li>
       <!-- <li class="nav-item hover-dropdown"><a class="nav-link" href="https://bidplus.gem.gov.in/advance-search" target="_blank" rel="noopener noreferrer"> 
         GEM</a></li> -->
       </ul>

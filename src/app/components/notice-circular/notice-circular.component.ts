@@ -172,24 +172,49 @@ export class NoticeCircularComponent {
       // }
       
       
+  // isNewContent(publishingDate: string): boolean {
+  //   // alert(publishingDate);
+  //   // debugger
+  //   // publishingDate="2025-05-05T00:00:00";
+  //   const published = new Date(publishingDate);
+  //   console.log('published=',published );
+  //   const today = new Date();
+  //   // console.log('today=',today );
+
+  //   // Difference in milliseconds
+  //   const diffInMs = today.getTime() - published.getTime();
+  //   // console.log('diffInMs=',diffInMs );
+
+  //   // Convert to days
+  //   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+  //   // Show "New" if published within last 7 days
+  //   // console.log('diffInDays=',diffInDays );
+  //   return diffInDays <= 7;
+  // }
   isNewContent(publishingDate: string): boolean {
-    // alert(publishingDate);
-    // debugger
-    // publishingDate="2025-05-05T00:00:00";
-    const published = new Date(publishingDate);
-    console.log('published=',published );
+    if (!publishingDate) return false;
+  
+    // Safe parse from 'DD/MM/YYYY'
+    const parts = publishingDate.split('/');
+    if (parts.length !== 3) return false;
+  
+    const [day, month, year] = parts.map(part => parseInt(part, 10));
+    const published = new Date(year, month - 1, day); // month is 0-based
+  
+    if (isNaN(published.getTime())) {
+      console.error('Invalid publishing date:', publishingDate);
+      return false;
+    }
+  
     const today = new Date();
-    // console.log('today=',today );
-
-    // Difference in milliseconds
+    published.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+  
     const diffInMs = today.getTime() - published.getTime();
-    // console.log('diffInMs=',diffInMs );
-
-    // Convert to days
     const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-
-    // Show "New" if published within last 7 days
-    // console.log('diffInDays=',diffInDays );
+  
     return diffInDays <= 7;
   }
+  
 }

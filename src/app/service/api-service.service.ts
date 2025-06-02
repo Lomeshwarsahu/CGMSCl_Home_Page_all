@@ -41,6 +41,12 @@ export class ApiServiceService {
   // }
   // https://dpdmis.in/CGMSCHO_API2/api/HOTender/WhMangerSSODetail
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDept
+  
+ // https://dpdmis.in/cdn/Event/
+    // https://dpdmis.in/cdn/News/
+    Getnewimage(){
+      return this.http.get<any>(`https://dpdmis.in/cdn/News/`); 
+    }
   getWarehouseInfo(distid: any): Observable<any> {
     return this.http.get<WarehouseInfo[]>(`https://dpdmis.in/CGMSCHO_API2/api/HOD/WarehouseInfo?distid=${distid}`);
   }
