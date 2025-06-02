@@ -37,6 +37,9 @@
     "EQUIPMENT":"उपकरण",
     "TENDERS":"निविदायें",
     "Drug":"दवाई",
+
+    "DRUG/CONSUMABLE":"दवा/उपभोग्य वस्तु",
+    "EQUIPMENT/REAGENTS":"उपकरण/अभिकर्मक",
     "Health Infrastructure":"स्वास्थ्य अवसंरचना",
     "Equipment":"उपकरण",
     "Other Tenders":"अन्य निविदाएं",
@@ -59,9 +62,9 @@
     "EMIS":"ईएमआई",
     "Infrastructure":"आधारभूत संरचना",
     "Health Infra(HIMIS)":"स्वास्थ्य अवसंरचना (HIMIS)",
-    "Admin":"एडमिन",
+    "Admin":"एडमिन/एचआर",
     "ICMIS":"आईसीएमआईएस",
-    "VidhanSabha Application":"विधानसभा आवेदन",
+    "VidhanSabha Application":"रिकार्ड(आरएमएस)",
     "HRMIS":"एचआरएमआईएस",
     "MENUS":"मेनू"
   }

@@ -84,6 +84,7 @@ export class HomeComponent {
     // });
     // this.GetDrugTenderList();
     this.GetAllTenderLists();
+    // this.Getnewimage();
   }
   openInfo(marker: MapMarker) {
     this.infoWindow.open(marker);
@@ -389,4 +390,31 @@ export class HomeComponent {
     //               <!-- src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/quittobaco.jpg"></a> -->
  
 
+
+    // https://dpdmis.in/cdn/Event/
+    // https://dpdmis.in/cdn/News/
+    Getnewimage(){
+      try {
+        this.ApiService.Getnewimage().subscribe(
+          (res: any) => {
+            // this.data_model = res;
+            // this.DrugTenderList = this.data_model;
+            console.log('Getnewimage',res);
+            // console.log(JSON.stringify(res.user.role[0].roleName));
+            // console.log(JSON.stringify(res.user.userName));
+            // console.log(JSON.stringify(res.user))
+          },
+          (err: Error) => {
+            //  debugger
+            //  throw err;
+            console.log(err);
+            // this.toastr.error("Please Check userId and password!",'Error');
+            //  alert(err.message)
+          }
+        );
+      } catch (err: any) {
+        console.log(err);
+        // throw err;
+      }
+    }
 }
