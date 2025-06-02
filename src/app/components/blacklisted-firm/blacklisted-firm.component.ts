@@ -69,7 +69,7 @@ dataSource!: MatTableDataSource<BlacklistedFirm>;
                   sno: index + 1,
                 })
               );
-              console.log('Get Black Listed Firm =:', this.dispatchData);
+             // console.log('Get Black Listed Firm =:', this.dispatchData);
               this.dataSource.data = this.dispatchData;
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;
