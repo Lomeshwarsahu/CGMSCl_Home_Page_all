@@ -53,8 +53,9 @@
                                     <th mat-header-cell *matHeaderCellDef>Subject </th>
                                     <td mat-cell *matCellDef="let element">
                                         <!-- <pre>{{ element | json }}</pre>  -->
-                                         
-                                        <span *ngIf="element.content_Publising_Date && isNewContent(element.content_Publising_Date)" class="badge-new">New</span>
+                                        <span *ngIf="isNewContent(element.content_Publising_Date)" class="badge-new">New</span>
+
+                                        <!-- <span *ngIf="element.content_Publising_Date && isNewContent(element.content_Publising_Date)" class="badge-new">New</span> -->
 
                                         <!-- <span *ngIf="isNewContent(element.content_Publising_Date)" class="badge-new">New</span> -->
                                         {{ element.content_Subject }}
