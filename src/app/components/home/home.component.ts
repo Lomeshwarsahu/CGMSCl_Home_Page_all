@@ -417,4 +417,19 @@ export class HomeComponent {
         // throw err;
       }
     }
+
+    sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: 'Check out this page!',
+          url: window.location.href
+        })
+        .then(() => console.log('Successfully shared'))
+        .catch(error => console.error('Error sharing:', error));
+      } else {
+        alert('Web Share API is not supported in your browser.');
+      }
+    }
+    
 }
