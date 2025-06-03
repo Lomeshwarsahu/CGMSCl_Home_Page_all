@@ -205,7 +205,7 @@
            <li><a class="dropdown-item" routerLink="/TenderDrug" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
            <li><a class="dropdown-item" routerLink="/equipment" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Operational Policy' | translate }}</a></li>
            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Product Blacklisted' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/blacklistFirm" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li>
             <!-- <ul class="dropdown-menu theme-navbar"> -->
               <li class="dropdown-submenu hover-dropdown">
                 <a class="dropdown-item dropdown-toggle" style=" cursor: pointer; " ><i class="bi bi-play-fill me-2"></i>{{ 'Download' | translate }}</a>
@@ -421,8 +421,7 @@
                 'active': isCGMSCLActive('DRUG'),
                 'text-dark': isCGMSCLActive('DRUG'),
                 'text-white': !isCGMSCLActive('DRUG')
-              }">
-              DRUG
+              }">  DRUG
               <i class="bi" [ngClass]="isDrugOpen ? 'bi-chevron-up'  : 'bi-chevron-down'"></i>
             </a>
       
@@ -431,9 +430,9 @@
                 <li class="nav-item"><a class="nav-link" routerLink="/TenderDrug" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Tenders</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/AboutCGMSC" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Operational
                     Policy</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Product
+                <li class="nav-item"><a class="nav-link" routerLink="/gfvhvh" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Product
                     Blacklisted</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Firms
+                <li class="nav-item"><a class="nav-link" routerLink="/blacklistFirm" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>Firms
                     Blacklisted</a></li>
 
                     <div class="custom-collapse ps-3" [class.show]="isDrugOpen" id="servicesCollapseMobile">
