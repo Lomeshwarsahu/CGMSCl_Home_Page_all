@@ -117,3 +117,12 @@ export interface NoticCircular {
   contentCategoryCode: string;
   contentCategoryName: string;
 }
+
+export interface BlacklistedFirm {
+   sno:number;
+  nameOfFirm: string;
+  address: string;
+  fromdate: string;
+  upto: string;
+  reasonOfBlacklisting: string;
+}
