@@ -94,9 +94,9 @@ export interface Employee{
   contactNo: number;
 }
 export interface Employee_dpt{
-  coreDept:string;
- 
+  coreDept:string; 
 }
+
 export interface NoticCircular {
   sno:number;
   countATT: string;
@@ -125,4 +125,35 @@ export interface BlacklistedFirm {
   fromdate: string;
   upto: string;
   reasonOfBlacklisting: string;
+}
+
+export interface DeptCategory {
+  countATT: string
+  expr1: string
+  content_Registration_Id: string
+  content_Subject: string
+  displayNew: string
+  department: any;
+  content_Discription: string
+  content_Publising_Date: string
+  expiry_DateOnNotice_Board: string
+  expiry_DateOnDepartment_Board: string
+  status: string
+  date_TimeStamp: string
+  createrUserName: string
+  contentCategoryCode: string
+  expiry_Date_of: string
+  recruitmentScheme: string
+  contentCategoryName: string
+}
+
+export interface SchemeData{
+    recruitmentId: string
+  recruitmentScheme: string 
+  //  recruitmentId: "1", recruitmentScheme: "RBSK" }
+}
+
+export interface CategoryData {
+  contentCategoryCode: string
+  contentCategoryName: string
 }

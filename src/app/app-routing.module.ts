@@ -16,8 +16,10 @@ import { OurTeamComponent } from './components/our-team/our-team.component';
 import { DrugWarehousesComponent } from './drug-warehouses/drug-warehouses.component';
 import { NoticeCircularComponent } from './components/notice-circular/notice-circular.component';
 import { BlacklistedFirmComponent } from './components/blacklisted-firm/blacklisted-firm.component';
+import { OtherDeptRecruitmentComponent } from './components/other-dept-recruitment/other-dept-recruitment.component';
 import { ProcurementPolicyDrugsComponent } from './components/procurement-policy-drugs/procurement-policy-drugs.component';
 import { ProcurementPolicyEquipmentsComponent } from './components/procurement-policy-equipments/procurement-policy-equipments.component';
+
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   // {path:'dashboard',component:LoginComponent},
@@ -39,6 +41,7 @@ const routes: Routes = [
   { path: 'DrugWarehouses', component: DrugWarehousesComponent },
   { path: 'NoticeCircular', component: NoticeCircularComponent },
   { path: 'blacklistFirm', component: BlacklistedFirmComponent },
+   { path: 'otherDeptRecruitment', component: OtherDeptRecruitmentComponent },
   { path: 'OperationalPolicyDrugs', component: ProcurementPolicyDrugsComponent },
   { path: 'OperationalPolicyEquipments', component: ProcurementPolicyEquipmentsComponent },
   { path: 'login', component: LoginComponent },
