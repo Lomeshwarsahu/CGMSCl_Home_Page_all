@@ -862,7 +862,7 @@
 
       <div class="col-lg-6 mb-2 card rounded px-3 " style="background-color: #e7e9e8;">
         <!-- <h5 class="text-center mb-4 gradient-heading mt-1">Video Gallery</h5> -->
-        <div class="my-1">
+        <div class="my-1 mt-3">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="border-bottom: 2px solid #f5f5f5;">
             <li class="nav-item" role="presentation">
@@ -879,7 +879,7 @@
               </button>
             </li> -->
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+              <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" (click)="GetNoticCircular()"
                 role="tab">
                 Circulars/User Manuals
               </button>
@@ -975,11 +975,67 @@
             <div class="tab-pane fade" id="tab2" role="tabpanel">
               <h5 class="gradient-heading">Circulars/User Manuals</h5>
               <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 1">
+                <!-- <div class="col-12 col-md-12 ">
+                  <div class="card ">
+                    <div
+                    class="scroll-container"
+                    [class.paused]="card1Pause"
+                    (mouseenter)="onPauseStart(1)"
+                    (mouseleave)="onPauseEnd(1)"
+                    (touchstart)="onPauseStart(1)"
+                    (touchend)="onPauseEnd(1)" >
+                    <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
+                      <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Drug-Technical')">
+                        <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                        {{ item.content_Subject }} {{ item.content_Discription }}
+                      </a>
+                    </div>
+                    <div class="text-end mt-3">
+                     
+  
+                      <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderDrug">
+                        <i class="bi bi-eye me-2"></i> View More...
+                      </a>
+                    </div>
+                  </div>
+                  </div>
+                 
+                </div> -->
+
+                <div class="col-12 col-md-12 col-lg-12" >
+                  <div class="card shadow-lg p-4 border bg-white rounded h-100">
+                    <h5 class="card-title border-bottom border-3 pb-2 text-center gradient-heading "><strong>CGMSCL Notice/Circular</strong></h5>
+                    <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
+                      <!-- <div
+                        class="scroll-container"
+                        [class.paused]="card1Pause"
+                        (mouseenter)="card1Pause = true"
+                        (mouseleave)="card1Pause = false"
+                        (touchstart)="card1Pause = true"
+                        (touchend)="card1Pause = false" > -->
+                        <div class="scroll-container" [class.paused]="card1Pause"
+                        (mouseenter)="onPauseStart(1)" (mouseleave)="onPauseEnd(1)"
+                        (touchstart)="onPauseStart(1)" (touchend)="onPauseEnd(1)">
+                     
+                     <div class="scroll-content" [style.animationDuration]="'90s'">
+                       <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
+                         <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')">
+                           <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">New</span>
+                           {{ item.content_Subject }}
+                         </a>
+                       </div>
+                       <div class="text-end mt-3">
+                         <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/NoticeCircular">
+                           <i class="bi bi-eye me-2"></i> View More...
+                         </a>
+                       </div>
+                     </div>
+                   </div>
+                   
+                    </div>
+                  </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 2">
                 </div>
@@ -1010,7 +1066,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 9">
-                </div>
+                </div> -->
                 <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
                   Gallery</button>
 
@@ -1115,10 +1171,10 @@
       <!-- Image Gallery Column -->
 
       <div class="col-lg-6 mb-2 card rounded pb-3" style="background-color: #e7e9e8;">
-        <h5 class="text-center mb-3 gradient-heading mt-1">Photo Gallery</h5>
+        <!-- <h5 class="text-center mb-3 gradient-heading mt-1">Photo Gallery</h5> -->
 
 
-        <div class="my-1">
+        <div class="my-1 mt-3">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs border-0" id="myTab" role="tablist" style="border-bottom: 2px solid #f5f5f5;">
             <li class="nav-item" role="presentation">
@@ -1280,11 +1336,11 @@
               <h5 class="gradient-heading">Equipment</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                  <img src="https://cgmsc.gov.in/imgSlider/ctscan.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 1">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                  <img src="https://cgmsc.gov.in/imgSlider/staysafe2.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 2">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
@@ -1324,22 +1380,54 @@
               <h5 class="gradient-heading">Infrastructure</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                  <!-- <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1"> -->
+                  <img src="https://cgmsc.gov.in/imgSlider/hamarlab.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 1">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                  <img src="https://cgmsc.gov.in/imgSlider/image5.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 2">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
+                  <img src="https://cgmsc.gov.in/imgSlider/rjn.jpg"
                     class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
+                  <img src="https://cgmsc.gov.in/imgSlider/rjn.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 4">
+                </div> -->
+                <div class="col-12 col-sm-6 col-md-4">
+                  <!-- <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1"> -->
+                  <img src="https://cgmsc.gov.in/imgSlider/hamarlab.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
+                  <img src="https://cgmsc.gov.in/imgSlider/image5.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="https://cgmsc.gov.in/imgSlider/image5.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 2">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="https://cgmsc.gov.in/imgSlider/rjn.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <img src="https://cgmsc.gov.in/imgSlider/rjn.jpg"
+                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
+                </div>
+                <!-- <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
+                    alt="Gallery Image 4">
+                </div> -->
+                <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 5">
                 </div>
@@ -1358,7 +1446,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 9">
-                </div>
+                </div> -->
                 <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
                   Gallery</button>
 
@@ -1367,7 +1455,15 @@
             <div class="tab-pane fade" id="tab10" role="tabpanel">
               <h5 class="gradient-heading">Events</h5>
               <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of events; let i = index">
+                  <img [src]="img"
+                       class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                       alt="Gallery Image"
+                       style="cursor: pointer;"
+                       (click)="openModal1(i)">
+                </div>
+
+                <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 1">
                 </div>
@@ -1402,7 +1498,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 9">
-                </div>
+                </div> -->
                 <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
                   Gallery</button>
 
@@ -1531,9 +1627,9 @@
             </map-marker>
             <map-info-window  #infoWindow="mapInfoWindow">
               <h3 class="border-bottom">CGMSCL Head Office</h3>
-              <p><strong></strong> 4QPP+MMC</p>
-              <p><strong></strong>Sector 27, Nawagaon Parsatti</p>
-              <p><strong></strong> Atal Nagar-Nava Raipur, Chhattisgarh 492101  India</p>
+              <p><strong>4QPP+MMC</strong> </p>
+              <p><strong>Sector 27, Nawagaon Parsatti</strong></p>
+              <p><strong>Atal Nagar-Nava Raipur, Chhattisgarh 492101 India</strong></p>
               </map-info-window>
             <!-- <map-info-window  #infoWindow="mapInfoWindow">
               <strong>CGMSC head office</strong><br />
@@ -1610,10 +1706,13 @@
 
         <h4 class="fw-bold">Data Transparency</h4>
       <p >
-        <a href="#" class="text-white text-decoration-none">Right to Information</a> |
-        <a href="#" class="text-white text-decoration-none">Open Data</a> |
-        <a href="#" class="text-white text-decoration-none">Public Grievance</a>
-      </p>
+      We are committed to operational Data transparency and accountability through real-time access related to
+         procurement workflows, supply chain logistics, infrastructure progress, tendering processes & rate contract etc. 
+         This ensures efficient governance and data-driven decision-making in the delivery of essential drugs and medical consumables.<br>
+           <a href="https://dpdmis.in/mdang/public-view1"  target="_blank"class="text-white text-decoration-none hover-link ">Drugs and Consumables </a> |
+           <a href="#" target="_blank" class="text-white text-decoration-none hover-link" >Equipment & Reagent</a> |
+           <a href="https://dpdmis.in/mdang/Infrastructure-Public-View" target="_blank"class="text-white text-decoration-none hover-link">Infrastructure</a>
+        </p>
     </div>
     </div>
 
@@ -1739,6 +1838,25 @@
           <i class="bi bi-chevron-left fs-3"></i>
         </button></div>
         <img [src]="selectedImage" class="img-fluid w-100 preview-image" alt="Selected Image">
+        <div class="hover-zone right-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-right fs-3"></i>
+        </button></div>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-body p-0 position-relative image-preview-container" >
+        <button type="button text-white " class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <div class="hover-zone left-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 start-0 translate-middle-y" (click)="prevImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-left fs-3"></i>
+        </button></div>
+        <img [src]="selectedImage1" class="img-fluid w-100 preview-image" alt="Selected Image">
         <div class="hover-zone right-zone" >
         <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
           <i class="bi bi-chevron-right fs-3"></i>

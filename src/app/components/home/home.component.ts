@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // ngClass ke liye ye bhi
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { ApiServiceService } from 'src/app/service/api-service.service';
-import { Data_model, WarehouseInfo } from 'src/app/model/model';
+import { Data_model, NoticCircular, WarehouseInfo } from 'src/app/model/model';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
@@ -32,6 +32,7 @@ export class HomeComponent {
   isCollapsed = false;
   selectedColor = '#563d7c';
   data_model: Data_model[] = [];
+  dispatchData: NoticCircular[] = [];
   DrugTenderList: Data_model[] = [];
   EquipmentList: Data_model[] = [];
   CivilTenderList: Data_model[] = [];
@@ -84,6 +85,7 @@ export class HomeComponent {
     // });
     // this.GetDrugTenderList();
     this.GetAllTenderLists();
+    // this.GetNoticCircular();
     // this.Getnewimage();
   }
   openInfo(marker: MapMarker) {
@@ -305,14 +307,31 @@ export class HomeComponent {
   }
 
   images3: string[] = [
+    // './assets/cgmsc imgs/photo_1.jpg',
+    // './assets/cgmsc imgs/photo_2.jpg',
+    // './assets/cgmsc imgs/photo_3.jpg',
+    // './assets/cgmsc imgs/photo_5.jpg',
+    // './assets/cgmsc imgs/photo_6.jpg',
+
+    './assets/cgmsc imgs/event imgs/DSC_2804.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_4797.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2098.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2108.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2797.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2865.JPG',
     './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM.jpeg',
-    './assets/cgmsc imgs/photo_1.jpg',
-    './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM (1).jpeg',
-    './assets/cgmsc imgs/photo_2.jpg',
-    './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM.jpeg',
-    './assets/cgmsc imgs/photo_3.jpg',
-    './assets/cgmsc imgs/photo_5.jpg',
-    './assets/cgmsc imgs/photo_6.jpg',
+    // './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM (1).jpeg',
+    // './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM.jpeg',
+
+    // './assets/cgmsc imgs/event imgs/DSC_2447.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2571.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2665.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2677.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2883.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_4610.JPG',
+
+    
   ];
   images: string[] = [
     './assets/cgmsc imgs/img1.jfif',
@@ -325,16 +344,29 @@ export class HomeComponent {
     './assets/cgmsc imgs/bird-8469368_640.jpg',
     './assets/cgmsc imgs/bird-8788491_640.jpg',
   ];
+  events: string[] = [
+    './assets/cgmsc imgs/event imgs/DSC_2098.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2108.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2447.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2571.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2665.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2677.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_2883.JPG',
+    './assets/cgmsc imgs/event imgs/DSC_4610.JPG',
+  ];
   images1: string[] = [
     './assets/images/News/news.JPG',
     './assets/images/News/Capture.JPG',
     './assets/images/News/img1.jpg.jfif',
     './assets/images/News/ba0ed618-ec63-4f2b-b977-786fbe807576.jfif',
     './assets/images/News/b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif',
-    './assets/cgmsc imgs/ai-generated-8659507_640.jpg',
-    './assets/cgmsc imgs/leaves-7590923_640.jpg',
-    './assets/cgmsc imgs/butterfly-7632646_640.jpg',
-    './assets/cgmsc imgs/bird-8442508_640.webp',
+    './assets/images/News/WhatsApp Image 2025-05-19 at 9.42.17 PM.jpeg',
+    './assets/images/News/WhatsApp Image 2025-05-19 at 9.42.17 PM.jpeg',
+    './assets/images/News/48385277-51e6-4dcb-a2ff-5beb3b1f8528.jfif',
+    './assets/images/News/img1.jpg.jfif',
+    // './assets/cgmsc imgs/butterfly-7632646_640.jpg',
+    // './assets/cgmsc imgs/bird-8442508_640.webp',
     // '/assets/cgmsc imgs/blue-8186653_640.webp',
     // '/assets/cgmsc imgs/bird-8469368_640.jpg',
     // '/assets/cgmsc imgs/bird-8788491_640.jpg'
@@ -345,10 +377,18 @@ export class HomeComponent {
   get selectedImage(): string {
     return this.images1[this.selectedIndex];
   }
+  get selectedImage1(): string {
+    return this.events[this.selectedIndex];
+  }
 
   openModal(index: number) {
     this.selectedIndex = index;
     const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+    modal.show();
+  }
+  openModal1(index: number) {
+    this.selectedIndex = index;
+    const modal = new bootstrap.Modal(document.getElementById('imageModal1'));
     modal.show();
   }
 
@@ -431,5 +471,28 @@ export class HomeComponent {
         alert('Web Share API is not supported in your browser.');
       }
     }
-    
+  
+    // 
+
+     GetNoticCircular(){
+            try{
+            this.ApiService.get('GetNoticCircular')
+              .subscribe(
+                (res) => {
+                 this.dispatchData=res;
+                  console.log('NoticCircular =:', this.dispatchData);
+                },
+                (error) => {
+      
+                  alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+                }
+              );
+              }
+              catch(err:any){
+                console.log(err);
+                // throw err;
+              }
+          }
+
+
 }

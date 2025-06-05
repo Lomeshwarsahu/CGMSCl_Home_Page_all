@@ -192,11 +192,14 @@ export class NavbarComponent {
     } else if (section === 'DRUG') {
       const childRoutes = [
         '/TenderDrug',
+        '/OperationalPolicyDrugs',
+        '/blacklistFirm',
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'EQUIPMENT') {
       const childRoutes = [
         '/TenderEquip',
+        '/OperationalPolicyEquipments',
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'INFRASTRUCTURE') {
