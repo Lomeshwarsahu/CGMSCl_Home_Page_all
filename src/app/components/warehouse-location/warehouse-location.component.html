@@ -15,10 +15,10 @@
 
   <map-info-window #infoWindow="mapInfoWindow">
     <h3 class="border-bottom">{{selectedWarehouse?.warehousename}}</h3>
-    <p><strong>Address:</strong> {{ selectedWarehouse?.address }}</p>
-    <p><strong>Email:</strong> {{ selectedWarehouse?.email }}</p>
-    <p><strong>Number of Facilities:</strong> {{ selectedWarehouse?.nosfac }}</p>
-    <p><strong>Contact:</strong> {{ selectedWarehouse?.moB1 }}</p>
+    <p class="text-dark"><strong>Address:{{ selectedWarehouse?.address }}</strong> </p>
+    <p><strong>Email:{{ selectedWarehouse?.email }}</strong> </p>
+    <p><strong>Number of Facilities:{{ selectedWarehouse?.nosfac }}</strong> </p>
+    <p><strong>Contact:{{ selectedWarehouse?.moB1 }}</strong> </p>
   </map-info-window>
 </google-map> 
 
