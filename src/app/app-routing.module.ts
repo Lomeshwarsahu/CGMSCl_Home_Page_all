@@ -16,6 +16,7 @@ import { OurTeamComponent } from './components/our-team/our-team.component';
 import { DrugWarehousesComponent } from './drug-warehouses/drug-warehouses.component';
 import { NoticeCircularComponent } from './components/notice-circular/notice-circular.component';
 import { BlacklistedFirmComponent } from './components/blacklisted-firm/blacklisted-firm.component';
+import { OtherDeptRecruitmentComponent } from './components/other-dept-recruitment/other-dept-recruitment.component';
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   // {path:'dashboard',component:LoginComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'NoticeCircular', component: NoticeCircularComponent },
   { path: 'login', component: LoginComponent },
   { path: 'blacklistFirm', component: BlacklistedFirmComponent },
+   { path: 'otherDeptRecruitment', component: OtherDeptRecruitmentComponent },
   { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, // ✅ Protected Route
 
   // {
