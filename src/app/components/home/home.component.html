@@ -1,31 +1,6 @@
 
 <app-navbar></app-navbar>
-<!-- <div class="container my-4">
-  <button class="btn btn-outline-primary d-flex align-items-center" type="button" (click)="toggleCollapse()"
-    aria-expanded="false" aria-controls="colorPickerCollapse">
-    🎨
-  </button>
-  <div id="colorPickerCollapse" [style.height]="isCollapsed ? '150px' : '0'" [style.opacity]="isCollapsed ? '1' : '0'"
-    [style.overflow]="isCollapsed ? 'visible' : 'hidden'"
-    style="transition: height 0.5s ease, opacity 0.5s ease; background: white; border-radius: 10px; margin-top: 10px;">
 
-    <div class="card-body p-3">
-      <label for="colorPicker" class="form-label">Choose a Color:</label>
-      <input type="color" class="form-control form-control-color" id="colorPicker" [(ngModel)]="selectedColor"
-        title="Choose your color">
-    </div>
-
-  </div>
-
-</div>
-<div class="p-5 text-white mt-4 rounded" [style.background]="selectedColor" style="transition: background 0.5s;">
-  <h2>Live Theme Preview</h2>
-  <p>The background changes based on your color choice!</p>
-</div> -->
-<!-- F:\CGMSC\CGMSC_Home_Page\src\assets\images\equipment-reagents.jpg
-  F:\CGMSC\CGMSC_Home_Page\src\assets\images\doctor-s-hand-holding-pills.jpg
-  F:\CGMSC\CGMSC_Home_Page\src\assets\images\infrastructure.jpg 
-  F:\CGMSC\CGMSC_Home_Page\src\assets\images\hero Grouped medicines 1600px.png-->
 <!-- <div *ngIf="isDefaultDashboardRoute"> -->
 <section class="image-section border-top  ">
   <div class="carousel slide h-100 " id="imageSectionCarousel" data-bs-ride="carousel">
@@ -41,12 +16,23 @@
     <img [src]="img" class="d-block w-100 h-100 object-fit-cover " alt="Image {{ i + 1 }}" >
   </div> -->
   <div class="carousel-item h-100"
-     *ngFor="let img of images3; let i = index"
+     *ngFor="let img of carousel_img; let i = index"
      [class.active]="i === 0">
-  <img [src]="img" 
-       class="d-block w-100 h-100 imagessizecenter"  alt="Image {{ i + 1 }}"
-       >
+     <picture>
+      <img [src]="img"
+           class="d-block w-100 h-100 imagessizecenter"
+           alt="Image {{ i + 1 }}"
+           loading="lazy">
+    </picture>
+    
+     <!-- <img [src]="img.replace('.JPG', '.webp')" 
+     class="d-block w-100 h-100 imagessizecenter"
+     alt="Image {{ i + 1 }}"
+     loading="lazy"> -->
 </div>
+
+
+
 
   <!-- <div class="carousel-item h-100 d-flex align-items-center justify-content-center"
      *ngFor="let img of images3; let i = index"
@@ -81,41 +67,19 @@
     <div class="row">
       <!-- Left Side: About CGMSCL  data-aos="fade-up" data-aos-duration="1000" -->
       <div class="col-12 col-lg-6 mb-4 mb-lg-0"  >
-        <h2 class="mb-3 fw-semibold Heading-font-family" style="font-size: 26px;">About CGMSCL</h2>
+        <h2 class="mb-3 pt-1 fw-semibold Heading-font-family" style="font-size: 26px;">{{ 'About CGMSCL' | translate }}</h2>
         <p class="mb-3">
-          Welcome to <strong>CGMSCL</strong> — Chhattisgarh Medical Services Corporation Limited is incorporated on
-          <strong>7th October 2010</strong> under the Companies Act, 1956. The company operates under the
-          <strong>Health & Family Welfare Department</strong> of Chhattisgarh.
+          {{ 'Welcome to' | translate }}  <strong>{{ 'CGMSCL' | translate }}</strong>
+          — {{ 'Chhattisgarh Medical Services Corporation Limited is incorporated on' | translate }}
+          <strong>{{ '7th October 2010' | translate }}</strong>{{ 'under the Companies Act, 1956. The company operates under the' | translate }} 
+          <strong>{{ 'Health & Family Welfare Department' | translate }}</strong>{{ 'of Chhattisgarh' | translate }} 
         </p>
         <!-- <p class="mb-4">
           <strong>CIN No:</strong> U85110CT2010SGC022089
         </p> -->
         <a class="btn btn-outline-light d-inline-flex align-items-center theme-navbar text-white" routerLink="/AboutCGMSC" routerLinkActive="active">
-          <i class="bi bi-book-fill me-2 "></i> Read More...
+          <i class="bi bi-book-fill me-2 "></i> {{ 'Read More' | translate }} 
         </a>
-        <!-- <div class="accordion-item custom-accordion">
-        <h2 class="accordion-header" style="z-index: 99999;">
-          <button 
-            class="accordion-button text-dark fw-bold custom-btn"
-            [class.collapsed]="!isAccordionOpen"
-            (click)="toggleAccordion()" 
-            type="button"
-            [attr.aria-expanded]="isAccordionOpen">
-            Click here
-          </button>
-        </h2>
-        </div> -->
-       
-        <!-- <a class="btn btn-outline-primary d-inline-flex align-items-center"
-        [routerLink]="['/dashboard', 'AboutCGMSC']" 
-        [routerLinkActive]="'active'">
-       <i class="bi bi-book-fill me-2"></i> Read More...
-     </a> -->
-     <!-- <a class="btn btn-outline-primary d-inline-flex align-items-center"
-     [routerLink]="['AboutCGMSC']" 
-     [routerLinkActive]="'active'">
-    <i class="bi bi-book-fill me-2"></i> Read More... </a> -->
-       
       </div>
 
       <div class="col-12 col-lg-6">
@@ -127,33 +91,39 @@
                 <div>
                   <img src="assets/images/CM.jpeg" alt="Image 3">
                   <div class="image-name" style="font-size: 13px;"> 
+                    {{ 'Shri Vishnu Deo Sai Honble Chief Minister' | translate }} 
                     <!-- माननीय श्री विष्णु देव साय
                     मुख्यमंत्री छत्तीसगढ़ -->
-                    Shri Vishnu Deo Sai
-                    Hon'ble Chief Minister
+                    <!-- Shri Vishnu Deo Sai
+                    Hon'ble Chief Minister -->
                   </div>
                 </div>
                 <div>
                   <img src="assets/images/HM.jpeg" alt="Image 4">
-                  <div class="image-name" style="font-size: 13px;"> <!-- मान. श्री श्याम बिहारी जायसवाल
+                  <div class="image-name" style="font-size: 13px;"> 
+                {{'Shri Shyam Bihari Jaiswal'| translate }}
+                    <!-- मान. श्री श्याम बिहारी जायसवाल
                     मंत्री, लो. स्वा. परि. कल्या. ,चिकि. शिक्षा   -->
-                    Shri  Shyam Bihari Jaiswal
+                    <!-- Shri  Shyam Bihari Jaiswal
                     Hon'ble Minister Health & Family Welfare and
-                    Med. Edu.</div>
+                    Med. Edu. -->
+                  </div>
                 </div>
                 <div>
                   <img src="assets/images/chairman.jpeg" alt="Image 2">
                   <div class="image-name" style="font-size: 13px;"> 
-                    Shri Deepak Mhaskey
-                    Hon'ble Chairman, CGMSCL
+                  {{'Shri Deepak Mhaskey'| translate}}
+                    <!-- Shri Deepak Mhaskey
+                    Hon'ble Chairman, CGMSCL -->
                   </div>
                 </div>
                 <div>
                   <img src="assets/images/amit-kataria.jpg" alt="Image 1">
                   <div class="image-name" style="font-size: 13px;">
-                    Shri Amit Kataria (IAS)
+                    {{'Shri Amit Kataria' | translate }}
+                    <!-- Shri Amit Kataria (IAS)
                     Secretary, Health and Family Welfare 
-                    and Medical Education
+                    and Medical Education -->
                   </div>
                 </div>
                 
@@ -168,20 +138,32 @@
                 <div>
                   <img src="assets/images/Dr.Priyanka_Sukla.jpeg" alt="Image 2">
                   <div class="image-name" style="font-size: 13px;">
-                    
-                      Dr. Priyanka Shukla (IAS)
+                    {{'Priyanka Shukla' | translate}}
+                      <!-- Dr. Priyanka Shukla (IAS)
                       Commissioner-cum-Director of 
-                      Health Services
+                      Health Services -->
                     </div>
                 </div>
                 <div>
                   <img src="assets\images\MD.jpeg" alt="Image 2">
                   <div class="image-name" style="font-size: 13px;">
-                    
-                      Smt. Padmini Bhoi Sahu (IAS)
-                      Managing Director CGMSCL
+                    {{'Padmini Bhoi Sahu' | translate }}
+                      <!-- Smt. Padmini Bhoi Sahu (IAS)
+                      Managing Director CGMSCL -->
                     </div>
                 </div>
+                <!-- <div>
+                  <img src="assets/images/Collector-Shikha-Rajput-Tiw.gif" alt="Image 2">
+                  <div class="image-name" style="font-size: 13px;">
+                    {{'Padmini Bhoi Sahu' | translate }}
+                    शिखा राजपूत तिवारी (भा.प्र.से)
+छ.ग. शासन
+आयुक्त, चिकित्सा शिक्षा,छत्तीसगढ़
+                      Shikha Rajput Tiwari (I.P.)
+Chhattisgarh Government
+Commissioner, Medical Education, Chhattisgarh
+                    </div>
+                </div> -->
                
                 
               </div>
@@ -214,7 +196,7 @@
                       style="width: 80px; height: 80px; object-fit: cover;"
                     />
                   </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">Chhattisgarh Govt.</h3>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-heading pt-1"> {{'Chhattisgarh Govt' | translate }}</h3>
                 </a>
               </div>
                 <div class="card custom-card d-flex flex-column align-items-center text-center bg-light p-2 mb-3 mx-2"
@@ -232,7 +214,7 @@
                       style="max-width: 70%; height: auto;"
                     />
                   </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">CG Health</h3>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-heading pt-1">{{'CG Health' | translate }}</h3>
                 </a>
               </div>
               
@@ -312,7 +294,7 @@
                       </div>
                         <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
                           DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
-                          <h3 class="card-text small fw-semibold mt-1 gradient-heading">CG - e-Procurement</h3>
+                          <h3 class="card-text small fw-semibold mt-1 gradient-heading pt-1">{{'Procurement' | translate }}</h3>
                     </a>
                   </div>
                     <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
@@ -338,7 +320,7 @@
                       </div>
                         <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
                           DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
-                          <h3 class="card-text small fw-semibold mt-1 gradient-heading">Gem Portal</h3>
+                          <h3 class="card-text small fw-semibold mt-1 gradient-heading pt-1">{{'Gem Portal' | translate }}</h3>
                     </a>
                   </div>
             <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
@@ -362,8 +344,8 @@
                       height: 100%;
                       object-fit: contain;" />
                 </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                    DVDMS Central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Dashboard</h3>
+                  <h3 class="card-text small fw-semibold mt-1 gradient-headinggg pt-1">
+                    {{'DVDMS Central' | translate }}<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">{{'Dashboard' | translate }}</h3>
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
                   MEDICITI   
                 </h3> -->
@@ -389,8 +371,8 @@
                       height: 100%;
                       object-fit: contain;" />
                 </div>
-                <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                  National Pharmaceutical<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Pricing Authority</h3>
+                <h3 class="card-text small fw-semibold mt-1 gradient-headinggg pt-1">
+                  {{'National Pharmaceutical' | translate }} <br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">{{'Pricing Authority' | translate }}</h3>
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
                   
                 </h3> -->
@@ -416,8 +398,8 @@
                       height: 100%;
                       object-fit: contain;" />
                 </div>
-                <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                  Human Resource M.<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Information System</h3>
+                <h3 class="card-text small fw-semibold mt-1 gradient-headinggg pt-1">
+                {{'Human Resource M' | translate }}<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">{{'Information System' | translate }}</h3>
                   <!-- Human Resource Management<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Information System</h3> -->
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
                    
@@ -446,8 +428,8 @@
                 </div>
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
                   MEDICITI<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Information System</h3> -->
-                <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
-                  MEDICITI  
+                <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center pt-1">
+                 {{'MEDICITI' | translate }}   
                 </h3>
               </a>
             </div>
@@ -481,28 +463,6 @@
           </div>
         </div>
   </div>
-
-  <!-- <div class="accordion">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button fw-bold text-dark"
-                [class.collapsed]="!isOpen"
-                (click)="toggle()"
-                [attr.aria-expanded]="isOpen">
-          Click here
-        </button>
-      </h2>
-      <div class="accordion-collapse"
-           [ngStyle]="{
-             height: isOpen ? height + 'px' : '0',
-             opacity: isOpen ? 1 : 0,
-             padding: isOpen ? '1rem' : '0 1rem'
-           }"
-           (transitionend)="onEnd()">
-        <div class="accordion-body">hello lomesh</div>
-      </div>
-    </div>
-  </div> -->
   
 </section>
 
@@ -1221,12 +1181,12 @@
             <div class="tab-pane fade show active" id="tab6" role="tabpanel">
               <h5 class="gradient-heading">News</h5>
               <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of images1; let i = index">
+                <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of News; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
                        alt="Gallery Image"
                        style="cursor: pointer;"
-                       (click)="openModal(i)">
+                       (click)="openModal(i)"  loading="lazy">
                 </div>
                 <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="\assets\images\News\news.JPG" class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1322,13 +1282,15 @@
 
               </div> -->
               <div class="row g-2">
-              <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of images; let i = index">
+              <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of drugs; let i = index">
                 <img [src]="img"
                      class="img-fluid rounded w-100 h-100 img-hover-zoom"
                      alt="Gallery Image"
                      style="cursor: pointer;"
-                     (click)="openModal(i)">
+                     (click)="openModaldrug(i)" loading="lazy">
               </div>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
+                Gallery</button>
               </div>
               
             </div>
@@ -1379,9 +1341,17 @@
             <div class="tab-pane fade" id="tab9" role="tabpanel">
               <h5 class="gradient-heading">Infrastructure</h5>
               <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4">
-                  <!-- <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 1"> -->
+                <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of Infrastructure; let i = index">
+                  <img [src]="img"
+                       class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                       alt="Gallery Image"
+                       style="cursor: pointer;"
+                       (click)="openModaldcivil(i)" loading="lazy">
+                </div>
+               
+                <!-- <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
                   <img src="https://cgmsc.gov.in/imgSlider/hamarlab.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 1">
                 </div>
@@ -1396,14 +1366,14 @@
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="https://cgmsc.gov.in/imgSlider/rjn.jpg"
                     class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
-                </div>
+                </div> -->
                 <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 4">
                 </div> -->
-                <div class="col-12 col-sm-6 col-md-4">
-                  <!-- <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 1"> -->
+                <!-- <div class="col-12 col-sm-6 col-md-4">
+                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                    alt="Gallery Image 1">
                   <img src="https://cgmsc.gov.in/imgSlider/hamarlab.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 1">
                 </div>
@@ -1422,7 +1392,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="https://cgmsc.gov.in/imgSlider/rjn.jpg"
                     class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
-                </div>
+                </div> -->
                 <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 4">
@@ -1460,7 +1430,7 @@
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
                        alt="Gallery Image"
                        style="cursor: pointer;"
-                       (click)="openModal1(i)">
+                       (click)="openModal1(i)" loading="lazy">
                 </div>
 
                 <!-- <div class="col-12 col-sm-6 col-md-4">
@@ -1846,6 +1816,26 @@
     </div>
   </div>
 </div>
+ <div class="modal fade" id="imageModaldrug" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-body p-0 position-relative image-preview-container" >
+
+        <button type="button text-white " class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <div class="hover-zone left-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 start-0 translate-middle-y" (click)="prevImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-left fs-3"></i>
+        </button></div>
+        <img [src]="selectedImagedrug" class="img-fluid w-100 preview-image" alt="Selected Image">
+        <div class="hover-zone right-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-right fs-3"></i>
+        </button></div>
+      </div>
+    </div>
+  </div>
+</div>
  <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered modal-lg" >
     <div class="modal-content">
@@ -1857,6 +1847,25 @@
           <i class="bi bi-chevron-left fs-3"></i>
         </button></div>
         <img [src]="selectedImage1" class="img-fluid w-100 preview-image" alt="Selected Image">
+        <div class="hover-zone right-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-right fs-3"></i>
+        </button></div>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="modal fade" id="imageModalcivil" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-body p-0 position-relative image-preview-container" >
+        <button type="button text-white " class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <div class="hover-zone left-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 start-0 translate-middle-y" (click)="prevImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-left fs-3"></i>
+        </button></div>
+        <img [src]="selectedImagecivil" class="img-fluid w-100 preview-image" alt="Selected Image">
         <div class="hover-zone right-zone" >
         <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
           <i class="bi bi-chevron-right fs-3"></i>
