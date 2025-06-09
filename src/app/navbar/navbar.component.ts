@@ -9,7 +9,7 @@ import { Base } from '../helper/base';
 import { closest } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { TranslateService } from '@ngx-translate/core';
 declare const bootstrap: any;
-import { TranslateModule } from '@ngx-translate/core'; // ✅ Import this
+import { TranslateModule } from '@ngx-translate/core'; 
 @Component({
     selector: 'app-navbar',
     standalone: true, // ✅ Make it a standalone component
