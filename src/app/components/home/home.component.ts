@@ -13,6 +13,8 @@ declare var bootstrap: any;
 import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
 import { WarehouseLocationComponent } from '../warehouse-location/warehouse-location.component';
 import { DivisionOfficeLocationComponent } from '../division-office-location/division-office-location.component';
+import { TranslateService , TranslateModule} from '@ngx-translate/core';
+// import {  } from '@ngx-translate/core'; 
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -23,7 +25,7 @@ import { DivisionOfficeLocationComponent } from '../division-office-location/div
     RouterModule,
     GoogleMapsModule,
     DivisionOfficeLocationComponent,
-    WarehouseLocationComponent,
+    WarehouseLocationComponent,TranslateModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -51,7 +53,7 @@ export class HomeComponent {
     lat: 21.136478,
     lng: 81.78643421,
   };
-
+  // currentLanguage: 'en' | 'hi' = 'en';
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
   };
@@ -60,8 +62,14 @@ export class HomeComponent {
     public authService: AuthServiceService,
     private router: Router,
     private ApiService: ApiServiceService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef, private translate: TranslateService
   ) {
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
+    // this.currentLanguage = lang === 'hi' ? 'hi' : 'en';
+    // sessionStorage.setItem('language', this.currentLanguage);
+    // sessionStorage.setItem('language', this.currentLanguage);
+    // this.translate.use(this.currentLanguage);
     // this.router.events.subscribe(() => {
     //   const current = this.router.url;
     //   this.isDefaultDashboardRoute = current === '/dashboard';
@@ -72,7 +80,7 @@ export class HomeComponent {
     if (colorTop) {
       document.documentElement.style.setProperty('--theme-top', colorTop);
     }
-  
+
     const gradient = sessionStorage.getItem('selectedColor');
     if (gradient) {
       document.documentElement.style.setProperty('--theme-gradient', gradient);
@@ -306,33 +314,25 @@ export class HomeComponent {
     return diffInDays <= 7;
   }
 
-  images3: string[] = [
-    // './assets/cgmsc imgs/photo_1.jpg',
-    // './assets/cgmsc imgs/photo_2.jpg',
-    // './assets/cgmsc imgs/photo_3.jpg',
-    // './assets/cgmsc imgs/photo_5.jpg',
-    // './assets/cgmsc imgs/photo_6.jpg',
-
-    './assets/cgmsc imgs/event imgs/DSC_2804.JPG',
+  carousel_img: string[] = [
+    'https://dpdmis.in/cdn/carousel/DSC_2674.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_2865.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_4797.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_2804.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_2677.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_4670.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_4649.JPG',
+    'https://dpdmis.in/cdn/carousel/DSC_4610.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_2865.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_2804.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_4610.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_4649.JPG',
     // './assets/cgmsc imgs/event imgs/DSC_4797.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2098.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2108.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2797.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2865.JPG',
-    './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM.jpeg',
-    // './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM (1).jpeg',
-    // './assets/cgmsc imgs/WhatsApp Image 2025-05-06 at 2.20.37 AM.jpeg',
-
-    // './assets/cgmsc imgs/event imgs/DSC_2447.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2571.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2665.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2677.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2883.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_4610.JPG',
-
-    
+    // './assets/cgmsc imgs/event imgs/DSC_2677.JPG',
+    // './assets/cgmsc imgs/event imgs/DSC_4670.JPG',
   ];
+
   images: string[] = [
     './assets/cgmsc imgs/img1.jfif',
     './assets/cgmsc imgs/img2.jfif',
@@ -344,46 +344,91 @@ export class HomeComponent {
     './assets/cgmsc imgs/bird-8469368_640.jpg',
     './assets/cgmsc imgs/bird-8788491_640.jpg',
   ];
-  events: string[] = [
-    './assets/cgmsc imgs/event imgs/DSC_2098.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2108.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2447.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2571.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2665.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2677.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_2883.JPG',
-    './assets/cgmsc imgs/event imgs/DSC_4610.JPG',
+  drugs: string[] = [
+    'https://dpdmis.in/cdn/drugs/2.jpg',
+    'https://dpdmis.in/cdn/drugs/4.jpeg',
+    'https://dpdmis.in/cdn/drugs/8.jpeg',
+    'https://dpdmis.in/cdn/drugs/9.jpeg',
+    'https://dpdmis.in/cdn/drugs/3.jpeg',
+    'https://dpdmis.in/cdn/drugs/19.jpeg',
+    'https://dpdmis.in/cdn/drugs/37.jpeg',
+    'https://dpdmis.in/cdn/drugs/27.jpeg',
+    'https://dpdmis.in/cdn/drugs/40.jpeg',
   ];
-  images1: string[] = [
-    './assets/images/News/news.JPG',
-    './assets/images/News/Capture.JPG',
-    './assets/images/News/img1.jpg.jfif',
-    './assets/images/News/ba0ed618-ec63-4f2b-b977-786fbe807576.jfif',
-    './assets/images/News/b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif',
-    './assets/images/News/WhatsApp Image 2025-05-19 at 9.42.17 PM.jpeg',
-    './assets/images/News/WhatsApp Image 2025-05-19 at 9.42.17 PM.jpeg',
-    './assets/images/News/48385277-51e6-4dcb-a2ff-5beb3b1f8528.jfif',
-    './assets/images/News/img1.jpg.jfif',
-    // './assets/cgmsc imgs/butterfly-7632646_640.jpg',
-    // './assets/cgmsc imgs/bird-8442508_640.webp',
-    // '/assets/cgmsc imgs/blue-8186653_640.webp',
-    // '/assets/cgmsc imgs/bird-8469368_640.jpg',
-    // '/assets/cgmsc imgs/bird-8788491_640.jpg'
+  Infrastructure: string[] = [
+'https://dpdmis.in/cdn/Infrastructure/Picture1.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture10.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture11.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture2.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture3.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture4.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture5.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture6.jfif',
+'https://dpdmis.in/cdn/Infrastructure/picture7.jfif',
+
+    // 'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
+    // 'https://dpdmis.in/cdn/Event/photo_5.jpg',
+    // 'https://dpdmis.in/cdn/Event/DSC_2865.JPG',
+    // 'https://dpdmis.in/cdn/Event/DSC_2581.JPG',
+    // 'https://dpdmis.in/cdn/Event/DSC_2674.JPG',
+    // 'https://dpdmis.in/cdn/Event/DSC_2804.JPG',
+    // 'https://dpdmis.in/cdn/Event/DSC_2873.JPG',
+    // 'https://dpdmis.in/cdn/Event/DSC_2883.JPG',
+    // 'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
+  ];
+  events: string[] = [
+    'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
+    'https://dpdmis.in/cdn/Event/photo_5.jpg',
+    'https://dpdmis.in/cdn/Event/DSC_2865.JPG',
+    'https://dpdmis.in/cdn/Event/DSC_2581.JPG',
+    'https://dpdmis.in/cdn/Event/DSC_2674.JPG',
+    'https://dpdmis.in/cdn/Event/DSC_2804.JPG',
+    'https://dpdmis.in/cdn/Event/DSC_2873.JPG',
+    'https://dpdmis.in/cdn/Event/DSC_2883.JPG',
+    'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
+  ];
+  News: string[] = [
+    'https://dpdmis.in/cdn/News/48385277-51e6-4dcb-a2ff-5beb3b1f8528.jfif',
+    'https://dpdmis.in/cdn/News/b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif',
+    'https://dpdmis.in/cdn/News/ba0ed618-ec63-4f2b-b977-786fbe807576.jfif',
+    'https://dpdmis.in/cdn/News/Capture.JPG',
+    'https://dpdmis.in/cdn/News/cd01d37c-4a6c-486b-b3f6-bc94fb650a96.jfif',
+    'https://dpdmis.in/cdn/News/img1.jpg.jfif',
+    'https://dpdmis.in/cdn/News/news.JPG',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-05-19%20at%209.42.17%20PM.jpeg',
+    'https://dpdmis.in/cdn/News/img1.jpg.jfif',
   ];
 
   selectedIndex = 0;
 
   get selectedImage(): string {
-    return this.images1[this.selectedIndex];
+    return this.News[this.selectedIndex];
   }
   get selectedImage1(): string {
     return this.events[this.selectedIndex];
+  }
+  get selectedImagedrug(): string {
+    return this.drugs[this.selectedIndex];
+  }
+  get selectedImagecivil(): string {
+    return this.Infrastructure[this.selectedIndex];
   }
 
   openModal(index: number) {
     this.selectedIndex = index;
     const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+    modal.show();
+  }
+  openModaldcivil(index: number) {
+    this.selectedIndex = index;
+    const modal = new bootstrap.Modal(document.getElementById('imageModalcivil'));
+    modal.show();
+  }
+  openModaldrug(index: number) {
+    this.selectedIndex = index;
+    const modal = new bootstrap.Modal(
+      document.getElementById('imageModaldrug')
+    );
     modal.show();
   }
   openModal1(index: number) {
@@ -411,88 +456,82 @@ export class HomeComponent {
   onEnd() {
     // handle post-transition logic
   }
-    // <a href="https://cghealth.nic.in/public/#/" target="_blank" >
-    //             <img alt="Natural" class="m-2  border rounded card-hover " src="https://cghealth.nic.in/public/assets/images/health-logo-67x67.png"></a>
-    //             <!-- <img alt="Natural" class="m-2  border rounded card-hover " src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/india1_gov_in.jpg"></a> -->
-    //           <a href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do" target="_blank" class="">
-    //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\CHEPS2.jfif"></a>
-    //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://eproc.cgstate.gov.in/CHEPS/img/chips-logo.png?OWASP_CSRFTOKEN=Q8AA-WA3Q-YJKR-PBJQ-E45O-E2YU-X2J3-QC37"></a> -->
-    //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/meraAspatal.jpg"></a> -->
-    //           <a href="https://gem.gov.in/" target="_blank">
-    //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\gem-logo.png"></a>
-    //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/mygov.jpg"></a> -->
-    //           <a href="https://cgstate.gov.in/" target="_blank">
-    //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\cg-govt1.png"></a>
-    //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/datagov.jpg"></a> -->
-    //           <a href="https://dvdms.mohfw.gov.in/" target="_blank">
-    //             <img alt="Natural" class="m-2 border rounded card-hover"
-    //               src="assets\cgmsc imgs\dvdms logo.JPG"></a>
-    //               <!-- src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/quittobaco.jpg"></a> -->
- 
+  // <a href="https://cghealth.nic.in/public/#/" target="_blank" >
+  //             <img alt="Natural" class="m-2  border rounded card-hover " src="https://cghealth.nic.in/public/assets/images/health-logo-67x67.png"></a>
+  //             <!-- <img alt="Natural" class="m-2  border rounded card-hover " src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/india1_gov_in.jpg"></a> -->
+  //           <a href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do" target="_blank" class="">
+  //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\CHEPS2.jfif"></a>
+  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://eproc.cgstate.gov.in/CHEPS/img/chips-logo.png?OWASP_CSRFTOKEN=Q8AA-WA3Q-YJKR-PBJQ-E45O-E2YU-X2J3-QC37"></a> -->
+  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/meraAspatal.jpg"></a> -->
+  //           <a href="https://gem.gov.in/" target="_blank">
+  //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\gem-logo.png"></a>
+  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/mygov.jpg"></a> -->
+  //           <a href="https://cgstate.gov.in/" target="_blank">
+  //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\cg-govt1.png"></a>
+  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/datagov.jpg"></a> -->
+  //           <a href="https://dvdms.mohfw.gov.in/" target="_blank">
+  //             <img alt="Natural" class="m-2 border rounded card-hover"
+  //               src="assets\cgmsc imgs\dvdms logo.JPG"></a>
+  //               <!-- src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/quittobaco.jpg"></a> -->
 
-
-    // https://dpdmis.in/cdn/Event/
-    // https://dpdmis.in/cdn/News/
-    Getnewimage(){
-      try {
-        this.ApiService.Getnewimage().subscribe(
-          (res: any) => {
-            // this.data_model = res;
-            // this.DrugTenderList = this.data_model;
-            console.log('Getnewimage',res);
-            // console.log(JSON.stringify(res.user.role[0].roleName));
-            // console.log(JSON.stringify(res.user.userName));
-            // console.log(JSON.stringify(res.user))
-          },
-          (err: Error) => {
-            //  debugger
-            //  throw err;
-            console.log(err);
-            // this.toastr.error("Please Check userId and password!",'Error');
-            //  alert(err.message)
-          }
-        );
-      } catch (err: any) {
-        console.log(err);
-        // throw err;
-      }
+  // https://dpdmis.in/cdn/Event/
+  // https://dpdmis.in/cdn/News/
+  Getnewimage() {
+    try {
+      this.ApiService.Getnewimage().subscribe(
+        (res: any) => {
+          // this.data_model = res;
+          // this.DrugTenderList = this.data_model;
+          console.log('Getnewimage', res);
+          // console.log(JSON.stringify(res.user.role[0].roleName));
+          // console.log(JSON.stringify(res.user.userName));
+          // console.log(JSON.stringify(res.user))
+        },
+        (err: Error) => {
+          //  debugger
+          //  throw err;
+          console.log(err);
+          // this.toastr.error("Please Check userId and password!",'Error');
+          //  alert(err.message)
+        }
+      );
+    } catch (err: any) {
+      console.log(err);
+      // throw err;
     }
+  }
 
-    sharePage() {
-      if (navigator.share) {
-        navigator.share({
+  sharePage() {
+    if (navigator.share) {
+      navigator
+        .share({
           title: document.title,
           text: 'Check out this page!',
-          url: window.location.href
+          url: window.location.href,
         })
         .then(() => console.log('Successfully shared'))
-        .catch(error => console.error('Error sharing:', error));
-      } else {
-        alert('Web Share API is not supported in your browser.');
-      }
+        .catch((error) => console.error('Error sharing:', error));
+    } else {
+      alert('Web Share API is not supported in your browser.');
     }
-  
-    // 
+  }
 
-     GetNoticCircular(){
-            try{
-            this.ApiService.get('GetNoticCircular')
-              .subscribe(
-                (res) => {
-                 this.dispatchData=res;
-                  console.log('NoticCircular =:', this.dispatchData);
-                },
-                (error) => {
-      
-                  alert(`Error fetching data: ${JSON.stringify(error.message)}`);
-                }
-              );
-              }
-              catch(err:any){
-                console.log(err);
-                // throw err;
-              }
-          }
+  //
 
-
+  GetNoticCircular() {
+    try {
+      this.ApiService.get('GetNoticCircular').subscribe(
+        (res) => {
+          this.dispatchData = res;
+          console.log('NoticCircular =:', this.dispatchData);
+        },
+        (error) => {
+          alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+        }
+      );
+    } catch (err: any) {
+      console.log(err);
+      // throw err;
+    }
+  }
 }
