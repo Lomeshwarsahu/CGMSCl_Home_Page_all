@@ -51,16 +51,17 @@ export class TenderDrugComponent {
       //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
       //   // this.selectedColor = color;
       // });
-      this.GetDrugTenderList();
-      this.spinner.show();
 
       setTimeout(() => {
         this.spinner.hide();
       }, 3000); // hides after 3 seconds
+      this.GetDrugTenderList();
+
     }
 // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderListAll
 // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
     GetDrugTenderList() {
+      // debugger;
       try{
         this.spinner.show();
       this.Service.get('GetDrugTenderListAll')
@@ -73,7 +74,7 @@ export class TenderDrugComponent {
                 sno: index + 1,
               })
             );
-            // console.log('GetDrugTenderList=:', this.dispatchData);
+            console.log('GetDrugTenderList=:', this.dispatchData);
             this.dataSource.data = this.dispatchData;
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
@@ -81,7 +82,7 @@ export class TenderDrugComponent {
             this.spinner.hide();
           },
           (error) => {
-
+      
             alert(`Error fetching data: ${JSON.stringify(error.message)}`);
           }
         );
@@ -108,7 +109,7 @@ export class TenderDrugComponent {
         }
         catch(err:any){
           this.spinner.hide();
-
+// alert(err)
           console.log(err);
           // throw err;
         }
