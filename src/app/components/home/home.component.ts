@@ -14,6 +14,7 @@ import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
 import { WarehouseLocationComponent } from '../warehouse-location/warehouse-location.component';
 import { DivisionOfficeLocationComponent } from '../division-office-location/division-office-location.component';
 import { TranslateService , TranslateModule} from '@ngx-translate/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 // import {  } from '@ngx-translate/core'; 
 @Component({
   selector: 'app-home',

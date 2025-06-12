@@ -50,7 +50,7 @@ export class TenderEquipmentComponent {
       //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
       //   // this.selectedColor = color;
       // });
-      this.spinner.show();
+      // this.spinner.show();
 
       setTimeout(() => {
         this.spinner.hide();
@@ -72,7 +72,7 @@ GetEquipmentListAll() {
                 sno: index + 1,
               })
             );
-            // console.log('GetDrugTenderList=:', this.dispatchData);
+            console.log('GetEquipmentListAll=:', this.dispatchData);
             this.dataSource.data = this.dispatchData;
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
@@ -80,6 +80,7 @@ GetEquipmentListAll() {
             this.spinner.hide();
           },
           (error) => {
+            this.spinner.hide();
             alert(`Error fetching data: ${JSON.stringify(error.message)}`);
           }
         );
