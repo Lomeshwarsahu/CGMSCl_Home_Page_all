@@ -345,7 +345,7 @@ Commissioner, Medical Education, Chhattisgarh
                       object-fit: contain;" />
                 </div>
                   <h3 class="card-text small fw-semibold mt-1 gradient-headinggg pt-1">
-                    {{'DVDMS Central' | translate }}<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">{{'Dashboard' | translate }}</h3>
+                    {{'DVDMS Central' | translate }}<br> </h3><h3 class="card-text small fw-semibold pt-1 gradient-headinggg">{{'Dashboard' | translate }}</h3>
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
                   MEDICITI   
                 </h3> -->
@@ -372,7 +372,7 @@ Commissioner, Medical Education, Chhattisgarh
                       object-fit: contain;" />
                 </div>
                 <h3 class="card-text small fw-semibold mt-1 gradient-headinggg pt-1">
-                  {{'National Pharmaceutical' | translate }} <br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">{{'Pricing Authority' | translate }}</h3>
+                  {{'National Pharmaceutical' | translate }} <br> </h3><h3 class="card-text small fw-semibold pt-1 gradient-headinggg">{{'Pricing Authority' | translate }}</h3>
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
                   
                 </h3> -->
@@ -399,7 +399,7 @@ Commissioner, Medical Education, Chhattisgarh
                       object-fit: contain;" />
                 </div>
                 <h3 class="card-text small fw-semibold mt-1 gradient-headinggg pt-1">
-                {{'Human Resource M' | translate }}<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">{{'Information System' | translate }}</h3>
+                {{'Human Resource M' | translate }}<br> </h3><h3 class="card-text small fw-semibold  pt-1 gradient-headinggg">{{'Information System' | translate }}</h3>
                   <!-- Human Resource Management<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Information System</h3> -->
                 <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
                    
@@ -490,7 +490,7 @@ Commissioner, Medical Education, Chhattisgarh
       <!-- FIXED START: Make cards appear below About section, not overlapping -->
 <section class="py-5 pt-0 text-white position-relative announce-colorr theme-navbar">
   <div class="container-fluid px-3 text-center py-5">
-    <p class="mb-3 Heading-font-family">LATEST UPDATES</p>
+    <p class="mb-3 Heading-font-family">{{'LATEST UPDATES' | translate }}</p>
   </div>
 </section>
 
@@ -501,7 +501,7 @@ Commissioner, Medical Education, Chhattisgarh
           <!-- Card 1 -->
           <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
-              <h5 class="card-title border-bottom border-3 pb-2 text-center gradient-heading "><strong>Drug Tenders</strong></h5>
+              <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong> {{'Drug Tenders' | translate }}</strong></h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
                 <!-- <div
                   class="scroll-container"
@@ -519,7 +519,7 @@ Commissioner, Medical Education, Chhattisgarh
                   (touchend)="onPauseEnd(1)" >
                   <div *ngFor="let item of DrugTenderList" class="mb-3" style="text-align: justify;">
                     <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Drug-Technical')">
-                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
                     <!-- <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge bg-danger ms-2">New</span> -->
@@ -528,7 +528,7 @@ Commissioner, Medical Education, Chhattisgarh
                    
 
                     <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderDrug">
-                      <i class="bi bi-eye me-2"></i> View More...
+                      <i class="bi bi-eye me-2"></i>{{'View More' | translate }} 
                     </a>
                   </div>
                 </div>
@@ -539,7 +539,7 @@ Commissioner, Medical Education, Chhattisgarh
           <!-- Card 2 -->
           <div class="col-12 col-md-6 col-lg-3">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
-              <h5 class="card-title border-bottom border-3  pb-2 text-center gradient-heading "><strong>Equipment Tenders</strong></h5>
+              <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Equipment Tenders' | translate }}</strong></h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
                 <!-- <div class="scroll-container" [class.paused]="card2Pause" 
                 (mouseenter)="card2Pause = true" (mouseleave)="card2Pause = false" 
@@ -562,13 +562,13 @@ Commissioner, Medical Education, Chhattisgarh
               
                   <div *ngFor="let item of EquipmentList" class="mb-3" style="text-align: justify;">
                     <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Equipment-Technical')">
-                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
                   </div>
                   <div class="text-end mt-3">
                     <a class="btn btn-outline-light btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderEquip">
-                      <i class="bi bi-eye me-2"></i> View More...
+                      <i class="bi bi-eye me-2"></i>{{'View More' | translate }} 
                     </a>
                   </div>
                 </div>
@@ -579,7 +579,7 @@ Commissioner, Medical Education, Chhattisgarh
           <!-- Card 3 -->
           <div class="col-12 col-md-6 col-lg-3">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
-              <h5 class="card-title border-bottom border-3  pb-2 text-center gradient-heading "><strong>Infrastructure Tenders</strong></h5>
+              <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Infrastructure Tenders' | translate }} </strong></h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
                 <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
                   <!-- <div
@@ -597,13 +597,13 @@ Commissioner, Medical Education, Chhattisgarh
                   (touchend)="onPauseEnd(3)" >
                   <div *ngFor="let item of CivilTenderList" class="mb-3" style="text-align: justify;">
                     <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Civil')">
-                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
                   </div>
                   <div class="text-end mt-3">
                     <a class="btn btn-outline-light btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderCivil">
-                      <i class="bi bi-eye me-2"></i> View More...
+                      <i class="bi bi-eye me-2"></i>{{'View More' | translate }} 
                     </a>
                   </div>
                 </div>
@@ -614,7 +614,7 @@ Commissioner, Medical Education, Chhattisgarh
           <!-- Card 4 -->
           <div class="col-12 col-md-6 col-lg-3">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
-              <h5 class="card-title border-bottom border-3  pb-2 text-center gradient-heading "><strong>Other Tenders</strong> </h5>
+              <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Other Tenders' | translate }} </strong> </h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
                 <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
                   <!-- <div
@@ -632,13 +632,12 @@ Commissioner, Medical Education, Chhattisgarh
                   (touchend)="onPauseEnd(4)">
                   <div *ngFor="let item of OtherTenderList" class="mb-3" style="text-align: justify;">
                     <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Other Tender (Technical)')">
-                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
-                      {{ item.content_Subject }} {{ item.attachment_Id }}
+                      <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>{{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
                   </div>
                   <div class="text-end mt-3">
                     <a class="btn btn-outline-light btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderOther">
-                      <i class="bi bi-eye me-2"></i> View More...
+                      <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
                     </a>
                   </div>
                 </div>
@@ -649,163 +648,6 @@ Commissioner, Medical Education, Chhattisgarh
         </div>
       </div>
     </div>
- 
-      <!-- <div class="col-md-3">
-        <div class="card shadow-lg p-4 border bg-white rounded">
-          <h5 class="card-title border-bottom pb-2"><strong>Drug Tenders</strong></h5> <br>
-          <div class="card-body px-0 pt-2 pb-3">
-            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
-              onmouseout="this.start();" scrollamount="2" scrolldelay="50">
-              <div class="card-text" style="text-align: justify;" *ngFor="let DrugTender of DrugTenderList">
-                <a  type="link"  class="nav-link" (click)="onButtonClick(DrugTender.attachment_Id,'Drug-Technical')">
-                  {{DrugTender.content_Subject}} {{DrugTender.attachment_Id}}<br><br>
-                </a>
-              </div>
-              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderDrug" routerLinkActive="active">
-               <i class="bi bi-eye me-2"></i> View More...
-               </a>
-            </marquee>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card shadow-lg p-4 border bg-white rounded">
-          <h5 class="card-title border-bottom pb-2"><strong>Equipment Tenders</strong></h5>
-          <div class="card-body px-0 pt-2 pb-3">
-            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
-              onmouseout="this.start();" scrollamount="5" scrolldelay="50">
-              <div class="card-text text-primary" style="text-align: justify;" *ngFor="let Equipment of EquipmentList">
-                <a type="link" class="nav-link" (click)="onButtonClick(Equipment.attachment_Id, 'Equipment-Technical')">
-                  {{Equipment.content_Subject}} {{Equipment.attachment_Id}}<br><br>
-                </a>
-              </div>
-              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderEquip" routerLinkActive="active">
-                <i class="bi bi-eye me-2"></i> View More...
-                </a>
-            </marquee>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card shadow-lg p-4 border bg-white rounded">
-          <h5 class="card-title border-bottom pb-2"><strong>Infrastructure Tenders</strong></h5>
-          <div class="card-body px-0 pt-2 pb-3">
-            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
-              onmouseout="this.start();" scrollamount="4" scrolldelay="50">
-              <div class="card-text text-primary" style="text-align: justify;" *ngFor="let CivilTender of CivilTenderList">
-                <a type="link"  (click)="onButtonClick(CivilTender.attachment_Id,'Civil')">
-                  {{CivilTender.content_Subject}} {{CivilTender.attachment_Id}}<br><br>
-                </a>
-              </div>
-              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderCivil" routerLinkActive="active">
-                <i class="bi bi-eye me-2"></i> View More...
-                </a>
-            </marquee>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card shadow-lg p-4 border bg-white rounded">
-          <h5 class="card-title border-bottom pb-2"><strong>Other Tenders</strong></h5> <br>
-          <div class="card-body px-0 pt-2 pb-3">
-            <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();"
-              onmouseout="this.start();" scrollamount="4" scrolldelay="50">
-              <div class="card-text text-primary" style="text-align: justify;" *ngFor="let OtherTender of OtherTenderList">
-                <a type="link" (click)="onButtonClick(OtherTender.attachment_Id,'Other Tender (Technical)')">
-                  {{OtherTender.content_Subject}} {{OtherTender.attachment_Id}}<br><br>
-                </a>
-              </div>
-              <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderOther" routerLinkActive="active">
-                <i class="bi bi-eye me-2"></i> View More...
-                </a>
-            </marquee>
-          </div>
-        </div>
-      </div> 
-          <div class="col-12 col-md-6 col-lg-3">
-            <div class="card shadow-lg p-4 border bg-white rounded h-100">
-              <h5 class="card-title border-bottom pb-2"><strong>Drug Tenders</strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
-                <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false">
-                  <div *ngFor="let item of DrugTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link text-primary" (click)="onButtonClick(item.attachment_Id, 'Drug-Technical')">
-                      {{ item.content_Subject }} {{ item.attachment_Id }}
-                    </a>
-                  </div>
-                  <div class="text-end mt-3">
-                    <a class="btn btn-outline-primary btn-sm d-inline-flex align-items-center" routerLink="/TenderDrug">
-                      <i class="bi bi-eye me-2"></i> View More...
-                    </a>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div> -->
-      <!-- <div class="col-md-2" > 
-              <div class="card shadow-lg p-4 border bg-white rounded">
-                <h5 class="card-title border-bottom pb-2"><strong>Visited Content List</strong></h5>
-                <div class="card-body px-0 pt-2 pb-3">
-                  <marquee behavior="scroll" direction="up" scrollamount="2" height="300px" onmouseover="this.stop();" onmouseout="this.start();"
-                  scrollamount="3" scrolldelay="50" >
-                  <div class="card-text text-primary" style="text-align: justify;" *ngFor="let VisitedContent of VisitedContentList">
-                   
-                    <a type="link" (click)="onButtonClick(VisitedContent.attachment_Id,'Drug-Technical')">
-                      {{VisitedContent.content_Subject}} {{VisitedContent.content_Registration_Id}}<br><br>
-                    </a>
-                  </div>
-                  <a class="btn btn-outline-primary d-inline-flex align-items-center btn-sm " routerLink="/TenderOther" routerLinkActive="active">
-                    <i class="bi bi-eye me-2"></i> View More...
-                    </a>
-                    <p class="card-text text-primary" style="text-align: justify;">
-                      Ensure the reach of Quality & Affordable healthcare services ...
-                    </p>
-                    <p class="card-text text-dark" style="text-align: justify;">
-                      in a transparent and equitable manner to each and every person of the state of Bihar...
-                    </p>
-                  </marquee>
-                </div>
-              </div>
-            </div> -->
-
-   
-  <!-- 
-</div> -->
-
-
-<!-- <div class="container-fluid">
-  <div class="row g-4">
-    <div class="col-12 col-md-6 col-lg-3" *ngFor="let card of cards">
-      <div class="card shadow-lg p-4 border bg-white rounded h-100">
-        <h5 class="card-title border-bottom pb-2"><strong>{{ card.title }}</strong></h5>
-        <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
-          <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false">
-            <div *ngFor="let item of card.items" class="mb-3" style="text-align: justify;">
-              <a class="nav-link text-primary" (click)="onButtonClick(item.attachment_Id, card.type)">
-                {{ item.content_Subject }} {{ item.attachment_Id }}
-              </a>
-               <p class="card-text text-primary" style="text-align: justify;">
-                Ensure the reach of Quality & Affordable healthcare services ...
-              </p>
-              <p class="card-text text-dark" style="text-align: justify;">
-                in a transparent and equitable manner to each and every person of the state of Bihar...
-              </p>
-            </div>
-          </div>
-          <div class="text-end mt-3">
-            <a class="btn btn-outline-primary btn-sm d-inline-flex align-items-center" [routerLink]="card.link">
-              <i class="bi bi-eye me-2"></i> View More...
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Overlapping Cards Start -->
-
-<!-- Section 2 - Background under the cards #fcecef; -->
 
 
 
@@ -813,7 +655,7 @@ Commissioner, Medical Education, Chhattisgarh
   <div class="container-fluid  text-center pb-3 px-4 pt-5 newpe1" >
     <!-- <section class="bg-white  w-100"> -->
     <!-- <div class="container px-3"> -->
-    <h4 class="mb-3 text-center Heading-font-family">Latest Announcement</h4>
+    <h4 class="mb-3 pt-1 text-center Heading-font-family">{{'Latest Announcement' | translate }}</h4>
     <!-- <h4 class="mb-3 text-center Heading-font-family">CGMSCL GALLERY</h4> -->
     <!-- <p class="lead text-center">This is the section below overlapping cards.</p> -->
 
@@ -828,7 +670,7 @@ Commissioner, Medical Education, Chhattisgarh
             <li class="nav-item" role="presentation">
               <button class="nav-link active " id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button"
                 role="tab">
-                Video Gallery
+                {{'Video Gallery' | translate }} 
               </button>
             </li>
             <!-- <li class="nav-item" role="presentation">
@@ -841,7 +683,7 @@ Commissioner, Medical Education, Chhattisgarh
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" (click)="GetNoticCircular()"
                 role="tab">
-                Circulars/User Manuals
+                {{'Circulars/User Manuals' | translate }}  
               </button>
             </li>
            
@@ -854,7 +696,7 @@ Commissioner, Medical Education, Chhattisgarh
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab5-tab" data-bs-toggle="tab" data-bs-target="#tab5" type="button"
                 role="tab">
-                Events
+                {{'Events' | translate }} 
 
               </button>
             </li>
@@ -869,7 +711,7 @@ Commissioner, Medical Education, Chhattisgarh
           <!-- Tab content -->
           <div class="tab-content pt-4">
             <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-              <h5 class="gradient-heading">Video Gallery</h5>
+              <h5 class="gradient-heading pt-1">{{'Video Gallery' | translate }} </h5>
               <div class="row g-2">
 
                 <div class="col-md-12 mb-3">
@@ -877,7 +719,7 @@ Commissioner, Medical Education, Chhattisgarh
                     <video controls preload="none" width="100%" height="100%">
                       <!-- F:\CGMSC\CGMSC_Home_Page\src\assets\Videos\cgmsc-video.mp4 -->
                       <source src="./assets/Videos/cgmsc-video.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
+                      {{'Your browser does not support the video tag' | translate }}
                     </video>
                   </div>
                 </div>
@@ -927,13 +769,13 @@ Commissioner, Medical Education, Chhattisgarh
                   <img src="/assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 9">
                 </div> -->
-                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
-                  Gallery</button>
+                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; 
+                  {{'Explore our Photo Gallery' | translate }} </button>
 
               </div>
             </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel">
-              <h5 class="gradient-heading">Circulars/User Manuals</h5>
+              <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5>
               <div class="row g-2">
                 <!-- <div class="col-12 col-md-12 ">
                   <div class="card ">
@@ -964,7 +806,7 @@ Commissioner, Medical Education, Chhattisgarh
 
                 <div class="col-12 col-md-12 col-lg-12" >
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
-                    <h5 class="card-title border-bottom border-3 pb-2 text-center gradient-heading "><strong>CGMSCL Notice/Circular</strong></h5>
+                    <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'CGMSCL Notice/Circular' | translate }}</strong></h5>
                     <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
                       <!-- <div
                         class="scroll-container"
@@ -980,13 +822,13 @@ Commissioner, Medical Education, Chhattisgarh
                      <div class="scroll-content" [style.animationDuration]="'90s'">
                        <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
                          <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')">
-                           <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">New</span>
+                           <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">{{'New' | translate }}</span>
                            {{ item.content_Subject }}
                          </a>
                        </div>
                        <div class="text-end mt-3">
                          <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/NoticeCircular">
-                           <i class="bi bi-eye me-2"></i> View More...
+                           <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
                          </a>
                        </div>
                      </div>
@@ -1034,7 +876,7 @@ Commissioner, Medical Education, Chhattisgarh
             </div>
             <div class="tab-pane fade" id="tab3" role="tabpanel">
               
-              <h5 class="gradient-heading">Latest Announcement</h5>
+              <h5 class="gradient-heading pt-1">{{'Latest Announcement' | translate }}</h5>
               <div class="row g-2">
                 <div class="col-md-8 mb-3">
                   <div class="ratio ratio-16x9">
@@ -1081,7 +923,7 @@ Commissioner, Medical Education, Chhattisgarh
               </div>
             </div>
             <div class="tab-pane fade" id="tab5" role="tabpanel">
-              <h5 class="gradient-heading">Events</h5>
+              <h5 class="gradient-heading pt-1">{{'Events' | translate }}</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1140,31 +982,31 @@ Commissioner, Medical Education, Chhattisgarh
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="tab6-tab" data-bs-toggle="tab" data-bs-target="#tab6" type="button"
                 role="tab">
-                News
+                {{'News' | translate }} 
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab7-tab" data-bs-toggle="tab" data-bs-target="#tab7" type="button"
                 role="tab">
-                Drugs
+                {{'Drugs' | translate }} 
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab8-tab" data-bs-toggle="tab" data-bs-target="#tab8" type="button"
                 role="tab">
-                Equipment
+                {{'Equipment' | translate }}
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab9-tab" data-bs-toggle="tab" data-bs-target="#tab9" type="button"
                 role="tab">
-                Infrastructure
+                {{'Infrastructure' | translate }} 
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab10-tab" data-bs-toggle="tab" data-bs-target="#tab10" type="button"
                 role="tab">
-                Events
+                {{'Events' | translate }}   
 
               </button>
             </li>
@@ -1179,7 +1021,7 @@ Commissioner, Medical Education, Chhattisgarh
           <!-- Tab content -->
           <div class="tab-content pt-4">
             <div class="tab-pane fade show active" id="tab6" role="tabpanel">
-              <h5 class="gradient-heading">News</h5>
+              <h5 class="gradient-heading">{{'News' | translate }}</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of News; let i = index">
                   <img [src]="img"
@@ -1239,7 +1081,7 @@ Commissioner, Medical Education, Chhattisgarh
               </div>
             </div>
             <div class="tab-pane fade" id="tab7" role="tabpanel">
-              <h5 class="gradient-heading">Drugs</h5>
+              <h5 class="gradient-heading">{{'Drugs' | translate }}</h5>
               <!-- <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="/assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1295,7 +1137,7 @@ Commissioner, Medical Education, Chhattisgarh
               
             </div>
             <div class="tab-pane fade" id="tab8" role="tabpanel">
-              <h5 class="gradient-heading">Equipment</h5>
+              <h5 class="gradient-heading">{{'Equipment' | translate }}</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="https://cgmsc.gov.in/imgSlider/ctscan.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1339,7 +1181,7 @@ Commissioner, Medical Education, Chhattisgarh
               </div>
             </div>
             <div class="tab-pane fade" id="tab9" role="tabpanel">
-              <h5 class="gradient-heading">Infrastructure</h5>
+              <h5 class="gradient-heading">{{'Infrastructure' | translate }}</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of Infrastructure; let i = index">
                   <img [src]="img"
@@ -1423,7 +1265,7 @@ Commissioner, Medical Education, Chhattisgarh
               </div>
             </div>
             <div class="tab-pane fade" id="tab10" role="tabpanel">
-              <h5 class="gradient-heading">Events</h5>
+              <h5 class="gradient-heading">{{'Events' | translate }}</h5>
               <div class="row g-2">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of events; let i = index">
                   <img [src]="img"
@@ -1487,7 +1329,7 @@ Commissioner, Medical Education, Chhattisgarh
       <div class="row g-4 justify-content-center" >
         <div class="col-md-4">
           <div class="card h-100 text-white p-4" style="background-color: #4891f1 ; border-radius: 10px;">
-            <h5 class="card-title border-bottom pb-2"><strong>Our Mission</strong></h5>
+            <h5 class="card-title border-bottom pb-2"><strong>{{'Our Mission' | translate }}</strong></h5>
             <div class="card-body px-0 pt-2 pb-3">
               <p class="card-text" style="text-align: justify;">
                 Ensure the reach of Quality & Affordable healthcare services in a transparent and equitable manner to each
@@ -1497,14 +1339,14 @@ Commissioner, Medical Education, Chhattisgarh
   
             <a href="#" type="button" class="btn btn-outline-light mt-auto w-fit px-4 py-2 theme-navbar text-white"
               >
-              <i class="bi bi-chevron-double-right me-2 "></i> Read More
+              <i class="bi bi-chevron-double-right me-2 "></i> {{'Read More' | translate }}
             </a>
           </div>
         </div>
   
         <div class="col-md-4">
           <div class="card h-100 text-white p-4" style="background-color: #19bcfd; border-radius: 10px; ">
-            <h5 class="card-title border-bottom pb-2"><strong>Our Vision</strong></h5>
+            <h5 class="card-title border-bottom pb-2"><strong>{{'Our Vision' | translate }}</strong></h5>
             <div class="card-body px-0 pt-2 pb-3">
               <p class="card-text" style="text-align: justify;">
                 To become a leading organization in managing public healthcare logistics, ensuring availability of
@@ -1512,14 +1354,14 @@ Commissioner, Medical Education, Chhattisgarh
               </p>
             </div>
             <a href="#" class="btn btn-outline-light mt-auto w-fit px-4 py-2 theme-navbar text-white">
-              <i class="bi bi-chevron-double-right me-2"></i> Read More
+              <i class="bi bi-chevron-double-right me-2"></i>{{'Read More' | translate }} 
             </a>
           </div>
         </div>
   
         <div class="col-md-4">
           <div class="card h-100 text-white p-4" style="background-color: #19d6ad; border-radius: 10px;">
-            <h5 class="card-title border-bottom pb-2"><strong>Our Values</strong></h5>
+            <h5 class="card-title border-bottom pb-2"><strong>{{'Our Values' | translate }} </strong></h5>
             <div class="card-body px-0 pt-2 pb-3">
               <p class="card-text" style="text-align: justify; font-family: 'Times New Roman', Times, serif;">
                 We believe in transparency, accountability, timely service
@@ -1542,7 +1384,7 @@ Commissioner, Medical Education, Chhattisgarh
 
 <!-- <section class="py-4 pb-5" style="background-color: #fcecef;"> style="background-color: #fff8f2;"-->
 <section class="py-4 " >
-  <h4 class="mb-4 text-center fw-semibold Heading-font-family">Office Location</h4>
+  <h4 class="mb-4 text-center fw-semibold Heading-font-family pt-1">{{'Office Location' | translate }} </h4>
 
   <div class="my-1  border bg-white">
     <!-- Nav tabs -->
@@ -1550,19 +1392,19 @@ Commissioner, Medical Education, Chhattisgarh
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="tab11-tab" data-bs-toggle="tab" data-bs-target="#tab11" type="button"
           role="tab">
-          Head Office
+          {{'Head Office' | translate }} 
         </button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab12-tab" data-bs-toggle="tab" data-bs-target="#tab12" type="button" role="tab">
-          Drug Warehouse  
+           {{'Drug Warehouse' | translate }}   
           <!-- Warehouse Location -->
         </button>
       </li>
 
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab13-tab" data-bs-toggle="tab" data-bs-target="#tab13" type="button" role="tab">
-          Infrastructure Division
+          {{'Infrastructure Division' | translate }}  
           <!-- Division Office -->
         </button>
       </li>
@@ -1578,7 +1420,7 @@ Commissioner, Medical Education, Chhattisgarh
     <div class="tab-content pt-4">
       <div class="tab-pane fade show active" id="tab11" role="tabpanel">
           
-        <h5 class="text-center gradient-heading">Head Office Locations</h5>
+        <h5 class="text-center gradient-heading pt-1">{{'Head Office Locations' | translate }}</h5>
         <div class="container-fluid Card">
             <google-map
             height="400px"
@@ -1596,10 +1438,14 @@ Commissioner, Medical Education, Chhattisgarh
              >
             </map-marker>
             <map-info-window  #infoWindow="mapInfoWindow">
-              <h3 class="border-bottom">CGMSCL Head Office</h3>
+              <h3 class="border-bottom pt-1">CGMSCL Head Office</h3>
               <p><strong>4QPP+MMC</strong> </p>
               <p><strong>Sector 27, Nawagaon Parsatti</strong></p>
-              <p><strong>Atal Nagar-Nava Raipur, Chhattisgarh 492101 India</strong></p>
+              <p><strong>Atal Nagar-Nava Raipur, Chhattisgarh 492101 India </strong></p>
+              <!-- <h3 class="border-bottom pt-1">{{'CGMSCL Head Office' | translate }} </h3>
+              <p><strong>{{'4QPP+MMC' | translate }}</strong> </p>
+              <p><strong>{{'Sector 27, Nawagaon Parsatti' | translate }} </strong></p>
+              <p><strong>{{'Atal Nagar-Nava Raipur, Chhattisgarh 492101 India' | translate }} </strong></p> -->
               </map-info-window>
             <!-- <map-info-window  #infoWindow="mapInfoWindow">
               <strong>CGMSC head office</strong><br />
@@ -1612,7 +1458,7 @@ Commissioner, Medical Education, Chhattisgarh
         </div>
       </div>
       <div class="tab-pane fade" id="tab12" role="tabpanel" >
-        <h5 class="text-center gradient-heading">Drug Warehouses Locations</h5>
+        <h5 class="text-center gradient-heading pt-1">{{'Drug Warehouses Locations' | translate }} </h5>
         <!-- <ng-container (click)="GetWarehouse_Location()" (click)="logout()"> -->
 
         
@@ -1626,7 +1472,7 @@ Commissioner, Medical Education, Chhattisgarh
         </div>
       </div>
       <div class="tab-pane fade" id="tab13" role="tabpanel">
-        <h5 class="text-center gradient-heading">Infrastructure Division Office Locations</h5>
+        <h5 class="text-center gradient-heading pt-1">{{'Infrastructure Division Office Locations' | translate }} </h5>
         <div class="container-fluid Card">
           <app-division-office-location></app-division-office-location>
         </div>
@@ -1674,14 +1520,14 @@ Commissioner, Medical Education, Chhattisgarh
         </ul>
       <button class="btn btn-outline-light btn-sm mb-3">View all</button> -->
 
-        <h4 class="fw-bold">Data Transparency</h4>
-      <p >
-      We are committed to operational Data transparency and accountability through real-time access related to
+        <h4 class="fw-bold pt-1">{{'Data Transparency' | translate }} </h4>
+      <p >{{'We are committed' | translate }}<br>
+      <!-- We are committed to operational Data transparency and accountability through real-time access related to
          procurement workflows, supply chain logistics, infrastructure progress, tendering processes & rate contract etc. 
-         This ensures efficient governance and data-driven decision-making in the delivery of essential drugs and medical consumables.<br>
-           <a href="https://dpdmis.in/mdang/public-view1"  target="_blank"class="text-white text-decoration-none hover-link ">Drugs and Consumables </a> |
-           <a href="#" target="_blank" class="text-white text-decoration-none hover-link" >Equipment & Reagent</a> |
-           <a href="https://dpdmis.in/mdang/Infrastructure-Public-View" target="_blank"class="text-white text-decoration-none hover-link">Infrastructure</a>
+         This ensures efficient governance and data-driven decision-making in the delivery of essential drugs and medical consumables. --> 
+           <a href="https://dpdmis.in/mdang/public-view1"  target="_blank"class="text-white text-decoration-none hover-link ">{{'Drugs and Consumables' | translate }}  </a> |
+           <a href="#" target="_blank" class="text-white text-decoration-none hover-link" >{{'Equipment & Reagent' | translate }} </a> |
+           <a href="https://dpdmis.in/mdang/Infrastructure-Public-View" target="_blank"class="text-white text-decoration-none hover-link">{{'Infrastructure' | translate }} </a>
         </p>
     </div>
     </div>
@@ -1689,7 +1535,7 @@ Commissioner, Medical Education, Chhattisgarh
     <!-- Social/Utility Links -->
     <!-- <div class="row"> -->
       <div class="col-12 col-lg-3 mb-4 px-3">
-        <h4 class="fw-bold">Links</h4>
+        <h4 class="fw-bold pt-1">{{'Links' | translate }}</h4>
         <div class="py-3">
           <ul class="list-unstyled mb-0">
             <li class="mb-2">
@@ -1697,7 +1543,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-facebook"></i>
               </span>
               <a href="https://www.facebook.com/share/18pBc8UPYW/" target="_blank" class="text-decoration-none text-white hover-link">
-                Facebook
+                {{'Facebook' | translate }} 
               </a>
             </li>
             <li class="mb-2">
@@ -1705,7 +1551,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-linkedin"></i>
               </span>
               <a href="https://in.linkedin.com/" target="_blank" class="text-decoration-none text-white hover-link">
-                LinkedIn
+                {{'LinkedIn' | translate }}  
               </a>
             </li>
             <li class="mb-2">
@@ -1713,7 +1559,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-envelope-fill"></i>
               </span>
               <a href="mailto:cgmsc.ltd@gov.in"  class="text-decoration-none text-white hover-link">
-                Feedback
+                {{'Feedback' | translate }} 
               </a>
             </li>
             <li class="mb-2">
@@ -1721,7 +1567,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-telephone-fill"></i>
               </span>
               <a routerLink="/ContactUs"  routerLinkActive="active" class="text-decoration-none text-white hover-link">
-                Contact us
+                {{'Contact us' | translate }} 
               </a>
             </li>
           </ul>
@@ -1729,7 +1575,7 @@ Commissioner, Medical Education, Chhattisgarh
       </div>
     
       <div class="col-12 col-lg-3 mb-4 px-3">
-        <h4 class="fw-bold invisible">Links</h4>
+        <h4 class="fw-bold invisible">{{'Links' | translate }} </h4>
   <style>
 .hover-link {
   text-decoration: none;
@@ -1748,7 +1594,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-twitter-x"></i>
               </span>
               <a  href="https://twitter.com/@CGMSCL" target="_blank" class="text-decoration-none text-white hover-link">
-                Twitter
+                {{'Twitter' | translate }} 
               </a>
             </li>
             <li class="mb-2">
@@ -1756,7 +1602,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-instagram "></i>
               </span>
               <a href="https://www.instagram.com/accounts/login/" target="_blank" class="text-decoration-none text-white hover-link">
-                Instagram
+                {{'Instagram' | translate }}   
               </a>
             </li>
             <!-- <li class="mb-2">
@@ -1772,7 +1618,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-share-fill"></i>
               </span>
               <a type="link" (click)="sharePage()" class="text-decoration-none text-white hover-link" style="cursor: pointer;">
-                Share this page
+                {{'Share this page' | translate }}   
               </a>
             </li>
             
@@ -1781,7 +1627,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <i class="bi bi-info-circle-fill "></i>
               </span>
               <a routerLink="/AboutCGMSC" routerLinkActive="active"  class="text-decoration-none text-white hover-link">
-                About Us
+                {{'About Us' | translate }} 
               </a>
             </li>
           </ul>
