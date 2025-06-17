@@ -32,6 +32,11 @@
     text-align: left;
     padding: 8px;
   }
+
+  .table th, .mat-header-cell {
+  text-align: center !important;
+  vertical-align: middle;
+}
   
   .table td {
     padding: 8px;
@@ -105,13 +110,4 @@
     font-size: 1rem;
     border: none;
   }
-
-
-
-
-
-
-
-
-
-
+    

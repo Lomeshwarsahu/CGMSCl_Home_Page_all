@@ -93,6 +93,17 @@ export interface Employee{
   emailId: number;
   contactNo: number;
 }
+export interface drugProBlacklisted{
+  sno:number;
+  nameofProduct: string;
+  nameOfFirm: string;
+  address: string;
+  fromdate: string;
+  upto: string;
+  reasonOfBlacklisting: string;
+  spremarks: string;
+
+}
 export interface Employee_dpt{
   coreDept:string; 
 }

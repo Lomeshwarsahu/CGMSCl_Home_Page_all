@@ -357,15 +357,15 @@ export class HomeComponent {
     'https://dpdmis.in/cdn/drugs/40.jpeg',
   ];
   Infrastructure: string[] = [
-'https://dpdmis.in/cdn/Infrastructure/Picture1.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture10.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture11.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture2.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture3.png',
 'https://dpdmis.in/cdn/Infrastructure/Picture4.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture2.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture1.png',
 'https://dpdmis.in/cdn/Infrastructure/Picture5.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture3.png',
 'https://dpdmis.in/cdn/Infrastructure/Picture6.jfif',
 'https://dpdmis.in/cdn/Infrastructure/picture7.jfif',
+'https://dpdmis.in/cdn/Infrastructure/Picture10.png',
+'https://dpdmis.in/cdn/Infrastructure/Picture11.png',
 
     // 'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
     // 'https://dpdmis.in/cdn/Event/photo_5.jpg',
