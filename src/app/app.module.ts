@@ -18,7 +18,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // import {APP_BASE_HREF} from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -28,7 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),
+    AppRoutingModule,FormsModule,ReactiveFormsModule,
     BrowserAnimationsModule,NgbCollapseModule
     // , MatTableExporterModule
     ,MaterialModule, 
@@ -44,10 +43,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
      ServiceWorkerModule.register('ngsw-worker.js', {
        enabled: !isDevMode(),
-       // Register the ServiceWorker as soon as the application is stable
-       // or after 30 seconds (whichever comes first).
        registrationStrategy: 'registerWhenStable:30000'
      }),
+     ToastrModule.forRoot(),
 
     //  ServiceWorkerModule.register('ngsw-worker.js', {
     //   enabled: environment.production,
