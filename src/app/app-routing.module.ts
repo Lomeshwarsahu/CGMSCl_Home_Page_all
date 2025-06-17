@@ -19,6 +19,7 @@ import { BlacklistedFirmComponent } from './components/blacklisted-firm/blacklis
 import { OtherDeptRecruitmentComponent } from './components/other-dept-recruitment/other-dept-recruitment.component';
 import { ProcurementPolicyDrugsComponent } from './components/procurement-policy-drugs/procurement-policy-drugs.component';
 import { ProcurementPolicyEquipmentsComponent } from './components/procurement-policy-equipments/procurement-policy-equipments.component';
+import { DrugProductBlacklistedComponent } from './components/drug-product-blacklisted/drug-product-blacklisted.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -44,6 +45,7 @@ const routes: Routes = [
    { path: 'otherDeptRecruitment', component: OtherDeptRecruitmentComponent },
   { path: 'OperationalPolicyDrugs', component: ProcurementPolicyDrugsComponent },
   { path: 'OperationalPolicyEquipments', component: ProcurementPolicyEquipmentsComponent },
+  { path: 'DrugProductBlacklisted', component: DrugProductBlacklistedComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, // ✅ Protected Route
 
