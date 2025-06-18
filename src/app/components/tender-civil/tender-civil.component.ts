@@ -81,34 +81,13 @@ GetEquipmentListAll() {
           },
           (error) => {
             this.spinner.hide();
-            // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
-            this.toastr.error(`Error fetching data: ${error.message}`, 'Error');
+            this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
           }
         );
-      // debugger;
-     
-        
-        //   this.Service.get('GetDrugTenderList?n=0').subscribe((res: any) => {
-        //     //  this.data_model=res;
-        //     //  this.DrugTenderList = this.data_model
-        //     //   console.log(this.DrugTenderList);
-        //       // console.log(JSON.stringify(res.user.role[0].roleName));
-        //       // console.log(JSON.stringify(res.user.userName));
-        //       // console.log(JSON.stringify(res.user))
-    
-        //   } ,
-        //     (err: Error) => {
-        //     //  debugger
-        //     //  throw err;
-        //     console.log(err);
-        //     // this.toastr.error("Please Check userId and password!",'Error');
-        //     //  alert(err.message)
-        //    }
-        //  );
         }
         catch(err:any){
           this.spinner.hide();
-          this.toastr.error(`Error fetching data: ${err.message}`, 'Error');
+          this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
           // console.log(err);
           // throw err;
         }
