@@ -168,3 +168,31 @@ export interface CategoryData {
   contentCategoryCode: string
   contentCategoryName: string
 }
+
+export interface TenderData {
+  tender_Id: string
+  tender_No: string
+  // tender_Id: "1", tender_No: "RBSK" }
+}
+
+export interface TenderRCData {
+  contract_item_id: number
+  item_codeE: string
+  item_nameE: string
+  basic_rate: number
+  percentage: number
+  single_unit_price: number
+  model: string
+  contract_date: string
+  contract_duration: number
+  contract_end_date: string
+  name: string
+  tender_no: string
+  tender_id: number
+  webSiteUploadID: string
+  file_name: string
+  upload_folder_name: string
+  item_id: number
+  is_extended: any
+  contract_new_end_date: any
+}
