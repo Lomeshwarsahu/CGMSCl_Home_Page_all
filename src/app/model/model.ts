@@ -10,6 +10,7 @@ export class Model {
 //#region  home page 
 export interface Data_model {
     sno:number;
+    // rowSpan: number;  
     url: string;
     content_Registration_Id: string;
     attachment_Id: string;
@@ -21,11 +22,6 @@ export interface Data_model {
     expiry_Date_of: string;
     expiry_DateOnNotice_Board: string;
     displayNew: string;
-
-    
-
-   
-
   }
   export interface GetMostVisitedContentList {
       url: string
