@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { MaterialModule } from 'src/app/material-module';
 import { drugWarehouseInfo, NoticCircular } from 'src/app/model/model';
@@ -34,7 +35,9 @@ export class NoticeCircularComponent {
     'sno','content_Subject','content_Publising_Date','countATT','department','content_Discription','action'
    
   ];
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, 
+    private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService
+  ) {
     this.dataSource = new MatTableDataSource<NoticCircular>([]);
 
   }
@@ -66,15 +69,16 @@ export class NoticeCircularComponent {
               this.spinner.hide();
             },
             (error) => {
-  
-              alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+              this.spinner.hide();
+              this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
+              // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
             }
           );
           }
           catch(err:any){
             this.spinner.hide();
-  
-            console.log(err);
+            this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
+            // console.log(err);
             // throw err;
           }
       }
