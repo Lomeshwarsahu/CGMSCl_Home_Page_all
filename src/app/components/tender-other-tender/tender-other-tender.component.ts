@@ -80,7 +80,7 @@ export class TenderOtherTenderComponent {
           (error) => {
             this.spinner.hide();
             // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
-            this.toastr.error(`Error fetching data: ${error}`, 'Error');
+            this.toastr.error(`Error fetching data: ${error.message}`, 'Error');
 
           }
         );
