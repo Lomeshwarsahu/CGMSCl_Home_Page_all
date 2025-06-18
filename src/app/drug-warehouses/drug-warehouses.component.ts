@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {drugWarehouseInfo } from '../model/model';
 import { ApiServiceService } from '../service/api-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-drug-warehouses',
@@ -36,7 +37,9 @@ export class DrugWarehousesComponent {
    
   ];
   selectedColor:any;
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, 
+    private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService
+  ) {
     this.dataSource = new MatTableDataSource<drugWarehouseInfo>([]);
     }
   
@@ -47,10 +50,6 @@ export class DrugWarehousesComponent {
 
       this.GetEmployeeList();
       this.spinner.show();
-
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000); // hides after 3 seconds
     }
 
       GetEmployeeList( ){
@@ -66,7 +65,7 @@ export class DrugWarehousesComponent {
                   sno: index + 1,
                 })
               );
-              console.log('drugWarehouseInfo =:', this.dispatchData);
+              // console.log('drugWarehouseInfo =:', this.dispatchData);
               this.dataSource.data = this.dispatchData;
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;
@@ -74,15 +73,16 @@ export class DrugWarehousesComponent {
               this.spinner.hide();
             },
             (error) => {
-  
-              alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+              this.spinner.hide();
+              this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
+              // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
             }
           );
           }
           catch(err:any){
             this.spinner.hide();
-  
-            console.log(err);
+            this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
+            // console.log(err);
             // throw err;
           }
       }

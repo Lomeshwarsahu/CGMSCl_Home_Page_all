@@ -13,6 +13,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 // import { NgxSpinnerModule } from 'ngx-spinner';
 @Component({
   standalone: true,
@@ -54,7 +55,7 @@ export class AttachmentListComponent {
   constructor(
     public Service: ApiServiceService,
     private cdr: ChangeDetectorRef,
-    private router: Router,
+    private router: Router,private toastr:ToastrService,
     private route: ActivatedRoute,private spinner: NgxSpinnerService
   ) {
     this.dataSource = new MatTableDataSource<ContentAttachment>([]);
@@ -81,15 +82,6 @@ export class AttachmentListComponent {
     this.GetContentHeader(params['Id']);
     // this.GetContentAttachment(params['Id']);
   });
-  this.spinner.show();
-
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 3000); // hides after 3 seconds
-    //   this.selectedColor = sessionStorage.getItem('selectedColor');
-    // this.ApiService.selectedColor$.subscribe(color => {
-    //   this.selectedColor = color;
-    // });
   }
   // https://cgmsc.gov.in/Home/AttachmentList.aspx?a=202505000001
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetContentAttachment?contentRegId=201408000001
@@ -105,18 +97,20 @@ export class AttachmentListComponent {
           this.ContentHeader_data=res;
         this.spinner.hide();
         this.GetContentAttachment(attachment_Id);
-          // this.ContentHeader_data=res[0]
-          // console.log('GetContentHeader=:',res);
-          // console.log('GetContentHeader2=:',this.ContentHeader_data);
-        },
-        (error) => {
-          alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+        // this.ContentHeader_data=res[0]
+        // console.log('GetContentHeader=:',res);
+        // console.log('GetContentHeader2=:',this.ContentHeader_data);
+      },
+      (error) => {
+          this.spinner.hide();
+          this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
+          // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
         }
       );
     } catch (err: any) {
       this.spinner.hide();
-
-      console.log(err);
+      this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
+      // console.log(err);
       // throw err;
     }
   }
@@ -145,16 +139,20 @@ export class AttachmentListComponent {
           this.dataSource.sort = this.sort;
           this.cdr.detectChanges();
         this.spinner.hide();
-
-        },
-        (error) => {
-          alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+        
+      },
+      (error) => {
+          this.spinner.hide();
+      this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
+          
+          // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
         }
       );
     } catch (err: any) {
       this.spinner.hide();
+      this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
 
-      console.log(err);
+      // console.log(err);
       // throw err;
     }
   }
