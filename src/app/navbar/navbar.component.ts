@@ -193,6 +193,7 @@ export class NavbarComponent {
       const childRoutes = [
         '/TenderDrug',
         '/OperationalPolicyDrugs',
+        '/DrugProductBlacklisted',
         '/blacklistFirm',
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
@@ -217,13 +218,14 @@ export class NavbarComponent {
     }else if (section === 'TENDERS') {
       const childRoutes = [
         '/TenderDrug',
-        '/equipment',
-        '/infrastructure'
+        '/TenderEquip',
+        '/TenderCivil',
+        '/TenderOther'
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'GALLERY') {
       const childRoutes = [
-        '/TenderDrugr',
+        '/TenderDrugrq',
         '/equipmentr',
         '/infrastructurer'
       ];

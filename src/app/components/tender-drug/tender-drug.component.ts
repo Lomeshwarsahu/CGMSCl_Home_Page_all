@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 // import { MaterialModule } from './material-module';
 // import { MatTableExporterModule } from 'mat-table-exporter';
+import { ToastrService,ToastrModule } from 'ngx-toastr';
+
 @Component({
   standalone: true,
   selector: 'app-tender-drug',
     
     imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
-      MatTableExporterModule,CommonModule
+      MatTableExporterModule,CommonModule,ToastrModule
     ],
   templateUrl: './tender-drug.component.html',
   styleUrl: './tender-drug.component.css'
@@ -27,6 +29,8 @@ export class TenderDrugComponent {
   dataSource!: MatTableDataSource<Data_model>;
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild('sort') sort!: MatSort;
+  @ViewChild('paginator1') paginator1!: MatPaginator;
+  @ViewChild('sort1') sort1!: MatSort;
   dispatchData: Data_model[] = [];
   // DrugTenderList: Data_model []=[];
   displayedColumns: string[] = [
@@ -38,7 +42,8 @@ export class TenderDrugComponent {
   //   'content_Discription', 'subject', 'content_Subject', 'content_Publising_Date',
   //   'expiry_Date_of', 'expiry_DateOnNotice_Board', 'displayNew'
   // ];
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,
+    private toastr: ToastrService,private spinner: NgxSpinnerService) {
     this.dataSource = new MatTableDataSource<Data_model>([]);
     }
   
@@ -52,9 +57,7 @@ export class TenderDrugComponent {
       //   // this.selectedColor = color;
       // });
 
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000); // hides after 3 seconds
+      
       this.GetDrugTenderList();
 
     }
@@ -76,41 +79,22 @@ export class TenderDrugComponent {
             );
             console.log('GetDrugTenderList=:', this.dispatchData);
             this.dataSource.data = this.dispatchData;
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator1;
+            this.dataSource.sort = this.sort1;
             this.cdr.detectChanges();
             this.spinner.hide();
           },
           (error) => {
-      
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.spinner.hide();
+            this.toastr.error(`Error fetching data: ${error}`, 'Error');
+            // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
           }
         );
-      // debugger;
-     
-        
-        //   this.Service.get('GetDrugTenderList?n=0').subscribe((res: any) => {
-        //     //  this.data_model=res;
-        //     //  this.DrugTenderList = this.data_model
-        //     //   console.log(this.DrugTenderList);
-        //       // console.log(JSON.stringify(res.user.role[0].roleName));
-        //       // console.log(JSON.stringify(res.user.userName));
-        //       // console.log(JSON.stringify(res.user))
-    
-        //   } ,
-        //     (err: Error) => {
-        //     //  debugger
-        //     //  throw err;
-        //     console.log(err);
-        //     // this.toastr.error("Please Check userId and password!",'Error');
-        //     //  alert(err.message)
-        //    }
-        //  );
         }
         catch(err:any){
           this.spinner.hide();
-// alert(err)
-          console.log(err);
+          this.toastr.error(`Error fetching data: ${err.message}`, 'Error');
+          // console.log(err);
           // throw err;
         }
       }
@@ -130,4 +114,16 @@ export class TenderDrugComponent {
         });
 
       }
+
+      // Example: convert "30/05/2025" to Date object
+convertToDate(d: string): Date | null {
+  const parts = d.split('/');
+  if (parts.length === 3) {
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Months are 0-based
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day);
+  }
+  return null;
+}
 }

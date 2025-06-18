@@ -46,11 +46,9 @@ dataSource!: MatTableDataSource<BlacklistedFirm>;
 
       this.GetBlackListedFirmList();
       
-      this.spinner.show();
+    
 
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000); // hides after 3 seconds
+     
       
 
      }
