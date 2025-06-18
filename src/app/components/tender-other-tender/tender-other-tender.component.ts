@@ -10,13 +10,15 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService,ToastrModule } from 'ngx-toastr';
+
 // import { MaterialModule } from './material-module';
 // import { MatTableExporterModule } from 'mat-table-exporter';
 @Component({
   standalone: true,
     selector: 'app-tender-drug',
     imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
-      MatTableExporterModule,CommonModule
+      MatTableExporterModule,CommonModule,ToastrModule
     ],
   templateUrl: './tender-other-tender.component.html',
   styleUrl: './tender-other-tender.component.css'
@@ -36,7 +38,8 @@ export class TenderOtherTenderComponent {
   //   'content_Discription', 'subject', 'content_Subject', 'content_Publising_Date',
   //   'expiry_Date_of', 'expiry_DateOnNotice_Board', 'displayNew'
   // ];
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,
+     private toastr: ToastrService,private spinner: NgxSpinnerService) {
     this.dataSource = new MatTableDataSource<Data_model>([]);
     }
   
@@ -49,11 +52,6 @@ export class TenderOtherTenderComponent {
       //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
       //   // this.selectedColor = color;
       // });
-      this.spinner.show();
-
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000); // hides after 3 seconds
       this.GetDrugTenderList();
     }
 // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderListAll
@@ -80,14 +78,18 @@ export class TenderOtherTenderComponent {
             this.spinner.hide();
           },
           (error) => {
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.spinner.hide();
+            // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.toastr.error(`Error fetching data: ${error}`, 'Error');
+
           }
         );
         }
         catch(err:any){
           this.spinner.hide();
+          this.toastr.error(`Error fetching data: ${err.message}`, 'Error');
 
-          console.log(err);
+          // console.log(err);
           // throw err;
         }
       }
@@ -107,5 +109,17 @@ export class TenderOtherTenderComponent {
         });
 
       }
+
+            // Example: convert "30/05/2025" to Date object
+convertToDate(d: string): Date | null {
+  const parts = d.split('/');
+  if (parts.length === 3) {
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Months are 0-based
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day);
+  }
+  return null;
+}
 }
 

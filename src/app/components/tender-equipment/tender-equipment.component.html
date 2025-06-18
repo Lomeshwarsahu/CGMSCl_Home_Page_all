@@ -78,7 +78,8 @@
                      <ng-container matColumnDef="content_Publising_Date">
                        <th mat-header-cell *matHeaderCellDef> Publishing Date </th>
                        <!-- <th mat-header-cell *matHeaderCellDef>Notice Publish Date  </th> -->
-                       <td mat-cell *matCellDef="let element"> {{element.content_Publising_Date?.toString() | date: 'dd/MM/yyyy'}} </td>
+                       <!-- <td mat-cell *matCellDef="let element"> {{element.content_Publising_Date?.toString() | date: 'dd/MM/yyyy'}} </td> -->
+                       <td mat-cell *matCellDef="let element">{{ convertToDate(element.content_Publising_Date) | date: 'dd/MM/yyyy' }}</td>
                      </ng-container>
                      <ng-container matColumnDef="action">
                        <th mat-header-cell *matHeaderCellDef>Attachments</th>

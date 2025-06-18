@@ -10,11 +10,12 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService,ToastrModule } from 'ngx-toastr';
 @Component({
   standalone: true,
   selector: 'app-tender-equipment',
   imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
-    MatTableExporterModule,CommonModule
+    MatTableExporterModule,CommonModule,ToastrModule
   ],
   templateUrl: './tender-equipment.component.html',
   styleUrl: './tender-equipment.component.css'
@@ -37,7 +38,7 @@ export class TenderEquipmentComponent {
   //   'expiry_Date_of', 'expiry_DateOnNotice_Board', 'displayNew'
   // ];
  
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService,private toastr: ToastrService) {
     this.dataSource = new MatTableDataSource<Data_model>([]);
     }
   
@@ -51,10 +52,6 @@ export class TenderEquipmentComponent {
       //   // this.selectedColor = color;
       // });
       // this.spinner.show();
-
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000); // hides after 3 seconds
       this.GetEquipmentListAll();
     }
 // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetEquipmentListAll
@@ -81,7 +78,10 @@ GetEquipmentListAll() {
           },
           (error) => {
             this.spinner.hide();
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            // this.toastr.error('Something went wrong!', 'Error');
+            // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.toastr.error(`Error fetching data: ${error}`, 'Error');
+
           }
         );
       // debugger;
@@ -106,8 +106,10 @@ GetEquipmentListAll() {
         //  );
         }
         catch(err:any){
-          console.log(err);
+          // console.log(err);
           this.spinner.hide();
+          this.toastr.error(`Error fetching data: ${err.message}`, 'Error');
+
 
           // throw err;
         }
@@ -128,4 +130,16 @@ GetEquipmentListAll() {
         });
 
       }
+
+            // Example: convert "30/05/2025" to Date object
+convertToDate(d: string): Date | null {
+  const parts = d.split('/');
+  if (parts.length === 3) {
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Months are 0-based
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day);
+  }
+  return null;
+}
 }
