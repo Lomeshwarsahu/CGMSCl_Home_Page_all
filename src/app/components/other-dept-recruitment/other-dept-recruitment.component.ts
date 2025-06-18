@@ -12,6 +12,7 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import {  ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-other-dept-recruitment',
@@ -46,11 +47,12 @@ export class OtherDeptRecruitmentComponent {
   categoryData: CategoryData[] = [];
 
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router
-    , private spinner: NgxSpinnerService) {
+    , private spinner: NgxSpinnerService,private toastr: ToastrService) {
     this.dataSource = new MatTableDataSource<DeptCategory>([]);
   }
 
   ngOnInit(): void {
+    
     this.selectedColor = sessionStorage.getItem('selectedColor');
     document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);    this.spinner.show();
     this.GetScheme();
@@ -71,8 +73,9 @@ export class OtherDeptRecruitmentComponent {
             this.spinner.hide();
           },
           (error) => {
-
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.spinner.hide();
+            //alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+             this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
           }
         );
     }
@@ -132,6 +135,7 @@ export class OtherDeptRecruitmentComponent {
               })
             );
             console.log('GetDeptCategory=:', this.dispatchData);
+             
             this.dataSource.data = this.dispatchData;
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
@@ -139,15 +143,17 @@ export class OtherDeptRecruitmentComponent {
             this.spinner.hide();
           },
           (error) => {
-
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.spinner.hide();
+           // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+              this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
           }
         );
     }
     catch (err: any) {
       this.spinner.hide();
 
-      console.log(err);
+      //console.log(err);
+      this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
       // throw err;
     }
   }
