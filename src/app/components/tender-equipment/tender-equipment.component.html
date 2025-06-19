@@ -50,10 +50,10 @@
                </div>
          
                <div class="table-responsive ">
-                   <table class="table table-bordered table-striped border rounded " mat-table matTableExporter
+                   <table class="table border rounded " mat-table matTableExporter
                    [dataSource]="dataSource" #exporter="matTableExporter" matSort #sort="matSort">
        
-                   <ng-container matColumnDef="sno">
+                   <!-- <ng-container matColumnDef="sno">
                        <th mat-header-cell *matHeaderCellDef> S.No </th>
                        <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
                      </ng-container>
@@ -61,7 +61,27 @@
                      <ng-container matColumnDef="subject">
                        <th mat-header-cell *matHeaderCellDef> 	Tender Reference </th>
                        <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
-                     </ng-container>
+                     </ng-container> -->
+                     <ng-container matColumnDef="sno">
+                      <th mat-header-cell *matHeaderCellDef> S.No </th>
+                      <td  mat-cell   class="sno-cell"
+                           *matCellDef="let el"
+                           [attr.rowspan]="el.rowSpan > 0 ? el.rowSpan : null"
+                           [hidden]="el.rowSpan === 0">
+                        {{ el.sno }}
+                      </td>
+                    </ng-container>
+                    
+                    <!-- Subject column -->
+                    <ng-container matColumnDef="subject">
+                      <th mat-header-cell *matHeaderCellDef> Tender Reference </th>
+                      <td  mat-cell  class="subject-cell"
+                           *matCellDef="let el"
+                           [attr.rowspan]="el.rowSpan > 0 ? el.rowSpan : null"
+                           [hidden]="el.rowSpan === 0">
+                        {{ el.subject }}
+                      </td>
+                    </ng-container>
                      <ng-container matColumnDef="url">
                        <th mat-header-cell *matHeaderCellDef> 	Tender Ref. </th>
                        <td mat-cell *matCellDef="let element"> {{element.url}} </td>
@@ -81,25 +101,38 @@
                        <!-- <td mat-cell *matCellDef="let element"> {{element.content_Publising_Date?.toString() | date: 'dd/MM/yyyy'}} </td> -->
                        <td mat-cell *matCellDef="let element">{{ convertToDate(element.content_Publising_Date) | date: 'dd/MM/yyyy' }}</td>
                      </ng-container>
-                     <ng-container matColumnDef="action">
+                     <!-- <ng-container matColumnDef="action">
                        <th mat-header-cell *matHeaderCellDef>Attachments</th>
                        <td mat-cell *matCellDef="let element">
                          <span class="d-flex  flex-row-reverse p-2 ">
                            <button class="btn btn-sm btn-outline-light align-items-center border rounded" mat-button
                              (click)="onButtonClick(element.attachment_Id)">
-                             <!-- Open -->
                              <i class="bi bi-folder2-open me-0 gradient-heading"></i>
-                             <!-- <i class="bi bi-file-earmark-pdf me-0 bg-danger"></i> -->
                            </button>
                          </span>
                        </td>
-                     </ng-container>
-                   
+                     </ng-container> -->
+                     <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef>Attachments</th>
+                      <td  class="other-cell" mat-cell *matCellDef="let element">
+                        <span class="d-flex  flex-row-reverse p-0 m-0 ">
+                          <button class="btn btn-xs btn-outline-light align-items-center border-0 rounded  p-1 m-0 bg-transparent " mat-button
+                            (click)="onButtonClick(element.attachment_Id)">
+                            <i class="bi bi-folder2-open me-0 gradient-heading fs-6"></i>
+                          </button>
+                        </span>
+                      </td>
+                    </ng-container>
+                     <tr  mat-row *matRowDef="let row; columns: displayedColumns;"
+                      [class.group-start]="row.rowSpan > 0"
+                      [ngClass]="{
+                       'zebra-even': row.groupIndex % 2 === 0,
+                       'zebra-odd' : row.groupIndex % 2 === 1
+                        }"></tr>
                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                     <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
                  </table>
                  <mat-paginator #paginator [pageSizeOptions]="[5,10, 15, 30]" showFirstLastButtons></mat-paginator>
-                 <!-- <mat-paginator #paginator  [pageSizeOptions]="[5,10, 15, 30]" showFirstLastButtons></mat-paginator> -->
                </div>
              </div> 
              </div> 

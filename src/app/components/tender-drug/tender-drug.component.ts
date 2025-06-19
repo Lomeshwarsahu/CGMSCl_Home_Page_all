@@ -15,8 +15,11 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService,ToastrModule } from 'ngx-toastr';
 import { map } from 'rxjs';
 interface UiRow extends Data_model {
-  rowSpan: number;      // subject और sno को कितने rows तक फैलाना है
+
+  rowSpan: number;   
+  groupIndex: number;       
 }
+
 @Component({
   standalone: true,
   selector: 'app-tender-drug',
@@ -67,6 +70,7 @@ export class TenderDrugComponent {
     this.dataSource = new MatTableDataSource<Data_model>([]);
   }
 
+
   ngOnInit(): void {
     this.selectedColor = sessionStorage.getItem('selectedColor');
     document.documentElement.style.setProperty(
@@ -83,72 +87,55 @@ export class TenderDrugComponent {
   }
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderListAll
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
-
-  // dedupeSubjectAndSnoVisually(data: Data_model[]): Data_model[] {
-  //   const seenSubjects = new Set<string>();
-  //   const result: Data_model[] = [];
-
-  //   let snoCounter = 1;
-
-  //   data.forEach((item) => {
-  //     const subjectKey = (item.subject || '').trim().toLowerCase();
-
-  //     if (seenSubjects.has(subjectKey)) {
-  //       result.push({
-  //         ...item,
-  //         sno: '', // ⛔ remove S.No.
-  //         subject: '', // ⛔ remove subject
-  //       } as unknown as Data_model);
-  //     } else {
-  //       seenSubjects.add(subjectKey);
-  //       result.push({
-  //         ...item,
-  //         sno: snoCounter++, // ✅ assign unique serial
-  //         subject: item.subject,
-  //       });
-  //     }
-  //   });
-
-  //   return result;
-  // }
   prepareRows(data: Data_model[]): UiRow[] {
-    const rows: UiRow[] = [];
-    let snoCounter = 1;
+    const out: UiRow[] = [];
+    let sno = 1, group = 0;
   
-    for (let i = 0; i < data.length; ) {
-      const current = data[i];
-      const key = (current.subject || '').trim().toLowerCase();
-  
-      // 👉 count कितनी continuous rows का यही subject है
+    for (let i = 0; i < data.length;) {
+      const key = (data[i].subject || '').trim().toLowerCase();
       let span = 1;
-      for (let j = i + 1; j < data.length; j++) {
-        if ((data[j].subject || '').trim().toLowerCase() === key) span++;
-        else break;
+      while (i + span < data.length &&
+        (data[i + span].subject || '').trim().toLowerCase() === key) {
+        span++;
       }
   
-      // 👉 पहली row – subject और sno दिखायेंगे, rowSpan सेट करेंगे
-      rows.push({
-        ...current,
-        sno: snoCounter++,   // display‑ke‑liable serial
-        rowSpan: span
-      });
+      group++;
+      out.push({ ...data[i], sno: sno++, rowSpan: span, groupIndex: group });
   
-      // 👉 बाकी rows – subject व sno blank, rowSpan = 0
       for (let k = 1; k < span; k++) {
-        rows.push({
+        out.push({
           ...data[i + k],
           sno: '' as any,
           subject: '',
-          rowSpan: 0
+          rowSpan: 0,
+          groupIndex: group
         });
       }
   
-      i += span;   // अगले group पर jump
+      i += span;
     }
   
-    return rows;
+    return out;
   }
   
+  
+
+  ngOnInit(): void {
+    this.selectedColor = sessionStorage.getItem('selectedColor');
+    document.documentElement.style.setProperty(
+      '--theme-gradient',
+      this.selectedColor
+    );
+    // this.Service.selectedColor$.subscribe(color => {
+    //   this.selectedColor = sessionStorage.getItem('selectedColor');
+    //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
+    //   // this.selectedColor = color;
+    // });
+
+    this.GetDrugTenderList();
+  }
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderListAll
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
   GetDrugTenderList() {
     try {
       this.spinner.show();
@@ -161,8 +148,10 @@ export class TenderDrugComponent {
           this.dataSource.paginator = this.paginator1;
           this.dataSource.sort = this.sort1;
           this.cdr.detectChanges();
+
           this.spinner.hide();
         },
+       
         (err: any) => {
           this.spinner.hide();
           this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
@@ -175,7 +164,9 @@ export class TenderDrugComponent {
       // throw err;
     }
   }
+
   // nfjsdnfks
+
   // GetDrugTenderList() {
   //   // debugger;
   //   try{

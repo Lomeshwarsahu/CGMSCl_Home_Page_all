@@ -136,6 +136,12 @@
                   </div>
                 </div> -->
                 <div>
+                  <img src="./assets/images/Collector-Shikha-Rajput-Tiw.gif" alt="Image 2">
+                  <div class="image-name" style="font-size: 13px;">
+                    {{'Shikha Rajput Tiwari' | translate }}
+                    </div>
+                </div>
+                <div>
                   <img src="assets/images/Dr.Priyanka_Sukla.jpeg" alt="Image 2">
                   <div class="image-name" style="font-size: 13px;">
                     {{'Priyanka Shukla' | translate}}
@@ -144,6 +150,7 @@
                       Health Services -->
                     </div>
                 </div>
+              
                 <div>
                   <img src="assets\images\MD.jpeg" alt="Image 2">
                   <div class="image-name" style="font-size: 13px;">
@@ -718,7 +725,8 @@ Commissioner, Medical Education, Chhattisgarh
                   <div class="ratio ratio-16x9">
                     <video controls preload="none" width="100%" height="100%">
                       <!-- F:\CGMSC\CGMSC_Home_Page\src\assets\Videos\cgmsc-video.mp4 -->
-                      <source src="./assets/Videos/cgmsc-video.mp4" type="video/mp4">
+                      <source src="https://dpdmis.in/cdn/videos/presentation/cgmscVideo.mp4" type="video/mp4">
+                      <!-- <source src="./assets/Videos/cgmsc-video.mp4" type="video/mp4"> -->
                       {{'Your browser does not support the video tag' | translate }}
                     </video>
                   </div>
@@ -1139,7 +1147,14 @@ Commissioner, Medical Education, Chhattisgarh
             <div class="tab-pane fade" id="tab8" role="tabpanel">
               <h5 class="gradient-heading">{{'Equipment' | translate }}</h5>
               <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4"  *ngFor="let img of equipment; let i = index">
+                  <img [src]="img"
+                     class="img-fluid rounded w-100 h-100 img-hover-zoom"
+                     alt="Gallery Image"
+                     style="cursor: pointer;"
+                     (click)="openModalequp(i)" loading="lazy">
+                </div>
+                <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="https://cgmsc.gov.in/imgSlider/ctscan.jpg" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 1">
                 </div>
@@ -1174,7 +1189,7 @@ Commissioner, Medical Education, Chhattisgarh
                 <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
                     alt="Gallery Image 9">
-                </div>
+                </div> -->
                 <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
                   Gallery</button>
 
@@ -1674,6 +1689,26 @@ Commissioner, Medical Education, Chhattisgarh
           <i class="bi bi-chevron-left fs-3"></i>
         </button></div>
         <img [src]="selectedImagedrug" class="img-fluid w-100 preview-image" alt="Selected Image">
+        <div class="hover-zone right-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-right fs-3"></i>
+        </button></div>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="modal fade" id="imageModalequp" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-body p-0 position-relative image-preview-container" >
+
+        <button type="button text-white " class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <div class="hover-zone left-zone" >
+        <button class="nav-btn btn btn-dark text-white position-absolute top-50 start-0 translate-middle-y" (click)="prevImage()" style="z-index: 1050;">
+          <i class="bi bi-chevron-left fs-3"></i>
+        </button></div>
+        <img [src]="selectedImagequp" class="img-fluid w-100 preview-image" alt="Selected Image">
         <div class="hover-zone right-zone" >
         <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
           <i class="bi bi-chevron-right fs-3"></i>
