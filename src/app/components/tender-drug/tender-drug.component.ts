@@ -117,23 +117,6 @@ export class TenderDrugComponent {
   
     return out;
   }
-  
-  
-
-  ngOnInit(): void {
-    this.selectedColor = sessionStorage.getItem('selectedColor');
-    document.documentElement.style.setProperty(
-      '--theme-gradient',
-      this.selectedColor
-    );
-    // this.Service.selectedColor$.subscribe(color => {
-    //   this.selectedColor = sessionStorage.getItem('selectedColor');
-    //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
-    //   // this.selectedColor = color;
-    // });
-
-    this.GetDrugTenderList();
-  }
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderListAll
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
   GetDrugTenderList() {
