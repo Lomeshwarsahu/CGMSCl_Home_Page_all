@@ -9,6 +9,7 @@ export class Model {
 }
 //#region  home page 
 export interface Data_model {
+
     sno:any;
     url: string;
     content_Registration_Id: string;

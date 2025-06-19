@@ -15,6 +15,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService,ToastrModule } from 'ngx-toastr';
 import { map } from 'rxjs';
 interface UiRow extends Data_model {
+
   rowSpan: number;   
   groupIndex: number;       
 }
@@ -69,6 +70,7 @@ export class TenderDrugComponent {
     this.dataSource = new MatTableDataSource<Data_model>([]);
   }
 
+
   ngOnInit(): void {
     this.selectedColor = sessionStorage.getItem('selectedColor');
     document.documentElement.style.setProperty(
@@ -117,6 +119,23 @@ export class TenderDrugComponent {
   }
   
   
+
+  ngOnInit(): void {
+    this.selectedColor = sessionStorage.getItem('selectedColor');
+    document.documentElement.style.setProperty(
+      '--theme-gradient',
+      this.selectedColor
+    );
+    // this.Service.selectedColor$.subscribe(color => {
+    //   this.selectedColor = sessionStorage.getItem('selectedColor');
+    //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
+    //   // this.selectedColor = color;
+    // });
+
+    this.GetDrugTenderList();
+  }
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderListAll
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
   GetDrugTenderList() {
     try {
       this.spinner.show();
@@ -129,6 +148,7 @@ export class TenderDrugComponent {
           this.dataSource.paginator = this.paginator1;
           this.dataSource.sort = this.sort1;
           this.cdr.detectChanges();
+
           this.spinner.hide();
         },
        
@@ -137,8 +157,6 @@ export class TenderDrugComponent {
           this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
         }
       );
-     
-      
     } catch (err: any) {
       this.spinner.hide();
       this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
@@ -146,6 +164,8 @@ export class TenderDrugComponent {
       // throw err;
     }
   }
+
+  // nfjsdnfks
 
   // GetDrugTenderList() {
   //   // debugger;
