@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Base } from '../helper/base';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { WarehouseInfo } from '../model/model';
+import { TenderData, TenderRCData, WarehouseInfo } from '../model/model';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,6 +53,15 @@ export class ApiServiceService {
   getWarehouse(): Observable<any> {
     return this.http.get<WarehouseInfo[]>(`https://dpdmis.in/CGMSCHO_API2/api/HOTender/WhMangerSSODetail`);
   }
+
+  getEquipmentRC(tenderId: any): Observable<any> {
+    return this.http.get<TenderRCData[]>(`https://cgmsc.gov.in/himis_apin/api/EMS/GetEqpRC?tenderID=${tenderId}`);
+  }
+  
+  getEquipTender(): Observable<any> {
+    return this.http.get<TenderData[]>(`https://cgmsc.gov.in/himis_apin/api/EMS/GetEqpTender`);
+  }
+
 
   public get(url: string, options?: any): Observable <any> {
      return this.http.get(this.baseUrl + url, options); 

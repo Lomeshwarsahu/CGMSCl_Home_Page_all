@@ -11,10 +11,14 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
+interface UiRow extends Data_model {
+  rowSpan: number;   
+  groupIndex: number;       
+}
 @Component({
   standalone: true,
   selector: 'app-tender-equipment',
-  imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
+  imports: [NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
     MatTableExporterModule,CommonModule,ToastrModule
   ],
   templateUrl: './tender-equipment.component.html',
@@ -62,20 +66,31 @@ GetEquipmentListAll() {
       this.Service.get('GetEquipmentListAll')
       // this.Service.get('GetDrugTenderList?n=0')
         .subscribe(
-          (res) => {
-            this.dispatchData = res.map(
-              (item: Data_model, index: number) => ({
-                ...item,
-                sno: index + 1,
-              })
-            );
-            console.log('GetEquipmentListAll=:', this.dispatchData);
-            this.dataSource.data = this.dispatchData;
+          // (res) => {
+          //   this.dispatchData = res.map(
+          //     (item: Data_model, index: number) => ({
+          //       ...item,
+          //       sno: index + 1,
+          //     })
+          //   );
+          //   console.log('GetEquipmentListAll=:', this.dispatchData);
+          //   this.dataSource.data = this.dispatchData;
+          //   this.dataSource.paginator = this.paginator;
+          //   this.dataSource.sort = this.sort;
+          //   this.cdr.detectChanges();
+          //   this.spinner.hide();
+          // },
+          (res: any) => {
+            // const finalList = this.dedupeSubjectAndSnoVisually(res);
+            const finalList = this.prepareRows(res);
+            this.dispatchData = finalList;
+            this.dataSource.data = finalList;
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
             this.cdr.detectChanges();
             this.spinner.hide();
           },
+         
           (error) => {
             this.spinner.hide();
             // this.toastr.error('Something went wrong!', 'Error');
@@ -84,36 +99,46 @@ GetEquipmentListAll() {
 
           }
         );
-      // debugger;
-     
-        
-        //   this.Service.get('GetDrugTenderList?n=0').subscribe((res: any) => {
-        //     //  this.data_model=res;
-        //     //  this.DrugTenderList = this.data_model
-        //     //   console.log(this.DrugTenderList);
-        //       // console.log(JSON.stringify(res.user.role[0].roleName));
-        //       // console.log(JSON.stringify(res.user.userName));
-        //       // console.log(JSON.stringify(res.user))
-    
-        //   } ,
-        //     (err: Error) => {
-        //     //  debugger
-        //     //  throw err;
-        //     console.log(err);
-        //     // this.toastr.error("Please Check userId and password!",'Error');
-        //     //  alert(err.message)
-        //    }
-        //  );
         }
         catch(err:any){
           // console.log(err);
           this.spinner.hide();
           this.toastr.error(`Error fetching data: ${err.message}`, 'Error');
-
-
           // throw err;
         }
       }
+
+  prepareRows(data: Data_model[]): UiRow[] {
+    const out: UiRow[] = [];
+    let sno = 1, group = 0;
+  
+    for (let i = 0; i < data.length;) {
+      const key = (data[i].subject || '').trim().toLowerCase();
+      let span = 1;
+      while (i + span < data.length &&
+        (data[i + span].subject || '').trim().toLowerCase() === key) {
+        span++;
+      }
+  
+      group++;
+      out.push({ ...data[i], sno: sno++, rowSpan: span, groupIndex: group });
+  
+      for (let k = 1; k < span; k++) {
+        out.push({
+          ...data[i + k],
+          sno: '' as any,
+          subject: '',
+          rowSpan: 0,
+          groupIndex: group
+        });
+      }
+  
+      i += span;
+    }
+  
+    return out;
+  }
+
       applyTextFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
