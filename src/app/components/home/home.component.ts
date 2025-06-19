@@ -377,6 +377,13 @@ export class HomeComponent {
     // 'https://dpdmis.in/cdn/Event/DSC_2883.JPG',
     // 'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
   ];
+
+  equipment:string[]=[
+    'https://dpdmis.in/cdn/equipment/32%20slice%20CT%20scan.jfif',
+    'https://dpdmis.in/cdn/equipment/CT%20SCAN.jpeg',
+    'https://dpdmis.in/cdn/equipment/Multipara%20monitor.jpeg',
+    'https://dpdmis.in/cdn/equipment/VENTILATOR.jpeg',
+  ];
   events: string[] = [
     'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
     'https://dpdmis.in/cdn/Event/photo_5.jpg',
@@ -411,6 +418,9 @@ export class HomeComponent {
   get selectedImagedrug(): string {
     return this.drugs[this.selectedIndex];
   }
+  get selectedImagequp(): string {
+    return this.equipment[this.selectedIndex];
+  }
   get selectedImagecivil(): string {
     return this.Infrastructure[this.selectedIndex];
   }
@@ -429,6 +439,13 @@ export class HomeComponent {
     this.selectedIndex = index;
     const modal = new bootstrap.Modal(
       document.getElementById('imageModaldrug')
+    );
+    modal.show();
+  }
+  openModalequp(index: number) {
+    this.selectedIndex = index;
+    const modal = new bootstrap.Modal(
+      document.getElementById('imageModalequp')
     );
     modal.show();
   }

@@ -14,6 +14,10 @@ import { ToastrService,ToastrModule } from 'ngx-toastr';
 
 // import { MaterialModule } from './material-module';
 // import { MatTableExporterModule } from 'mat-table-exporter';
+interface UiRow extends Data_model {
+  rowSpan: number;   
+  groupIndex: number;       
+}
 @Component({
   standalone: true,
     selector: 'app-tender-drug',
@@ -63,15 +67,25 @@ export class TenderOtherTenderComponent {
       this.Service.get('GetOtherTenderListAll')
       // this.Service.get('GetDrugTenderList?n=0')
         .subscribe(
-          (res) => {
-            this.dispatchData = res.map(
-              (item: Data_model, index: number) => ({
-                ...item,
-                sno: index + 1,
-              })
-            );
-            // console.log('GetDrugTenderList=:', this.dispatchData);
-            this.dataSource.data = this.dispatchData;
+          // (res) => {
+          //   this.dispatchData = res.map(
+          //     (item: Data_model, index: number) => ({
+          //       ...item,
+          //       sno: index + 1,
+          //     })
+          //   );
+          //   // console.log('GetDrugTenderList=:', this.dispatchData);
+          //   this.dataSource.data = this.dispatchData;
+          //   this.dataSource.paginator = this.paginator;
+          //   this.dataSource.sort = this.sort;
+          //   this.cdr.detectChanges();
+          //   this.spinner.hide();
+          // },
+          (res: any) => {
+            // const finalList = this.dedupeSubjectAndSnoVisually(res);
+            const finalList = this.prepareRows(res);
+            this.dispatchData = finalList;
+            this.dataSource.data = finalList;
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
             this.cdr.detectChanges();
@@ -93,6 +107,38 @@ export class TenderOtherTenderComponent {
           // throw err;
         }
       }
+
+        prepareRows(data: Data_model[]): UiRow[] {
+          const out: UiRow[] = [];
+          let sno = 1, group = 0;
+        
+          for (let i = 0; i < data.length;) {
+            const key = (data[i].subject || '').trim().toLowerCase();
+            let span = 1;
+            while (i + span < data.length &&
+              (data[i + span].subject || '').trim().toLowerCase() === key) {
+              span++;
+            }
+        
+            group++;
+            out.push({ ...data[i], sno: sno++, rowSpan: span, groupIndex: group });
+        
+            for (let k = 1; k < span; k++) {
+              out.push({
+                ...data[i + k],
+                sno: '' as any,
+                subject: '',
+                rowSpan: 0,
+                groupIndex: group
+              });
+            }
+        
+            i += span;
+          }
+        
+          return out;
+        }
+        
       applyTextFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();

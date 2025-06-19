@@ -19,11 +19,11 @@ import { BlacklistedFirmComponent } from './components/blacklisted-firm/blacklis
 import { OtherDeptRecruitmentComponent } from './components/other-dept-recruitment/other-dept-recruitment.component';
 import { ProcurementPolicyDrugsComponent } from './components/procurement-policy-drugs/procurement-policy-drugs.component';
 import { ProcurementPolicyEquipmentsComponent } from './components/procurement-policy-equipments/procurement-policy-equipments.component';
-<<<<<<< gyan
+
 import { ValidRcComponent } from './components/valid-rc/valid-rc.component';
-=======
 import { DrugProductBlacklistedComponent } from './components/drug-product-blacklisted/drug-product-blacklisted.component';
->>>>>>> main
+
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},

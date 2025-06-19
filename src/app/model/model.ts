@@ -9,8 +9,8 @@ export class Model {
 }
 //#region  home page 
 export interface Data_model {
-    sno:number;
-    // rowSpan: number;  
+
+    sno:any;
     url: string;
     content_Registration_Id: string;
     attachment_Id: string;
