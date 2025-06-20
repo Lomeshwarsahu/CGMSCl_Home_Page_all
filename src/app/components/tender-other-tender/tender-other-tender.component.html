@@ -102,18 +102,18 @@ padding-bottom: 50px; -->
           <div class="filter-field flex-grow-1">
             <input type="text" class="form-control" placeholder="Filter" (keyup)="applyTextFilter($event)">
           </div>
-          <div class="export-menu-container">
+          <!-- <div class="export-menu-container">
             <button type="button" class="btn border rounded btn-outline-secondary" mat-button
               [matMenuTriggerFor]="exportMenu">Export</button>
             <mat-menu #exportMenu="matMenu">
               <button mat-menu-item
                 (click)="exporter.exportTable('xlsx', { fileName: 'WorksOrderD', sheet: 'WorksOrderD', Props: { Author: 'cgmsc' }})">Excel</button>
               <button mat-menu-item (click)="exporter.exportTable('csv')">CSV</button>
-              <!-- <button mat-menu-item (click)="exporter.exportTable('json')">JSON</button>
-              <button mat-menu-item (click)="exporter.exportTable('txt')">TXT</button> -->
-              <!-- <button mat-menu-item (click)="exportToPDF()">PDF</button> -->
+              <button mat-menu-item (click)="exporter.exportTable('json')">JSON</button>
+              <button mat-menu-item (click)="exporter.exportTable('txt')">TXT</button>
+              <button mat-menu-item (click)="exportToPDF()">PDF</button>
             </mat-menu>
-          </div>
+          </div> -->
         </div>
   
         <div class="table-responsive ">
@@ -151,6 +151,8 @@ padding-bottom: 50px; -->
                      [attr.rowspan]="el.rowSpan > 0 ? el.rowSpan : null"
                      [hidden]="el.rowSpan === 0">
                   {{ el.subject }}
+                  <a class="btn btn-xs btn-outline-light align-items-center border-0 rounded  p-1 m-0 bg-transparent "
+                  mat-button (click)="onButtonClick(el.attachment_Id)"><i class="bi bi-folder2-open me-0 gradient-heading fs-6"></i></a>
                 </td>
               </ng-container>
               <ng-container matColumnDef="url">
@@ -185,7 +187,7 @@ padding-bottom: 50px; -->
                 </td>
               </ng-container>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
-              <ng-container matColumnDef="action">
+              <!-- <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef>Attachments</th>
                 <td  class="other-cell" mat-cell *matCellDef="let element">
                   <span class="d-flex  flex-row-reverse p-0 m-0 ">
@@ -195,8 +197,19 @@ padding-bottom: 50px; -->
                     </button>
                   </span>
                 </td>
+              </ng-container> -->
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Download</th>
+                <td mat-cell *matCellDef="let element">
+                  <span class="d-flex  flex-row-reverse p-0 m-0 ">
+                    <button class="btn btn-xs btn-outline-light align-items-center border-0 rounded  p-1 m-0 bg-transparent" mat-button
+                      (click)="GetContentAttachment(element.attachment_Id)">
+                     
+                      <i class="bi bi-file-earmark-pdf me-0 gradient-heading"></i>
+                    </button>
+                  </span>
+                </td>
               </ng-container>
-            
               
             <tr  mat-row *matRowDef="let row; columns: displayedColumns;"
               [class.group-start]="row.rowSpan > 0"
