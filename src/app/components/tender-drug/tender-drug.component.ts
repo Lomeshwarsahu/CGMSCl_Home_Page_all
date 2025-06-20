@@ -19,7 +19,13 @@ interface UiRow extends Data_model {
   rowSpan: number;   
   groupIndex: number;       
 }
-
+//  interface AttachmentFile {
+//   fileName:  string;
+//   filePath:  string;
+//   caption:   string;
+//   displayNew:string;
+//   entryDT:   string;
+// }
 @Component({
   standalone: true,
   selector: 'app-tender-drug',
@@ -124,17 +130,15 @@ export class TenderDrugComponent {
       this.spinner.show();
       this.Service.get('GetDrugTenderListAll').subscribe(
         (res: any) => {
-          // const finalList = this.dedupeSubjectAndSnoVisually(res);
+          // console.log(JSON.stringify('res',res));
           const finalList = this.prepareRows(res);
           this.dispatchData = finalList;
           this.dataSource.data = finalList;
           this.dataSource.paginator = this.paginator1;
           this.dataSource.sort = this.sort1;
           this.cdr.detectChanges();
-
           this.spinner.hide();
         },
-       
         (err: any) => {
           this.spinner.hide();
           this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
@@ -199,7 +203,7 @@ export class TenderDrugComponent {
       queryParams: { Id: attachment_Id, name: 'Drug-Technical' },
     });
   }
-
+ 
   // Example: convert "30/05/2025" to Date object
   convertToDate(d: string): Date | null {
     const parts = d.split('/');
@@ -211,4 +215,50 @@ export class TenderDrugComponent {
     }
     return null;
   }
+
+
+
+GetContentAttachment(attachment_Id: string) {
+  // debugger
+  if (!attachment_Id) {
+    this.toastr.error('Attachment Id is missing!', 'Error!');
+    return;
+  }
+  this.spinner.show();
+  this.Service.get(`GetContentAttachment?contentRegId=${attachment_Id}`)
+    .subscribe({
+      next: (res) => {
+        const first = res[0];
+        if (first) {
+          const { fileName, filePath } = first;
+          // console.log('FileName:', fileName);
+          // console.log('FilePath:', filePath);
+          if (fileName && filePath) {
+            // Remove '~' from the start of the URL
+            const cleanedUrl = 'https://cgmsc.gov.in/' + filePath.replace(/^~\//, '');
+            console.log('Opening:', cleanedUrl);
+            window.open(cleanedUrl, '_blank');
+          } else {
+            this.toastr.error('⚠️ Alert: Attachment File Not Found!\n\nThe requested document is missing.\nPlease try again later or contact support.', 'Error!');
+            // alert(
+            //   '⚠️ Alert: Attachment File Not Found!\n\nThe requested document is missing.\nPlease try again later or contact support.'
+            // );
+          }
+          /* Example: direct download / open
+             window.open(filePath, '_blank');
+          */
+
+        } else {
+          this.toastr.warning('No attachment data returned!', 'Warning');
+        }
+        this.spinner.hide();
+      },
+      error: (err) => {
+        this.spinner.hide();
+        this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
+      }
+    });
+}
+
+
 }

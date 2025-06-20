@@ -166,4 +166,47 @@ convertToDate(d: string): Date | null {
   }
   return null;
 }
+
+
+GetContentAttachment(attachment_Id: string) {
+  // debugger
+  if (!attachment_Id) {
+    this.toastr.error('Attachment Id is missing!', 'Error!');
+    return;
+  }
+  this.spinner.show();
+  this.Service.get(`GetContentAttachment?contentRegId=${attachment_Id}`)
+    .subscribe({
+      next: (res) => {
+        const first = res[0];
+        if (first) {
+          const { fileName, filePath } = first;
+          // console.log('FileName:', fileName);
+          // console.log('FilePath:', filePath);
+          if (fileName && filePath) {
+            // Remove '~' from the start of the URL
+            const cleanedUrl = 'https://cgmsc.gov.in/' + filePath.replace(/^~\//, '');
+            console.log('Opening:', cleanedUrl);
+            window.open(cleanedUrl, '_blank');
+          } else {
+            this.toastr.error('⚠️ Alert: Attachment File Not Found!\n\nThe requested document is missing.\nPlease try again later or contact support.', 'Error!');
+            // alert(
+            //   '⚠️ Alert: Attachment File Not Found!\n\nThe requested document is missing.\nPlease try again later or contact support.'
+            // );
+          }
+          /* Example: direct download / open
+             window.open(filePath, '_blank');
+          */
+
+        } else {
+          this.toastr.warning('No attachment data returned!', 'Warning');
+        }
+        this.spinner.hide();
+      },
+      error: (err) => {
+        this.spinner.hide();
+        this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
+      }
+    });
+}
 }
