@@ -165,7 +165,7 @@ export class AttachmentListComponent {
     if (fileName && URL) {
       // Remove '~' from the start of the URL
       const cleanedUrl = 'https://cgmsc.gov.in/' + URL.replace(/^~\//, '');
-      console.log('Opening:', cleanedUrl);
+      // console.log('Opening:', cleanedUrl);
       window.open(cleanedUrl, '_blank');
     } else {
       alert(
