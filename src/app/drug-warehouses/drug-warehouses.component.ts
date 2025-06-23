@@ -10,15 +10,17 @@ import { MaterialModule } from '../material-module';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import {drugWarehouseInfo } from '../model/model';
+import {drugWarehouseInfo, WarehouseInfo } from '../model/model';
 import { ApiServiceService } from '../service/api-service.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { GoogleMap, GoogleMapsModule, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
+declare var bootstrap: any;
 @Component({
   selector: 'app-drug-warehouses',
   standalone: true,
     
-  imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
+  imports: [ NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,GoogleMapsModule,
     MatTableExporterModule,CommonModule
   ],
   templateUrl: './drug-warehouses.component.html',
@@ -27,6 +29,30 @@ import { ToastrService } from 'ngx-toastr';
 export class DrugWarehousesComponent {
   // https://dpdmis.in/CGMSCHO_API2/api/HOTender/WhMangerSSODetail
   // https://cgmsc.gov.in/Doc/WareHouseLocation.pdf
+  @ViewChild('map', { static: false }) map!: GoogleMap;
+  // center = { lat: 21.2951, lng: 81.8282 }; 
+  zoom = 12;
+  // center: LatLngLiteral = { lat: 21.136478, lng: 81.78643421 };
+  center: google.maps.LatLngLiteral = {
+    lat: 21.136478,
+    lng: 81.78643421
+  };
+  markerOptions: google.maps.MarkerOptions = {
+    draggable: false,
+  };
+  // center: google.maps.LatLngLiteral = {
+  
+  //   // lat: 21.136663,
+  //   // lng: 81.78665921
+  //   lat: 21.136478,
+  //   lng: 81.78643421,
+  // };
+  // markerOptions: MarkerOptions = { draggable: false };
+  markerPos: google.maps.LatLngLiteral = this.center;
+  // markerPos: LatLngLiteral = this.center;
+  selectedWarehouse: any = null;
+  warehouseInfo: WarehouseInfo[] = [];
+  @ViewChild(MapInfoWindow, { static: false }) infoWindow!: MapInfoWindow;
   dataSource!: MatTableDataSource<drugWarehouseInfo>;
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild('sort') sort!: MatSort;
@@ -103,4 +129,58 @@ export class DrugWarehousesComponent {
         });
 
       }
+
+    
+      onButtonClick1(lat: any, lng: any){
+        const modal = new bootstrap.Modal(document.getElementById('imageModal1'));
+        modal.show();
+       
+          const latNum = +lat;          
+          const lngNum = +lng;
+      
+       
+          this.center = { lat: latNum, lng: lngNum };
+          // this.markerPos = { lat: latNum, lng: lngNum };
+      }
+      openInfo( marker: MapMarker) {
+        // this.selectedWarehouse = warehouse; // Update the selected warehouse details
+        if (this.infoWindow) {
+          this.infoWindow.open(marker); // Open the InfoWindow at the clicked marker
+        } else {
+          console.error('InfoWindow instance not found');
+        }
+      }
+
+      shareLocation(lat: number, lng: number) {
+       
+        const url = `https://www.google.com/maps?q=${lat},${lng}`;
+        if (navigator.share) {
+          navigator
+            .share({
+              title: '📍 Location',
+              text: 'Check out this place on Google Maps!',
+              url: url,
+            })
+            .then(() => this.toastr.success('Successfully shared', 'Success'))//alert('Successfully shared'))
+            .catch((error) =>   this.toastr.error('Error sharing:', 'Error!')); //console.error('Error sharing:', error));
+        } else {
+          this.toastr.error('Web Share API is not supported in your browser.', 'Error!');
+          // alert('Web Share API is not supported in your browser.');
+        }
+      
+        // // Copy to clipboard
+        // navigator.clipboard.writeText(url).then(() => {
+        //   alert('Location link copied to clipboard:\n' + url);
+        // }).catch(err => {
+        //   console.error('Clipboard copy failed', err);
+        // });
+        // window.open(`https://wa.me/?text=Check this location: ${url}`, '_blank');
+        // Optional: Open WhatsApp directly (mobile/desktop supported)
+        // window.open(`https://wa.me/?text=${encodeURIComponent('Check this location: ' + url)}`, '_blank');
+
+      
+          
+      
+      }
+      
 }
