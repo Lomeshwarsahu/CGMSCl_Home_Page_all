@@ -80,6 +80,15 @@
         <a class="btn btn-outline-light d-inline-flex align-items-center theme-navbar text-white" routerLink="/AboutCGMSC" routerLinkActive="active">
           <i class="bi bi-book-fill me-2 "></i> {{ 'Read More' | translate }} 
         </a>
+        <h5 class="fw-bold pt-1 gradient-heading">{{'Data Transparency' | translate }} </h5>
+      <p >{{'We are committed' | translate }}
+      <!-- We are committed to operational Data transparency and accountability through real-time access related to
+         procurement workflows, supply chain logistics, infrastructure progress, tendering processes & rate contract etc. 
+         This ensures efficient governance and data-driven decision-making in the delivery of essential drugs and medical consumables. --> 
+           <a href="https://dpdmis.in/mdang/public-view1"  target="_blank"class="text-primary text-decoration-none hover-link ">{{'Drugs and Consumables' | translate }}  </a> |
+           <a href="#" target="_blank" class="text-primary text-decoration-none hover-link" >{{'Equipment & Reagent' | translate }} </a> |
+           <a href="https://dpdmis.in/mdang/Infrastructure-Public-View" target="_blank"class="text-primary text-decoration-none hover-link">{{'Infrastructure' | translate }} </a>
+        </p>
       </div>
 
       <div class="col-12 col-lg-6">
@@ -197,7 +206,7 @@ Commissioner, Medical Education, Chhattisgarh
                   class="text-decoration-none text-dark w-100">
                   <div class="p-2 d-flex justify-content-center">
                     <img
-                      src="./assets/cgmsc imgs/Govt-of-Chattisgarh.webp"
+                      src="./assets/cgmsc imgs/Govt-of-Chattisgarh1.png"
                       class="rounded-circle"
                       alt="..."
                       style="width: 80px; height: 80px; object-fit: cover;"
@@ -282,6 +291,32 @@ Commissioner, Medical Education, Chhattisgarh
                     style="min-width: 150px; max-width: 150px;">
                   
                     <a href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do" target="_blank"
+                      class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                  
+                      <!-- Centered Circle Image -->
+                      <div class="d-flex justify-content-center align-items-center mb-2" style="
+                          width: 80px;
+                          height: 80px;
+                          border-radius: 50%;
+                          background-color: rgb(0, 0, 0);
+                          overflow: hidden;
+                          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                  
+                        <img src="./assets/cgmsc imgs/e-pro.jpg" alt="..." style="border-radius: 10%;
+                      
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;" />
+                      </div>
+                        <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
+                          DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
+                          <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">{{'Procurement' | translate }}</h3>
+                    </a>
+                  </div>
+                    <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                    style="min-width: 150px; max-width: 150px;">
+                  
+                    <a href="https://www.chips.gov.in/en" target="_blank"
                       class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
                   
                       <!-- Centered Circle Image -->
@@ -1751,6 +1786,32 @@ Commissioner, Medical Education, Chhattisgarh
         <button class="nav-btn btn btn-dark text-white position-absolute top-50 end-0 translate-middle-y" (click)="nextImage()" style="z-index: 1050;">
           <i class="bi bi-chevron-right fs-3"></i>
         </button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="newModaltender" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-body p-0 position-relative image-preview-container theme-navbar border rounded " >
+        <h6 class="text-center p-2 text-white border-bottom    " style="font-size:17px; "> Publised New Tender</h6>
+        <button type="button text-white " class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        <div class="" >
+          <!-- <div *ngFor="let item of EquipmentList" class="mb-3" style="text-align: justify;">
+            
+              <span class="text-dark" *ngIf="isNewContent(item.content_Publising_Date)">
+            <p *ngIf="crrenterdatetosevendate == true">{{ item.content_Subject }} {{ item.attachment_Id }} </p>  
+            </span>
+          </div> -->
+          <div *ngFor="let item of EquipmentList" class="mb-3 text-white" style="text-align: justify;">
+            <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new   ">{{'New' | translate }}</span>
+            
+             {{ item.content_Subject }} {{ item.attachment_Id }}
+          </div>
+        
+        </div>
       </div>
     </div>
   </div>

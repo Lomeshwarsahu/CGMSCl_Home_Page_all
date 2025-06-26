@@ -4,13 +4,13 @@ import { ApiServiceService } from '../service/api-service.service';
 import { AuthServiceService } from './auth-service.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const apiService = inject(AuthServiceService); // ✅ Inject services properly
+  const apiService = inject(AuthServiceService);
   const router = inject(Router);
 
   if (apiService.isLoggedIn()) {
-    return true; // ✅ Allow access
+    return true; 
   } else {
-    router.navigate(['/login']); // 🔴 Redirect if not authenticated
+    router.navigate(['/login']); 
     return false;
   }
 };
