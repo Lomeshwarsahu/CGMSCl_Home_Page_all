@@ -15,6 +15,8 @@ import { WarehouseLocationComponent } from '../warehouse-location/warehouse-loca
 import { DivisionOfficeLocationComponent } from '../division-office-location/division-office-location.component';
 import { TranslateService , TranslateModule} from '@ngx-translate/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ToastrService } from 'ngx-toastr';
+import { E } from '@angular/material/error-options.d-CGdTZUYk';
 // import {  } from '@ngx-translate/core'; 
 @Component({
   selector: 'app-home',
@@ -42,7 +44,9 @@ export class HomeComponent {
   OtherTenderList: Data_model[] = [];
   VisitedContentList: Data_model[] = [];
   warehouseInfo: WarehouseInfo[] = [];
+  publishingDates: any[]=[];
   // pauseScroll: boolean = false;
+  crrenterdatetosevendate:any;
   card1Pause = false;
   card2Pause = false;
   card3Pause = false;
@@ -63,7 +67,7 @@ export class HomeComponent {
     public authService: AuthServiceService,
     private router: Router,
     private ApiService: ApiServiceService,
-    private cdRef: ChangeDetectorRef, private translate: TranslateService
+    private cdRef: ChangeDetectorRef, private translate: TranslateService,private toastr:ToastrService
   ) {
     const lang = sessionStorage.getItem('language') || 'en';
     this.translate.use(lang);
@@ -161,38 +165,40 @@ export class HomeComponent {
       (res: any) => {
         if (assignTo == 'DrugTenderList') {
           this.DrugTenderList = res;
-
-          console.log(endpoint, res);
+        //  this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          // this.getnewtentar(this.publishingDates);
         } else if (assignTo == 'EquipmentList') {
           this.EquipmentList = res;
-          console.log(endpoint, res);
+          this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          // console.log('All Publishing Dates:', this.publishingDates);
+          this.getnewtentar(this.publishingDates);
         } else if (assignTo == 'CivilTenderList') {
           this.CivilTenderList = res;
-          console.log(endpoint, res);
         } else if (assignTo == 'OtherTenderList') {
           this.OtherTenderList = res;
-          // console.log(endpoint, res);
         }
         // else if (assignTo=='VisitedContentList') {
         //   this.VisitedContentList = res;
         //   console.log(endpoint, res);
         // }
         else {
+          return;
           this.VisitedContentList = res;
-          console.log(endpoint, res);
+          this.toastr.error(`Error fetching=${endpoint}`,'Error!')
+          // console.log(endpoint, res);
         }
         // assignTo = res;
         //   console.log(endpoint, res);
       },
       (err: Error) => {
-        console.error(`Error fetching ${endpoint}:`, err);
+        this.toastr.error(`Error fetching=${err}`,'Error!');
+        // console.error(`Error fetching ${endpoint}:`, err);
       }
     );
   }
 
   onButtonClick(attachment_Id: any, name: string) {
-    // alert('hi')
-    // console.log(attachment_Id);
+    
     // this.router.navigate(['/AttachmentList']);
     this.router.navigate(['/AttachmentList'], {
       // queryParams: {Id: attachment_Id}
@@ -207,7 +213,7 @@ export class HomeComponent {
         (res: any) => {
           this.data_model = res;
           this.DrugTenderList = this.data_model;
-          console.log(this.DrugTenderList);
+          // console.log(this.DrugTenderList);
           // console.log(JSON.stringify(res.user.role[0].roleName));
           // console.log(JSON.stringify(res.user.userName));
           // console.log(JSON.stringify(res.user))
@@ -296,27 +302,49 @@ export class HomeComponent {
   }
 
   isNewContent(publishingDate: string): boolean {
-    // debugger
-    // publishingDate="2025-05-05T00:00:00";
+ 
+
+    
     const published = new Date(publishingDate);
-    // console.log('published=',published );
     const today = new Date();
-    // console.log('today=',today );
+   
 
-    // Difference in milliseconds
     const diffInMs = today.getTime() - published.getTime();
-    // console.log('diffInMs=',diffInMs );
 
-    // Convert to days
     const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-
-    // Show "New" if published within last 7 days
-    // console.log('diffInDays=',diffInDays );
     return diffInDays <= 7;
   }
+getnewtentar(publishingDates: string[]) {
+  const today = new Date();
+  const formattedToday = today.toISOString().split('T')[0] + "T00:00:00";
+  const todayDateObj = new Date(formattedToday);
+
+  for (let publishingDate of publishingDates) {
+    const publishDateObj = new Date(publishingDate);
+    if (isNaN(publishDateObj.getTime())) {
+      this.toastr.warning(`Invalid publish date=${publishingDate}`,'Warning!')
+      // console.warn("Invalid publish date:", publishingDate);
+      continue;
+    }
+
+    const diffInMs = todayDateObj.getTime() - publishDateObj.getTime();
+    const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+    // console.log("Publish:", publishingDate, "| Diff Days:", diffInDays);
+
+    if (diffInDays >= 0 && diffInDays <= 7) {
+    
+      const modal = new bootstrap.Modal(document.getElementById('newModaltender'));
+      modal.show();
+      break; // show once only
+    }
+  }
+}
+
 
   carousel_img: string[] = [
-    'https://dpdmis.in/cdn/carousel/DSC_2674.JPG',
+    
+    'http://dpdmis.in/cdn/carousel/withBooks.jpg',
     'https://dpdmis.in/cdn/carousel/DSC_2865.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_4797.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_2804.JPG',
@@ -324,6 +352,8 @@ export class HomeComponent {
     'https://dpdmis.in/cdn/carousel/DSC_4670.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_4649.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_4610.JPG',
+    // './assets/images/1.jpg',
+    // 'https://dpdmis.in/cdn/carousel/DSC_2674.JPG',
     // './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
     // './assets/cgmsc imgs/event imgs/DSC_2865.JPG',
     // './assets/cgmsc imgs/event imgs/DSC_2804.JPG',
