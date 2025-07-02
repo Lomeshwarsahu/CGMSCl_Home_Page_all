@@ -23,6 +23,8 @@ import { ProcurementPolicyEquipmentsComponent } from './components/procurement-p
 import { ValidRcComponent } from './components/valid-rc/valid-rc.component';
 import { DrugProductBlacklistedComponent } from './components/drug-product-blacklisted/drug-product-blacklisted.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { RTIComponent } from './components/rti/rti.component';
 
 
 
@@ -52,9 +54,11 @@ const routes: Routes = [
   { path: 'OperationalPolicyEquipments', component: ProcurementPolicyEquipmentsComponent },
   { path: 'DrugProductBlacklisted', component: DrugProductBlacklistedComponent },
   { path: 'Feedback', component: FeedbackComponent },
+  { path: 'Gallery', component: GalleryComponent },
+  { path: 'RTI', component: RTIComponent },
   { path: 'login', component: LoginComponent },
   { path: 'validRC', component: ValidRcComponent },
-  { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, // ✅ Protected Route
+  { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, 
 
   // {
   //   path: 'dashboard',
