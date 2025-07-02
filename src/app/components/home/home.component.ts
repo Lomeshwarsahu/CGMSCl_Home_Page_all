@@ -43,6 +43,7 @@ export class HomeComponent {
   CivilTenderList: Data_model[] = [];
   OtherTenderList: Data_model[] = [];
   VisitedContentList: Data_model[] = [];
+  AllTenderListNotification: Data_model[] = [];
   warehouseInfo: WarehouseInfo[] = [];
   publishingDates: any[]=[];
   // pauseScroll: boolean = false;
@@ -98,7 +99,7 @@ export class HomeComponent {
     // });
     // this.GetDrugTenderList();
     this.GetAllTenderLists();
-    // this.GetNoticCircular();
+    this.GetAllCateDrugTenderList();
     // this.Getnewimage();
   }
   openInfo(marker: MapMarker) {
@@ -146,14 +147,21 @@ export class HomeComponent {
     // this.cdRef.detectChanges();
   }
 
+
+//   https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderList?n=2
+// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetEquipmentList?n=2
+// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetCivilTenderList?n=2
+// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetOtherTenderList?n=2
+// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetMostVisitedContentList?n=2
+// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=15 for popup
   GetAllTenderLists() {
     // debugger
     const apis = [
-      { url: 'GetDrugTenderList?n=2', assignTo: 'DrugTenderList' },
-      { url: 'GetEquipmentList?n=2', assignTo: 'EquipmentList' },
-      { url: 'GetCivilTenderList?n=2', assignTo: 'CivilTenderList' },
-      { url: 'GetOtherTenderList?n=2', assignTo: 'OtherTenderList' },
-      { url: 'GetMostVisitedContentList?n=2', assignTo: 'VisitedContentList' },
+      { url: 'GetDrugTenderList?n=5', assignTo: 'DrugTenderList' },
+      { url: 'GetEquipmentList?n=5', assignTo: 'EquipmentList' },
+      { url: 'GetCivilTenderList?n=5', assignTo: 'CivilTenderList' },
+      { url: 'GetOtherTenderList?n=5', assignTo: 'OtherTenderList' },
+      { url: 'GetMostVisitedContentList?n=5', assignTo: 'VisitedContentList' },
     ];
 
     apis.forEach((api) => this.fetchData(api.url, api.assignTo));
@@ -166,12 +174,12 @@ export class HomeComponent {
         if (assignTo == 'DrugTenderList') {
           this.DrugTenderList = res;
         //  this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
-          // this.getnewtentar(this.publishingDates);
+        //   this.getnewtentar(this.publishingDates);
         } else if (assignTo == 'EquipmentList') {
           this.EquipmentList = res;
-          this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          // this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
           // console.log('All Publishing Dates:', this.publishingDates);
-          this.getnewtentar(this.publishingDates);
+          // this.getnewtentar(this.publishingDates);
         } else if (assignTo == 'CivilTenderList') {
           this.CivilTenderList = res;
         } else if (assignTo == 'OtherTenderList') {
@@ -198,12 +206,41 @@ export class HomeComponent {
   }
 
   onButtonClick(attachment_Id: any, name: string) {
-    
+    const modalElement = document.getElementById('newModaltender');
+    const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+    modal.hide();
     // this.router.navigate(['/AttachmentList']);
     this.router.navigate(['/AttachmentList'], {
       // queryParams: {Id: attachment_Id}
       queryParams: { Id: attachment_Id, name: name },
     });
+  
+    
+  }
+
+  GetAllCateDrugTenderList(){
+    try {
+      this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
+        (res: any) => {
+         
+          this.AllTenderListNotification =  res;
+          this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          this.getnewtentar(this.publishingDates);
+          // console.log(this.DrugTenderList);
+          // console.log(JSON.stringify(res.user.role[0].roleName));
+          // console.log(JSON.stringify(res.user.userName));
+          // console.log(JSON.stringify(res.user))
+        },
+        (err: Error) => {
+          //  debugger
+          //  throw err;
+          this.toastr.error(`Error fetching=${err.message}`,'Error!');
+        }
+      );
+    } catch (err: any) {
+      this.toastr.error(`Error fetching=${err.message}`,'Error!');
+      // throw err;
+    }
   }
 
   GetDrugTenderList() {
@@ -504,23 +541,6 @@ getnewtentar(publishingDates: string[]) {
   onEnd() {
     // handle post-transition logic
   }
-  // <a href="https://cghealth.nic.in/public/#/" target="_blank" >
-  //             <img alt="Natural" class="m-2  border rounded card-hover " src="https://cghealth.nic.in/public/assets/images/health-logo-67x67.png"></a>
-  //             <!-- <img alt="Natural" class="m-2  border rounded card-hover " src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/india1_gov_in.jpg"></a> -->
-  //           <a href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do" target="_blank" class="">
-  //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\CHEPS2.jfif"></a>
-  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://eproc.cgstate.gov.in/CHEPS/img/chips-logo.png?OWASP_CSRFTOKEN=Q8AA-WA3Q-YJKR-PBJQ-E45O-E2YU-X2J3-QC37"></a> -->
-  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/meraAspatal.jpg"></a> -->
-  //           <a href="https://gem.gov.in/" target="_blank">
-  //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\gem-logo.png"></a>
-  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/mygov.jpg"></a> -->
-  //           <a href="https://cgstate.gov.in/" target="_blank">
-  //             <img alt="Natural" class="m-2 border rounded card-hover" src="assets\cgmsc imgs\cg-govt1.png"></a>
-  //             <!-- <img alt="Natural" class="m-2 border rounded card-hover" src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/datagov.jpg"></a> -->
-  //           <a href="https://dvdms.mohfw.gov.in/" target="_blank">
-  //             <img alt="Natural" class="m-2 border rounded card-hover"
-  //               src="assets\cgmsc imgs\dvdms logo.JPG"></a>
-  //               <!-- src="https://cghealth.nic.in/cghealth/api/files/other-health-portal/quittobaco.jpg"></a> -->
 
   // https://dpdmis.in/cdn/Event/
   // https://dpdmis.in/cdn/News/

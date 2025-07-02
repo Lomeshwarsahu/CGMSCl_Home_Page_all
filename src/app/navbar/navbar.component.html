@@ -182,13 +182,14 @@
           </a>
           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
             <li><a class="dropdown-item" routerLink="/AboutCGMSC" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'About Us' | translate }} </a></li>
-            <li><a class="dropdown-item" routerLink="/ContactUs"  routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
+           
             <li><a class="dropdown-item" routerLink="/ProcurementPolicy" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate}}</a></li>
             <li><a class="dropdown-item" routerLink="/Organogram" routerLinkActive="active"> <i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/Organogram" routerLinkActive="active"> <i class="bi bi-play-fill me-2"></i>{{ 'Certificate of Incorporation' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/NoticeCircular" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/OurTeam" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Our Team' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/DrugWarehouses" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/ContactUs"  routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
           </ul>
         </li>
 
@@ -294,20 +295,22 @@
              <li><a class="dropdown-item" routerLink="/TenderOther" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'OTHERS' | translate }}</a></li>
            </ul>
        </li>
-        <li class="nav-item dropdown hover-dropdown">
+       <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/Gallery']" [routerLinkActive]="['active']">{{ 'GALLERY' | translate }}</a></li>
+
+        <!-- <li class="nav-item dropdown hover-dropdown">
           <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
           [ngClass]="{'active': isCGMSCLActive('GALLERY'),'text-dark': isCGMSCLActive('GALLERY'),
           'text-white': !isCGMSCLActive('GALLERY') }">{{ 'GALLERY' | translate }}
            
            </a>
            <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
-             <li><a class="dropdown-item" routerLink="/infrastructure"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/infrastructure"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infrastructure' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/infrastructure"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouses' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/drug"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
+             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a></li>
+             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infrastructure' | translate }}</a></li>
+             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouses' | translate }}</a></li>
+             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
            </ul>
-       </li>
-        <li class="nav-item hover-dropdown"><a class="nav-link" routerLink="/rti">{{ 'RTI' | translate }}</a></li>
+       </li> -->
+        <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/RTI']" [routerLinkActive]="['active']">{{ 'RTI' | translate }}</a></li>
        
      
        <li class="nav-item dropdown hover-dropdown">
@@ -399,8 +402,7 @@
               <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" routerLink="/AboutCGMSC" routerLinkActive="active"
                     data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'About Us' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/ContactUs" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
+              
                 <li class="nav-item"><a class="nav-link" routerLink="/ProcurementPolicy" routerLinkActive="active"
                     data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate }}</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/Organogram" routerLinkActive="active" data-bs-dismiss="offcanvas">
@@ -416,7 +418,8 @@
                 <li class="nav-item"><a class="nav-link" routerLink="/DrugWarehouses" routerLinkActive="active"
                     data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
       
-      
+                    <li class="nav-item"><a class="nav-link" routerLink="/ContactUs" routerLinkActive="active"
+                      data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
       
               </ul>
             </div>
@@ -611,7 +614,8 @@
       
       
           </li>
-          <li class="nav-item">
+          <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas">{{ 'GALLERY' | translate }}</a></li>
+          <!-- <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isGalleryOpen = !isGalleryOpen" [attr.aria-expanded]="isGalleryOpen"
               [ngClass]="{
@@ -625,16 +629,16 @@
       
             <div class="custom-collapse ps-3" [class.show]="isGalleryOpen" id="GalleryCollapseMobile">
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" routerLink="/drug" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a>
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/equipment" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Health' | translate }}
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Health' | translate }}
                     Infrastructure</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure"
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery"
                     data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouses' | translate }}</a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
           
           <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
@@ -774,7 +778,7 @@
             </div>
       
           </li>
-          <li class="nav-item"><a class="nav-link" routerLink="/rti" data-bs-dismiss="offcanvas">{{ 'RTI' | translate }} </a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/RTI" data-bs-dismiss="offcanvas">{{ 'RTI' | translate }} </a></li>
      <!-- <li class="nav-item hover-dropdown"><a class="nav-link" href="http://140.238.246.250:82//Default.aspx" target="_blank" rel="noopener noreferrer">{{ 'BIOMETRIC' | translate }}</a></li> -->
 
           <!-- <li class="nav-item"><a class="nav-link" (click)="handleLinkClick($event, 'http://140.238.246.250:82//Default.aspx')" rel="noopener noreferrer" data-bs-dismiss="offcanvas">{{ 'BIOMETRIC' | translate }}</a></li> -->

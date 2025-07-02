@@ -41,6 +41,7 @@
     "TENDERS":"TENDERS",
     "Drug":"DRUG",
     "Health Infrastructure":"HEALTH INFRASTRUCTURE",
+    "Latest Activity":"Latest Activity",
     "OTHERS":"OTHERS",
     "GALLERY":"GALLERY",
     "Warehouses":"WAREHOUSES",
@@ -97,6 +98,7 @@
    "Human Resource M":"Human Resource M.",
    "Information System":"Information System",
    "MEDICITI":"MEDICITI",
+   "CHIPS":"CHIPS",
    "LATEST UPDATES":"LATEST UPDATES",
    "Drug Tenders":"Drug Tenders",
    "New":"New",
@@ -112,6 +114,7 @@
    "Events":"Events",
    " Your browser does not support the video tag":" Your browser does not support the video tag.",
    "Explore our Photo Gallery":"Explore our Photo Gallery",
+   "Explore our Video Gallery":"Explore our Video Gallery",
    "CGMSCL Notice/Circular":"CGMSCL Notice/Circular",
    "Latest Announcement":"Latest Announcement",
    "Our Mission":"Our Mission",
@@ -143,7 +146,7 @@
    "Twitter":"Twitter",
    "Instagram":"Instagram",
    "Share this page":"Share this page",
-   "About Us":"About Us",
+  
    "Certificate of Incorporation":"CERTIFICATION OF INCORPORATION"
   
   

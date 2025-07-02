@@ -25,18 +25,18 @@
                                 <input type="text" class="form-control" placeholder="Search Tender"
                                     (keyup)="applyTextFilter($event)">
                             </div>
-                            <div class="export-menu-container border rounded  theme-navbart">
+                            <!-- <div class="export-menu-container border rounded  theme-navbart">
                                 <button type="button" class="btn btn-outline-secondary " mat-button
                                     [matMenuTriggerFor]="exportMenu">Export</button>
                                 <mat-menu #exportMenu="matMenu">
                                     <button mat-menu-item
                                         (click)="exporter.exportTable('xlsx', { fileName: 'WorksOrderD', sheet: 'WorksOrderD', Props: { Author: 'cgmsc' }})">Excel</button>
-                                    <!-- <button mat-menu-item (click)="exporter.exportTable('csv')">CSV</button> -->
-                                    <!-- <button mat-menu-item (click)="exporter.exportTable('json')">JSON</button>
-                                <button mat-menu-item (click)="exporter.exportTable('txt')">TXT</button> -->
-                                    <!-- <button mat-menu-item (click)="exportToPDF()">PDF</button> -->
+                                    <button mat-menu-item (click)="exporter.exportTable('csv')">CSV</button>
+                                    <button mat-menu-item (click)="exporter.exportTable('json')">JSON</button>
+                                <button mat-menu-item (click)="exporter.exportTable('txt')">TXT</button>
+                                    <button mat-menu-item (click)="exportToPDF()">PDF</button>
                                 </mat-menu>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="table-responsive ">

@@ -288,3 +288,14 @@
   }
 }
 /*#endregion marquee css*/
+
+.modal-lg-custom {
+  max-width: 700px;
+}
+.modal-scrollable-body {
+  max-height: 50vh;       /* Adjust height as needed */
+  overflow-y: auto;       /* Enables vertical scroll */
+
+  padding: 1rem;          /* Optional padding */
+}
+

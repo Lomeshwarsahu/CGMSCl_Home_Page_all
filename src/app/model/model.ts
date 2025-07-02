@@ -100,6 +100,8 @@ export interface drugProBlacklisted{
   spremarks: string;
 
 }
+
+
 export interface Employee_dpt{
   coreDept:string; 
 }

@@ -19,7 +19,7 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
   selector: 'app-notice-circular',
   standalone: true,
     
-  imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
+  imports: [ NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
     MatTableExporterModule,CommonModule
   ],
   templateUrl: './notice-circular.component.html',
