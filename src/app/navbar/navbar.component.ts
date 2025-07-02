@@ -225,9 +225,7 @@ export class NavbarComponent {
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'GALLERY') {
       const childRoutes = [
-        '/TenderDrugrq',
-        '/equipmentr',
-        '/infrastructurer'
+        '/Gallery',
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'Downloads') {
