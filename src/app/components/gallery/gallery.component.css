@@ -1,0 +1,26 @@
+.card-hover-zoom {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-hover-zoom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  button[aria-expanded="true"] .bi-chevron-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+
+
+  p {
+    font-family: Lato;
+  }
+
+  @media (max-width: 576px) {
+    .nav-btn {
+      font-size: 1.5rem !important;
+    }
+  }
+  
