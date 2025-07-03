@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-blacklisted-firm',
-  imports: [ NgFor, NgStyle, NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,MatTableExporterModule,CommonModule],
+  imports: [  NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,MatTableExporterModule,CommonModule],
   templateUrl: './blacklisted-firm.component.html',
   styleUrl: './blacklisted-firm.component.css'
 })

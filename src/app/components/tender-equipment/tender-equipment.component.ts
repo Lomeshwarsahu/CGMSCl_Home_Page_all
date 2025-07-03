@@ -108,6 +108,29 @@ GetEquipmentListAll() {
         }
       }
 
+      isNewContent(publishingDate: string): boolean {
+        const parts = publishingDate.split('/');
+        if (parts.length === 3) {
+          const day = parseInt(parts[0], 10);
+          const month = parseInt(parts[1], 10) - 1; // Month is 0-indexed
+          const year = parseInt(parts[2], 10);
+      
+          const published = new Date(year, month, day);
+          const today = new Date();
+      
+          // Reset time portion to midnight for both
+          published.setHours(0, 0, 0, 0);
+          today.setHours(0, 0, 0, 0);
+      
+          const diffInMs = today.getTime() - published.getTime();
+          const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+      
+          return diffInDays >= 0 && diffInDays <= 7; // Only within past 7 days
+        }
+      
+        return false; // If invalid format
+      }
+
   prepareRows(data: Data_model[]): UiRow[] {
     const out: UiRow[] = [];
     let sno = 1, group = 0;

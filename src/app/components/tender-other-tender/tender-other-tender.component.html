@@ -150,7 +150,7 @@ padding-bottom: 50px; -->
                      *matCellDef="let el"
                      [attr.rowspan]="el.rowSpan > 0 ? el.rowSpan : null"
                      [hidden]="el.rowSpan === 0">
-                  {{ el.subject }}
+                     <span *ngIf="isNewContent(el.content_Publising_Date)" class="badge-new">New</span>&nbsp;{{ el.subject }}
                   <a class="btn btn-xs btn-outline-light align-items-center border-0 rounded  p-1 m-0 bg-transparent "
                   mat-button (click)="onButtonClick(el.attachment_Id)"><i class="bi bi-folder2-open me-0 gradient-heading fs-6"></i></a>
                 </td>
