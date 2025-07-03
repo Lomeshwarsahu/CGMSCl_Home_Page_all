@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // ngClass ke liye ye bhi
+import { CommonModule } from '@angular/common';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { Data_model, NoticCircular, WarehouseInfo } from 'src/app/model/model';
@@ -199,7 +199,7 @@ export class HomeComponent {
         //   console.log(endpoint, res);
       },
       (err: Error) => {
-        this.toastr.error(`Error fetching=${err}`,'Error!');
+        this.toastr.error(`Error fetching=${err.message}`,'Error!');
         // console.error(`Error fetching ${endpoint}:`, err);
       }
     );
@@ -238,7 +238,7 @@ export class HomeComponent {
         }
       );
     } catch (err: any) {
-      this.toastr.error(`Error fetching=${err.message}`,'Error!');
+      this.toastr.error(`Error fetching=${err.message }`,'Error!');
       // throw err;
     }
   }
@@ -389,16 +389,6 @@ getnewtentar(publishingDates: string[]) {
     'https://dpdmis.in/cdn/carousel/DSC_4670.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_4649.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_4610.JPG',
-    // './assets/images/1.jpg',
-    // 'https://dpdmis.in/cdn/carousel/DSC_2674.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_2674.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_2865.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_2804.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_4610.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_4649.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_4797.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_2677.JPG',
-    // './assets/cgmsc imgs/event imgs/DSC_4670.JPG',
   ];
 
   images: string[] = [
@@ -544,30 +534,7 @@ getnewtentar(publishingDates: string[]) {
 
   // https://dpdmis.in/cdn/Event/
   // https://dpdmis.in/cdn/News/
-  Getnewimage() {
-    try {
-      this.ApiService.Getnewimage().subscribe(
-        (res: any) => {
-          // this.data_model = res;
-          // this.DrugTenderList = this.data_model;
-          console.log('Getnewimage', res);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
-        },
-        (err: Error) => {
-          //  debugger
-          //  throw err;
-          console.log(err);
-          // this.toastr.error("Please Check userId and password!",'Error');
-          //  alert(err.message)
-        }
-      );
-    } catch (err: any) {
-      console.log(err);
-      // throw err;
-    }
-  }
+
 
   sharePage() {
     if (navigator.share) {
@@ -584,7 +551,7 @@ getnewtentar(publishingDates: string[]) {
     }
   }
 
-  //
+
 
   GetNoticCircular() {
     try {

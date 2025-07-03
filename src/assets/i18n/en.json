@@ -46,7 +46,7 @@
     "GALLERY":"GALLERY",
     "Warehouses":"WAREHOUSES",
     "News/Clippings":"NEWS/CLIPPINGS",
-    "Health Infrastructure":"HEALTH INFRASTRUCTURE",
+    
     "EVENTS":"EVENTS",
     "RTI":"RTI",
     "CAREERS":"CAREERS",
@@ -71,8 +71,10 @@
     "MENUS":"MENUS",
     "BIOMETRIC":"BIOMETRIC",
    "About CGMSCL":"About CGMSCL",
+   "Articles Of Association":"ARTICLES OF ASSOCIATION",
+   "Memorandum Of Association":"MEMORANDUM OF ASSOCIATION ",
    "Welcome to":"Welcome to",
-   "CGMSCL":"CGMSCL",
+  
    "Chhattisgarh Medical Services Corporation Limited is incorporated on":"Chhattisgarh Medical Services Corporation Limited is incorporated on",
    "7th October 2010":"7th October 2010",
    "under the Companies Act, 1956. The company operates under the":"under the Companies Act, 1956. The company operates under the",
@@ -116,9 +118,9 @@
    "Explore our Photo Gallery":"Explore our Photo Gallery",
    "Explore our Video Gallery":"Explore our Video Gallery",
    "CGMSCL Notice/Circular":"CGMSCL Notice/Circular",
-   "Latest Announcement":"Latest Announcement",
+  
    "Our Mission":"Our Mission",
-   "Read More":"Read More",
+  
    "Our Vision":"Our Vision",
    "Our Values":"Our Values",
    "Office Location":"Office Location",
@@ -137,7 +139,7 @@
    "We are committed":" We are committed to operational Data transparency and accountability through real-time access related to procurement workflows, supply chain logistics, infrastructure progress, tendering processes & rate contract etc.This ensures efficient governance and data-driven decision-making in the delivery of essential drugs and medical consumables.",
    "Drugs and Consumables":"Drugs and Consumables",
    "Equipment & Reagent":"Equipment & Reagent",
-   "Infrastructure":"Infrastructure",
+ 
    "Links":"Links",
    "Facebook":"Facebook",
    "LinkedIn":"LinkedIn",

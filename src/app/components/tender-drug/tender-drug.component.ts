@@ -45,7 +45,7 @@ interface UiRow extends Data_model {
 })
 
 export class TenderDrugComponent {
-
+  publishingDates: any[]=[];
   dataSource!: MatTableDataSource<Data_model>;
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild('sort') sort!: MatSort;
@@ -130,7 +130,9 @@ export class TenderDrugComponent {
       this.spinner.show();
       this.Service.get('GetDrugTenderListAll').subscribe(
         (res: any) => {
-          // console.log(JSON.stringify('res',res));
+          // this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          // this.getnewtentar(this.publishingDates);
+          console.log('druglist',res);
           const finalList = this.prepareRows(res);
           this.dispatchData = finalList;
           this.dataSource.data = finalList;
@@ -151,45 +153,86 @@ export class TenderDrugComponent {
       // throw err;
     }
   }
+  isNewContent(publishingDate: string): boolean {
+    const parts = publishingDate.split('/');
+    if (parts.length === 3) {
+      const day = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10) - 1; // Month is 0-indexed
+      const year = parseInt(parts[2], 10);
+  
+      const published = new Date(year, month, day);
+      const today = new Date();
+  
+      // Reset time portion to midnight for both
+      published.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+  
+      const diffInMs = today.getTime() - published.getTime();
+      const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  
+      return diffInDays >= 0 && diffInDays <= 7; // Only within past 7 days
+    }
+  
+    return false; // If invalid format
+  }
+  
+  // isNewContent(publishingDate: string): Boolean {
+  //   // const parts = publishingDate.split('/');
+  //   // if (parts.length === 3) {
+  //   //   const day = parseInt(parts[0], 10);
+  //   //   const month = parseInt(parts[1], 10) - 1; 
+  //   //   const year = parseInt(parts[2], 10);
+  //   //  const newdate=new Date(year, month, day);
 
-  // nfjsdnfks
+  //   //  const published = new Date(newdate);
+  //   //  const today = new Date();
+    
+ 
+  //   //  const diffInMs = today.getTime() - published.getTime();
+ 
+  //   //  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  //   //  return diffInDays <= 7;
+  //   // }
 
-  // GetDrugTenderList() {
-  //   // debugger;
-  //   try{
-  //     this.spinner.show();
-  //   this.Service.get('GetDrugTenderListAll')
-  //   // this.Service.get('GetDrugTenderList?n=0')
-  //     .subscribe(
-  //       (res) => {
-  //         this.dispatchData = res.map(
-  //           (item: Data_model, index: number) => ({
-  //             ...item,
-  //             sno: index + 1,
-  //           })
-  //         );
-  //         // console.log('GetDrugTenderList=:', this.dispatchData);
-  //         this.dataSource.data = this.dispatchData;
-  //         this.dataSource.paginator = this.paginator1;
-  //         this.dataSource.sort = this.sort1;
-  //         this.cdr.detectChanges();
-  //         this.spinner.hide();
-  //       },
-  //       (error) => {
-  //         this.spinner.hide();
+    
+   
+    
+  //   const published = new Date(publishingDate);
+  //   const today = new Date();
+   
 
-  //         this.toastr.error(`Error fetching data: ${error.message}`, 'Error!');
-  //         // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
-  //       }
-  //     );
+  //   const diffInMs = today.getTime() - published.getTime();
+
+  //   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  //   return diffInDays <= 7;
+  // }
+  // getnewtentar(publishingDates: string[]) {
+  //   const today = new Date();
+  //   const formattedToday = today.toISOString().split('T')[0] + "T00:00:00";
+  //   const todayDateObj = new Date(formattedToday);
+  
+  //   for (let publishingDate of publishingDates) {
+  //     const publishDateObj = new Date(publishingDate);
+  //     if (isNaN(publishDateObj.getTime())) {
+  //       this.toastr.warning(`Invalid publish date=${publishingDate}`,'Warning!')
+  //       // console.warn("Invalid publish date:", publishingDate);
+  //       continue;
   //     }
-  //     catch(err:any){
-  //       this.spinner.hide();
-  //       this.toastr.error(`Error fetching data: ${err.message}`, 'Error!');
-  //       // console.log(err);
-  //       // throw err;
+  
+  //     const diffInMs = todayDateObj.getTime() - publishDateObj.getTime();
+  //     const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  
+  //     // console.log("Publish:", publishingDate, "| Diff Days:", diffInDays);
+  
+  //     if (diffInDays >= 0 && diffInDays <= 7) {
+      
+  //       const modal = new bootstrap.Modal(document.getElementById('newModaltender'));
+  //       modal.show();
+  //       break; // show once only
   //     }
   //   }
+  // }
+
   applyTextFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -204,12 +247,12 @@ export class TenderDrugComponent {
     });
   }
  
-  // Example: convert "30/05/2025" to Date object
+
   convertToDate(d: string): Date | null {
     const parts = d.split('/');
     if (parts.length === 3) {
       const day = parseInt(parts[0], 10);
-      const month = parseInt(parts[1], 10) - 1; // Months are 0-based
+      const month = parseInt(parts[1], 10) - 1; 
       const year = parseInt(parts[2], 10);
       return new Date(year, month, day);
     }
