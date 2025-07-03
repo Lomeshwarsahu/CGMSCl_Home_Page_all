@@ -7,6 +7,7 @@
     "Government of Chhattisgarh Undertaking":"छत्तीसगढ़ सरकार उपक्रम",
     "HOME":"होम",
     "CGMSCL":"सीजीएमएससीएल",
+   
     "About Us":"हमारे बारे में",
     "Contact Us":"हमसे संपर्क करें",
     "Procurement Policy":"खरीद नीति",
@@ -37,12 +38,12 @@
     "EQUIPMENT":"उपकरण",
     "TENDERS":"निविदायें",
     "Drug":"दवाई",
-
+   
     "DRUG/CONSUMABLE":"दवा/उपभोग्य वस्तु",
     "EQUIPMENT/REAGENTS":"उपकरण/अभिकर्मक",
     "Health Infrastructure":"स्वास्थ्य अवसंरचना",
     "Equipment":"उपकरण",
-    "Other Tenders":"अन्य",
+ 
     "GALLERY":"गैलरी",
     "News/Clippings":"समाचार/क्लिपिंग्स",
     "EVENTS":"घटनाक्रम",
@@ -57,10 +58,11 @@
     "Facility Online":"सुविधा ऑनलाइन",
     "AAM/SHC Online":"एएएम/एसएचसी ऑनलाइन",
     "Facility DDC Login":"सुविधा डीडीसी लॉगिन",
+    "Articles Of Association":"एसोसिएशन के लेख",
+    "Memorandum Of Association":"एसोसिएशन का ज्ञापन",
     
-    "Equipment":"उपकरण",
     "EMIS":"ईएमआई",
-    "Infrastructure":"आधारभूत संरचना",
+   
     "Health Infra(HIMIS)":"स्वास्थ्य अवसंरचना (HIMIS)",
     "Admin":"एडमिन/एचआर",
     "ADMIN":"एडमिन",
@@ -71,12 +73,12 @@
     "BIOMETRIC":"बॉयोमीट्रिक",
     "About CGMSCL":"सीजीएमएससीएल के बारे में",
     "Welcome to":"आपका स्वागत है",
-    "CGMSCL":"सीजीएमएससीएल",
+  
     "Chhattisgarh Medical Services Corporation Limited is incorporated on":"छत्तीसगढ़ मेडिकल सर्विसेज कॉर्पोरेशन लिमिटेड को निगमित किया गया है।",
     "7th October 2010":"7th October 2010",
     "under the Companies Act, 1956. The company operates under the":"कंपनी अधिनियम, 1956 के तहत। कंपनी के तहत काम करता है",
     "Health & Family Welfare Department":"स्वास्थ्य एवं परिवार कल्याण विभाग",
-    "of Chhattisgarh":"of Chhattisgarh.",
+    "of Chhattisgarh":" छत्तीसगढ़ का।",
     "Read More":"और पढ़ें...",
     "Shri Vishnu Deo Sai Honble Chief Minister":"माननीय श्री विष्णु देव साय मुख्यमंत्री छत्तीसगढ़ ",
     "Shri Shyam Bihari Jaiswal":"मान. श्री श्याम बिहारी जायसवाल मंत्री, लो. स्वा. परि. कल्या. ,चिकि. शिक्षा ",
@@ -115,9 +117,9 @@
    "Explore our Photo Gallery":"हमारी फोटो गैलरी देखें",
    "Explore our Video Gallery":"हमारी वीडियो गैलरी देखें",
    "CGMSCL Notice/Circular":"सीजीएमएससीएल नोटिस/परिपत्र",
-   "Latest Announcement":"नवीनतम घोषणा",
+
    "Our Mission":"हमारा विशेष कार्य",
-   "Read More":"और पढ़ें",
+
    "Our Vision":"हमारा नज़रिया",
    "Our Values":"हमारे मूल्य",
    "Office Location":"कार्यालय स्थान",
@@ -144,7 +146,7 @@
    "Twitter":"ट्विटर",
    "Instagram":"इंस्टाग्राम",
    "Share this page":"इस पृष्ठ को साझा करें",
-
+   
    "Certificate of Incorporation":"निगमन प्रमाणपत्र"
 
 

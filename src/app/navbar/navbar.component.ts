@@ -194,13 +194,15 @@ export class NavbarComponent {
         '/TenderDrug',
         '/OperationalPolicyDrugs',
         '/DrugProductBlacklisted',
-        '/blacklistFirm',
+      
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'EQUIPMENT') {
       const childRoutes = [
         '/TenderEquip',
         '/OperationalPolicyEquipments',
+        '/blacklistFirm',
+        '/validRC',
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'INFRASTRUCTURE') {
@@ -210,7 +212,7 @@ export class NavbarComponent {
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'RECRUITMENT') {
       const childRoutes = [
-        '/TenderDrugr',
+        '/otherDeptRecruitment',
         '/equipmentr',
         '/infrastructurer'
       ];
@@ -237,9 +239,7 @@ export class NavbarComponent {
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'Careers') {
       const childRoutes = [
-        '/TenderDrugr',
-        '/equipmentr',
-        '/infrastructurer'
+        '/CAREERS'
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'LOGIN TO ANOTHER') {
