@@ -25,6 +25,7 @@ import { DrugProductBlacklistedComponent } from './components/drug-product-black
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RTIComponent } from './components/rti/rti.component';
+import { CAREERSComponent } from './components/careers/careers.component';
 
 
 
@@ -56,6 +57,8 @@ const routes: Routes = [
   { path: 'Feedback', component: FeedbackComponent },
   { path: 'Gallery', component: GalleryComponent },
   { path: 'RTI', component: RTIComponent },
+  { path: 'CAREERS', component: CAREERSComponent },
+  
   { path: 'login', component: LoginComponent },
   { path: 'validRC', component: ValidRcComponent },
   { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, 
