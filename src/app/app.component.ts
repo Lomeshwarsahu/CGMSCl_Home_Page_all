@@ -40,6 +40,8 @@ ngOnInit() {
     this.isOnline = true;
     this.showOnlineToast();
   });
+
+  
 }
 
 showOfflineAlert() {

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <section class="py-5 pt-0 text-darkk bg-white shadow-lg position-relative announce-colorr">
     <div class="container-fluid px-2 text-center py-3">
-        <h4 class="mb-4 Heading-font-family">Feedback</h4>
+        <h4 class="mb-4 Heading-font-family">Feedback/Complaint</h4>
     </div>
 </section>
 <div class="container-fluid p-0 m-0 py-3">
@@ -50,37 +50,133 @@
                                         </div>
                                         <div class="row pb-3">
                                           <div class="form-group  col-md-6">
-                                            <label for="inputnumber">State</label>
-                                            <input type="text" class="form-control" placeholder="Type your State" id="inputnumber">
-                                          </div>
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Country</label>
-                                            <input type="text" class="form-control" placeholder="Type your Country" id="inputAddress">
-                                          </div>
-                                        </div>
-                                        <div class="row pb-3">
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputnumber">Type</label>
-                                            <input type="text" class="form-control" placeholder="Type " id="inputtype">
-                                          </div>
-                                          <div class="form-group  col-md-6">
                                             <label for="inputAddress">Subject</label>
                                             <input type="text" class="form-control" placeholder="Type Subject" id="inputSubject">
                                           </div>
+                                          <div class="form-group  col-md-6 ">
+                                            <label for="inputnumber">Type</label>
+                                            <!-- <input type="text" class="form-control" placeholder="Type " id="inputtype"> -->
+                                            <div class="form-check">
+                                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                                              <label class="form-check-label" for="flexRadioDefault6">
+                                                Complaint
+                                              </label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" checked>
+                                              <label class="form-check-label" for="flexRadioDefault7">
+                                               Suggestion
+                                              </label>
+                                            </div>
+                                          </div>
+                                          
+                                        </div>
+                                       
+                                        <div class="row pb-3">
+                                          <div class="form-group  col-md-6">
+                                            <label for="inputAddress">Documents</label>
+                                            <input type="file" class="form-control" placeholder="Type your City" id="inputAddress">
+                                          </div>
+                                          <!-- <div class="form-group  col-md-6">
+                                            <label for="inputAddress">Subject</label>
+                                            <input type="text" class="form-control" placeholder="Type Subject" id="inputSubject">
+                                          </div> -->
+                                        </div>
+                                        <div class="row pb-3">
+                                          <label for="inputnumber">Suggestion On</label>
+                                          <div class="form-group  col-md-6">
+                                          <div class="form-check">
+                                            
+                                            <input class="form-check-input" type="radio"  id="flexRadioDefault">
+                                            <label class="form-check-label" for="flexRadioDefault">
+                                              Medicines/Consumable/Ayush
+                                            </label>
+                                          </div>
+                                        
+                                        
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                              Equipment/Reagent
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              Warehouse
+                                            </label>
+                                          </div>
+                                        </div>
+                                          <div class="form-group  col-md-6">
+                                          
+                                        
+                                        
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="flexRadioDefault3" >
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                              Finance
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio"  id="flexRadioDefault4" >
+                                            <label class="form-check-label" for="flexRadioDefault4">
+                                              Infrastructure
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="flexRadioDefault5" checked>
+                                            <label class="form-check-label" for="flexRadioDefault5">
+                                              Other
+                                            </label>
+                                          </div>
+                                        </div>
+                                          <!-- <div class="form-group  col-md-6">
+                                            <label for="inputnumber">State</label>
+                                            <input type="text" class="form-control" placeholder="Type your State" id="inputnumber">
+                                          </div> -->
+                                          <!-- <div class="form-group  col-md-6">
+                                            <label for="inputAddress">Country</label>
+                                            <input type="text" class="form-control" placeholder="Type your Country" id="inputAddress">
+                                          </div> -->
                                         </div>
                                         <div class="form-group pb-3">
                                             <label for="inputComments">Comments / Queries</label>
                                             <textarea class="form-control" id="inputComments" rows="4" placeholder="Type your comments or queries here..."></textarea>
                                         </div>
-                                       
-                                        <!-- <div class="form-group">
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                                            <label class="form-check-label" for="gridCheck">
-                                              Check me out
-                                            </label>
+                                        <div class="row pb-3">
+                                          <div class="form-group  col-md-6">
+                                            <label for="inputAddress">Verification Code</label>
+                                            <input type="text" class="form-control" placeholder="Enter Captcha Code" id="inputAddress">
                                           </div>
-                                        </div> -->
+                                          <div class="form-group col-md-6 ">
+                                            <label class="invisible" for="captcha ">Enter Captcha</label>
+                                            <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text bg-light text-dark fw-bold" id="captchaText" style="user-select: none;">{{ captcha }}</span>
+                                              </div>
+                                              <button type="button" class="btn btn-link" (click)="generateCaptcha()">
+                                                <i class="fa-solid fa-arrows-rotate"></i>
+                                                <!-- <i class="fa-solid fa-rotate"></i> -->
+                                                <!-- <i class="bi bi-arrow-clockwise  fw-bold"></i> -->
+                                              </button>
+                                              <!-- <button type="button" class="btn btn-link" (click)="generateCaptcha()">Refresh</button> -->
+                                              <!-- <input type="text" class="form-control" id="captchaInput" placeholder="Enter Captcha" /> -->
+                                            </div>
+                                            </div>
+                                            <!-- <div class="mb-3">
+                                              <label for="captcha" class="form-label">CAPTCHA</label>
+                                              <div class="d-flex align-items-center">
+                                                <span class="captcha-box">{{ captcha }}</span>
+                                                <button type="button" class="btn btn-link" (click)="generateCaptcha()">Refresh</button>
+                                              </div>
+                                              <input type="text" class="form-control" id="captcha" #captchaInput placeholder="Enter CAPTCHA"
+                                                required>
+                                              <div *ngIf="otpField.invalid && (otpField.dirty || otpField.touched)" class="text-danger">
+                                                OTP is required.
+                                              </div>
+                                            </div> -->
+                                        </div>
+                                      
                                         <button type="submit" class="btn btn-primary">Submit </button>
                                       </form>
                                     

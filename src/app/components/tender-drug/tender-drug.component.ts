@@ -130,9 +130,7 @@ export class TenderDrugComponent {
       this.spinner.show();
       this.Service.get('GetDrugTenderListAll').subscribe(
         (res: any) => {
-          // this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
-          // this.getnewtentar(this.publishingDates);
-          console.log('druglist',res);
+          
           const finalList = this.prepareRows(res);
           this.dispatchData = finalList;
           this.dataSource.data = finalList;

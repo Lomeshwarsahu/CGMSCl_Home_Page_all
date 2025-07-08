@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { ApiServiceService } from 'src/app/service/api-service.service';
-import { Data_model, NoticCircular, WarehouseInfo } from 'src/app/model/model';
+import { AllCateDrugTenderList, Data_model, NoticCircular, WarehouseInfo } from 'src/app/model/model';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
@@ -43,7 +43,7 @@ export class HomeComponent {
   CivilTenderList: Data_model[] = [];
   OtherTenderList: Data_model[] = [];
   VisitedContentList: Data_model[] = [];
-  AllTenderListNotification: Data_model[] = [];
+  AllTenderListNotification: AllCateDrugTenderList[] = [];
   warehouseInfo: WarehouseInfo[] = [];
   publishingDates: any[]=[];
   // pauseScroll: boolean = false;
@@ -56,8 +56,12 @@ export class HomeComponent {
   center: google.maps.LatLngLiteral = {
     // lat: 21.136663,
     // lng: 81.78665921
-    lat: 21.136478,
-    lng: 81.78643421,
+    lat: 21.136499,
+    lng: 81.78643548,
+    // lat: 21.136478,
+    // lng: 81.78643421,
+    // lat: 21.136647,
+    // lng: 81.7864520,
   };
   // currentLanguage: 'en' | 'hi' = 'en';
   markerOptions: google.maps.MarkerOptions = {
@@ -157,11 +161,11 @@ export class HomeComponent {
   GetAllTenderLists() {
     // debugger
     const apis = [
-      { url: 'GetDrugTenderList?n=5', assignTo: 'DrugTenderList' },
-      { url: 'GetEquipmentList?n=5', assignTo: 'EquipmentList' },
-      { url: 'GetCivilTenderList?n=5', assignTo: 'CivilTenderList' },
-      { url: 'GetOtherTenderList?n=5', assignTo: 'OtherTenderList' },
-      { url: 'GetMostVisitedContentList?n=5', assignTo: 'VisitedContentList' },
+      { url: 'GetDrugTenderList?n=3', assignTo: 'DrugTenderList' },
+      { url: 'GetEquipmentList?n=3', assignTo: 'EquipmentList' },
+      { url: 'GetCivilTenderList?n=3', assignTo: 'CivilTenderList' },
+      { url: 'GetOtherTenderList?n=3', assignTo: 'OtherTenderList' },
+      { url: 'GetMostVisitedContentList?n=3', assignTo: 'VisitedContentList' },
     ];
 
     apis.forEach((api) => this.fetchData(api.url, api.assignTo));
@@ -192,54 +196,50 @@ export class HomeComponent {
         else {
           return;
           this.VisitedContentList = res;
-          this.toastr.error(`Error fetching=${endpoint}`,'Error!')
-          // console.log(endpoint, res);
+          // this.toastr.error(`Error fetching=${endpoint}`,'Error!')
+          console.log(endpoint, res);
         }
         // assignTo = res;
         //   console.log(endpoint, res);
       },
       (err: Error) => {
-        this.toastr.error(`Error fetching=${err.message}`,'Error!');
-        // console.error(`Error fetching ${endpoint}:`, err);
+        // this.toastr.error(`Error fetching=${err.message}`,'Error!');
+        console.error(`Error fetching ${endpoint}:`, err);
       }
     );
   }
 
   onButtonClick(attachment_Id: any, name: string) {
-    const modalElement = document.getElementById('newModaltender');
-    const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
-    modal.hide();
-    // this.router.navigate(['/AttachmentList']);
-    this.router.navigate(['/AttachmentList'], {
-      // queryParams: {Id: attachment_Id}
-      queryParams: { Id: attachment_Id, name: name },
-    });
-  
-    
+     const modalElement = document.getElementById('newModaltender');
+      const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+      modal.hide();
+      this.router.navigate(['/AttachmentList'], {
+        queryParams: { Id: attachment_Id, name: name },
+      });
   }
-
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=2
   GetAllCateDrugTenderList(){
     try {
       this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
         (res: any) => {
          
           this.AllTenderListNotification =  res;
+          // console.log('lolo=', res)
           this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
           this.getnewtentar(this.publishingDates);
-          // console.log(this.DrugTenderList);
+          // console.log('AllTenderListNotification=',this.AllTenderListNotification);
           // console.log(JSON.stringify(res.user.role[0].roleName));
           // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
         },
         (err: Error) => {
           //  debugger
-          //  throw err;
-          this.toastr.error(`Error fetching=${err.message}`,'Error!');
+           throw err;
+          // this.toastr.error(`Error fetching=${err.message}`,'Error!');
         }
       );
     } catch (err: any) {
-      this.toastr.error(`Error fetching=${err.message }`,'Error!');
-      // throw err;
+      // this.toastr.error(`Error fetching=${err.message }`,'Error!');
+      throw err;
     }
   }
 
@@ -267,7 +267,7 @@ export class HomeComponent {
         (res: any) => {
           this.data_model = res;
           this.EquipmentList = this.data_model;
-          console.log('GetEquipmentList?n=2', this.EquipmentList);
+          // console.log('GetEquipmentList?n=2', this.EquipmentList);
           // console.log(JSON.stringify(res.user.role[0].roleName));
           // console.log(JSON.stringify(res.user.userName));
           // console.log(JSON.stringify(res.user))
@@ -285,7 +285,7 @@ export class HomeComponent {
         (res: any) => {
           this.data_model = res;
           this.CivilTenderList = this.data_model;
-          console.log('GetCivilTenderList?n=2', this.CivilTenderList);
+          // console.log('GetCivilTenderList?n=2', this.CivilTenderList);
           // console.log(JSON.stringify(res.user.role[0].roleName));
           // console.log(JSON.stringify(res.user.userName));
           // console.log(JSON.stringify(res.user))
@@ -302,7 +302,7 @@ export class HomeComponent {
         (res: any) => {
           this.data_model = res;
           this.OtherTenderList = this.data_model;
-          console.log('GetOtherTenderList?n=2', this.OtherTenderList);
+          // console.log('GetOtherTenderList?n=2', this.OtherTenderList);
           // console.log(JSON.stringify(res.user.role[0].roleName));
           // console.log(JSON.stringify(res.user.userName));
           // console.log(JSON.stringify(res.user))
@@ -319,7 +319,7 @@ export class HomeComponent {
         (res: any) => {
           this.data_model = res;
           this.VisitedContentList = this.data_model;
-          console.log('GetMostVisitedContentList?n=2', this.VisitedContentList);
+          // console.log('GetMostVisitedContentList?n=2', this.VisitedContentList);
           // console.log(JSON.stringify(res.user.role[0].roleName));
           // console.log(JSON.stringify(res.user.userName));
           // console.log(JSON.stringify(res.user))
@@ -373,15 +373,18 @@ getnewtentar(publishingDates: string[]) {
     
       const modal = new bootstrap.Modal(document.getElementById('newModaltender'));
       modal.show();
+      setTimeout(() => {
+        document.body.style.paddingRight = '0px';
+      }, 100);
       break; // show once only
     }
+  
   }
 }
 
 
   carousel_img: string[] = [
-    
-    'http://dpdmis.in/cdn/carousel/withBooks.jpg',
+    'https://dpdmis.in/cdn/carousel/FirstImg.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_2865.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_4797.JPG',
     'https://dpdmis.in/cdn/carousel/DSC_2804.JPG',
@@ -558,7 +561,7 @@ getnewtentar(publishingDates: string[]) {
       this.ApiService.get('GetNoticCircular').subscribe(
         (res) => {
           this.dispatchData = res;
-          console.log('NoticCircular =:', this.dispatchData);
+          // console.log('NoticCircular =:', this.dispatchData);
         },
         (error) => {
           alert(`Error fetching data: ${JSON.stringify(error.message)}`);
