@@ -12,9 +12,8 @@ declare const bootstrap: any;
 import { TranslateModule } from '@ngx-translate/core'; 
 @Component({
     selector: 'app-navbar',
-    standalone: true, // ✅ Make it a standalone component
-    imports: [NgFor,CommonModule, NgStyle,NgbCollapseModule,FormsModule, RouterModule,TranslateModule],
-    // 
+    standalone: true, 
+    imports: [CommonModule,NgbCollapseModule,FormsModule, RouterModule,TranslateModule],
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css'],
 })
@@ -75,10 +74,7 @@ export class NavbarComponent {
     const lang = sessionStorage.getItem('language') || 'en';
     this.translate.use(lang);
     this.currentLanguage = lang === 'hi' ? 'hi' : 'en';
-// 
- 
     this.userName = localStorage.getItem('userName');
-  
     const childRoutes = [
       '/AboutCGMSC',
       '/ContactUs',
@@ -193,7 +189,7 @@ export class NavbarComponent {
       const childRoutes = [
         '/TenderDrug',
         '/OperationalPolicyDrugs',
-        '/DrugProductBlacklisted',
+        '/DrugBlacklisting',
       
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
@@ -201,7 +197,7 @@ export class NavbarComponent {
       const childRoutes = [
         '/TenderEquip',
         '/OperationalPolicyEquipments',
-        '/blacklistFirm',
+        '/EquipmentBlacklisting',
         '/validRC',
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
@@ -264,6 +260,6 @@ toggleLanguage(): void {
 
   // Yahan aap translation logic ya i18n service use kar sakte hain
   // Example: this.translateService.use(this.currentLanguage);
-  console.log('Language switched to:', this.currentLanguage);
+  // console.log('Language switched to:', this.currentLanguage);
 }
 }

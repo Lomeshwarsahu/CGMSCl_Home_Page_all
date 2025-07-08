@@ -1,75 +1,4 @@
 <section class="">
-  
- <!-- <div class="container-fluid theme-navbarr theme-topnav px-2 py-1 border-bottomm  ">
-    <div class="row align-items-center text-center text-md-start">
-  
-    
-      <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
-        <div class="d-flex">
-          <input type="button" class="color-input border rounded-circle me-2"
-            [style.background]="gradients[0]" (click)="setTheme(gradients[0],0)">
-          <input type="button" class="color-input border rounded-circle me-2"
-            [style.background]="gradients[1]" (click)="setTheme(gradients[1],1)">
-          <input type="button" class="color-input border rounded-circle me-2"
-            [style.background]="gradients[2]" (click)="setTheme(gradients[2],2)">
-        </div>
-      </div>
-  
-     
-      <div class="col-12 col-md-5 d-flex flex-column align-items-center text-white mb-2 mb-md-0" style="font-size: 15px;">
-        <div class="text-center text-md-start">
-          <strong>{{ 'CIN_NO' | translate }} :</strong> U85110CT2010SGC022089
-          <span class="d-md-none d-block"></span> 
-          <span class="d-none d-md-inline"> </span> 
-          <strong>{{ 'GST No' | translate }} :</strong> 22AAECC4504E1ZD
-        </div>
-      </div>
-      
-     
-      <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-2">
-        <button type="button"
-          class="btn border-0 btn-light rounded-pill d-flex align-items-center justify-content-center px-2"
-          (click)="toggleLanguage()" style="height: 28px; font-size: 12px; cursor: pointer;">
-          <span class="gradient-heading" style="font-size: 12px;">
-            {{ currentLanguage === 'en' ? 'Eng' : 'हिंदी' }}
-          </span>
-        </button>
-  
-        <button type="button"
-          class="btn border-0 text-white btn-light rounded-pill d-flex align-items-center justify-content-center px-1"
-          (click)="onButtonClick('https://cgmsc.gov.in/Home/HomePage.aspx')"
-          style="height: 28px; cursor: pointer;">
-          <span class="gradient-heading" style="font-size: 12px;">
-            {{ 'OLD_WEBSITE' | translate }}
-          </span>
-        </button>
-      </div>
-  
-    </div>
-  </div>         
- <nav id="welcome-section" class="navbar navbar-expand-lg  d-md-flex Theme-color theme-navbar"   style="transition: background 0.5s;">
- <nav class="navbar navbar-expand-lg d-none d-md-flex" style="background-color:#480878;">d-none
-
-  <div class=" container-fluid">
-  
-    <div class="header-logo-container d-flex justify-content-center justify-content-md-start flex-shrink-0" style="margin-left: 10rem">
-      <img src="assets/images/cg-govt.png" alt="Left Logo" class="header-logo img-fluid" style="max-height: 100px;">
-    </div>
-    <div class="header-title text-center flex-grow-1 mx-md-3 my-2 my-md-0"   >
-      <p class="collector-title text-white fs-6 fw-bold mb-1">
-       <strong  style="font-size:26px; line-height:25px; font-family: 'Times New Roman', Times, serif;"> {{ 'Chhattisgarh Medical Services Corporation Ltd' | translate }}</strong> </p>
-      <p class="sub-title text-white small m-0" style="text-align: center; font-size: 16px; font-family: 'Times New Roman', Times, serif;"> {{ 'Government of Chhattisgarh Undertaking' | translate }}</p>
-      <p class="sub-title text-white small m-0" style="text-align: center; font-size: 13px;  font-family: 'Times New Roman', Times, serif;"> {{ 'CIN_NO' | translate }} : U85110CT2010SGC022089
-        <span class="d-md-none d-block"></span> 
-        <span class="d-none d-md-inline"> </span> 
-       {{ 'GST No' | translate }} :22AAECC4504E1ZD</p>
-    </div>
-    <div class="header-logo-container d-flex justify-content-center justify-content-md-end flex-shrink-0" style="margin-right: 10rem">
-      <img src="assets/images/cgmsc-logo.png" alt="Right Logo" class="header-logo img-fluid" style="max-height: 100px;">
-    </div>
- </div>
-  
-</nav> -->
 <nav id="welcome-section" class="theme-navbar theme-topnavv" >
 
   <!-- Top Row: Theme & Buttons -->
@@ -133,28 +62,11 @@
   </div>
 </nav>
 
-
-<!-- Desktop Only Section with Logos and Images -->
-<!-- <marquee 
-  class="d-none d-md-flex"
-  behavior="scroll" 
-  direction="left" 
-  scrollamount="5" 
-  scrolldelay="10" 
-  height="20px" 
-  onmouseover="this.stop();" 
-  onmouseout="this.start();" 
-  style="width: 100%; font-size: medium; line-height: 20px;">
-  <span class="text-dark Fon-family" style="white-space: nowrap;">
-    CGMSC Ltd. Promise for quality healthcare..
-  </span>
-</marquee> -->
-
 <div class="border">
 
 </div>
 
-<!-- Responsive Navbar -->
+<!-- Responsive Navbar  -->
 
 <nav  id="welcome-section" class="navbar navbar-expand-lg Theme-colorr Theme-colornav theme-navbar " >
 <!-- <nav class="navbar navbar-expand-lg" style="background-color:#480878;">  [style.background]="selectedColor" style="transition: background 0.5s;"-->
@@ -170,7 +82,9 @@
     <!-- Normal Navbar Links (Desktop) -->
     <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center" id="navbarNav" >
       <ul class="navbar-nav mx-auto">
+        <!-- home menu for Desktop -->
         <li class="nav-item hover-dropdown"><a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']"> {{ 'HOME' | translate }}</a></li>
+        <!-- CGMSCL menu for Desktop -->
         <li class="nav-item dropdown hover-dropdown">
           <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
           [ngClass]="{
@@ -182,21 +96,21 @@
           </a>
           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
             <li><a class="dropdown-item" routerLink="/AboutCGMSC" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'About Us' | translate }} </a></li>
-           
-            <li><a class="dropdown-item" routerLink="/ProcurementPolicy" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate}}</a></li>
-            <li><a class="dropdown-item" routerLink="/Organogram" routerLinkActive="active"> <i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a></li>
-            <li><a class="dropdown-item" href="https://dpdmis.in/cdn/COI/Certificate_of_Incorporation.jpg" target="_blank"> <i class="bi bi-play-fill me-2"></i>{{ 'Certificate of Incorporation' | translate }}</a></li>
+            <li><a class="dropdown-item" href="https://dpdmis.in/cdn/COI/Certificate_of_Incorporation.jpg" target="_blank"> <i class="bi bi-play-fill me-2"></i>{{ 'Certificate in Incorporation' | translate }}</a></li>
             <li><a class="dropdown-item" href="https://dpdmis.in/cdn/docs/Articles%20of%20Association.pdf" target="_blank"> <i class="bi bi-play-fill me-2"></i>{{ 'Articles Of Association' | translate }}</a></li>
             <li><a class="dropdown-item" href="https://dpdmis.in/cdn/docs/Memorandum%20of%20Association.pdf" target="_blank"> <i class="bi bi-play-fill me-2"></i>{{ 'Memorandum Of Association' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/NoticeCircular" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/Organogram" routerLinkActive="active"> <i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/OurTeam" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Our Team' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/DrugWarehouses" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/NoticeCircular" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/ProcurementPolicy" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate}}</a></li>
             <li><a class="dropdown-item" routerLink="/ContactUs"  routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
+           
           </ul>
         </li>
 
-        <!-- Services with Submenu -->
-       <!-- Desktop Menu with Hover Dropdown -->
+      
+       <!-- DRUG menu for Desktop -->
       <li class="nav-item dropdown hover-dropdown">
          <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
          [ngClass]="{
@@ -209,8 +123,10 @@
           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
            <li><a class="dropdown-item" routerLink="/TenderDrug" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
            <li><a class="dropdown-item" routerLink="/OperationalPolicyDrugs" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Operational Policy' | translate }}</a></li>
-           <li><a class="dropdown-item" routerLink="/DrugProductBlacklisted" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Product Blacklisted' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/blacklistFirmm" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li>
+           <!-- <li><a class="dropdown-item" routerLink="/DrugProductBlacklisted" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Product Blacklisted' | translate }}</a></li> -->
+            <li><a class="dropdown-item" routerLink="/DrugBlacklisting" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Blacklisting' | translate }}</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="/blacklistFirmm" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li> -->
+            <li><a class="dropdown-item" routerLink="/validRCw" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Valid Rate Contracts of Equipment' | translate }}</a></li>
             <!-- <ul class="dropdown-menu theme-navbar"> -->
               <li class="dropdown-submenu hover-dropdown">
                 <a class="dropdown-item dropdown-toggle" style=" cursor: pointer; " ><i class="bi bi-play-fill me-2"></i>{{ 'DOWNLOADS' | translate }}</a>
@@ -232,6 +148,7 @@
           
           
       </li>
+      <!-- equipment menu for Desktop -->
         <li class="nav-item dropdown hover-dropdown">
           <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
           [ngClass]="{
@@ -244,8 +161,9 @@
           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
             <li><a class="dropdown-item" routerLink="/TenderEquip" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/OperationalPolicyEquipments" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Operational Policy' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/drug" routerLinkActive="active" > <i class="bi bi-play-fill me-2"></i>{{ 'Product Blacklisted' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/blacklistFirm" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="/drug" routerLinkActive="active" > <i class="bi bi-play-fill me-2"></i>{{ 'Product Blacklisted' | translate }}</a></li> -->
+            <li><a class="dropdown-item" routerLink="/EquipmentBlacklisting" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Blacklisting' | translate }}</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="/blacklistFirm" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li> -->
             <li><a class="dropdown-item" routerLink="/validRC" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Valid Rate Contracts of Equipment' | translate }}</a></li>
             <li class="dropdown-submenu hover-dropdown">
               <a class="dropdown-item dropdown-toggle" style=" cursor: pointer; " ><i class="bi bi-play-fill me-2"></i>{{ 'DOWNLOADS' | translate }}</a>
@@ -260,6 +178,7 @@
             </li>
           </ul>
         </li>
+        <!-- CIvil menu for Desktop -->
         <li class="nav-item dropdown hover-dropdown">
           <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
           [ngClass]="{'active': isCGMSCLActive('INFRASTRUCTURE'),'text-dark': isCGMSCLActive('INFRASTRUCTURE'),
@@ -268,54 +187,30 @@
            </a>
            <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
             <li><a class="dropdown-item" routerLink="/TenderCivil" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/TenderCivili" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Contractor Blacklisted' | translate }}</a></li>
            </ul>
        </li>
-        <li class="nav-item dropdown hover-dropdown">
-          <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-          [ngClass]="{'active': isCGMSCLActive('RECRUITMENT'),'text-dark': isCGMSCLActive('RECRUITMENT'),
-          'text-white': !isCGMSCLActive('RECRUITMENT') }">{{ 'RECRUITMENT' | translate }}
-          
-           </a>
-           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
-             <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Results and Notice' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Recruitment Archive' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/otherDeptRecruitment" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Other Department' | translate }}</a></li>
-            
-           </ul>
-       </li>
-        <li class="nav-item dropdown hover-dropdown">
-          <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+      <!-- TENDERS menu for Desktop -->
+      <li class="nav-item dropdown hover-dropdown">
+        <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
           [ngClass]="{'active': isCGMSCLActive('TENDERS'),'text-dark': isCGMSCLActive('TENDERS'),
-          'text-white': !isCGMSCLActive('TENDERS') }">{{ 'TENDERS' | translate }}
-          
-           </a>
-           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
-             <li><a class="dropdown-item" routerLink="/TenderDrug" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Drug' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/TenderCivil" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Health Infrastructure' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/TenderEquip" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'EQUIPMENT' | translate }}</a></li>
-             <!-- <li><a class="dropdown-item" routerLink="/equipment" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'QC Tenders' | translate }}</a></li> -->
-             <li><a class="dropdown-item" routerLink="/TenderOther" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'Other Tenders' | translate }}</a></li>
-           </ul>
-       </li>
-       <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/Gallery']" [routerLinkActive]="['active']">{{ 'GALLERY' | translate }}</a></li>
-
-        <!-- <li class="nav-item dropdown hover-dropdown">
-          <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-          [ngClass]="{'active': isCGMSCLActive('GALLERY'),'text-dark': isCGMSCLActive('GALLERY'),
-          'text-white': !isCGMSCLActive('GALLERY') }">{{ 'GALLERY' | translate }}
-           
-           </a>
-           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
-             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infrastructure' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouses' | translate }}</a></li>
-             <li><a class="dropdown-item" routerLink="/Gallery"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
-           </ul>
-       </li> -->
-        <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/RTI']" [routerLinkActive]="['active']">{{ 'RTI' | translate }}</a></li>
-       
-     
-       <li class="nav-item dropdown hover-dropdown">
+             'text-white': !isCGMSCLActive('TENDERS') }">{{ 'TENDERS' | translate }}
+      
+        </a>
+        <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
+          <li><a class="dropdown-item" routerLink="/TenderDrug" routerLinkActive="active"><i
+                class="bi bi-play-fill me-2"></i>{{ 'Drug' | translate }}</a></li>
+          <li><a class="dropdown-item" routerLink="/TenderCivil" routerLinkActive="active"><i
+                class="bi bi-play-fill me-2"></i>{{ 'Health Infrastructure' | translate }}</a></li>
+          <li><a class="dropdown-item" routerLink="/TenderEquip" routerLinkActive="active"><i
+                class="bi bi-play-fill me-2"></i>{{ 'EQUIPMENT' | translate }}</a></li>
+          <!-- <li><a class="dropdown-item" routerLink="/equipment" routerLinkActive="active"><i class="bi bi-play-fill me-2"></i>{{ 'QC Tenders' | translate }}</a></li> -->
+          <li><a class="dropdown-item" routerLink="/TenderOther" routerLinkActive="active"><i
+                class="bi bi-play-fill me-2"></i>{{ 'OTHER TENDERS' | translate }}</a></li>
+        </ul>
+      </li>
+      <!-- LOGINS menu for Desktop -->
+      <li class="nav-item dropdown hover-dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
         [ngClass]="{'active': isCGMSCLActive('LOGIN TO ANOTHER'),'text-dark': isCGMSCLActive('LOGIN TO ANOTHER'),
           'text-white': !isCGMSCLActive('LOGIN TO ANOTHER') }">{{ 'LOGINS(MIS APPLICATIONS)' | translate }}</a>
@@ -360,6 +255,10 @@
           </li>
         </ul>
       </li>
+      <!-- RTI menu for Desktop -->
+      <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/RTI']" [routerLinkActive]="['active']">{{ 'RTI' | translate }}</a></li>
+
+      <!-- CAREERS menu for Desktop -->
       <li class="nav-item dropdown hover-dropdown">
         <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
         [ngClass]="{'active': isCGMSCLActive('CAREERS'),'text-dark': isCGMSCLActive('CAREERS'),
@@ -372,9 +271,25 @@
           
          </ul>
      </li>
-     <!-- <li class="nav-item hover-dropdown"><a class="nav-link" href="http://140.238.246.250:82//Default.aspx" target="_blank" rel="noopener noreferrer">{{ 'BIOMETRIC' | translate }}</a></li> -->
-      <!-- <li class="nav-item hover-dropdown"><a class="nav-link" href="https://bidplus.gem.gov.in/advance-search" target="_blank" rel="noopener noreferrer"> 
-        GEM</a></li> -->
+      <!-- Gallery menu for Desktop -->
+        <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/Gallery']" [routerLinkActive]="['active']">{{ 'GALLERY' | translate }}</a></li>
+         <!-- equipment menu for Desktop -->
+        <li class="nav-item dropdown hover-dropdown">
+          <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            [ngClass]="{'active': isCGMSCLActive('RECRUITMENT'),'text-dark': isCGMSCLActive('RECRUITMENT'),
+                  'text-white': !isCGMSCLActive('RECRUITMENT') }">{{ 'RECRUITMENT' | translate }}
+        
+          </a>
+          <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i
+                  class="bi bi-play-fill me-2"></i>{{ 'Results and Notice' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i
+                  class="bi bi-play-fill me-2"></i>{{ 'Recruitment Archive' | translate }}</a></li>
+            <li><a class="dropdown-item" routerLink="/otherDeptRecruitment" routerLinkActive="active"><i
+                  class="bi bi-play-fill me-2"></i>{{ 'Other Department' | translate }}</a></li>
+        
+          </ul>
+        </li>
       </ul>
     </div>
 
@@ -386,9 +301,10 @@
       </div>
       <div class="offcanvas-body theme-navbar">
         <ul class="navbar-nav">
+          <!-- home menu -->
           <li class="nav-item"><a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']"
               data-bs-dismiss="offcanvas">{{ 'HOME' | translate }}</a></li>
-      
+      <!-- CGMSCL menu -->
           <li class="nav-item" >
              <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isCGMSCLOpen  = !isCGMSCLOpen " [attr.aria-expanded]="isCGMSCLOpen "  
@@ -405,30 +321,27 @@
               <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" routerLink="/AboutCGMSC" routerLinkActive="active"
                     data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'About Us' | translate }}</a></li>
-              
-                <li class="nav-item"><a class="nav-link" routerLink="/ProcurementPolicy" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/Organogram" routerLinkActive="active" data-bs-dismiss="offcanvas">
-                  <i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="https://dpdmis.in/cdn/COI/Certificate_of_Incorporation.jpg" target="_blank" data-bs-dismiss="offcanvas">
+                    <li class="nav-item"><a class="nav-link" href="https://dpdmis.in/cdn/COI/Certificate_of_Incorporation.jpg" target="_blank" data-bs-dismiss="offcanvas">
                   
-          
-                  <i class="bi bi-play-fill me-2"></i>{{ 'Certificate of Incorporation' | translate }}</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="https://dpdmis.in/cdn/docs/Articles%20of%20Association.pdf" target="_blank" data-bs-dismiss="offcanvas">
-                  <i class="bi bi-play-fill me-2"></i>{{ 'Articles Of Association' | translate }}</a>
-                </li>
-                  <li class="nav-item"><a class="nav-link" href="https://dpdmis.in/cdn/docs/Memorandum%20of%20Association.pdf" target="_blank" data-bs-dismiss="offcanvas">
-                    <i class="bi bi-play-fill me-2"></i>{{ 'Memorandum Of Association' | translate }}</a>
-                  </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/NoticeCircular" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/OurTeam" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Our Team' | translate }}</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/DrugWarehouses" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
-      
+                      <i class="bi bi-play-fill me-2"></i>{{ 'Certificate in Incorporation' | translate }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="https://dpdmis.in/cdn/docs/Articles%20of%20Association.pdf" target="_blank" data-bs-dismiss="offcanvas">
+                      <i class="bi bi-play-fill me-2"></i>{{ 'Articles Of Association' | translate }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="https://dpdmis.in/cdn/docs/Memorandum%20of%20Association.pdf" target="_blank" data-bs-dismiss="offcanvas">
+                      <i class="bi bi-play-fill me-2"></i>{{ 'Memorandum Of Association' | translate }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/Organogram" routerLinkActive="active" data-bs-dismiss="offcanvas">
+                      <i class="bi bi-play-fill me-2"></i>{{ 'Organogram' | translate }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/OurTeam" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Our Team' | translate }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/DrugWarehouses" routerLinkActive="active"
+                      data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouse' | translate }}</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/NoticeCircular" routerLinkActive="active"
+                      data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Notice/Circular' | translate }}</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/ProcurementPolicy" routerLinkActive="active"
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Procurement Policy' | translate }}</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/ContactUs" routerLinkActive="active"
                       data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Contact Us' | translate }}</a></li>
       
@@ -437,7 +350,7 @@
       
           </li>
       
-      
+      <!-- Drug menu -->
           <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isDrugOpen = !isDrugOpen" [attr.aria-expanded]="isDrugOpen"
@@ -453,10 +366,13 @@
                 <li class="nav-item"><a class="nav-link" routerLink="/TenderDrug" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/OperationalPolicyDrugs" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
                   {{ 'Operational Policy' | translate }} </a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/DrugProductBlacklisted" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                <li class="nav-item"><a class="nav-link" routerLink="/DrugBlacklisting" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                  {{ 'Blacklisting' | translate }} </a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/validRCs" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Valid Rate Contracts of Equipment' | translate }}</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" routerLink="/DrugProductBlacklisted" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
                   {{ 'Product Blacklisted' | translate }} </a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/blacklistFirm" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
-                  {{ 'Firms Blacklisted' | translate }} </a></li>
+                  {{ 'Firms Blacklisted' | translate }} </a></li> -->
 
                     <div class="custom-collapse ps-3" [class.show]="isDrugOpen" id="servicesCollapseMobile">
                       
@@ -499,6 +415,7 @@
             </div>
       
           </li>
+          <!-- EQUIPMENT menu -->
           <li class="nav-item">
       
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
@@ -514,11 +431,12 @@
       
             <div class="custom-collapse ps-3" [class.show]="isEquipmentOpen" id="EquipmentOpenCollapseMobile">
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" routerLink="/TenderEquip" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/OperationalPolicyEquipments" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Operational Policy' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"> </i>{{ 'Product Blacklisted' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/blacklistFirm" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/validRC" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Valid Rate Contracts of Equipment' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/TenderEquip" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/OperationalPolicyEquipments"routerLinkActive="active"  data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Operational Policy' | translate }}</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"> </i>{{ 'Product Blacklisted' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/blacklistFirm" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Firms Blacklisted' | translate }}</a></li> -->
+                <li class="nav-item"><a class="nav-link" routerLink="/EquipmentBlacklisting" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Blacklisting' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/validRC" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Valid Rate Contracts of Equipment' | translate }}</a></li>
                     <div class="custom-collapse ps-3" [class.show]="isEquipmentOpen" id="servicesCollapseMobile">
                      
                       <ul class="navbar-nav">
@@ -548,6 +466,7 @@
       
       
           </li>
+          <!-- INFRASTRUCTURE menu -->
           <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isInfrastructureOpen = !isInfrastructureOpen" [attr.aria-expanded]="isInfrastructureOpen"
@@ -562,38 +481,14 @@
       
             <div class="custom-collapse ps-3" [class.show]="isInfrastructureOpen" id="InfrastructureCollapseMobile">
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" routerLink="/TenderCivil" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
-                
+                <li class="nav-item"><a class="nav-link" routerLink="/TenderCivil" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Tenders' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/TenderCivili" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Contractor Blacklisted' | translate }}</a></li>
+                <!-- <li><a class="dropdown-item" routerLink="/TenderCivili" routerLinkActive="active" ><i class="bi bi-play-fill me-2"></i>{{ 'Contractor Blacklisted' | translate }}</a></li> -->
               </ul>
             </div>
       
           </li>
-      
-          <li class="nav-item">
-            <a class="nav-link d-flex justify-content-between align-items-center" role="button"
-              (click)="isRecruitmentOpen = !isRecruitmentOpen" [attr.aria-expanded]="isRecruitmentOpen"
-              [ngClass]="{
-                'active': isCGMSCLActive('RECRUITMENT'),
-                'text-dark': isCGMSCLActive('RECRUITMENT'),
-                'text-white': !isCGMSCLActive('RECRUITMENT')
-              }">{{ 'RECRUITMENT' | translate }}
-              
-              <i class="bi" [ngClass]="isRecruitmentOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
-            </a>
-      
-            <div class="custom-collapse ps-3" [class.show]="isRecruitmentOpen" id="RecruitmentCollapseMobile">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" routerLink="/drug" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
-                  {{ 'Results and Notice' | translate }} </a>
-                </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/equipment" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
-                  {{ 'Other Department' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
-                  {{ 'Recruitment Archive' | translate }} </a></li>
-              </ul>
-            </div>
-      
-          </li>
+          <!-- TENDERS menu -->
           <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isTendersOpen = !isTendersOpen" [attr.aria-expanded]="isTendersOpen"
@@ -625,51 +520,7 @@
       
       
           </li>
-          <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas">{{ 'GALLERY' | translate }}</a></li>
-          <!-- <li class="nav-item">
-            <a class="nav-link d-flex justify-content-between align-items-center" role="button"
-              (click)="isGalleryOpen = !isGalleryOpen" [attr.aria-expanded]="isGalleryOpen"
-              [ngClass]="{
-                'active': isCGMSCLActive('GALLERY'),
-                'text-dark': isCGMSCLActive('GALLERY'),
-                'text-white': !isCGMSCLActive('GALLERY')
-              }">{{ 'GALLERY' | translate }}
-              
-              <i class="bi" [ngClass]="isGalleryOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
-            </a>
-      
-            <div class="custom-collapse ps-3" [class.show]="isGalleryOpen" id="GalleryCollapseMobile">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Health' | translate }}
-                    Infrastructure</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/Gallery"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouses' | translate }}</a></li>
-              </ul>
-            </div>
-          </li> -->
-          
-          <li class="nav-item">
-            <a class="nav-link d-flex justify-content-between align-items-center" role="button"
-              (click)="isCareersOpen = !isCareersOpen" [attr.aria-expanded]="isCareersOpen"
-              [ngClass]="{
-                'active': isCGMSCLActive('CAREERS'),
-                'text-dark': isCGMSCLActive('CAREERS'),
-                'text-white': !isCGMSCLActive('CAREERS')
-              }">{{ 'CAREERS' | translate }}
-               
-              <i class="bi" [ngClass]="isCareersOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
-            </a>
-      
-            <div class="custom-collapse ps-3" [class.show]="isCareersOpen" id="CareersCollapseMobile">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="https://cgmsc.gov.in/Career/CareerWithUs.aspx" target="_blank" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Apply Now' | translate }}</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" routerLink="/CAREERS" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Apply Now' | translate }}</a></li> -->
-              </ul>
-            </div>
-          </li>
+          <!-- login menu -->
           <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isLOGINOpen = !isLOGINOpen" [attr.aria-expanded]="isLOGINOpen"
@@ -790,7 +641,85 @@
             </div>
       
           </li>
+        <!-- RTI menu -->
           <li class="nav-item"><a class="nav-link" routerLink="/RTI" data-bs-dismiss="offcanvas">{{ 'RTI' | translate }} </a></li>
+      <!--CAREERS menu  -->
+        <li class="nav-item">
+          <a class="nav-link d-flex justify-content-between align-items-center" role="button"
+            (click)="isCareersOpen = !isCareersOpen" [attr.aria-expanded]="isCareersOpen" [ngClass]="{
+              'active': isCGMSCLActive('CAREERS'),
+              'text-dark': isCGMSCLActive('CAREERS'),
+              'text-white': !isCGMSCLActive('CAREERS')
+            }">{{ 'CAREERS' | translate }}
+        
+            <i class="bi" [ngClass]="isCareersOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+          </a>
+        
+          <div class="custom-collapse ps-3" [class.show]="isCareersOpen" id="CareersCollapseMobile">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="https://cgmsc.gov.in/Career/CareerWithUs.aspx" target="_blank"
+                  data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Apply Now' | translate }}</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" routerLink="/CAREERS" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Apply Now' | translate }}</a></li> -->
+            </ul>
+          </div>
+        </li>
+        <!--GALLERY menu  -->
+          <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas">{{ 'GALLERY' | translate }}</a></li>
+
+         <!-- RECRUITMENT menu -->
+          <li class="nav-item">
+            <a class="nav-link d-flex justify-content-between align-items-center" role="button"
+              (click)="isRecruitmentOpen = !isRecruitmentOpen" [attr.aria-expanded]="isRecruitmentOpen"
+              [ngClass]="{
+                'active': isCGMSCLActive('RECRUITMENT'),
+                'text-dark': isCGMSCLActive('RECRUITMENT'),
+                'text-white': !isCGMSCLActive('RECRUITMENT')
+              }">{{ 'RECRUITMENT' | translate }}
+              
+              <i class="bi" [ngClass]="isRecruitmentOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+            </a>
+      
+            <div class="custom-collapse ps-3" [class.show]="isRecruitmentOpen" id="RecruitmentCollapseMobile">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" routerLink="/drug" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                  {{ 'Results and Notice' | translate }} </a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="/equipment" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                  {{ 'Other Department' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                  {{ 'Recruitment Archive' | translate }} </a></li>
+              </ul>
+            </div>
+      
+          </li>
+         
+          <!-- <li class="nav-item">
+            <a class="nav-link d-flex justify-content-between align-items-center" role="button"
+              (click)="isGalleryOpen = !isGalleryOpen" [attr.aria-expanded]="isGalleryOpen"
+              [ngClass]="{
+                'active': isCGMSCLActive('GALLERY'),
+                'text-dark': isCGMSCLActive('GALLERY'),
+                'text-white': !isCGMSCLActive('GALLERY')
+              }">{{ 'GALLERY' | translate }}
+              
+              <i class="bi" [ngClass]="isGalleryOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+            </a>
+      
+            <div class="custom-collapse ps-3" [class.show]="isGalleryOpen" id="GalleryCollapseMobile">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'News/Clippings' | translate }}</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'EVENTS' | translate }}</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Health' | translate }}
+                    Infrastructure</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/Gallery"
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Warehouses' | translate }}</a></li>
+              </ul>
+            </div>
+          </li> -->
+          
+          
+          
      <!-- <li class="nav-item hover-dropdown"><a class="nav-link" href="http://140.238.246.250:82//Default.aspx" target="_blank" rel="noopener noreferrer">{{ 'BIOMETRIC' | translate }}</a></li> -->
 
           <!-- <li class="nav-item"><a class="nav-link" (click)="handleLinkClick($event, 'http://140.238.246.250:82//Default.aspx')" rel="noopener noreferrer" data-bs-dismiss="offcanvas">{{ 'BIOMETRIC' | translate }}</a></li> -->
@@ -798,8 +727,6 @@
         </ul>
       </div>
     </div>
-    
-    
   </div>
 </nav>
 

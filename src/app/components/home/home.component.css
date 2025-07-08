@@ -231,11 +231,28 @@
     object-fit: cover; 
     object-position: 50% 15%; 
   }
+  /* .butnewcss {
+    background-color: green; 
+    top: 118px;
+    right: -2px;
+    width: 45px;
+    height: 45px;
+    z-index: 1055;
+  } */
 }
 @media (max-width: 1024px){
   .imagessizecenter  {
     object-fit: cover; 
     object-position: 50% 15%; 
+  }
+  .butnewcss {
+    top: 125px;
+    right: 4px;
+    /* top: 118px;
+    right: -2px; */
+    width: 46px;
+    height: 44px;
+    z-index: 1055;
   }
 }
 /*#endregion tab css*/
@@ -251,42 +268,91 @@
 
 /*#endregion card haver css*/
 /*#endregion marquee css*/
-
-.marquee-container {
+.marquee-wrapper {
   overflow: hidden;
   position: relative;
+  width: 100%;
   height: 300px;
-  /* background: #fff8f2; */
-
-  /* background: #e5f9f6; */
-  /* background: #fbe7ac; */
-  /* background: #fff; */
-  /* background: #f8f9fa; */
 }
 
-.marquee-images {
+/* .marquee-track {
   display: flex;
-  animation: scrollImages 20s linear infinite;
+  gap: 30px;
+  animation: scrollLeft 40s linear infinite;
+  width: max-content;
+} */
+.marquee-track {
+  display: flex;
+  gap: 30px;
+  animation: scrollLeft 20s linear infinite;
+  width: max-content;
+}
+.marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px;
+  max-width: 180px;
+  text-align: center;
+  padding: 10px;
 }
 
-.marquee-images img {
-  width: 180px;
-  height: 70%;
-  /* width: 180px;
-  height: 100%; */
-  margin-right: 30px;
+.marquee-item img {
+  width: 100%;
+  height: 160px;
   object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-@keyframes scrollImages {
+.marquee-item p {
+  font-size: 13px;
+  padding: 4px 6px;
+  margin: 0;
+  color: #000;
+  /* background-color: #f8f9fa; */
+  border-radius: 5px;
+}
+
+/* Animation Keyframes */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* @keyframes scrollLeft {
   0% {
     transform: translateX(100%);
   }
-
   100% {
     transform: translateX(-100%);
   }
+} */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .marquee-wrapper {
+    height: 250px;
+  }
+
+  .marquee-item {
+    min-width: 140px;
+    max-width: 140px;
+  }
+
+  .marquee-item img {
+    height: 130px;
+  }
+
+  .marquee-item p {
+    font-size: 12px;
+  }
 }
+
 /*#endregion marquee css*/
 
 .modal-lg-custom {
@@ -298,4 +364,119 @@
 
   padding: 1rem;          /* Optional padding */
 }
+/* .butnewcss {
+    top: 84px;
+    right: -42px;
+    width: 45px;
+    height: 45px;
+    z-index: 1055;
 
+}
+body.modal-open {
+  padding-right: 0 !important;
+}
+@media (min-width: 768px) {
+  .butnewcss {
+    background-color: green;
+    top: 118px;
+    right: -2px;
+    width: 45px;
+    height: 45px;
+    z-index: 1055;
+  }
+} */
+
+/* .butnewcss {
+  top: 84px;
+  right: -42px;
+  width: 45px;
+  height: 45px;
+  z-index: 1055;
+
+} */
+/* hhhhhhhhhhhhhhhhhhhh */
+/* :host ::ng-deep .butnewcss {
+  cursor: pointer;
+    background-color: rgb(255, 71, 71);
+    top: 123px;
+    right: 7px;
+    width: 45px;
+    height: 45px;
+    z-index: 1055;
+    
+ 
+}
+
+@media (min-width: 768px) {
+  :host ::ng-deep .butnewcss {
+
+  background-color:rgb(255, 71, 71);
+  top: 84px;
+  right: -42px;
+  width: 45px;
+  height: 45px;
+  z-index: 1055;
+  cursor: pointer;
+
+ 
+  }
+}
+@media (max-width: 1024px){
+
+  .butnewcss {
+    top: 125px;
+    right: 4px;
+    
+    width: 46px;
+    height: 44px;
+    z-index: 1055;
+  }
+}
+.butnewcss:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+} */
+/* Host deep so it applies globally */
+/* Ensures modal stays centered with consistent origin */
+
+/* new csss dfd */
+/* Ensures modal stays centered with consistent origin */
+:host ::ng-deep .modal-content {
+  position: relative;
+}
+
+/* Button wrapper positioned exactly on top-right corner of modal */
+:host ::ng-deep .modal-close-wrapper {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  z-index: 1060;
+}
+
+/* Button design */
+:host ::ng-deep .butnewcss {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(255, 71, 71);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+:host ::ng-deep .butnewcss:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Only apply on desktop (min 768px) */
+@media (max-width: 767px) {
+  :host ::ng-deep .modal-close-wrapper {
+    /* top: 8px;
+    right: 8px; */
+    top: -18px;
+    right: 1px;
+  }
+}

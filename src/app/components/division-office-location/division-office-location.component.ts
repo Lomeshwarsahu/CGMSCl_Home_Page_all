@@ -47,10 +47,10 @@ export class DivisionOfficeLocationComponent {
     //   });
     // }
     GetWarehouse_Location() {
-      const allowedNames = ['Bilaspur', 'Raipur', 'Durg', 'Kanker', 'Ambikapur']; // <- Sirf ye naam chahiye
+      const allowedNames = ['Bilaspur', 'Raipur', 'Durg', 'Kanker', 'Ambikapur']; 
     
       this.ApiService.getWarehouseInfo(0).subscribe((res) => {
-        console.info('res=', res);
+        // console.info('res=', res);
     
         this.warehouseInfo = res
           .filter((item: any) => allowedNames.includes(item.warehousename))

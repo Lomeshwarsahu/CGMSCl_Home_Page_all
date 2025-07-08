@@ -22,6 +22,23 @@ export interface Data_model {
     expiry_Date_of: string;
     expiry_DateOnNotice_Board: string;
     displayNew: string;
+   
+  }
+export interface AllCateDrugTenderList {
+
+    sno:any;
+    url: string;
+    content_Registration_Id: string;
+    attachment_Id: string;
+    caption: string;
+    content_Discription: string;
+    subject: string;
+    content_Subject: string;
+    content_Publising_Date: string;
+    expiry_Date_of: string;
+    expiry_DateOnNotice_Board: string;
+    displayNew: string;
+    contentCategoryName:string;
   }
   export interface GetMostVisitedContentList {
       url: string
