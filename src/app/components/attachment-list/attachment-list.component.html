@@ -91,7 +91,8 @@ padding-top: 10px;
 padding-bottom: 50px;  this.Notice-->
 <section class="container-fluid py-2">
     <div class="card shadow p-3 ">
-       <h3> <strong class="text-align justify-content-center d-flex mb-2 "   *ngIf="name !== 'Other Tender (Technical)' && name !== 'Notice/Circular'">Tender ({{name}} )</strong></h3>
+       <!-- <h3> <strong class="text-align justify-content-center d-flex mb-2 "   *ngIf="name !== 'Other Tender (Technical)' && name !== 'Notice/Circular'">Tender ({{name}} )</strong></h3> -->
+       <h3> <strong class="text-align justify-content-center d-flex mb-2 "   *ngIf="name !== 'Other Tender (Technical)' && name !== 'Notice/Circular'">{{name}}</strong></h3>
         <h3> <strong class="text-align justify-content-center d-flex m-2 " *ngIf="name == 'Other Tender (Technical)'">{{name}}</strong></h3>
         <h3> <strong class="text-align justify-content-center d-flex m-2 " *ngIf="name == 'Notice/Circular'">{{name}}</strong></h3>
         <!-- <strong >Head No:</strong>{{ContentHeader_data[0].content_Subject}} -->

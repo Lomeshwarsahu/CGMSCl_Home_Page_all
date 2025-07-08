@@ -28,7 +28,8 @@
             "styles": [
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/ngx-spinner/animations/pacman.css" ,
+              "node_modules/ngx-spinner/animations/pacman.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
               "node_modules/aos/dist/aos.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
                "node_modules/bootstrap-icons/font/bootstrap-icons.css",
@@ -52,8 +53,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "8kb",
+                  "maximumError": "8kb"
                 }
               ],
               "outputHashing": "all",

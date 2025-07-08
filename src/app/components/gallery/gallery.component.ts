@@ -33,17 +33,7 @@ export class GalleryComponent {
     document.documentElement.style.setProperty('--theme-gradient', this.selectedColor );
     this.groupImages(3);
   }
-  News: string[] = [
-    'https://dpdmis.in/cdn/News/48385277-51e6-4dcb-a2ff-5beb3b1f8528.jfif',
-    'https://dpdmis.in/cdn/News/b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif',
-    'https://dpdmis.in/cdn/News/ba0ed618-ec63-4f2b-b977-786fbe807576.jfif',
-    'https://dpdmis.in/cdn/News/Capture.JPG',
-    'https://dpdmis.in/cdn/News/cd01d37c-4a6c-486b-b3f6-bc94fb650a96.jfif',
-    'https://dpdmis.in/cdn/News/img1.jpg.jfif',
-    'https://dpdmis.in/cdn/News/news.JPG',
-    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-05-19%20at%209.42.17%20PM.jpeg',
-    'https://dpdmis.in/cdn/News/img1.jpg.jfif',
-  ];
+ 
 
   groupImages(size: number) {
     for (let i = 0; i < this.News.length; i += size) {
@@ -63,6 +53,17 @@ isEventOpen = false;
 toggleEvent() {
   this.isEventOpen = !this.isEventOpen;
 }
+News: string[] = [
+  'https://dpdmis.in/cdn/News/48385277-51e6-4dcb-a2ff-5beb3b1f8528.jfif',
+  'https://dpdmis.in/cdn/News/b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif',
+  'https://dpdmis.in/cdn/News/ba0ed618-ec63-4f2b-b977-786fbe807576.jfif',
+  'https://dpdmis.in/cdn/News/Capture.JPG',
+  'https://dpdmis.in/cdn/News/cd01d37c-4a6c-486b-b3f6-bc94fb650a96.jfif',
+  'https://dpdmis.in/cdn/News/img1.jpg.jfif',
+  'https://dpdmis.in/cdn/News/news.JPG',
+  'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-05-19%20at%209.42.17%20PM.jpeg',
+  'https://dpdmis.in/cdn/News/img1.jpg.jfif',
+];
 events: string[] = [
   'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
   'https://dpdmis.in/cdn/Event/photo_5.jpg',
