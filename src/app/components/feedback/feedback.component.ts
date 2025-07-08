@@ -27,6 +27,7 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 })
 export class FeedbackComponent {
   selectedColor: any;
+  captcha='7G5K2';
   constructor(
     public Service: ApiServiceService,
     private cdr: ChangeDetectorRef,
@@ -49,5 +50,12 @@ export class FeedbackComponent {
     //   document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
     //   // this.selectedColor = color;
     // });
+  }
+
+  generateCaptcha(): void {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    this.captcha = Array.from({ length: 6 }, () =>
+      characters.charAt(Math.floor(Math.random() * characters.length))
+    ).join('');
   }
 }

@@ -18,12 +18,12 @@
     "DRUG/CONSUMABLE":"DRUG/CONSUMABLE",
     "EQUIPMENT/REAGENTS":"EQUIPMENT/REAGENTS",
 
-    "Tenders":"TENTERS",
+    "Tenders":"TENDERS",
     "Operational Policy":"OPERATIONAL POLICY",
     "Product Blacklisted":"PRODUCT BLACKLISTED",
     "DOWNLOADS":"DOWNLOADS",
     "EDL 2019":"ESSENTIAL DRUG LIST 2021",
-    
+    "Contractor Blacklisted":"CONTRACTOR BLACKLISTED",
     "Undertaking of SelfLife":"UNDERTAKING OF SELFLIFE",
     "Agreement Format for Drugs":"AGREEMENT FORMAT FOR DRUGS",
     "Bank Guarantee":"FORMAT FOR BANK GUARANTEE",
@@ -41,7 +41,7 @@
     "TENDERS":"TENDERS",
     "Drug":"DRUG",
     "Health Infrastructure":"HEALTH INFRASTRUCTURE",
-    "Latest Activity":"Latest Activity",
+    "Latest Activities":"Latest Activities",
     "OTHERS":"OTHERS",
     "GALLERY":"GALLERY",
     "Warehouses":"WAREHOUSES",
@@ -61,7 +61,7 @@
     "Facility DDC Login":"FACILITY DDC LOGIN",
     "Equipment":"Equipment",
     "EMIS":"EMIS",  
-    "Infrastructure":"INFRASTRUCTURE",
+    "Infrastructure":"Infrastructure",
     "Health Infra(HIMIS)":"HEALTH INFRA(HIMIS)",
     "Admin":"ADMIN/HR",
     "ADMIN":"ADMIN",
@@ -79,14 +79,14 @@
    "7th October 2010":"7th October 2010",
    "under the Companies Act, 1956. The company operates under the":"under the Companies Act, 1956. The company operates under the",
    "Health & Family Welfare Department":"Health & Family Welfare Department",
-   "of Chhattisgarh":"of Chhattisgarh.",
+   "of Chhattisgarh":" of Chhattisgarh .",
    "Read More":"Read More...",
    "Shri Vishnu Deo Sai Honble Chief Minister":"Shri Vishnu Deo Sai Hon'ble Chief Minister",
    "Shri Shyam Bihari Jaiswal":"Shri Shyam Bihari Jaiswal Hon'ble Minister Health & Family Welfare and Med. Edu.",
    "Shri Deepak Mhaskey":"Shri Deepak Mhaskey Hon'ble Chairman, CGMSCL",
    "Shri Amit Kataria":"Shri Amit Kataria (IAS)Secretary, Health and Family Welfare and Medical Education",
    "Priyanka Shukla":"Dr.Priyanka Shukla (IAS) Commissioner-cum-Director of Health Services",
-   "Shikha Rajput Tiwari":"Shikha Rajput Tiwari (IAS)Chhattisgarh Government Commissioner, Medical Education, Chhattisgarh",
+   "Shikha Rajput Tiwari":"Shikha Rajput Tiwari (IAS) Chhattisgarh GOVT. Commissioner, Med. Edu. , CG.",
    "Padmini Bhoi Sahu":"Smt.Padmini Bhoi Sahu (IAS) Managing Director CGMSCL",
    "Chhattisgarh Govt":" Chhattisgarh Govt.",
    "CG Health":"CG Health",
@@ -110,10 +110,12 @@
    "Equipment Tenders":"Equipment Tenders",
    "Infrastructure Tenders":"Infrastructure Tenders",
    "Other Tenders":"Other Tenders",
+   "OTHER TENDERS":"OTHER TENDERS",
    "Latest Announcement":"Latest Announcement",
    "Video Gallery":"Video Gallery",
    "Circulars/User Manuals":"Circulars/User Manuals",
    "Events":"Events",
+ 
    " Your browser does not support the video tag":" Your browser does not support the video tag.",
    "Explore our Photo Gallery":"Explore our Photo Gallery",
    "Explore our Video Gallery":"Explore our Video Gallery",
@@ -123,7 +125,7 @@
   
    "Our Vision":"Our Vision",
    "Our Values":"Our Values",
-   "Office Location":"Office Location",
+   "Office Location":"Office Locations",
    "Head Office":"Head Office",
    "Drug Warehouse":" Drug Warehouse",
    "Infrastructure Division":"Infrastructure Division",
@@ -149,9 +151,9 @@
    "Instagram":"Instagram",
    "Share this page":"Share this page",
   
-   "Certificate of Incorporation":"CERTIFICATION OF INCORPORATION"
+   "Certificate in Incorporation":"CERTIFICATION IN INCORPORATION",
   
-  
+  "Blacklisting":"BLACKLISTING"
    
 
            

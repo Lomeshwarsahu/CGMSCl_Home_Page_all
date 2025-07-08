@@ -32,7 +32,7 @@ export class WarehouseLocationComponent {
     }
     GetWarehouse_Location() {
       this.ApiService.getWarehouseInfo(0).subscribe((res) => {
-        console.info('res=',res);
+        // console.info('res=',res);
         this.warehouseInfo = res.map((item: any) => ({
           ...item,
           position: {
