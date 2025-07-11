@@ -539,7 +539,7 @@
                   (touchstart)="onPauseStart(1)"
                   (touchend)="onPauseEnd(1)" >
                   <div *ngFor="let item of DrugTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender ( Drug-Technical )')">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender ( Drug-Technical )')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
@@ -582,7 +582,7 @@
                 (touchend)="onPauseEnd(2)" >
               
                   <div *ngFor="let item of EquipmentList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender ( Equipment-Technical )')">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender ( Equipment-Technical )')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
@@ -617,7 +617,7 @@
                   (touchstart)="onPauseStart(3)"
                   (touchend)="onPauseEnd(3)" >
                   <div *ngFor="let item of CivilTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender (Civil)')">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender (Civil)')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
@@ -652,7 +652,7 @@
                   (touchstart)="onPauseStart(4)"
                   (touchend)="onPauseEnd(4)">
                   <div *ngFor="let item of OtherTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Other Tender (Technical)')">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Other Tender (Technical)')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>{{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
                   </div>
@@ -799,33 +799,6 @@
             <div class="tab-pane fade" id="tab2" role="tabpanel">
               <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
               <div class="row g-2">
-                <!-- <div class="col-12 col-md-12 ">
-                  <div class="card ">
-                    <div
-                    class="scroll-container"
-                    [class.paused]="card1Pause"
-                    (mouseenter)="onPauseStart(1)"
-                    (mouseleave)="onPauseEnd(1)"
-                    (touchstart)="onPauseStart(1)"
-                    (touchend)="onPauseEnd(1)" >
-                    <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
-                      <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Drug-Technical')">
-                        <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">New</span>
-                        {{ item.content_Subject }} {{ item.content_Discription }}
-                      </a>
-                    </div>
-                    <div class="text-end mt-3">
-                     
-  
-                      <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/TenderDrug">
-                        <i class="bi bi-eye me-2"></i> View More...
-                      </a>
-                    </div>
-                  </div>
-                  </div>
-                 
-                </div> -->
-
                 <div class="col-12 col-md-12 col-lg-12" >
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
                     <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'CGMSCL Notice/Circular' | translate }}</strong></h5>
@@ -837,7 +810,7 @@
                         (mouseleave)="card1Pause = false"
                         (touchstart)="card1Pause = true"
                         (touchend)="card1Pause = false" > -->
-                        <div class="scroll-container" [class.paused]="card1Pause"
+                        <!-- <div class="scroll-container" [class.paused]="card1Pause"
                         (mouseenter)="onPauseStart(1)" (mouseleave)="onPauseEnd(1)"
                         (touchstart)="onPauseStart(1)" (touchend)="onPauseEnd(1)">
                      
@@ -854,8 +827,54 @@
                          </a>
                        </div>
                      </div>
-                   </div>
-                   
+                   </div> -->
+                   <style>
+                    .scroll-container1 {
+  overflow: hidden;
+  position: relative;
+  /* height: auto; */
+  height: 600px;
+}
+
+.scroll-container1.paused .scroll-content1 {
+  animation-play-state: paused;
+}
+
+.scroll-content1 {
+  display: inline-block;
+  animation: scroll-up1 30s linear infinite;
+}
+
+@keyframes scroll-up1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+                   </style>
+                   <div class="scroll-container1" [class.paused]="card1Pause"
+     (mouseenter)="onPauseStart(1)" (mouseleave)="onPauseEnd(1)"
+     (touchstart)="onPauseStart(1)" (touchend)="onPauseEnd(1)">
+  <div class="scroll-content1" [style.animationDuration]="'40s'">
+    <ng-container *ngFor="let i of [0, 1]">
+      <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
+        <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')" style="cursor: pointer;">
+          <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">{{'New' | translate }}</span>
+          {{ item.content_Subject }}
+        </a>
+      </div>
+      <div class="text-end mt-3 pb-3">
+        <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/NoticeCircular">
+          <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
                     </div>
                   </div>
                 </div>
@@ -1802,7 +1821,7 @@
     <!-- Your Tender Notification List -->
     <div *ngFor="let item of AllTenderListNotification" class="mb-3 text-white" style="text-align: justify;">
       <p class="m-2">
-        <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, item.contentCategoryName)">
+        <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, item.contentCategoryName)" style="cursor: pointer;">
           <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{ 'New' | translate }}</span>
           {{ item.content_Subject }} {{ item.attachment_Id }}
         </a>
@@ -1818,7 +1837,7 @@
 <style>
 
  .hover-zone {
-  pointer-events: none; /* allow clicks to pass through */
+  pointer-events:noun; /* allow clicks to pass through */
 }
 
 /* But allow the button inside to still be clickable */
