@@ -119,7 +119,7 @@ export class HomeComponent {
       this.card2Pause = true;
       this.cdRef.detectChanges();
       return;
-    } else if (index == 2) {
+    } else if (index == 3) {
       this.card3Pause = true;
       this.cdRef.detectChanges();
       return;
@@ -139,7 +139,7 @@ export class HomeComponent {
       this.card2Pause = false;
       this.cdRef.detectChanges();
       return;
-    } else if (index == 2) {
+    } else if (index == 3) {
       this.card3Pause = false;
       this.cdRef.detectChanges();
       return;
@@ -161,11 +161,11 @@ export class HomeComponent {
   GetAllTenderLists() {
     // debugger
     const apis = [
-      { url: 'GetDrugTenderList?n=3', assignTo: 'DrugTenderList' },
-      { url: 'GetEquipmentList?n=3', assignTo: 'EquipmentList' },
-      { url: 'GetCivilTenderList?n=3', assignTo: 'CivilTenderList' },
-      { url: 'GetOtherTenderList?n=3', assignTo: 'OtherTenderList' },
-      { url: 'GetMostVisitedContentList?n=3', assignTo: 'VisitedContentList' },
+      { url: 'GetDrugTenderList?n=2', assignTo: 'DrugTenderList' },
+      { url: 'GetEquipmentList?n=2', assignTo: 'EquipmentList' },
+      { url: 'GetCivilTenderList?n=2', assignTo: 'CivilTenderList' },
+      { url: 'GetOtherTenderList?n=2', assignTo: 'OtherTenderList' },
+      { url: 'GetMostVisitedContentList?n=2', assignTo: 'VisitedContentList' },
     ];
 
     apis.forEach((api) => this.fetchData(api.url, api.assignTo));

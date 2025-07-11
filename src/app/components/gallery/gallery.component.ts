@@ -1,5 +1,5 @@
 import { NgClass, NgFor } from '@angular/common';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component ,HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -31,15 +31,30 @@ export class GalleryComponent {
   ngOnInit(): void {
     this.selectedColor = sessionStorage.getItem('selectedColor');
     document.documentElement.style.setProperty('--theme-gradient', this.selectedColor );
-    this.groupImages(3);
+    // this.groupImages(1);
+    this.setGroupingBasedOnViewport();
   }
- 
+  @HostListener('window:resize', [])
+  onResize() {
+    this.setGroupingBasedOnViewport();
+  }
+  setGroupingBasedOnViewport() {
+    const width = window.innerWidth;
+    this.groupedNews = []; // reset before grouping
+  
+    if (width < 768) {
+      this.groupImages(1); // mobile
+    } else {
+      this.groupImages(3); // desktop/tablet
+    }
+  }
 
   groupImages(size: number) {
     for (let i = 0; i < this.News.length; i += size) {
       this.groupedNews.push(this.News.slice(i, i + size));
     }
 }
+
 
 scrollLeft(container: HTMLElement) {
   container.scrollLeft -= 320; // adjust based on card width + margin
@@ -63,6 +78,7 @@ News: string[] = [
   'https://dpdmis.in/cdn/News/news.JPG',
   'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-05-19%20at%209.42.17%20PM.jpeg',
   'https://dpdmis.in/cdn/News/img1.jpg.jfif',
+  'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-11%20at%2012.03.15.jpeg',
 ];
 events: string[] = [
   'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
@@ -74,7 +90,15 @@ events: string[] = [
   'https://dpdmis.in/cdn/Event/DSC_2873.JPG',
   'https://dpdmis.in/cdn/Event/DSC_2883.JPG',
   'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
-  'https://dpdmis.in/cdn/Event/WhatsApp%20Image%202025-07-02%20at%2010.59.50%20(2).jpeg'
+  'https://dpdmis.in/cdn/Event/WhatsApp%20Image%202025-07-02%20at%2010.59.50%20(2).jpeg',
+  'https://dpdmis.in/cdn/Event/ev1.jpeg',
+  'https://dpdmis.in/cdn/Event/ev2.jpeg',
+  'https://dpdmis.in/cdn/Event/ev3.jpeg',
+  'https://dpdmis.in/cdn/Event/ev4.jpeg',
+  'https://dpdmis.in/cdn/Event/ev5.jpeg',
+  'https://dpdmis.in/cdn/Event/ev6.jpeg',
+  'https://dpdmis.in/cdn/Event/ev7.jpeg',
+  // '',
 ];
 drugs: string[] = [
   'https://dpdmis.in/cdn/drugs/2.jpg',
