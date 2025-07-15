@@ -218,139 +218,92 @@ export class HomeComponent {
       });
   }
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=2
-  GetAllCateDrugTenderList(){
+  // GetAllCateDrugTenderList(){
+  //   try {
+  //     this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
+  //       (res: any) => {
+         
+  //         this.AllTenderListNotification =  res;
+  //         console.log('AllTenderListNotification=', res)
+  //         this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+  //         this.getnewtentar(this.publishingDates);
+  //         // console.log('AllTenderListNotification=',this.AllTenderListNotification);
+  //         // console.log(JSON.stringify(res.user.role[0].roleName));
+  //         // console.log(JSON.stringify(res.user.userName));
+  //       },
+  //       (err: Error) => {
+  //         //  debugger
+  //          throw err;
+  //         // this.toastr.error(`Error fetching=${err.message}`,'Error!');
+  //       }
+  //     );
+  //   } catch (err: any) {
+  //     // this.toastr.error(`Error fetching=${err.message }`,'Error!');
+  //     throw err;
+  //   }
+  // }
+  GetAllCateDrugTenderList() {
     try {
       this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
         (res: any) => {
-         
-          this.AllTenderListNotification =  res;
-          // console.log('lolo=', res)
-          this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          // First sort the response
+          const sortedRes = res.sort((a: any, b: any) => {
+            const aIsNew = this.isNewContent(a.content_Publising_Date);
+            const bIsNew = this.isNewContent(b.content_Publising_Date);
+  
+            // Show new content first
+            if (aIsNew && !bIsNew) return -1;
+            if (!aIsNew && bIsNew) return 1;
+  
+            // If both are same (new or not), sort by publish date descending
+            return new Date(b.content_Publising_Date).getTime() - new Date(a.content_Publising_Date).getTime();
+          });
+  
+          this.AllTenderListNotification = sortedRes;
+          // console.log('Sorted Tender List:', sortedRes);
+  
+          this.publishingDates = sortedRes.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
           this.getnewtentar(this.publishingDates);
-          // console.log('AllTenderListNotification=',this.AllTenderListNotification);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
         },
         (err: Error) => {
-          //  debugger
-           throw err;
-          // this.toastr.error(`Error fetching=${err.message}`,'Error!');
+          throw err;
         }
       );
     } catch (err: any) {
-      // this.toastr.error(`Error fetching=${err.message }`,'Error!');
       throw err;
     }
   }
-
-  GetDrugTenderList() {
-    // debugger;
-    try {
-      this.ApiService.get('GetDrugTenderList?n=2').subscribe(
-        (res: any) => {
-          this.data_model = res;
-          this.DrugTenderList = this.data_model;
-          // console.log(this.DrugTenderList);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
-        },
-        (err: Error) => {
-          //  debugger
-          //  throw err;
-          console.log(err);
-          // this.toastr.error("Please Check userId and password!",'Error');
-          //  alert(err.message)
-        }
-      );
-      this.ApiService.get('GetEquipmentList?n=2').subscribe(
-        (res: any) => {
-          this.data_model = res;
-          this.EquipmentList = this.data_model;
-          // console.log('GetEquipmentList?n=2', this.EquipmentList);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
-        },
-        (err: Error) => {
-          //  debugger
-          //  throw err;
-          console.log(err);
-          // this.toastr.error("Please Check userId and password!",'Error');
-          //  alert(err.message)
-        }
-      );
-
-      this.ApiService.get('GetCivilTenderList?n=2').subscribe(
-        (res: any) => {
-          this.data_model = res;
-          this.CivilTenderList = this.data_model;
-          // console.log('GetCivilTenderList?n=2', this.CivilTenderList);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
-        },
-        (err: Error) => {
-          //  debugger
-          //  throw err;
-          console.log(err);
-          // this.toastr.error("Please Check userId and password!",'Error');
-          //  alert(err.message)
-        }
-      );
-      this.ApiService.get('GetOtherTenderList?n=2').subscribe(
-        (res: any) => {
-          this.data_model = res;
-          this.OtherTenderList = this.data_model;
-          // console.log('GetOtherTenderList?n=2', this.OtherTenderList);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
-        },
-        (err: Error) => {
-          //  debugger
-          //  throw err;
-          console.log(err);
-          // this.toastr.error("Please Check userId and password!",'Error');
-          //  alert(err.message)
-        }
-      );
-      this.ApiService.get('GetMostVisitedContentList?n=2').subscribe(
-        (res: any) => {
-          this.data_model = res;
-          this.VisitedContentList = this.data_model;
-          // console.log('GetMostVisitedContentList?n=2', this.VisitedContentList);
-          // console.log(JSON.stringify(res.user.role[0].roleName));
-          // console.log(JSON.stringify(res.user.userName));
-          // console.log(JSON.stringify(res.user))
-        },
-        (err: Error) => {
-          //  debugger
-          //  throw err;
-          console.log(err);
-          // this.toastr.error("Please Check userId and password!",'Error');
-          //  alert(err.message)
-        }
-      );
-    } catch (err: any) {
-      console.log(err);
-      // throw err;
-    }
+  
+  isNewContent(publishDateStr: string): boolean {
+    if (!publishDateStr) return false;
+  
+    const today = new Date();
+    const publishDate = new Date(publishDateStr);
+  
+    if (isNaN(publishDate.getTime())) return false;
+  
+    const diffInMs = today.getTime() - publishDate.getTime();
+    const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  
+    return diffInDays >= 0 && diffInDays <= 15;
+    // return diffInDays >= -2 && diffInDays <= 15; 
   }
+  
 
-  isNewContent(publishingDate: string): boolean {
+
+  // isNewContenttt(publishingDate: string): boolean {
  
 
     
-    const published = new Date(publishingDate);
-    const today = new Date();
+  //   const published = new Date(publishingDate);
+  //   const today = new Date();
    
 
-    const diffInMs = today.getTime() - published.getTime();
+  //   const diffInMs = today.getTime() - published.getTime();
 
-    const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-    return diffInDays <= 7;
-  }
+  //   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  //   return diffInDays <= 7;
+  // }
 getnewtentar(publishingDates: string[]) {
   const today = new Date();
   const formattedToday = today.toISOString().split('T')[0] + "T00:00:00";
@@ -369,8 +322,7 @@ getnewtentar(publishingDates: string[]) {
 
     // console.log("Publish:", publishingDate, "| Diff Days:", diffInDays);
 
-    if (diffInDays >= 0 && diffInDays <= 7) {
-    
+    if (diffInDays >= 0 && diffInDays <= 20) {
       const modal = new bootstrap.Modal(document.getElementById('newModaltender'));
       modal.show();
       setTimeout(() => {
@@ -572,4 +524,99 @@ getnewtentar(publishingDates: string[]) {
       // throw err;
     }
   }
+
+  // GetDrugTenderList() {
+  //   // debugger;
+  //   try {
+  //     this.ApiService.get('GetDrugTenderList?n=2').subscribe(
+  //       (res: any) => {
+  //         this.data_model = res;
+  //         this.DrugTenderList = this.data_model;
+  //         // console.log(this.DrugTenderList);
+  //         // console.log(JSON.stringify(res.user.role[0].roleName));
+  //         // console.log(JSON.stringify(res.user.userName));
+  //         // console.log(JSON.stringify(res.user))
+  //       },
+  //       (err: Error) => {
+  //         //  debugger
+  //         //  throw err;
+  //         console.log(err);
+  //         // this.toastr.error("Please Check userId and password!",'Error');
+  //         //  alert(err.message)
+  //       }
+  //     );
+  //     this.ApiService.get('GetEquipmentList?n=2').subscribe(
+  //       (res: any) => {
+  //         this.data_model = res;
+  //         this.EquipmentList = this.data_model;
+  //         // console.log('GetEquipmentList?n=2', this.EquipmentList);
+  //         // console.log(JSON.stringify(res.user.role[0].roleName));
+  //         // console.log(JSON.stringify(res.user.userName));
+  //         // console.log(JSON.stringify(res.user))
+  //       },
+  //       (err: Error) => {
+  //         //  debugger
+  //         //  throw err;
+  //         console.log(err);
+  //         // this.toastr.error("Please Check userId and password!",'Error');
+  //         //  alert(err.message)
+  //       }
+  //     );
+
+  //     this.ApiService.get('GetCivilTenderList?n=2').subscribe(
+  //       (res: any) => {
+  //         this.data_model = res;
+  //         this.CivilTenderList = this.data_model;
+  //         // console.log('GetCivilTenderList?n=2', this.CivilTenderList);
+  //         // console.log(JSON.stringify(res.user.role[0].roleName));
+  //         // console.log(JSON.stringify(res.user.userName));
+  //         // console.log(JSON.stringify(res.user))
+  //       },
+  //       (err: Error) => {
+  //         //  debugger
+  //         //  throw err;
+  //         console.log(err);
+  //         // this.toastr.error("Please Check userId and password!",'Error');
+  //         //  alert(err.message)
+  //       }
+  //     );
+  //     this.ApiService.get('GetOtherTenderList?n=2').subscribe(
+  //       (res: any) => {
+  //         this.data_model = res;
+  //         this.OtherTenderList = this.data_model;
+  //         // console.log('GetOtherTenderList?n=2', this.OtherTenderList);
+  //         // console.log(JSON.stringify(res.user.role[0].roleName));
+  //         // console.log(JSON.stringify(res.user.userName));
+  //         // console.log(JSON.stringify(res.user))
+  //       },
+  //       (err: Error) => {
+  //         //  debugger
+  //         //  throw err;
+  //         console.log(err);
+  //         // this.toastr.error("Please Check userId and password!",'Error');
+  //         //  alert(err.message)
+  //       }
+  //     );
+  //     this.ApiService.get('GetMostVisitedContentList?n=2').subscribe(
+  //       (res: any) => {
+  //         this.data_model = res;
+  //         this.VisitedContentList = this.data_model;
+  //         // console.log('GetMostVisitedContentList?n=2', this.VisitedContentList);
+  //         // console.log(JSON.stringify(res.user.role[0].roleName));
+  //         // console.log(JSON.stringify(res.user.userName));
+  //         // console.log(JSON.stringify(res.user))
+  //       },
+  //       (err: Error) => {
+  //         //  debugger
+  //         //  throw err;
+  //         console.log(err);
+  //         // this.toastr.error("Please Check userId and password!",'Error');
+  //         //  alert(err.message)
+  //       }
+  //     );
+  //   } catch (err: any) {
+  //     console.log(err);
+  //     // throw err;
+  //   }
+  // }
 }
