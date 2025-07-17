@@ -242,27 +242,58 @@ export class HomeComponent {
   //     throw err;
   //   }
   // }
+
+  // wwwwwwwwwwwww
+  // GetAllCateDrugTenderList() {
+   
+  //   try {
+  //     this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
+  //       (res: any) => {
+  //         // First sort the response
+  //         const sortedRes = res.sort((a: any, b: any) => {
+  //           const aIsNew = this.isNewContent(a.content_Publising_Date);
+  //           const bIsNew = this.isNewContent(b.content_Publising_Date);  
+  
+  //           // Show new content first
+  //           if (aIsNew && !bIsNew) return -1;
+  //           if (!aIsNew && bIsNew) return 1;
+  
+  //           // If both are same (new or not), sort by publish date descending
+  //           return new Date(b.content_Publising_Date).getTime() - new Date(a.content_Publising_Date).getTime();
+  //         });
+  
+  //         this.AllTenderListNotification = sortedRes;
+  //         // console.log('Sorted Tender List:', sortedRes);
+  
+  //         this.publishingDates = sortedRes.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+  //         this.getnewtentar(this.publishingDates);
+  //       },
+  //       (err: Error) => {
+  //         throw err;
+  //       }
+  //     );
+  //   } catch (err: any) {
+  //     throw err;
+  //   }
+  // }
   GetAllCateDrugTenderList() {
     try {
       this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
         (res: any) => {
-          // First sort the response
-          const sortedRes = res.sort((a: any, b: any) => {
-            const aIsNew = this.isNewContent(a.content_Publising_Date);
-            const bIsNew = this.isNewContent(b.content_Publising_Date);
+          // Filter only "new" items within last 15 days
+          const filteredRes = res.filter((item: any) =>
+            this.isNewContent(item.content_Publising_Date)
+          );
   
-            // Show new content first
-            if (aIsNew && !bIsNew) return -1;
-            if (!aIsNew && bIsNew) return 1;
+          // Sort new items by publish date descending
+          const sortedFilteredRes = filteredRes.sort((a: any, b: any) =>
+            new Date(b.content_Publising_Date).getTime() - new Date(a.content_Publising_Date).getTime()
+          );
   
-            // If both are same (new or not), sort by publish date descending
-            return new Date(b.content_Publising_Date).getTime() - new Date(a.content_Publising_Date).getTime();
-          });
-  
-          this.AllTenderListNotification = sortedRes;
-          // console.log('Sorted Tender List:', sortedRes);
-  
-          this.publishingDates = sortedRes.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          this.AllTenderListNotification = sortedFilteredRes;
+          this.publishingDates = sortedFilteredRes.map(
+            (item: { content_Publising_Date: any }) => item.content_Publising_Date
+          );
           this.getnewtentar(this.publishingDates);
         },
         (err: Error) => {
@@ -274,6 +305,7 @@ export class HomeComponent {
     }
   }
   
+  //wwwwwwwwwwwwwwwwwww
   isNewContent(publishDateStr: string): boolean {
     if (!publishDateStr) return false;
   
