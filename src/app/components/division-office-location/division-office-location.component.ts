@@ -61,7 +61,12 @@ export class DivisionOfficeLocationComponent {
               lng: parseFloat(item.longitude),
             },
           }));
-      });
+      },
+      (err: Error) => {
+        // this.toastr.error(`Error fetching=${err.message}`,'Error!');
+        console.error(`Error fetching ${err}:`, err);
+      }
+    );
     }
     
     onMarkerClick(warehouse: any, marker: MapMarker) {
