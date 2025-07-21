@@ -53,9 +53,10 @@ showOfflineAlert() {
     allowEscapeKey: false,
     confirmButtonText: 'Retry'
   }).then(() => {
-    if (!navigator.onLine) {
-      this.showOfflineAlert(); // Repeat alert until connection is restored
-    }
+    // this.showOfflineAlert(); // Repeat alert until connection is restored
+    // if (!navigator.onLine) {
+  
+    // }
   });
 }
 

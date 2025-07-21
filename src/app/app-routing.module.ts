@@ -61,7 +61,8 @@ const routes: Routes = [
   
   { path: 'login', component: LoginComponent },
   { path: 'validRC', component: ValidRcComponent },
-  { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, 
+ 
+  // { path: 'dashboard', component: HomeComponent, canActivate: [authGuard] }, 
 
   // {
   //   path: 'dashboard',

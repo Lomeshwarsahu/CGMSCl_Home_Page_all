@@ -17,6 +17,7 @@ import { TranslateService , TranslateModule} from '@ngx-translate/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { ToastrService } from 'ngx-toastr';
 import { E } from '@angular/material/error-options.d-CGdTZUYk';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 // import {  } from '@ngx-translate/core'; 
 @Component({
   selector: 'app-home',
@@ -46,6 +47,7 @@ export class HomeComponent {
   AllTenderListNotification: AllCateDrugTenderList[] = [];
   warehouseInfo: WarehouseInfo[] = [];
   publishingDates: any[]=[];
+  sanitizedPdfUrl!: SafeResourceUrl;
   // pauseScroll: boolean = false;
   crrenterdatetosevendate:any;
   card1Pause = false;
@@ -67,9 +69,10 @@ export class HomeComponent {
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
   };
+  isOnline: boolean = navigator.onLine;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow!: MapInfoWindow;
   constructor(
-    public authService: AuthServiceService,
+    public authService: AuthServiceService,private sanitizer: DomSanitizer,
     private router: Router,
     private ApiService: ApiServiceService,
     private cdRef: ChangeDetectorRef, private translate: TranslateService,private toastr:ToastrService
@@ -84,6 +87,8 @@ export class HomeComponent {
     //   const current = this.router.url;
     //   this.isDefaultDashboardRoute = current === '/dashboard';
     // });
+    // https://dpdmis.in/cdn/Videos/presentation/BloodCTScan.mp4
+
   }
   ngOnInit(): void {
     const colorTop = sessionStorage.getItem('selectedTopColor');
@@ -105,9 +110,22 @@ export class HomeComponent {
     this.GetAllTenderLists();
     this.GetAllCateDrugTenderList();
     // this.Getnewimage();
+
+    window.addEventListener('offline', () => {
+      this.isOnline = false;
+ 
+    });
+  
+    window.addEventListener('online', () => {
+      this.isOnline = true;
+    
+    });
   }
   openInfo(marker: MapMarker) {
-    this.infoWindow.open(marker);
+   
+
+      this.infoWindow.open(marker);
+    
   }
   onPauseStart(index: any) {
     // debugger;
@@ -499,6 +517,7 @@ getnewtentar(publishingDates: string[]) {
     modal.show();
   }
 
+
   prevImage() {
     this.selectedIndex =
       (this.selectedIndex - 1 + this.images.length) % this.images.length;
@@ -555,6 +574,25 @@ getnewtentar(publishingDates: string[]) {
       console.log(err);
       // throw err;
     }
+  }
+
+
+  openmarqModal(pdfUrl: string):void  {
+    // const modal = new bootstrap.Modal(document.getElementById('marqModal'));
+    // modal.show();
+   // Remove '~' from the start of the URL
+  //  const cleanedUrl = 'https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf';
+  //  // console.log('Opening:', cleanedUrl);
+  //  window.open(cleanedUrl);
+   // window.open(cleanedUrl, '_blank');
+
+   this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
+
+  
+   const modalElement = document.getElementById('pdfModal');
+   const modal = new bootstrap.Modal(modalElement!);
+   modal.show();
+
   }
 
   // GetDrugTenderList() {

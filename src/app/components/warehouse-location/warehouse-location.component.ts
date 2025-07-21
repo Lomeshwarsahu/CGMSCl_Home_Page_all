@@ -40,7 +40,12 @@ export class WarehouseLocationComponent {
             lng: parseFloat(item.longitude),
           },
         }));
-      });
+      },
+      (err: Error) => {
+        // this.toastr.error(`Error fetching=${err.message}`,'Error!');
+        console.error(`Error fetching ${err}:`, err);
+      }
+    );
     }
     onMarkerClick(warehouse: any, marker: MapMarker) {
       this.selectedWarehouse = warehouse; // Update the selected warehouse details

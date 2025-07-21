@@ -283,11 +283,15 @@
                             width: 100%;
                             height: 100%;
                             object-fit: contain;" />
-                      </div>
+                      </div></a>
                         <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
                           DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
                           <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">{{'Procurement' | translate }}</h3>
-                    </a>
+                          <button class="btn px-1 py-0 theme-navbarr btn-light btn-outline-danger" style="font-size: 12px; border-radius: 10px;"
+                           (click)="openmarqModal('https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf')">
+                          e-Procurement PDF
+                          </button>
+                    
                   </div>
                     <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
                     style="min-width: 150px; max-width: 150px;">
@@ -318,10 +322,10 @@
                     <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
                     style="min-width: 150px; max-width: 150px;">
                   
-                    <a href="https://gem.gov.in/" target="_blank"
+                    <a href="https://bidplus.gem.gov.in/advance-search" target="_blank"
                       class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
                   
-                      <!-- Centered Circle Image -->
+                      <!-- Centered Circle Image https://gem.gov.in/-->
                       <div class="d-flex justify-content-center align-items-center mb-2" style="
                           width: 80px;
                           height: 80px;
@@ -335,11 +339,19 @@
                             width: 100%;
                             height: 100%;
                             object-fit: contain;" />
-                      </div>
+                      </div> </a>
+                      <!-- <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 12px;"> <a href="https://gem.gov.in/" target="_blank"
+                      class="">
+                      Search bids</a></h3> -->
                         <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
                           DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
                           <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">{{'Gem Portal' | translate }}</h3>
-                    </a>
+                          <!-- <button class="btn btn-sm btn-dark">Search bids</button> -->
+                          <button class="btn px-1 py-0 theme-navbarr btn-light btn-outline-danger" style="font-size: 12px; border-radius: 10px;"
+                           (click)="openmarqModal('https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf')">
+                            Search bids
+                          </button>
+                          
                   </div>
             <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
               style="min-width: 150px; max-width: 150px;">
@@ -731,71 +743,64 @@
 
           <!-- Tab content -->
           <div class="tab-content pt-4">
-            <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-              <!-- <h5 class="gradient-heading pt-1">{{'Video Gallery' | translate }} </h5> -->
-              <div class="row g-2">
-
-                <div class="col-md-12 mb-3">
-                  <div class="ratio ratio-16x9">
-                    <video controls preload="none" width="100%" height="100%">
-                      <!-- F:\CGMSC\CGMSC_Home_Page\src\assets\Videos\cgmsc-video.mp4 -->
-                      <source src="https://dpdmis.in/cdn/videos/presentation/cgmscVideo.mp4" type="video/mp4">
-                      <!-- <source src="./assets/Videos/cgmsc-video.mp4" type="video/mp4"> -->
-                      {{'Your browser does not support the video tag' | translate }}
-                    </video>
-                  </div>
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+            <div class="row g-2">
+              <div class="col-md-8 mb-3">
+                <div class="ratio ratio-16x9">
+                  <video controls preload="none" width="100%" height="100%">
+                   
+                 
+                    <source src="https://dpdmis.in/cdn/videos/presentation/cgmscVideo.mp4" type="video/mp4">
+                    {{'Your browser does not support the video tag' | translate }}
+                  </video>
+               
+                  <!-- <iframe src="https://dpdmis.in/cdn/videos/presentation/cgmscVideo.mp4" title="Main Video"
+                    allowfullscreen></iframe> -->
                 </div>
-                
-
-                  <!-- <div class="col-md-12 mb-3">
-                    <div class="ratio ratio-16x9">
-                      <iframe src="\assets\Videos\CGMSC - (4Min Video).mp4" title="Main Video"
-                        allowfullscreen></iframe>
-                      <iframe src="https://www.youtube.com/embed/6nCqzegLWVM?si=y7L8q4CXzs09zqsh" title="Main Video"
-                        allowfullscreen></iframe>
-                    </div>
-                  </div> -->
-                <!-- <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 1">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 2">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/ai-generated-8659507_640.jpg"
-                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 4">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 5">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 6">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 7">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 8">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 9">
-                </div> -->
-                <!-- <button class="btn btn-outline-primary btn-sm" routerLink="/Gallery"><i class="bi bi-image"></i>&nbsp; 
-                  {{'Explore our Video Gallery' | translate }} </button> -->
-
               </div>
+
+
+              <div class="col-md-4">
+                <div class="ratio ratio-16x9 mb-3">
+                  <video controls preload="none" width="100%" height="100%">
+                   
+                    <source src="https://dpdmis.in/cdn/Videos/presentation/BloodCTScan.mp4" type="video/mp4">
+                    
+                    {{'Your browser does not support the video tag' | translate }}
+                  </video>
+                </div>
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/grAeAEE3qzE?si=xhBUwGLhpwelwr1J" title="Small Video 2"
+                    allowfullscreen></iframe>
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/CcVtqTeliZg?si=ZsxHEi48Dgq735Ts" title="Bottom Video 1"
+                    allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/IUN-RdrLgJE?si=lFXB-_GcF2NOO0Ml" title="Bottom Video 3"
+                    allowfullscreen></iframe>
+
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/HeG9hLI5pvw?si=VAhlbR_x8LCpS3yx" title="Bottom Video 2"
+                    allowfullscreen></iframe>
+
+                </div>
+              </div>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-film"></i>&nbsp;   {{'Explore our Video Gallery' | translate }}
+              </button>
             </div>
+          </div>
+
+          
             <div class="tab-pane fade" id="tab2" role="tabpanel">
               <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
               <div class="row g-2">
@@ -803,78 +808,55 @@
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
                     <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'CGMSCL Notice/Circular' | translate }}</strong></h5>
                     <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
-                      <!-- <div
-                        class="scroll-container"
-                        [class.paused]="card1Pause"
-                        (mouseenter)="card1Pause = true"
-                        (mouseleave)="card1Pause = false"
-                        (touchstart)="card1Pause = true"
-                        (touchend)="card1Pause = false" > -->
-                        <!-- <div class="scroll-container" [class.paused]="card1Pause"
-                        (mouseenter)="onPauseStart(1)" (mouseleave)="onPauseEnd(1)"
+                    
+                      <style>
+                        .scroll-container1 {
+                          overflow: hidden;
+                          position: relative;
+                          /* height: auto; */
+                          height: 600px;
+                        }
+                    
+                        .scroll-container1.paused .scroll-content1 {
+                          animation-play-state: paused;
+                        }
+                    
+                        .scroll-content1 {
+                          display: inline-block;
+                          animation: scroll-up1 30s linear infinite;
+                        }
+                    
+                        @keyframes scroll-up1 {
+                          0% {
+                            transform: translateY(0);
+                          }
+                    
+                          100% {
+                            transform: translateY(-50%);
+                          }
+                        }
+                      </style>
+                      <div class="scroll-container1" [class.paused]="card1Pause" (mouseenter)="onPauseStart(1)" (mouseleave)="onPauseEnd(1)"
                         (touchstart)="onPauseStart(1)" (touchend)="onPauseEnd(1)">
-                     
-                     <div class="scroll-content" [style.animationDuration]="'90s'">
-                       <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
-                         <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')">
-                           <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">{{'New' | translate }}</span>
-                           {{ item.content_Subject }}
-                         </a>
-                       </div>
-                       <div class="text-end mt-3">
-                         <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/NoticeCircular">
-                           <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
-                         </a>
-                       </div>
-                     </div>
-                   </div> -->
-                   <style>
-                    .scroll-container1 {
-  overflow: hidden;
-  position: relative;
-  /* height: auto; */
-  height: 600px;
-}
-
-.scroll-container1.paused .scroll-content1 {
-  animation-play-state: paused;
-}
-
-.scroll-content1 {
-  display: inline-block;
-  animation: scroll-up1 30s linear infinite;
-}
-
-@keyframes scroll-up1 {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-
-                   </style>
-                   <div class="scroll-container1" [class.paused]="card1Pause"
-     (mouseenter)="onPauseStart(1)" (mouseleave)="onPauseEnd(1)"
-     (touchstart)="onPauseStart(1)" (touchend)="onPauseEnd(1)">
-  <div class="scroll-content1" [style.animationDuration]="'40s'">
-    <ng-container *ngFor="let i of [0, 1]">
-      <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
-        <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')" style="cursor: pointer;">
-          <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">{{'New' | translate }}</span>
-          {{ item.content_Subject }}
-        </a>
-      </div>
-      <div class="text-end mt-3 pb-3">
-        <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white" routerLink="/NoticeCircular">
-          <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
-        </a>
-      </div>
-    </ng-container>
-  </div>
-</div>
-
+                        <div class="scroll-content1" [style.animationDuration]="'40s'">
+                          <ng-container *ngFor="let i of [0, 1]">
+                            <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
+                              <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')"
+                                style="cursor: pointer;">
+                                <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">{{'New' | translate }}</span>
+                                {{ item.content_Subject }}
+                              </a>
+                            </div>
+                            <div class="text-end mt-3 pb-3">
+                              <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white"
+                                routerLink="/NoticeCircular">
+                                <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
+                              </a>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </div>
+                    
                     </div>
                   </div>
                 </div>
@@ -915,98 +897,8 @@
 
               </div>
             </div>
-            <!-- <div class="tab-pane fade" id="tab3" role="tabpanel">
-              
-              <h5 class="gradient-heading pt-1">{{'Latest Announcement' | translate }}</h5>
-              <div class="row g-2">
-                <div class="col-md-8 mb-3">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/6nCqzegLWVM?si=y7L8q4CXzs09zqsh" title="Main Video"
-                      allowfullscreen></iframe>
-                  </div>
-                </div>
-
-
-                <div class="col-md-4">
-                  <div class="ratio ratio-16x9 mb-3">
-                    <iframe src="https://www.youtube.com/embed/t1FxDbAGy5E?si=tsD0GkIiRzONuebr" title="Small Video 1"
-                      allowfullscreen></iframe>
-                  </div>
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/grAeAEE3qzE?si=xhBUwGLhpwelwr1J" title="Small Video 2"
-                      allowfullscreen></iframe>
-                  </div>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/CcVtqTeliZg?si=ZsxHEi48Dgq735Ts" title="Bottom Video 1"
-                      allowfullscreen></iframe>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/IUN-RdrLgJE?si=lFXB-_GcF2NOO0Ml" title="Bottom Video 3"
-                      allowfullscreen></iframe>
-
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/HeG9hLI5pvw?si=VAhlbR_x8LCpS3yx" title="Bottom Video 2"
-                      allowfullscreen></iframe>
-
-                  </div>
-                </div>
-                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-film"></i>&nbsp; Explore our video
-                  Gallery
-                </button>
-              </div>
-            </div> -->
-            <!-- <div class="tab-pane fade" id="tab5" role="tabpanel">
-              <h5 class="gradient-heading pt-1">{{'Events' | translate }}</h5>
-              <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 1">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 2">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/ai-generated-8659507_640.jpg"
-                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 4">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 5">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 6">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 7">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 8">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="./assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 9">
-                </div>
-                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
-                  Gallery</button>
-
-              </div>
-            </div> -->
+           
+            
           </div>
         </div>
       </div>
@@ -1478,7 +1370,7 @@
     </ul>
 
     <!-- Tab content -->
-    <div class="tab-content pt-4">
+    <div class="tab-content pt-4" *ngIf="isOnline == true; else noTracks" >
       <div class="tab-pane fade show active" id="tab11" role="tabpanel">
           
         <!-- <h5 class="text-center gradient-heading pt-1">{{'Head Office Locations' | translate }}</h5> -->
@@ -1539,6 +1431,9 @@
         </div>
       </div>
     </div>
+    <ng-template #noTracks class="tab-content pt-4" >
+    <h3 class="text-center   ">No Internet Connection, Please check your network connection.</h3>
+    </ng-template>
   </div>
 </section>
 
@@ -1849,6 +1744,27 @@
   </div>
 </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="pdfModalLabel">Gem PDF Preview</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="height: 80vh;">
+        <iframe
+          [src]="sanitizedPdfUrl"
+          width="100%"
+          height="100%"
+          style="border: none;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <style>
