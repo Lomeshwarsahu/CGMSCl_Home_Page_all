@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { ApiServiceService } from 'src/app/service/api-service.service';
-import { AllCateDrugTenderList, Data_model, NoticCircular, WarehouseInfo } from 'src/app/model/model';
+import { AllCateDrugTenderList, Data_model, GetMediaResponse, NoticCircular, WarehouseInfo } from 'src/app/model/model';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
@@ -39,6 +39,7 @@ export class HomeComponent {
   selectedColor = '#563d7c';
   data_model: Data_model[] = [];
   dispatchData: NoticCircular[] = [];
+  MediaResponse: GetMediaResponse[] = [];
   DrugTenderList: Data_model[] = [];
   EquipmentList: Data_model[] = [];
   CivilTenderList: Data_model[] = [];
@@ -50,6 +51,7 @@ export class HomeComponent {
   sanitizedPdfUrl!: SafeResourceUrl;
   // pauseScroll: boolean = false;
   crrenterdatetosevendate:any;
+  card20Pause = false;
   card1Pause = false;
   card2Pause = false;
   card3Pause = false;
@@ -141,7 +143,12 @@ export class HomeComponent {
       this.card3Pause = true;
       this.cdRef.detectChanges();
       return;
-    } else {
+    }  else if (index == 4) {
+      this.card20Pause = true;
+      this.cdRef.detectChanges();
+      return;
+    } 
+    else {
       this.card4Pause = true;
       this.cdRef.detectChanges();
     }
@@ -161,7 +168,12 @@ export class HomeComponent {
       this.card3Pause = false;
       this.cdRef.detectChanges();
       return;
-    } else {
+    } else if (index == 4) {
+      this.card20Pause = false;
+      this.cdRef.detectChanges();
+      return;
+    } 
+    else {
       this.card4Pause = false;
       this.cdRef.detectChanges();
     }
@@ -567,7 +579,8 @@ getnewtentar(publishingDates: string[]) {
           // console.log('NoticCircular =:', this.dispatchData);
         },
         (error) => {
-          alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+          // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+          console.log(`Error fetching data:,${JSON.stringify(error.message)}`);
         }
       );
     } catch (err: any) {
@@ -575,8 +588,24 @@ getnewtentar(publishingDates: string[]) {
       // throw err;
     }
   }
-
-
+  // https://cgmsc.gov.in/HIMIS_APIN/api/WebCgmsc/GetMediaResponse?n=0 for new GetMediaResponse
+  GetMediaResponse() {
+    try {
+      this.ApiService.get('GetMediaResponse?n=0').subscribe(
+        (res) => {
+          this.MediaResponse = res;
+          // console.log('NoticCircular =:', this.dispatchData);
+        },
+        (error) => {
+          // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+          console.log(`Error fetching data:,${JSON.stringify(error.message)}`);
+        }
+      );
+    } catch (err: any) {
+      console.log(err);
+      // throw err;
+    }
+  }
   openmarqModal(pdfUrl: string):void  {
     // const modal = new bootstrap.Modal(document.getElementById('marqModal'));
     // modal.show();

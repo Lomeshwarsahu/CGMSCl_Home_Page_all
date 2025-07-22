@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-valid-rc',
-  imports: [NgFor, NgStyle, NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
+  imports: [NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
     MatTableExporterModule, CommonModule],
   templateUrl: './valid-rc.component.html',
   styleUrl: './valid-rc.component.css'
@@ -82,8 +82,9 @@ export class ValidRcComponent {
             this.spinner.hide();
           },
           (error) => {
-
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.spinner.hide();
+            console.error(`Error fetching `, error);
+            // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
           }
         );
     }
@@ -124,7 +125,8 @@ export class ValidRcComponent {
           },
           (error) => {
 
-            alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+            this.spinner.hide();
+            console.error(`Error fetching `, error);
           }
         );
     }

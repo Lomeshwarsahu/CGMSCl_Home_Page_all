@@ -108,7 +108,7 @@ Website :cgmsc.gov.in -->
                                   </ul>
                               
                                   <!-- Tab content -->
-                                  <div class="tab-content pt-4 pb-3 ">
+                                  <div class="tab-content pt-4 pb-3 " *ngIf="isOnline == true; else noTracks">
                                     <div class="tab-pane fade show active" id="tab11" role="tabpanel">
                                       <h5 class="text-center gradient-heading">Head Office Location</h5>
                                       <div class="container-fluid Card ">
@@ -164,6 +164,9 @@ Website :cgmsc.gov.in -->
                                       </div>
                                     </div>
                                   </div>
+                                  <ng-template #noTracks class="tab-content pt-4" >
+                                    <h3 class="text-center   ">No Internet Connection, Please check your network connection.</h3>
+                                    </ng-template>
                                 </div>
                               </section>
                         </div>

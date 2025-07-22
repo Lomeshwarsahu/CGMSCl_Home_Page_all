@@ -143,6 +143,35 @@ export interface NoticCircular {
   contentCategoryCode: string;
   contentCategoryName: string;
 }
+export interface GetMediaResponse {
+  // {
+  //   "url": "~/Home/AttachmentList.aspx?a=202507000018",
+  //   "content_Registration_Id": "202507000018",
+  //   "attachment_Id": "202507000002",
+  //   "caption": "testFile2",
+  //   "content_Discription": "Testing Purpose",
+  //   "subject": "Testing",
+  //   "content_Subject": "(testFile2) :- Testing",
+  //   "content_Publising_Date": "2025-07-21T00:00:00",
+  //   "expiry_Date_of": "parmanent",
+  //   "expiry_DateOnNotice_Board": "2025-08-21T00:00:00",
+  //   "displayNew": "N"
+  // }
+
+
+  sno:number;
+  url: string
+  content_Registration_Id: string
+  attachment_Id: string
+  caption: string
+  content_Discription: string
+  subject: string
+  content_Subject: string
+  content_Publising_Date: string
+  expiry_Date_of: string
+  expiry_DateOnNotice_Board: string
+  displayNew: string
+}
 
 export interface BlacklistedFirm {
    sno:number;

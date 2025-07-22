@@ -75,8 +75,9 @@ dataSource!: MatTableDataSource<BlacklistedFirm>;
               this.spinner.hide();
             },
             (error) => {
-  
-              alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+              this.spinner.hide();
+              // alert(`Error fetching data: ${JSON.stringify(error.message)}`);
+              console.error(`Error fetching `, error);
             }
           );
           }
