@@ -37,6 +37,7 @@ export class ContactUsComponent {
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
   };
+  isOnline: boolean = navigator.onLine;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow!: MapInfoWindow;
   constructor(public authService: AuthServiceService, private router: Router, private ApiService:ApiServiceService) {}
 
@@ -52,6 +53,15 @@ export class ContactUsComponent {
     if (gradient) {
       document.documentElement.style.setProperty('--theme-gradient', gradient);
     }
+    window.addEventListener('offline', () => {
+      this.isOnline = false;
+ 
+    });
+  
+    window.addEventListener('online', () => {
+      this.isOnline = true;
+    
+    });
   }
 
   openInfo(marker: MapMarker) {

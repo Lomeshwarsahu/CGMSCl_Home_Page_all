@@ -706,17 +706,18 @@
                 {{'Video Gallery' | translate }} 
               </button>
             </li>
-            <!-- <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button"
-                role="tab">
-                Latest Announcement
-             
-              </button>
-            </li> -->
+           
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" (click)="GetNoticCircular()"
                 role="tab">
                 {{'Circulars/User Manuals' | translate }}  
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab20-tab" data-bs-toggle="tab" data-bs-target="#tab20" type="button" (click)="GetMediaResponse()"
+                role="tab">
+               {{'MediaResponse' | translate }}
+             
               </button>
             </li>
            
@@ -843,7 +844,7 @@
                             <div *ngFor="let item of dispatchData" class="mb-3" style="text-align: justify;">
                               <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Notice/Circular')"
                                 style="cursor: pointer;">
-                                <span *ngIf="isNewContent(item.date_TimeStamp)" class="badge-new">{{'New' | translate }}</span>
+                                <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                                 {{ item.content_Subject }}
                               </a>
                             </div>
@@ -854,6 +855,67 @@
                               </a>
                             </div>
                           </ng-container>
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab20" role="tabpanel">
+              <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
+              <div class="row g-2">
+                <div class="col-12 col-md-12 col-lg-12" >
+                  <div class="card shadow-lg p-4 border bg-white rounded h-100">
+                    <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'MediaResponse' | translate }}</strong></h5>
+                    <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
+                      <style>
+                        .scroll-container2 {
+                          overflow: hidden;
+                          position: relative;
+                          /* height: auto; */
+                          height: 600px;
+                        }
+                    
+                        .scroll-container2.paused .scroll-content2 {
+                          animation-play-state: paused;
+                        }
+                    
+                        .scroll-content2 {
+                          display: inline-block;
+                          animation: scroll-up2 25s linear infinite;
+                        }
+                    
+                        @keyframes scroll-up2 {
+                          0% {
+                            transform: translateY(0);
+                          }
+                    
+                          100% {
+                            transform: translateY(-50%);
+                          }
+                        }
+                      </style>
+                      
+                      <div class="scroll-container2" [class.paused]="card20Pause" (mouseenter)="onPauseStart(4)" (mouseleave)="onPauseEnd(4)"
+                        (touchstart)="onPauseStart(4)" (touchend)="onPauseEnd(4)">
+                        <div class="scroll-content2" [style.animationDuration]="'25s'">
+                          <!-- <ng-container *ngFor="let i of [0, 1]"> -->
+                            <div *ngFor="let item of MediaResponse" class="mb-3" style="text-align: justify;">
+                              <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Media Response')"
+                                style="cursor: pointer;">
+                                <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
+                                {{ item.content_Subject }}{{item.content_Discription}}
+                              </a>
+                            </div>
+                            <!-- <div class="text-end mt-3 pb-3">
+                              <a class="btn btn-outline-light border rounded btn-sm d-inline-flex align-items-center theme-navbar text-white"
+                                routerLink="/NoticeCircular">
+                                <i class="bi bi-eye me-2"></i> {{'View More' | translate }}
+                              </a>
+                            </div> -->
+                          <!-- </ng-container> -->
                         </div>
                       </div>
                     
@@ -1728,7 +1790,7 @@
   </div>
 
   <div class="modal-body modal-scrollable-body p-0 position-relative image-preview-container theme-navbar border rounded">
-    <h6 class="text-center p-2 text-white border-bottom" style="font-size: 17px;">Latest Notification</h6>
+    <h6 class="text-center p-2 text-white border-bottom" style="font-size: 17px;">Latest Notifications</h6>
 
     <!-- Your Tender Notification List -->
     <div *ngFor="let item of AllTenderListNotification" class="mb-3 text-white" style="text-align: justify;">
