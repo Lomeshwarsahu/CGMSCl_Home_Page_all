@@ -1795,7 +1795,7 @@
     <!-- Your Tender Notification List -->
     <div *ngFor="let item of AllTenderListNotification" class="mb-3 text-white" style="text-align: justify;">
       <p class="m-2">
-        <a class="nav-link tender-link m-2" (click)="onButtonClick(item.attachment_Id, item.contentCategoryName)" style="cursor: pointer;">
+        <a class="nav-link tender-link m-2" (click)="onButtonClick(item.content_Registration_Id, item.contentCategoryName)" style="cursor: pointer;">
           <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{ 'New' | translate }}</span>
           {{ item.content_Subject }} {{ item.attachment_Id }}
         </a>
