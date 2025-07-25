@@ -83,6 +83,9 @@ export class AttachmentListComponent {
     // this.GetContentAttachment(params['Id']);
   });
   }
+
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetContentAttachment?contentRegId=202507000001
+
   // https://cgmsc.gov.in/Home/AttachmentList.aspx?a=202505000001
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetContentAttachment?contentRegId=201408000001
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetContentHeader?contentRegId=201408000001
