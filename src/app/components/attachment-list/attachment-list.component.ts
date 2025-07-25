@@ -20,8 +20,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-attachment-list',
   imports: [
     NavbarComponent,
-    NgFor,
-    NgStyle,
+  
     MaterialModule,
     MatSortModule,
     MatPaginatorModule,

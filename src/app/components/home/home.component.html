@@ -551,7 +551,7 @@
                   (touchstart)="onPauseStart(1)"
                   (touchend)="onPauseEnd(1)" >
                   <div *ngFor="let item of DrugTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender ( Drug-Technical )')" style="cursor: pointer;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Tender ( Drug-Technical )')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
@@ -594,7 +594,7 @@
                 (touchend)="onPauseEnd(2)" >
               
                   <div *ngFor="let item of EquipmentList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender ( Equipment-Technical )')" style="cursor: pointer;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Tender ( Equipment-Technical )')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
@@ -629,7 +629,7 @@
                   (touchstart)="onPauseStart(3)"
                   (touchend)="onPauseEnd(3)" >
                   <div *ngFor="let item of CivilTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Tender (Civil)')" style="cursor: pointer;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Tender (Civil)')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>
                       {{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
@@ -664,7 +664,7 @@
                   (touchstart)="onPauseStart(4)"
                   (touchend)="onPauseEnd(4)">
                   <div *ngFor="let item of OtherTenderList" class="mb-3" style="text-align: justify;">
-                    <a class="nav-link tender-link" (click)="onButtonClick(item.attachment_Id, 'Other Tender (Technical)')" style="cursor: pointer;">
+                    <a class="nav-link tender-link" (click)="onButtonClick(item.content_Registration_Id, 'Other Tender (Technical)')" style="cursor: pointer;">
                       <span *ngIf="isNewContent(item.content_Publising_Date)" class="badge-new">{{'New' | translate }}</span>{{ item.content_Subject }} {{ item.attachment_Id }}
                     </a>
                   </div>
