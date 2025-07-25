@@ -130,10 +130,12 @@ export class TenderDrugComponent {
       this.spinner.show();
       this.Service.get('GetDrugTenderListAll').subscribe(
         (res: any) => {
-          
+          // console.log("data1=",JSON.stringify(res));
           const finalList = this.prepareRows(res);
           this.dispatchData = finalList;
+          // console.log("data2=",JSON.stringify(this.dispatchData ));
           this.dataSource.data = finalList;
+          
           this.dataSource.paginator = this.paginator1;
           this.dataSource.sort = this.sort1;
           this.cdr.detectChanges();
@@ -260,6 +262,7 @@ export class TenderDrugComponent {
 
 
 GetContentAttachment(attachment_Id: string) {
+  // alert(attachment_Id)
   // debugger
   if (!attachment_Id) {
     this.toastr.error('Attachment Id is missing!', 'Error!');
