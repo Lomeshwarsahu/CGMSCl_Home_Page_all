@@ -12,9 +12,10 @@ export class ApiServiceService {
   private colorSubject = new BehaviorSubject<string>(sessionStorage.getItem('selectedColor') || 'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)');
   selectedColor$ = this.colorSubject.asObservable();
 
-  constructor(private router: Router, private http: HttpClient) { this.baseUrl = Base.baseUrl}
+  constructor(private router: Router, private http: HttpClient) { this.baseUrl = Base.baseUrl;this.baseurl_ = Base.baseurl_ }
   // private apiUrl = 'https://rangkar-1.onrender.com';
-  baseUrl: any
+  baseUrl: any;
+  baseurl_:any;
   // get(url: string): Observable<any> {
   //   return this.http.get<any>(`${this.baseUrl}/${url}`);
   // }
@@ -42,7 +43,7 @@ export class ApiServiceService {
   // https://dpdmis.in/CGMSCHO_API2/api/HOTender/WhMangerSSODetail
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDept
   
- // https://dpdmis.in/cdn/Event/
+    // https://dpdmis.in/cdn/Event/
     // https://dpdmis.in/cdn/News/
     Getnewimage(){
       return this.http.get<any>(`https://dpdmis.in/cdn/News/`); 
@@ -62,6 +63,19 @@ export class ApiServiceService {
     return this.http.get<TenderData[]>(`https://cgmsc.gov.in/himis_apin/api/EMS/GetEqpTender`);
   }
 
+  // GetActiveFeedbackTypes(): Observable<any> {
+  //   return this.http.get<any[]>(`https://www.cgmsc.gov.in/himis_apin/api/Feedback/GetActiveFeedbackTypes`);
+  // }
+
+
+  public get1(url: string, options?: any): Observable <any> {
+   
+     return this.http.get(this.baseurl_ + url, options); 
+     }
+     public post1(url: string, data: any, options?: any) {
+      // debugger;
+       return this.http.post(this.baseurl_ + url, data, options); 
+      }
 
   public get(url: string, options?: any): Observable <any> {
      return this.http.get(this.baseUrl + url, options); 
