@@ -17,168 +17,127 @@
                                 style="height: auto; overflow: hidden; position: relative;">
 
                                 <div class="mb-3 Fon-family" style="text-align: justify;">
-                                    <form class="p-2" >
-                                        <div class="row pb-3">
-                                          <div class="form-group col-md-6">
-                                            <label for="inputName">First Name</label>
-                                            <input type="text" class="form-control" placeholder="Type your First Name" id="inputName">
-                                          </div>
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputPassword4">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Type your Last Name" id="inputPassword4">
-                                          </div>
-                                        </div>
-                                        <div class="row pb-3">
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputEmail4">Email</label>
-                                            <input type="email" class="form-control" placeholder="Type your Email" id="inputEmail4">
-                                          </div>
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Address</label>
-                                            <input type="text" class="form-control" placeholder="Type your Address" id="inputAddress">
-                                          </div>
-                                        </div>
-                                        <div class="row pb-3">
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputnumber">Mobile Number </label>
-                                            <input type="number" class="form-control" placeholder="Type your Mobile Number" id="inputnumber">
-                                          </div>
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputAddress">City</label>
-                                            <input type="text" class="form-control" placeholder="Type your City" id="inputAddress">
-                                          </div>
-                                        </div>
-                                        <div class="row pb-3">
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Subject</label>
-                                            <input type="text" class="form-control" placeholder="Type Subject" id="inputSubject">
-                                          </div>
-                                          <div class="form-group  col-md-6 ">
-                                            <label for="inputnumber">Type</label>
-                                            <!-- <input type="text" class="form-control" placeholder="Type " id="inputtype"> -->
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
-                                              <label class="form-check-label" for="flexRadioDefault6">
-                                                Complaint
-                                              </label>
-                                            </div>
-                                            <div class="form-check">
-                                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" checked>
-                                              <label class="form-check-label" for="flexRadioDefault7">
-                                               Suggestion
-                                              </label>
-                                            </div>
-                                          </div>
-                                          
-                                        </div>
-                                       
-                                        <div class="row pb-3">
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Documents</label>
-                                            <input type="file" class="form-control" placeholder="Type your City" id="inputAddress">
-                                          </div>
-                                          <!-- <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Subject</label>
-                                            <input type="text" class="form-control" placeholder="Type Subject" id="inputSubject">
-                                          </div> -->
-                                        </div>
-                                        <div class="row pb-3">
-                                          <label for="inputnumber">Suggestion On</label>
-                                          <div class="form-group  col-md-6">
-                                          <div class="form-check">
-                                            
-                                            <input class="form-check-input" type="radio"  id="flexRadioDefault">
-                                            <label class="form-check-label" for="flexRadioDefault">
-                                              Medicines/Consumable/Ayush
-                                            </label>
-                                          </div>
-                                        
-                                        
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio"  id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                              Equipment/Reagent
-                                            </label>
-                                          </div>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio"  id="flexRadioDefault2">
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                              Warehouse
-                                            </label>
+                                  <form class="p-2" [formGroup]="FeedbackForm" (ngSubmit)="OnSubmit()">
+                                    <div class="row pb-3">
+                                      <div class="form-group col-md-6">
+                                        <label for="inputName">First Name</label>
+                                        <input type="text" class="form-control" formControlName="firstName" placeholder="Type your First Name" id="inputName">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('firstName')?.touched || submitted) && FeedbackForm.get('firstName')?.errors?.['required']">
+                                          First Name is required
+                                        </span>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Last Name</label>
+                                        <input type="text" class="form-control" formControlName="lastName" placeholder="Type your Last Name" id="inputPassword4">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('lastName')?.touched || submitted) && FeedbackForm.get('lastName')?.errors?.['required']">
+                                          Last Name is required
+                                        </span>
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="row pb-3">
+                                      <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" formControlName="email" placeholder="Type your Email" id="inputEmail4">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('email')?.touched || submitted) && FeedbackForm.get('email')?.errors?.['required']">
+                                          Email is required
+                                        </span>
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('email')?.touched || submitted) && FeedbackForm.get('email')?.errors?.['email']">
+                                          Enter a valid email
+                                        </span>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="inputAddress">Address</label>
+                                        <input type="text" class="form-control" formControlName="address" placeholder="Type your Address" id="inputAddress">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('address')?.touched || submitted) && FeedbackForm.get('address')?.errors?.['required']">
+                                          Address is required
+                                        </span>
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="row pb-3">
+                                      <div class="form-group col-md-6">
+                                        <label for="inputnumber">Mobile Number</label>
+                                        <input type="number" class="form-control" maxlength="10" formControlName="mobileNumber" placeholder="Type your Mobile Number" id="inputnumber">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('mobileNumber')?.touched || submitted) && FeedbackForm.get('mobileNumber')?.errors?.['pattern']">
+                                          Enter 10 digit valid mobile number
+                                        </span>
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('mobileNumber')?.touched || submitted) && FeedbackForm.get('mobileNumber')?.errors?.['required']">
+                                          Mobile number is required
+                                        </span>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="inputAddress">City</label>
+                                        <input type="text" class="form-control" formControlName="city" placeholder="Type your City" id="inputAddress">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('city')?.touched || submitted) && FeedbackForm.get('city')?.errors?.['required']">
+                                          City is required
+                                        </span>
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="row pb-3">
+                                      <div class="form-group col-md-6">
+                                        <label for="inputSubject">Subject</label>
+                                        <input type="text" class="form-control" formControlName="subject" placeholder="Type Subject" id="inputSubject">
+                                        <span class="text-danger" *ngIf="(FeedbackForm.get('subject')?.touched || submitted) && FeedbackForm.get('subject')?.errors?.['required']">
+                                          Subject is required
+                                        </span>
+                                      </div>
+                                  
+                                      <div class="form-group col-md-6">
+                                        <label>Type</label>
+                                        <div class="d-flex flex-wrap gap-3 pt-2">
+                                          <div *ngFor="let feedbackType of FeedbackTypeslist" class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" [value]="feedbackType.feedbackTypeId" formControlName="feedbackTypeId" [id]="'feedbackType-' + feedbackType.feedbackTypeId">
+                                            <label class="form-check-label" [for]="'feedbackType-' + feedbackType.feedbackTypeId">{{ feedbackType.feedbackTypeName }}</label>
                                           </div>
                                         </div>
-                                          <div class="form-group  col-md-6">
-                                          
-                                        
-                                        
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio"  id="flexRadioDefault3" >
-                                            <label class="form-check-label" for="flexRadioDefault3">
-                                              Finance
-                                            </label>
-                                          </div>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio"  id="flexRadioDefault4" >
-                                            <label class="form-check-label" for="flexRadioDefault4">
-                                              Infrastructure
-                                            </label>
-                                          </div>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="flexRadioDefault5" checked>
-                                            <label class="form-check-label" for="flexRadioDefault5">
-                                              Other
-                                            </label>
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="row pb-3">
+                                      <div class="form-group col-md-6">
+                                        <label>Suggestion On</label>
+                                        <div class="d-flex flex-wrap gap-3 pt-2">
+                                          <div *ngFor="let topic of Topicslist" class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" [value]="topic.topicId" formControlName="topicId" [id]="'topic-' + topic.topicId">
+                                            <label class="form-check-label" [for]="'topic-' + topic.topicId">{{ topic.topicName }}</label>
                                           </div>
                                         </div>
-                                          <!-- <div class="form-group  col-md-6">
-                                            <label for="inputnumber">State</label>
-                                            <input type="text" class="form-control" placeholder="Type your State" id="inputnumber">
-                                          </div> -->
-                                          <!-- <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Country</label>
-                                            <input type="text" class="form-control" placeholder="Type your Country" id="inputAddress">
-                                          </div> -->
-                                        </div>
-                                        <div class="form-group pb-3">
-                                            <label for="inputComments">Comments / Queries</label>
-                                            <textarea class="form-control" id="inputComments" rows="4" placeholder="Type your comments or queries here..."></textarea>
-                                        </div>
-                                        <div class="row pb-3">
-                                          <div class="form-group  col-md-6">
-                                            <label for="inputAddress">Verification Code</label>
-                                            <input type="text" class="form-control" placeholder="Enter Captcha Code" id="inputAddress">
+                                      </div>
+                                    </div>
+                                  
+                                    <div class="form-group pb-3">
+                                      <label for="inputComments">Comments / Queries</label>
+                                      <textarea class="form-control" id="inputComments" rows="4" formControlName="comments" placeholder="Type your comments or queries here..."></textarea>
+                                      <span class="text-danger" *ngIf="(FeedbackForm.get('comments')?.touched || submitted) && FeedbackForm.get('comments')?.errors?.['required']">
+                                        Comments is required
+                                      </span>
+                                    </div>
+                                  
+                                    <div class="row pb-3">
+                                      <div class="form-group col-md-6">
+                                        <label for="captchaInput">Verification Code</label>
+                                        <input type="text" class="form-control" formControlName="captchaInput" placeholder="Enter Captcha Code" id="captchaInput">
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label class="invisible">Captcha</label>
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text bg-light text-dark fw-bold" id="captchaText" style="user-select: none;">{{ captcha }}</span>
                                           </div>
-                                          <div class="form-group col-md-6 ">
-                                            <label class="invisible" for="captcha ">Enter Captcha</label>
-                                            <div class="input-group">
-                                              <div class="input-group-prepend">
-                                                <span class="input-group-text bg-light text-dark fw-bold" id="captchaText" style="user-select: none;">{{ captcha }}</span>
-                                              </div>
-                                              <button type="button" class="btn btn-link" (click)="generateCaptcha()">
-                                                <i class="fa-solid fa-arrows-rotate"></i>
-                                                <!-- <i class="fa-solid fa-rotate"></i> -->
-                                                <!-- <i class="bi bi-arrow-clockwise  fw-bold"></i> -->
-                                              </button>
-                                              <!-- <button type="button" class="btn btn-link" (click)="generateCaptcha()">Refresh</button> -->
-                                              <!-- <input type="text" class="form-control" id="captchaInput" placeholder="Enter Captcha" /> -->
-                                            </div>
-                                            </div>
-                                            <!-- <div class="mb-3">
-                                              <label for="captcha" class="form-label">CAPTCHA</label>
-                                              <div class="d-flex align-items-center">
-                                                <span class="captcha-box">{{ captcha }}</span>
-                                                <button type="button" class="btn btn-link" (click)="generateCaptcha()">Refresh</button>
-                                              </div>
-                                              <input type="text" class="form-control" id="captcha" #captchaInput placeholder="Enter CAPTCHA"
-                                                required>
-                                              <div *ngIf="otpField.invalid && (otpField.dirty || otpField.touched)" class="text-danger">
-                                                OTP is required.
-                                              </div>
-                                            </div> -->
+                                          <button type="button" class="btn btn-link" (click)="generateCaptcha()">
+                                            <i class="fa-solid fa-arrows-rotate"></i>
+                                          </button>
                                         </div>
-                                      
-                                        <button type="submit" class="btn btn-primary">Submit </button>
-                                      </form>
+                                      </div>
+                                    </div>
+                                  
+                                    <button type="submit" class="btn btn-primary" [disabled]="FeedbackForm.invalid">Submit</button>
+                                  </form>
+                                  
+
+                                 
                                     
                             </div>
                             </div>
@@ -194,3 +153,86 @@
 </div>
 
 
+<!-- <div class="mb-3">
+                                              <label for="captcha" class="form-label">CAPTCHA</label>
+                                              <div class="d-flex align-items-center">
+                                                <span class="captcha-box">{{ captcha }}</span>
+                                                <button type="button" class="btn btn-link" (click)="generateCaptcha()">Refresh</button>
+                                              </div>
+                                              <input type="text" class="form-control" id="captcha" #captchaInput placeholder="Enter CAPTCHA"
+                                                required>
+                                              <div *ngIf="otpField.invalid && (otpField.dirty || otpField.touched)" class="text-danger">
+                                                OTP is required.
+                                              </div>
+                                            </div> -->
+
+<!-- <div class="form-check">
+                                            
+                                            <input class="form-check-input" type="radio"  formControlName="topicId" value="1">
+                                            <label class="form-check-label" >
+                                              Medicines/Consumable/Ayush
+                                            </label>
+                                          </div>
+                                        
+                                        
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio"  formControlName="topicId" value="2">
+                                            <label class="form-check-label" for="topicId2">
+                                              Equipment/Reagent
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" formControlName="topicId" value="3">
+                                            <label class="form-check-label" for="topicId3">
+                                              Warehouse
+                                            </label>
+                                          </div>
+                                        </div>
+                                          <div class="form-group  col-md-6">
+                                        
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" formControlName="topicId" value="3" >
+                                            <label class="form-check-label" for="topicId4">
+                                              Finance
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" formControlName="topicId" value="5" >
+                                            <label class="form-check-label" for="topicId5">
+                                              Infrastructure
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" formControlName="topicId" value="6" >
+                                            <label class="form-check-label" for="topicId6">
+                                              Other
+                                            </label>
+                                          </div>
+                                        </div> -->
+<!-- <div class="form-group  col-md-6">
+                                            <label for="inputnumber">State</label>
+                                            <input type="text" class="form-control" placeholder="Type your State" id="inputnumber">
+                                          </div> -->
+<!-- <div class="form-group  col-md-6">
+                                            <label for="inputAddress">Country</label>
+                                            <input type="text" class="form-control" placeholder="Type your Country" id="inputAddress">
+                                          </div> -->
+
+                                           <!-- <div class="form-group  col-md-6">
+                                            <label for="inputAddress">Subject</label>
+                                            <input type="text" class="form-control" placeholder="Type Subject" id="inputSubject">
+                                          </div> -->
+
+                                          <!-- <input type="text" class="form-control" placeholder="Type " id="inputtype"> -->
+                                            <!-- <div class="form-check">
+                                              <input class="form-check-input" type="radio" formControlName="feedbackTypeId" name="flexRadioDefault" id="flexRadioDefault6">
+                                              <label class="form-check-label" for="flexRadioDefault6">
+                                                Complaint
+                                              </label>
+                                            </div> -->
+                                            <!-- <div class="form-check">
+                                              <input class="form-check-input" type="radio" formControlName="feedbackTypeId" name="flexRadioDefault" id="2" checked>
+                                              <label class="form-check-label" for="flexRadioDefault7">
+                                               Suggestion
+                                              </label>
+                                            </div> -->
