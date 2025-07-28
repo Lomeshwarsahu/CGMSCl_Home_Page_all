@@ -238,7 +238,7 @@
           <li class="dropdown-submenu hover-dropdown">
             <a class="dropdown-item dropdown-toggle">{{ 'INFRASTRUCTURE' | translate }}</a>
             <ul class="dropdown-menu theme-navbar">
-              <li><a class="dropdown-item" href="https://cgmsc.gov.in/HIMIS/" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infra(HIMIS)' | translate }}</a></li>
+              <li><a class="dropdown-item" href="https://cgmsc.gov.in/HIMISO" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infra(HIMIS)' | translate }}</a></li>
              
             </ul>
           </li>
@@ -508,7 +508,7 @@
                 <li class="nav-item"><a class="nav-link" routerLink="/TenderCivil" routerLinkActive="active"
                     data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infrastructure' | translate }}</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/TenderEquip" routerLinkActive="active"
-                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'Equipment' | translate }}</a></li>
+                    data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>{{ 'EQUIPMENT' | translate }}</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas">
                   <i class="bi bi-play-fill me-2"></i>QC Tenders</a></li> -->
                 <li class="nav-item"><a class="nav-link" routerLink="/TenderOther" routerLinkActive="active"
@@ -561,7 +561,7 @@
               <ul class="navbar-nav">
               <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isEquipmenttOpen = !isEquipmenttOpen" [attr.aria-expanded]="isEquipmenttOpen">
-              {{ 'Equipment' | translate }}
+              {{ 'EQUIPMENT/REAGENTS' | translate }}
               <i class="bi" [ngClass]="isEquipmenttOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
               </a>
               <div class="custom-collapse ps-3" [class.show]="isEquipmenttOpen" id="LOGINCollapseMobile">
@@ -578,12 +578,12 @@
               <ul class="navbar-nav">
               <a class="nav-link d-flex justify-content-between align-items-center" role="button"
               (click)="isInfrastructureeOpen = !isInfrastructureeOpen" [attr.aria-expanded]="isInfrastructureeOpen">
-              {{ 'Infrastructure' | translate }}
+              {{ 'INFRASTRUCTURE' | translate }}
               <i class="bi" [ngClass]="isInfrastructureeOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
               </a>
               <div class="custom-collapse ps-3" [class.show]="isInfrastructureeOpen" id="LOGINCollapseMobile">
                 <ul class="navbar-nav">
-                  <li class="nav-item"><a class="nav-link"  (click)="handleLinkClick($event, 'https://cgmsc.gov.in/HIMIS/')"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infra(HIMIS)' | translate }} </a></li>
+                  <li class="nav-item"><a class="nav-link"  (click)="handleLinkClick($event, 'https://cgmsc.gov.in/HIMISO')"><i class="bi bi-play-fill me-2"></i>{{ 'Health Infra(HIMIS)' | translate }} </a></li>
                  
                 </ul>
               </div>
