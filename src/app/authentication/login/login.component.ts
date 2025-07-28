@@ -13,7 +13,7 @@ import {CommonModule, NgFor, NgStyle } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,ToastrModule, NgFor,CommonModule, NgStyle,],
+  imports: [FormsModule,ReactiveFormsModule,ToastrModule,CommonModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
   

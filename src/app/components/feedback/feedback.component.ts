@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -38,10 +38,11 @@ export class FeedbackComponent {
   Topicslist:any;
   // FeedbackDTO: FeedbackDTO[]=[];
   FeedbackData: FeedbackDTO = new FeedbackDTO();
+
   // loginData: Model = new Model();
   constructor(
     public Service: ApiServiceService, private formBuilder: FormBuilder,
-    private cdr: ChangeDetectorRef,
+    private cdr: ChangeDetectorRef, 
     private router: Router,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
@@ -74,7 +75,7 @@ export class FeedbackComponent {
         topicId: ['', Validators.required],
         captchaInput: ['', Validators.required]
       });
-      
+ 
   }
 
 
@@ -101,69 +102,7 @@ export class FeedbackComponent {
   }
 
   // https://www.cgmsc.gov.in/himis_apin/api/Feedback/SubmitFeedbackSimple
-  // OnSubmit() {
-  //   // dashboard
-  //   // this.router.navigate(['/dashboard']);
-  //   // return
-  //   try{
-  //     debugger;
-  //     this.submitted = true;
-  //     this.FeedbackData = this.FeedbackForm.value;
-  //     if (this.FeedbackForm.valid == true) {
-  //       this.Service.post1('Feedback/SubmitFeedbackSimple',this.FeedbackData).subscribe((res: any) => {
-  //         this.toastr.success(`${res}`,'Success');
-  //         alert(res);
-  //       console.log('res:=',res)
-  
-  //       } ,
-  //         (err: Error) => {
-  //         //  throw err;
-  //         console.log(err);
-  //         this.toastr.error(`${err.message}`,'Error');
-  //         // this.toastr.error("Please Check userId and password!",'Error');
-  //         //  alert(err.message)
-  //        }
-  //      );
-  //     } else 
-  //     //alert('Something went wrong, please try again')
-  //      this.toastr.error('Something went wrong, please try again!', 'Error!');
-  //   }
-  //   catch(err:any){
-  //     throw err;
-  //   }
-  // }
-  // OnSubmit() {
-  //   debugger
-  //   try {
-  //     this.submitted = true;
-  //     this.FeedbackData = this.FeedbackForm.value;
-  
-  //     if (this.FeedbackForm.valid) {
-  //       const payload = {
-  //         request: this.FeedbackData  // 🔥 Wrap in "request"
-  //       };
-  
-  //       this.Service.post1('Feedback/SubmitFeedbackSimple', payload).subscribe(
-  //         (res: any) => {
-  //           this.toastr.success(`${res}`, 'Success');
-  //           alert(res);
-  //           console.log('res:=', res);
-  //         },
-  //         (err: HttpErrorResponse) => {
-  //           console.error('HTTP Error:', err);
-  //           console.error('Backend Error Message:', err.error);
-  //           this.toastr.error(err.error?.message || 'Submission failed', 'Error');
-  //         }
-  //       );
-  //     } else {
-  //       this.toastr.error('Something went wrong, please try again!', 'Error!');
-  //     }
-  //   } catch (err: any) {
 
-  //     console.log(JSON.stringify('error:=',err.message));
-  //     throw err;
-  //   }
-  // }
   OnSubmit() {
     try {
      
@@ -179,7 +118,11 @@ export class FeedbackComponent {
         this.FeedbackForm.value.captchaInput.toLowerCase() !==
         this.captcha.toLowerCase()
       ) {
-        this.toastr.error('Invalid Captcha', 'Error');
+      
+        this.toastr.error('Invalid Captcha', 'Error!', {
+         
+          positionClass: 'toast-center' 
+        });
         this.generateCaptcha(); 
         return;
       }
@@ -188,18 +131,30 @@ export class FeedbackComponent {
   
         this.Service.post1('Feedback/SubmitFeedbackSimple', Feedbackdata).subscribe(
           (res: any) => {
-            this.toastr.success(`${JSON.stringify(res.message)}`, 'Success');
+            this.toastr.success(res.message, 'Success', {
+               positionClass: 'toast-center'
+              
+            });
             this.FeedbackForm.reset();
+            this.FeedbackForm.markAsPristine();
+            this.FeedbackForm.markAsUntouched();
+            this.submitted = false;
             // console.log('res:=', res);
           },
           (err: HttpErrorResponse) => {
             // console.error('HTTP Error:', err);
-            // console.error('Backend Error Message:', err.error);
-            this.toastr.error(err.error?.message || 'Submission failed', 'Error');
+            console.error('Backend Error Message:', err.error);
+       
+            // this.toastr.error(err.error?.message || 'Submission failed', 'Error', {
+            //   positionClass: 'toast-center'
+            // });
           }
         );
       } else {
-        this.toastr.error('Something went wrong, please try again!', 'Error!');
+       
+        this.toastr.error('Something went wrong, please try again!', 'Error!', {
+          positionClass: 'toast-center'
+        });
       }
     } catch (err: any) {
       console.log('error:=', err.message);
@@ -263,34 +218,3 @@ export class FeedbackComponent {
           }
       }
 }
-// if (res.jwtToken) {
-//   // const fakeToken = '1234567890abcdef'; // Replace with actual token from API
-//   this.AuthService.login(res.jwtToken);
-//   localStorage.setItem("currentUser", JSON.stringify(res));
-//   localStorage.setItem("roleName",res.user.role[0].roleName);
-//   localStorage.setItem("userName",res.user.userName);
-
-//   // console.log(JSON.stringify(res.jwtToken));
-//   // console.log(JSON.stringify(res.user.role[0].roleName));
-//   // console.log(JSON.stringify(res.user.userName));
-//   // console.log(JSON.stringify(res.user))
- 
-
-//   // localStorage.setItem("ltn", JSON.stringify(res.token));
-//   switch (res.user.role[0].roleName) {
-//     case 'Admin': {
-//       this.router.navigate(['/dashboard']);
-//       // this.router.navigate(['/admin']);
-//       break;
-//     }
-//     // case 'Generator': {
-//     //   this.router.navigate(['/list-qr']);
-//     //   break;
-//     // }
-//     case "User": {
-//       this.router.navigate(['/dashboard']);
-//       break;
-//     }
-//   }
-// } else
-//   alert("Please Check userId and password")
