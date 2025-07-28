@@ -21,7 +21,7 @@ interface UiRow extends Data_model {
 @Component({
   standalone: true,
     selector: 'app-tender-drug',
-    imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
+    imports: [NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
       MatTableExporterModule,CommonModule,ToastrModule
     ],
   templateUrl: './tender-other-tender.component.html',

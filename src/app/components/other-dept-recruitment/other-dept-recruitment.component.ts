@@ -16,7 +16,7 @@ import {  ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-other-dept-recruitment',
-  imports: [NgFor, NgStyle, NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
+  imports: [NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
     MatTableExporterModule, CommonModule],
   templateUrl: './other-dept-recruitment.component.html',
   styleUrl: './other-dept-recruitment.component.css'
