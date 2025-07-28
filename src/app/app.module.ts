@@ -3,22 +3,22 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-// import { NavbarComponent } from './navbar/navbar.component';
+
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'; 
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './material-module';
 import { NgxSpinnerModule } from 'ngx-spinner';
-// import { MatTableExporterModule } from 'mat-table-exporter';
+
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ServiceWorkerModule } from '@angular/service-worker';
-// import { environment } from '../environments/environment';
+
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-// import {APP_BASE_HREF} from '@angular/common';
+
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AppComponent } from './app.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
