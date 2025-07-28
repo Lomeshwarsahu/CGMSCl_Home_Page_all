@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-our-team',
   standalone: true,
     
-    imports: [ NgFor,NgStyle,NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
+    imports: [NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
       MatTableExporterModule,CommonModule
     ],
   templateUrl: './our-team.component.html',
