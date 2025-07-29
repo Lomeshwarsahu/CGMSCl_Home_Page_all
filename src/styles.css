@@ -232,7 +232,13 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+     /* Optional: style the arrow */
+     /* .dropdown-item.dropdown-toggle::after {
+      margin-left: auto;
+      margin-right: 5px;
+      font-weight: bold;
+      font-size: 0.8rem;
+    } */
     .dropdown-item.dropdown-toggle::after {
       content: ""; 
       border: solid rgb(247, 243, 243);
@@ -240,11 +246,24 @@
       display: inline-block;
       padding: 3px;
       transform: rotate(-45deg);
-      margin-left: 10px;
+      /* margin-left: 10px; */
+      margin-left: auto;
+      margin-right: 5px;
       vertical-align: middle;
       font-size: 1rem;
       font-weight: 700;
     }
+
+    .dropdown-item.dropdown-toggle i {
+      margin-right: 8px; 
+    }
+
+ 
+   
+    
+    
+   
+    
     
   }
 /* Animation for dropdown */
