@@ -108,7 +108,7 @@ export class OurTeamComponent {
                   sno: index + 1,
                 })
               );
-              console.log('GetEmployeeList=:', this.dispatchData);
+              // console.log('GetEmployeeList=:', this.dispatchData);
               this.dataSource.data = this.dispatchData;
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;

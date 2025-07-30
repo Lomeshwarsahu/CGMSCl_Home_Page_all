@@ -280,7 +280,7 @@ GetContentAttachment(attachment_Id: string) {
           if (fileName && filePath) {
             // Remove '~' from the start of the URL
             const cleanedUrl = 'https://cgmsc.gov.in/cgmscl/' + filePath.replace(/^~\//, '');
-            console.log('Opening:', cleanedUrl);
+            // console.log('Opening:', cleanedUrl);
             window.open(cleanedUrl, '_blank');
           } else {
             this.toastr.error('⚠️ Alert: Attachment File Not Found!\n\nThe requested document is missing.\nPlease try again later or contact support.', 'Error!');

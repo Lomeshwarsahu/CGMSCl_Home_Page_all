@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { CommonModule, NgClass, NgFor } from '@angular/common';
 import { ChangeDetectorRef, Component ,HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -9,7 +9,7 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 declare var bootstrap: any;
 @Component({
   standalone: true,
-  imports: [NavbarComponent,NgFor,NgClass,CollapseModule],
+  imports: [NavbarComponent,NgFor,NgClass,CollapseModule, CommonModule],
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css'
