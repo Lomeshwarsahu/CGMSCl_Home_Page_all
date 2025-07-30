@@ -15,10 +15,10 @@
                     <!-- <div class="card shadow p-2">
                        <h4><strong class="text-align justify-content-center d-flex ">Our Team</strong></h4>
                        
-                    </div> -->
+                    </div> *ngIf="dispatchData.length > 0;else OtherData"-->
 
                 </section>
-                <div class="" style="padding-right:  0px;  padding-left: 24px; padding-top: 10px; padding-bottom: 50px;">
+                <div class="" style="padding-right:  0px;  padding-left: 24px; padding-top: 10px; padding-bottom: 50px;" >
                     <div class="container-fluid card row shadow ">
                         <div class="d-flex justify-content-between align-items-center m-2">
                             <div class="filter-field flex-grow-1">
@@ -117,6 +117,13 @@
                         </div>
                     </div>
                 </div>
+                <!-- <ng-template #OtherData class="tab-content pt-4" > 
+                    <div class="card text-center">
+                      <div class="card-body">
+                        <h3 class="card-title mb-0">No data available at the moment.</h3>
+                      </div>
+                    </div>
+                  </ng-template> -->
             </div>
 
         </div>

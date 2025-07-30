@@ -15,8 +15,8 @@
     <h4 class="text-start border-bottom mb-4">News</h4>
 
     <!-- <div id="newsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel"> -->
-    <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+    <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" *ngIf="groupedNews.length > 0; else OtherData">
+      <div class="carousel-inner" >
         <div *ngFor="let group of groupedNews; let i = index" class="carousel-item" [class.active]="i === 0">
           <div class="row justify-content-center">
             <div *ngFor="let img of group " class="col-md-4 mb-3">
@@ -43,7 +43,13 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </button>
     </div>
-
+    <ng-template #OtherData class="tab-content pt-4" > 
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title mb-0">No data available at the moment.</h3>
+        </div>
+      </div>
+    </ng-template>
   </div>
   <!-- events -->
   <div class="pb-5">
@@ -63,7 +69,7 @@
     <div [collapse]="isCollapsed">
       <div class="card card-body">
         <div class="containerr py-5">
-          <div class="tab-pane fader" id="tab10" role="tabpanel">
+          <div class="tab-pane fader" id="tab10" role="tabpanel" *ngIf="events.length > 0; else OtherData">
             <!-- <h5 class="gradient-heading">{{'Events' | translate }}</h5> -->
             <div class="row g-2">
               <div class="col-12 col-sm-6 col-md-2 " *ngFor="let img of events; let i = index">
@@ -73,6 +79,13 @@
 
             </div>
           </div>
+          <ng-template #OtherData class="tab-content pt-4" > 
+            <div class="card text-center">
+              <div class="card-body">
+                <h3 class="card-title mb-0">No data available at the moment.</h3>
+              </div>
+            </div>
+          </ng-template>
           <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
               <div class="carousel-inner">
           
@@ -123,7 +136,7 @@
     <div [collapse]="isCollapsed1">
       <div class="card card-body">
         <div class="containerr py-5">
-          <div class="tab-pane fader" id="tab10" role="tabpanel">
+          <div class="tab-pane fader" id="tab10" role="tabpanel" *ngIf="drugs.length > 0; else OtherData">
             <!-- <h5 class="gradient-heading">{{'Events' | translate }}</h5> -->
             <div class="row g-2">
               <div class="col-12 col-sm-6 col-md-2 " *ngFor="let img of drugs; let i = index">
@@ -133,6 +146,13 @@
 
             </div>
           </div>
+          <ng-template #OtherData class="tab-content pt-4" > 
+            <div class="card text-center">
+              <div class="card-body">
+                <h3 class="card-title mb-0">No data available at the moment.</h3>
+              </div>
+            </div>
+          </ng-template>
           <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
             
@@ -182,7 +202,7 @@
     <div [collapse]="isCollapsed2">
       <div class="card card-body">
         <div class="containerr py-5">
-          <div class="tab-pane fader" id="tab10" role="tabpanel">
+          <div class="tab-pane fader" id="tab10" role="tabpanel" *ngIf="Infrastructure.length > 0; else OtherData">
             <!-- <h5 class="gradient-heading">{{'Events' | translate }}</h5> -->
             <div class="row g-2">
               <div class="col-12 col-sm-6 col-md-2 " *ngFor="let img of Infrastructure; let i = index">
@@ -192,6 +212,13 @@
 
             </div>
           </div>
+          <ng-template #OtherData class="tab-content pt-4" > 
+            <div class="card text-center">
+              <div class="card-body">
+                <h3 class="card-title mb-0">No data available at the moment.</h3>
+              </div>
+            </div>
+          </ng-template>
           <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
               <div class="carousel-inner">
           
@@ -234,7 +261,7 @@
     <div [collapse]="isCollapsed3">
       <div class="card card-body">
         <div class="containerr py-5">
-          <div class="tab-pane fader" id="tab10" role="tabpanel">
+          <div class="tab-pane fader" id="tab10" role="tabpanel" *ngIf="equipment.length > 0; else OtherData">
             <!-- <h5 class="gradient-heading">{{'Events' | translate }}</h5> -->
             <div class="row g-2">
               <div class="col-12 col-sm-6 col-md-2 " *ngFor="let img of equipment; let i = index">
@@ -243,6 +270,13 @@
               </div>
             </div>
           </div>
+          <ng-template #OtherData class="tab-content pt-4" > 
+            <div class="card text-center">
+              <div class="card-body">
+                <h3 class="card-title mb-0">No data available at the moment.</h3>
+              </div>
+            </div>
+          </ng-template>
           <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
               <div class="carousel-inner">
           

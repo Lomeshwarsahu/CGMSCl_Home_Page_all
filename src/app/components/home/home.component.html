@@ -423,10 +423,10 @@
   <div class="row justify-content-center g-4 newpe" >
     <div class="row g-4">
           <!-- Card 1 -->
-          <div class="col-12 col-md-6 col-lg-3" *ngIf="DrugTenderList.length > 0">
+          <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong> {{'Drug Tenders' | translate }}</strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" *ngIf="DrugTenderList.length > 0;else OtherDatadrug">
                 <!-- <div
                   class="scroll-container"
                   [class.paused]="card1Pause"
@@ -457,14 +457,21 @@
                   </div>
                 </div>
               </div>
+              <ng-template #OtherDatadrug class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
-      
+         
           <!-- Card 2 -->
-          <div class="col-12 col-md-6 col-lg-3" *ngIf="EquipmentList.length > 0">
+          <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Equipment Tenders' | translate }}</strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" *ngIf="EquipmentList.length > 0;else OtherDataequi">
                 <!-- <div class="scroll-container" [class.paused]="card2Pause" 
                 (mouseenter)="card2Pause = true" (mouseleave)="card2Pause = false" 
                  > -->
@@ -497,14 +504,21 @@
                   </div>
                 </div>
               </div>
+              <ng-template #OtherDataequi class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
-      
+          
           <!-- Card 3 -->
-          <div class="col-12 col-md-6 col-lg-3"  *ngIf="CivilTenderList.length > 0">
+          <div class="col-12 col-md-6 col-lg-3"  >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Infrastructure Tenders' | translate }} </strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" *ngIf="CivilTenderList.length > 0;else OtherDatacivil">
                 <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
                   <!-- <div
                   class="scroll-container"
@@ -532,14 +546,21 @@
                   </div>
                 </div>
               </div>
+              <ng-template #OtherDatacivil class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
-      
+        
           <!-- Card 4 -->
-          <div class="col-12 col-md-6 col-lg-3"  *ngIf="OtherTenderList.length > 0">
+          <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Other Tenders' | translate }} </strong> </h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;"  *ngIf="OtherTenderList.length > 0;else OtherData">
                 <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
                   <!-- <div
                   class="scroll-container"
@@ -566,9 +587,16 @@
                   </div>
                 </div>
               </div>
+              <ng-template #OtherData class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
-      
+          
         </div>
       </div>
     </div>
@@ -702,7 +730,7 @@
             <div class="tab-pane fade" id="tab2" role="tabpanel">
               <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
               <div class="row g-2">
-                <div class="col-12 col-md-12 col-lg-12" *ngIf="dispatchData.length > 0">
+                <div class="col-12 col-md-12 col-lg-12" *ngIf="dispatchData.length > 0; else OtherData">
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
                     <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'CGMSCL Notice/Circular' | translate }}</strong></h5>
                     <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
@@ -758,12 +786,19 @@
                     </div>
                   </div>
                 </div>
+                <ng-template #OtherData class="tab-content pt-4" > 
+                  <div class="card text-center">
+                    <div class="card-body">
+                      <h3 class="card-title mb-0">No data available at the moment.</h3>
+                    </div>
+                  </div>
+                </ng-template>
               </div>
             </div>
             <div class="tab-pane fade" id="tab20" role="tabpanel">
               <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
               <div class="row g-2">
-                <div class="col-12 col-md-12 col-lg-12"  *ngIf="MediaResponse.length > 0">
+                <div class="col-12 col-md-12 col-lg-12" *ngIf="MediaResponse.length > 0; else MediaResponsedata">
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
                     <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'MediaResponse' | translate }}</strong></h5>
                     <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
@@ -819,6 +854,14 @@
                     </div>
                   </div>
                 </div>
+                <ng-template #MediaResponsedata class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
+                
                 <!-- <div class="col-12 col-sm-6 col-md-4">
                   <img src="./assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
                     alt="Gallery Image 2">
@@ -920,7 +963,7 @@
           <div class="tab-content pt-4">
             <div class="tab-pane fade show active" id="tab6" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'News' | translate }}</h5> -->
-              <div class="row g-2" *ngIf="News.length > 0">
+              <div class="row g-2" *ngIf="News.length > 0; else OtherData ">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of News; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -977,6 +1020,13 @@
                   {{'Explore our Photo Gallery' | translate }}</button>
 
               </div>
+              <ng-template #OtherData class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
             <!-- <div class="tab-pane fade " id="tab66" role="tabpanel">
              
@@ -990,49 +1040,7 @@
               </div>
             </div> -->
             <div class="tab-pane fade" id="tab7" role="tabpanel">
-              <!-- <h5 class="gradient-heading">{{'Drugs' | translate }}</h5> -->
-              <!-- <div class="row g-2">
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/img1.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 1">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/img2.jfif" class="img-fluid rounded w-100 h-100 img-hover-zoom"
-                    alt="Gallery Image 2">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/ai-generated-8659507_640.jpg"
-                    class="img-fluid rounded w-100 h-100 img-hover-zoom" alt="Gallery Image 3">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/leaves-7590923_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 4">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/butterfly-7632646_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 5">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/bird-8442508_640.webp" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 6">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/blue-8186653_640.webp" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 7">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/bird-8469368_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 8">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                  <img src="/assets/cgmsc imgs/bird-8788491_640.jpg" class="img-fluid img-hover-zoom"
-                    alt="Gallery Image 9">
-                </div>
-                <button class="btn btn-outline-primary btn-sm"><i class="bi bi-image"></i>&nbsp; Explore our Photo
-                  Gallery</button>
-
-              </div> -->
-              <div class="row g-2" *ngIf="drugs.length > 0">
+              <div class="row g-2" *ngIf="drugs.length > 0; else OtherData">
               <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of drugs; let i = index">
                 <img [src]="img"
                      class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1042,11 +1050,17 @@
               </div>
               <button class="btn btn-outline-primary btn-sm" routerLink="/Gallery"><i class="bi bi-image"></i>&nbsp; {{'Explore our Photo Gallery' | translate }}</button>
               </div>
-              
+              <ng-template #OtherData class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
             <div class="tab-pane fade" id="tab8" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'Equipment' | translate }}</h5> -->
-              <div class="row g-2" *ngIf="equipment.length > 0">
+              <div class="row g-2" *ngIf="equipment.length > 0; else OtherData ">
                 <div class="col-12 col-sm-6 col-md-4"  *ngFor="let img of equipment; let i = index">
                   <img [src]="img"
                      class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1093,10 +1107,17 @@
                 <button class="btn btn-outline-primary btn-sm" routerLink="/Gallery"><i class="bi bi-image"></i>&nbsp;{{'Explore our Photo Gallery' | translate }}</button>
 
               </div>
+              <ng-template #OtherData class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
             <div class="tab-pane fade" id="tab9" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'Infrastructure' | translate }}</h5> -->
-              <div class="row g-2" *ngIf="Infrastructure.length > 0">
+              <div class="row g-2" *ngIf="Infrastructure.length > 0;else OtherData">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of Infrastructure; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1176,10 +1197,17 @@
                 <button class="btn btn-outline-primary btn-sm" routerLink="/Gallery"><i class="bi bi-image"></i>&nbsp;{{'Explore our Photo Gallery' | translate }}</button>
 
               </div>
+              <ng-template #OtherData class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
             <div class="tab-pane fade" id="tab10" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'Events' | translate }}</h5> -->
-              <div class="row g-2" *ngIf="events.length > 0">
+              <div class="row g-2" *ngIf="events.length > 0; else OtherData">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of events; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1227,6 +1255,13 @@
                 <button class="btn btn-outline-primary btn-sm" routerLink="/Gallery"><i class="bi bi-image"></i>&nbsp; {{'Explore our Photo Gallery' | translate }}</button>
 
               </div>
+              <ng-template #OtherData class="tab-content pt-4" > 
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h3 class="card-title mb-0">No data available at the moment.</h3>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>

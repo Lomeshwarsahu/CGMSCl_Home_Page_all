@@ -61,7 +61,7 @@ export class NoticeCircularComponent {
                   sno: index + 1,
                 })
               );
-              console.log('NoticCircular =:', this.dispatchData);
+              // console.log('NoticCircular =:', this.dispatchData);
               this.dataSource.data = this.dispatchData;
               this.dataSource.paginator = this.paginator;
               this.dataSource.sort = this.sort;
