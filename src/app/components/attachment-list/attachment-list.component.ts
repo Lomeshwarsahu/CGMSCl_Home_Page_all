@@ -166,7 +166,7 @@ export class AttachmentListComponent {
   onButtonClick(fileName: any, URL: any) {
     if (fileName && URL) {
       // Remove '~' from the start of the URL
-      const cleanedUrl = 'https://cgmsc.gov.in/' + URL.replace(/^~\//, '');
+      const cleanedUrl = 'https://cgmsc.gov.in/cgmscl/' + URL.replace(/^~\//, '');
       // console.log('Opening:', cleanedUrl);
       window.open(cleanedUrl, '_blank');
     } else {

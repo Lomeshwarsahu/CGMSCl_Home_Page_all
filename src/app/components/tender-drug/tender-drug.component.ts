@@ -279,7 +279,7 @@ GetContentAttachment(attachment_Id: string) {
           // console.log('FilePath:', filePath);
           if (fileName && filePath) {
             // Remove '~' from the start of the URL
-            const cleanedUrl = 'https://cgmsc.gov.in/' + filePath.replace(/^~\//, '');
+            const cleanedUrl = 'https://cgmsc.gov.in/cgmscl/' + filePath.replace(/^~\//, '');
             console.log('Opening:', cleanedUrl);
             window.open(cleanedUrl, '_blank');
           } else {
