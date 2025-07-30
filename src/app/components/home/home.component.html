@@ -2,19 +2,10 @@
 <app-navbar></app-navbar>
 
 <!-- <div *ngIf="isDefaultDashboardRoute"> -->
-<section class="image-section border-top  ">
+<section class="image-section border-top" *ngIf="carousel_img.length > 0">
   <div class="carousel slide h-100 " id="imageSectionCarousel" data-bs-ride="carousel">
     <div class="carousel-inner h-100 ">
-      <!-- <div class="carousel-item h-100" 
-    *ngFor="let img of images3; let i = index"
-    [class.active]="i === 0">
-    <img [src]="img" class="d-block w-100 h-100 object-fit-cover" alt="Image {{ i + 1 }}">
-  </div> -->
-      <!-- <div class="carousel-item h-100 " 
-    *ngFor="let img of images3; let i = index"
-    [class.active]="i === 0">
-    <img [src]="img" class="d-block w-100 h-100 object-fit-cover " alt="Image {{ i + 1 }}" >
-  </div> -->
+   
   <div class="carousel-item h-100"
      *ngFor="let img of carousel_img; let i = index"
      [class.active]="i === 0">
@@ -89,6 +80,19 @@
            <a href="#" target="_blank" class="text-primary text-decoration-none hover-link" >{{'Equipment & Reagent' | translate }} </a> |
            <a href="https://dpdmis.in/mdang/Infrastructure-Public-View" target="_blank"class="text-primary text-decoration-none hover-link">{{'Infrastructure' | translate }} </a>
         </p>
+        <!-- data feedback -->
+        <h5 class="fw-bold pt-1 gradient-heading">{{'Your Feedback Matters to Us' | translate }} </h5>
+      <p >{{'We encourage you to share your valuable insights, experiences, or concerns. Every response is carefully reviewed and plays a vital role in our mission to enhance healthcare services across Chhattisgarh.' | translate }}
+    
+           <!-- <a  routerLink="/Feedback" routerLinkActive="active" class="text-primary text-decoration-none hover-link ">{{'👉 [Click here to share your feedback or suggestion]' | translate }}  </a>  -->
+           <button class="btn px-1 py-0 theme-navbar btn-light btn-outline-light" style="font-size: 12px; border-radius: 10px;"
+           routerLink="/Feedback" routerLinkActive="active">
+           👉 {{ 'Click here ...' | translate }} 
+         </button>
+           <!-- <a class="btn btn-sm btn-outline-light d-inline-flex align-items-center theme-navbar text-white" routerLink="/AboutCGMSC" routerLinkActive="active">
+            👉 {{ 'Click here ...' | translate }} 
+           </a> -->
+        </p>
       </div>
 
       
@@ -162,337 +166,239 @@
                       </div>
                     </div>
                   </div>
+                  <!-- feedback -->
+                 
+                  
+
+                  <marquee behavior="scroll" direction="left"  scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();"
+                  style=" white-space: nowrap;">
+                    <div class="d-flex flex-nowrap  mt-4">
+                      <!-- Static Card -->
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2 "
+                        style="min-width: 150px; max-width: 150px;">
+                        <a href="https://cgstate.gov.in/" target="_blank" class="text-decoration-none text-dark w-100">
+                          <div class="p-2 d-flex justify-content-center">
+                            <img src="./assets/cgmsc imgs/Govt-of-Chattisgarh1.png" class="rounded-circle" alt="..."
+                              style="width: 80px; height: 80px; object-fit: cover;" />
+                          </div>
+                          <h3 class="card-text small fw-semibold mt-1 gradient-heading pt-1" style="font-size: 11px;"> {{'Chhattisgarh Govt' |
+                            translate }}</h3>
+                        </a>
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center text-center bg-light p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                        <a href="https://cghealth.nic.in/public/#/" target="_blank" class="text-decoration-none text-dark w-100">
+                          <div class="p-2 d-flex justify-content-center">
+                            <img src="./assets/cgmsc imgs/health-logo.png" class="img-fluid rounded" alt="..."
+                              style="max-width: 70%; height: auto;" />
+                          </div>
+                          <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">{{'CG Health' | translate }}</h3>
+                        </a>
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image -->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                      width: 80px;
+                                                      height: 80px;
+                                                      border-radius: 50%;
+                                                      background-color: rgb(0, 0, 0);
+                                                      overflow: hidden;
+                                                      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                            <img src="./assets/cgmsc imgs/e-pro.jpg" alt="..." style="border-radius: 10%;
+                                                  
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: contain;" />
+                          </div>
+                        </a>
+                        <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
+                                                      DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
+                        <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">{{'Procurement' | translate }}</h3>
+                        <button class="btn px-1 py-0 theme-navbarr btn-light btn-outline-danger" style="font-size: 12px; border-radius: 10px;"
+                          (click)="openmarqModal('https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf')">
+                          e-Procurement PDF
+                        </button>
+                      
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://www.chips.gov.in/en" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image -->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                      width: 80px;
+                                                      height: 80px;
+                                                      border-radius: 50%;
+                                                      background-color: rgb(0, 0, 0);
+                                                      overflow: hidden;
+                                                      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                            <!-- <img src="./assets/images/Biomedical+Waste.png" alt="..." style="border-radius: 10%; -->
+                            <img src="./assets/cgmsc imgs/CHEPS2.jfif" alt="..." style="border-radius: 10%;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: contain;" />
+                          </div>
+                          <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
+                                                      DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
+                          <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">{{'CHIPS' | translate }}</h3>
+                        </a>
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://bidplus.gem.gov.in/advance-search" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image https://gem.gov.in/-->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                      width: 80px;
+                                                      height: 80px;
+                                                      border-radius: 50%;
+                                                      background-color: rgb(0, 0, 0);
+                                                      overflow: hidden;
+                                                      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                            <!-- <img src="./assets/images/Biomedical+Waste.png" alt="..." style="border-radius: 10%; -->
+                            <img src="./assets/cgmsc imgs/gem-logo.png" alt="..." style="border-radius: 10%;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: contain;" />
+                          </div>
+                        </a>
+                      
+                        <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">{{'Gem Portal' | translate }}</h3>
+                        <!-- <button class="btn btn-sm btn-dark">Search bids</button> -->
+                        <button class="btn px-1 py-0 theme-navbarr btn-light btn-outline-danger" style="font-size: 12px; border-radius: 10px;"
+                          (click)="openmarqModal('https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf')">
+                          Search bids
+                        </button>
+                      
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://dvdms.mohfw.gov.in/" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image -->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                width: 80px;
+                                                height: 80px;
+                                                border-radius: 50%;
+                                                background-color: rgb(0, 0, 0);
+                                                overflow: hidden;
+                                                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                      
+                            <img src="./assets/cgmsc imgs/cg.JPG" alt="..." style="border-radius: 10%;
+                                                  width: 100%;
+                                                  height: 100%;
+                                                  object-fit: contain;" />
+                          </div>
+                          <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">
+                            {{'DVDMS Central' | translate }}<br> </h3>
+                          <h3 class="card-text small fw-semibold pt-1 " style="font-size: 11px;">{{'Dashboard' | translate }}</h3>
+                      
+                        </a>
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://pharma-dept.gov.in/national-pharmaceutical-pricing-authority" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image -->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                width: 80px;
+                                                height: 80px;
+                                                border-radius: 50%;
+                                                background-color: rgb(0, 0, 0);
+                                                overflow: hidden;
+                                                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                            <img src="./assets/images/pharmDlogo.png" alt="..." style="border-radius: 10%;
+                                                  width: 100%;
+                                                  height: 100%;
+                                                  object-fit: contain;" />
+                          </div>
+                          <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">
+                            {{'National Pharmaceutical' | translate }} <br> </h3>
+                          <h3 class="card-text small fw-semibold pt-1 " style="font-size: 11px;">{{'Pricing Authority' | translate }}</h3>
+                      
+                        </a>
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://govthealth.cg.gov.in/hrmis/" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image -->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                width: 80px;
+                                                height: 80px;
+                                                border-radius: 50%;
+                                                background-color: rgb(0, 0, 0);
+                                                overflow: hidden;
+                                                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                            <img src="./assets/images/hrmislogos.png" alt="..." style="border-radius: 10%;
+                                                  width: 100%;
+                                                  height: 100%;
+                                                  object-fit: contain;" />
+                          </div>
+                          <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">
+                            {{'Human Resource M' | translate }}<br> </h3>
+                          <h3 class="card-text small fw-semibold  pt-1 " style="font-size: 11px;">{{'Information System' | translate }}</h3>
+                      
+                        </a>
+                      </div>
+                      <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
+                        style="min-width: 150px; max-width: 150px;">
+                      
+                        <a href="https://chhattisgarh.bmmp.in/spa#/" target="_blank"
+                          class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
+                      
+                          <!-- Centered Circle Image -->
+                          <div class="d-flex justify-content-center align-items-center mb-2" style="
+                                                width: 80px;
+                                                height: 80px;
+                                                border-radius: 50%;
+                                                background-color: rgb(0, 0, 0);
+                                                overflow: hidden;
+                                                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                      
+                            <img src="./assets/images/medicitilogo.png" alt="..." style="border-radius: 10%;
+                                                  width: 100%;
+                                                  height: 100%;
+                                                  object-fit: contain;" />
+                          </div>
+                      
+                          <h3 class="card-text small fw-semibold mt-1  text-center pt-1" style="font-size: 11px;">
+                            {{'MEDICITI' | translate }}
+                          </h3>
+                        </a>
+                      </div>
+      
+      
+                   </div>
+                  </marquee>
                 </div>
               </div>
             </div>
     </div>
-    <!-- <section class="bg-white  mt-0">
-      <div class="container"> -->
+   
 
-        <div class="row">
-          <div class="col-12">
-            <marquee behavior="scroll" direction="left">
-              <div class="d-flex flex-nowrap mt-4">
-                <!-- Static Card -->
-                <div
-                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2 "
-                style="min-width: 150px; max-width: 150px;" >
-                <a
-                  href="https://cgstate.gov.in/"
-                  target="_blank"
-                  class="text-decoration-none text-dark w-100">
-                  <div class="p-2 d-flex justify-content-center">
-                    <img
-                      src="./assets/cgmsc imgs/Govt-of-Chattisgarh1.png"
-                      class="rounded-circle"
-                      alt="..."
-                      style="width: 80px; height: 80px; object-fit: cover;"
-                    />
-                  </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-heading pt-1" style="font-size: 11px;"> {{'Chhattisgarh Govt' | translate }}</h3>
-                </a>
-              </div>
-                <div class="card custom-card d-flex flex-column align-items-center text-center bg-light p-2 mb-3 mx-2"
-                style="min-width: 150px; max-width: 150px;">
-                <a
-                  href="https://cghealth.nic.in/public/#/"
-                  target="_blank"
-                  class="text-decoration-none text-dark w-100"
-                >
-                  <div class="p-2 d-flex justify-content-center">
-                    <img
-                      src="./assets/cgmsc imgs/health-logo.png"
-                      class="img-fluid rounded"
-                      alt="..."
-                      style="max-width: 70%; height: auto;"
-                    />
-                  </div>
-                  <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">{{'CG Health' | translate }}</h3>
-                </a>
-              </div>
-              
-              
-        
-                <!-- Dynamic Cards -->
-                <!-- <div
-                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-                style="min-width: 150px; max-width: 150px;">
-                <a
-                href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do"
-                target="_blank"
-                  class="text-decoration-none text-dark w-100" >
-                  <div class="p-2 d-flex justify-content-center">
-                    <img
-                    src='./assets/cgmsc imgs/CHEPS2.jfif' class="img-fluid rounded" alt="..." style="width: 150%; height: auto; " />
-                  </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">CG - e-Procurement</h3>
-                </a>
-              </div> -->
-                <!-- <div
-                class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-                style="min-width: 150px; max-width: 150px;">
-                <a
-                href="https://gem.gov.in/"
-                target="_blank"
-                  class="text-decoration-none text-dark w-100" >
-                  <div class="p-2 d-flex justify-content-center">
-                    <img
-                    src='./assets/cgmsc imgs/gem-logo.png' class="img-fluid rounded" alt="..." style="width: 150%; height: auto; " />
-                  </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-heading">GeM</h3>
-                </a>
-              </div> -->
-
-                <!-- <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-                style="min-width: 150px; max-width: 150px;">
-                <a
-                href="https://dvdms.mohfw.gov.in/"
-                target="_blank"
-                  class="text-decoration-none text-dark w-100" >
-                  <div class="p-2 d-flex justify-content-center">
-                    <img
-                    src='./assets/cgmsc imgs/cg.JPG' class="img-fluid rounded" alt="..." style="width: 200%; height: 200%; " />
-                  </div>
-                  <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                    DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3>
-                 
-                </a>
-              </div> -->
-               <!-- State Gov. in -->
-                  <!-- https://pharma-dept.gov.in/national-pharmaceutical-pricing-authority -->
-                   <!-- https://chhattisgarh.bmmp.in/spa#/ -->
-                   <!-- https://govthealth.cg.gov.in/hrmis/ -->
-                    <!-- X ac /no. link = @CGMSCL -->
-
-                    <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-                    style="min-width: 150px; max-width: 150px;">
-                  
-                    <a href="https://eproc.cgstate.gov.in/CHEPS/security/getSignInAction.do" target="_blank"
-                      class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-                  
-                      <!-- Centered Circle Image -->
-                      <div class="d-flex justify-content-center align-items-center mb-2" style="
-                          width: 80px;
-                          height: 80px;
-                          border-radius: 50%;
-                          background-color: rgb(0, 0, 0);
-                          overflow: hidden;
-                          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                  
-                        <img src="./assets/cgmsc imgs/e-pro.jpg" alt="..." style="border-radius: 10%;
-                      
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;" />
-                      </div></a>
-                        <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                          DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
-                          <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">{{'Procurement' | translate }}</h3>
-                          <button class="btn px-1 py-0 theme-navbarr btn-light btn-outline-danger" style="font-size: 12px; border-radius: 10px;"
-                           (click)="openmarqModal('https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf')">
-                          e-Procurement PDF
-                          </button>
-                    
-                  </div>
-                    <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-                    style="min-width: 150px; max-width: 150px;">
-                  
-                    <a href="https://www.chips.gov.in/en" target="_blank"
-                      class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-                  
-                      <!-- Centered Circle Image -->
-                      <div class="d-flex justify-content-center align-items-center mb-2" style="
-                          width: 80px;
-                          height: 80px;
-                          border-radius: 50%;
-                          background-color: rgb(0, 0, 0);
-                          overflow: hidden;
-                          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                  
-                  <!-- <img src="./assets/images/Biomedical+Waste.png" alt="..." style="border-radius: 10%; -->
-                        <img src="./assets/cgmsc imgs/CHEPS2.jfif" alt="..." style="border-radius: 10%;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;" />
-                      </div>
-                        <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                          DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
-                          <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">{{'CHIPS' | translate }}</h3>
-                    </a>
-                  </div>
-                    <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-                    style="min-width: 150px; max-width: 150px;">
-                  
-                    <a href="https://bidplus.gem.gov.in/advance-search" target="_blank"
-                      class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-                  
-                      <!-- Centered Circle Image https://gem.gov.in/-->
-                      <div class="d-flex justify-content-center align-items-center mb-2" style="
-                          width: 80px;
-                          height: 80px;
-                          border-radius: 50%;
-                          background-color: rgb(0, 0, 0);
-                          overflow: hidden;
-                          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                  
-                  <!-- <img src="./assets/images/Biomedical+Waste.png" alt="..." style="border-radius: 10%; -->
-                        <img src="./assets/cgmsc imgs/gem-logo.png" alt="..." style="border-radius: 10%;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;" />
-                      </div> </a>
-                      <!-- <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 12px;"> <a href="https://gem.gov.in/" target="_blank"
-                      class="">
-                      Search bids</a></h3> -->
-                        <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                          DVDMS central<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">dashboard</h3> -->
-                          <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">{{'Gem Portal' | translate }}</h3>
-                          <!-- <button class="btn btn-sm btn-dark">Search bids</button> -->
-                          <button class="btn px-1 py-0 theme-navbarr btn-light btn-outline-danger" style="font-size: 12px; border-radius: 10px;"
-                           (click)="openmarqModal('https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf')">
-                            Search bids
-                          </button>
-                          
-                  </div>
-            <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-              style="min-width: 150px; max-width: 150px;">
-            
-              <a href="https://dvdms.mohfw.gov.in/" target="_blank"
-                class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-            
-                <!-- Centered Circle Image -->
-                <div class="d-flex justify-content-center align-items-center mb-2" style="
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 50%;
-                    background-color: rgb(0, 0, 0);
-                    overflow: hidden;
-                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-            
-            <!-- <img src="./assets/images/Biomedical+Waste.png" alt="..." style="border-radius: 10%; -->
-                  <img src="./assets/cgmsc imgs/cg.JPG" alt="..." style="border-radius: 10%;
-                      width: 100%;
-                      height: 100%;
-                      object-fit: contain;" />
-                </div>
-                  <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">
-                    {{'DVDMS Central' | translate }}<br> </h3><h3 class="card-text small fw-semibold pt-1 " style="font-size: 11px;">{{'Dashboard' | translate }}</h3>
-                <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
-                  MEDICITI   
-                </h3> -->
-              </a>
-            </div>
-            <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-              style="min-width: 150px; max-width: 150px;">
-            
-              <a href="https://pharma-dept.gov.in/national-pharmaceutical-pricing-authority" target="_blank"
-                class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-            
-                <!-- Centered Circle Image -->
-                <div class="d-flex justify-content-center align-items-center mb-2" style="
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 50%;
-                    background-color: rgb(0, 0, 0);
-                    overflow: hidden;
-                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-            
-                  <img src="./assets/images/pharmDlogo.png" alt="..." style="border-radius: 10%;
-                      width: 100%;
-                      height: 100%;
-                      object-fit: contain;" />
-                </div>
-                <h3 class="card-text small fw-semibold mt-1  pt-1" style="font-size: 11px;">
-                  {{'National Pharmaceutical' | translate }} <br> </h3><h3 class="card-text small fw-semibold pt-1 " style="font-size: 11px;">{{'Pricing Authority' | translate }}</h3>
-                <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
-                  
-                </h3> -->
-              </a>
-            </div>
-            <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-              style="min-width: 150px; max-width: 150px;">
-            
-              <a href="https://govthealth.cg.gov.in/hrmis/" target="_blank"
-                class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-            
-                <!-- Centered Circle Image -->
-                <div class="d-flex justify-content-center align-items-center mb-2" style="
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 50%;
-                    background-color: rgb(0, 0, 0);
-                    overflow: hidden;
-                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-            
-                  <img src="./assets/images/hrmislogos.png" alt="..." style="border-radius: 10%;
-                      width: 100%;
-                      height: 100%;
-                      object-fit: contain;" />
-                </div>
-                <h3 class="card-text small fw-semibold mt-1 pt-1" style="font-size: 11px;">
-                {{'Human Resource M' | translate }}<br> </h3><h3 class="card-text small fw-semibold  pt-1 " style="font-size: 11px;" >{{'Information System' | translate }}</h3>
-                  <!-- Human Resource Management<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Information System</h3> -->
-                <!-- <h3 class="card-text small fw-semibold mt-1 gradient-heading text-center">
-                   
-                </h3> -->
-              </a>
-            </div>
-            <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-              style="min-width: 150px; max-width: 150px;">
-            
-              <a href="https://chhattisgarh.bmmp.in/spa#/" target="_blank"
-                class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-            
-                <!-- Centered Circle Image -->
-                <div class="d-flex justify-content-center align-items-center mb-2" style="
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 50%;
-                    background-color: rgb(0, 0, 0);
-                    overflow: hidden;
-                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-            
-                  <img src="./assets/images/medicitilogo.png" alt="..." style="border-radius: 10%;
-                      width: 100%;
-                      height: 100%;
-                      object-fit: contain;"/>
-                </div>
-                <!-- <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                  MEDICITI<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Information System</h3> -->
-                <h3 class="card-text small fw-semibold mt-1  text-center pt-1" style="font-size: 11px;">
-                 {{'MEDICITI' | translate }}   
-                </h3>
-              </a>
-            </div>
-            <!-- <div class="card custom-card d-flex flex-column align-items-center bg-light text-center p-2 mb-3 mx-2"
-              style="min-width: 150px; max-width: 150px;">
-            
-              <a href="https://govthealth.cg.gov.in/bmwm/" target="_blank"
-                class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center justify-content-center">
-            
-                <div class="d-flex justify-content-center align-items-center mb-2" style="
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 50%;
-                    background-color: rgb(0, 0, 0);
-                    overflow: hidden;
-                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-            
-                  <img src="./assets/images/BMWMlogo.png" alt="..." style="border-radius: 10%;
-                      width: 100%;
-                      height: 100%;
-                      object-fit: contain;" />
-                </div>
-                <h3 class="card-text small fw-semibold mt-1 gradient-headinggg">
-                  Bio Medical<br> </h3><h3 class="card-text small fw-semibold mt-1 gradient-headinggg">Waste Management</h3>
-              </a>
-            </div> -->
-
-
-             </div>
-            </marquee>
-          </div>
-        </div>
+       
   </div>
   
 </section>
@@ -503,22 +409,6 @@
 
 
 
-<!-- [style.background]="selectedColor" -->
-
-<!-- <section class="py-5 pt-0 text-white position-relative announce-colorr theme-navbar" 
-  >
-  <div class="container-fluid px-3 text-center py-5">
-    <p class="mb-3 Heading-font-family" >LATEST UPDATES</p>
-  </div>
-</section>
-
-
-<div class="position-relative" style="z-index: 2;">
-  <div class="container-fluid position-absolute top-100 start-50 translate-middle px-3 w-100">
-    <div class="row justify-content-center g-4 newpe">
-      <div class="container-fluid">
-        <div class="row g-4"> -->
-      <!-- FIXED START: Make cards appear below About section, not overlapping -->
 <section class="py-5 pt-0 text-white position-relative announce-colorr theme-navbar">
   <div class="container-fluid px-3 text-center py-5">
     <p class="mb-3 Heading-font-family">{{'Latest Announcement' | translate }}</p>
@@ -528,12 +418,12 @@
   </div>
 </section>
 
-<!-- REMOVE position-absolute and use normal flow style="margin-top: -5rem !important;"-->
-<div class="container-fluid px-1" > <!-- Use negative margin if you want overlap -->
+
+<div class="container-fluid px-1"> <!--  Use negative margin if you want overlap -->
   <div class="row justify-content-center g-4 newpe" >
     <div class="row g-4">
           <!-- Card 1 -->
-          <div class="col-12 col-md-6 col-lg-3" >
+          <div class="col-12 col-md-6 col-lg-3" *ngIf="DrugTenderList.length > 0">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong> {{'Drug Tenders' | translate }}</strong></h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
@@ -571,7 +461,7 @@
           </div>
       
           <!-- Card 2 -->
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3" *ngIf="EquipmentList.length > 0">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Equipment Tenders' | translate }}</strong></h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
@@ -611,7 +501,7 @@
           </div>
       
           <!-- Card 3 -->
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3"  *ngIf="CivilTenderList.length > 0">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Infrastructure Tenders' | translate }} </strong></h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
@@ -646,7 +536,7 @@
           </div>
       
           <!-- Card 4 -->
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3"  *ngIf="OtherTenderList.length > 0">
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Other Tenders' | translate }} </strong> </h5>
               <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;">
@@ -772,8 +662,14 @@
                   </video>
                 </div>
                 <div class="ratio ratio-16x9">
-                  <iframe src="https://www.youtube.com/embed/grAeAEE3qzE?si=xhBUwGLhpwelwr1J" title="Small Video 2"
-                    allowfullscreen></iframe>
+                  <video controls preload="none" width="100%" height="100%">
+                   
+                    <source src="https://dpdmis.in/cdn/Videos/presentation/HM_inogration.mp4" type="video/mp4">
+                    
+                    {{'Your browser does not support the video tag' | translate }}
+                  </video>
+
+                  
                 </div>
               </div>
 
@@ -806,7 +702,7 @@
             <div class="tab-pane fade" id="tab2" role="tabpanel">
               <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
               <div class="row g-2">
-                <div class="col-12 col-md-12 col-lg-12" >
+                <div class="col-12 col-md-12 col-lg-12" *ngIf="dispatchData.length > 0">
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
                     <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'CGMSCL Notice/Circular' | translate }}</strong></h5>
                     <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
@@ -867,7 +763,7 @@
             <div class="tab-pane fade" id="tab20" role="tabpanel">
               <!-- <h5 class="gradient-heading pt-1"> {{'Circulars/User Manuals' | translate }}</h5> -->
               <div class="row g-2">
-                <div class="col-12 col-md-12 col-lg-12" >
+                <div class="col-12 col-md-12 col-lg-12"  *ngIf="MediaResponse.length > 0">
                   <div class="card shadow-lg p-4 border bg-white rounded h-100">
                     <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong>{{'MediaResponse' | translate }}</strong></h5>
                     <div class="card-body px-0 pt-2 pb-3" style="height: 550px; overflow: hidden; position: relative;">
@@ -1024,7 +920,7 @@
           <div class="tab-content pt-4">
             <div class="tab-pane fade show active" id="tab6" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'News' | translate }}</h5> -->
-              <div class="row g-2">
+              <div class="row g-2" *ngIf="News.length > 0">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of News; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1136,7 +1032,7 @@
                   Gallery</button>
 
               </div> -->
-              <div class="row g-2">
+              <div class="row g-2" *ngIf="drugs.length > 0">
               <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of drugs; let i = index">
                 <img [src]="img"
                      class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1150,7 +1046,7 @@
             </div>
             <div class="tab-pane fade" id="tab8" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'Equipment' | translate }}</h5> -->
-              <div class="row g-2">
+              <div class="row g-2" *ngIf="equipment.length > 0">
                 <div class="col-12 col-sm-6 col-md-4"  *ngFor="let img of equipment; let i = index">
                   <img [src]="img"
                      class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1200,7 +1096,7 @@
             </div>
             <div class="tab-pane fade" id="tab9" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'Infrastructure' | translate }}</h5> -->
-              <div class="row g-2">
+              <div class="row g-2" *ngIf="Infrastructure.length > 0">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of Infrastructure; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"
@@ -1283,7 +1179,7 @@
             </div>
             <div class="tab-pane fade" id="tab10" role="tabpanel">
               <!-- <h5 class="gradient-heading">{{'Events' | translate }}</h5> -->
-              <div class="row g-2">
+              <div class="row g-2" *ngIf="events.length > 0">
                 <div class="col-12 col-sm-6 col-md-4" *ngFor="let img of events; let i = index">
                   <img [src]="img"
                        class="img-fluid rounded w-100 h-100 img-hover-zoom"

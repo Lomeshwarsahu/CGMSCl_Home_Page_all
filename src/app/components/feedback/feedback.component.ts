@@ -71,8 +71,8 @@ export class FeedbackComponent {
         city: ['', Validators.required],
         subject: ['', Validators.required],
         comments: ['', Validators.required],
-        feedbackTypeId: ['', Validators.required],
-        topicId: ['', Validators.required],
+        feedbackTypeId: [2, Validators.required],
+        topicId: [6, Validators.required],
         captchaInput: ['', Validators.required]
       });
  
