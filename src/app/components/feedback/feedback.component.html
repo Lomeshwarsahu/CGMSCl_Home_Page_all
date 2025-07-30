@@ -23,15 +23,25 @@
                                   <form class="p-2" [formGroup]="FeedbackForm" (ngSubmit)="OnSubmit()">
                                     <div class="row pb-3">
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="inputName">First Name</label>
-                                        <input type="text" class="form-control" formControlName="firstName" placeholder="Type your First Name" id="inputName">
+                                        <label for="inputName">First Name  <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control"
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('firstName')?.touched || submitted) && FeedbackForm.get('firstName')?.invalid,
+                                          'is-valid': FeedbackForm.get('firstName')?.valid && (FeedbackForm.get('firstName')?.touched || submitted)
+                                        }"
+                                         formControlName="firstName" placeholder="Type your First Name" id="inputName">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('firstName')?.touched || submitted) && FeedbackForm.get('firstName')?.errors?.['required']">
                                           First Name is required
                                         </span>
                                       </div>
                                       <div class="form-group col-md-6  pt-3">
-                                        <label for="inputPassword4">Last Name</label>
-                                        <input type="text" class="form-control" formControlName="lastName" placeholder="Type your Last Name" id="inputPassword4">
+                                        <label for="inputPassword4">Last Name  <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control"
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('lastName')?.touched || submitted) && FeedbackForm.get('lastName')?.invalid,
+                                          'is-valid': FeedbackForm.get('lastName')?.valid && (FeedbackForm.get('lastName')?.touched || submitted)
+                                        }"
+                                         formControlName="lastName" placeholder="Type your Last Name" id="inputPassword4">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('lastName')?.touched || submitted) && FeedbackForm.get('lastName')?.errors?.['required']">
                                           Last Name is required
                                         </span>
@@ -40,8 +50,13 @@
                                   
                                     <div class="row pb-3">
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="inputEmail4">Email</label>
-                                        <input type="email" class="form-control" formControlName="email" placeholder="Type your Email" id="inputEmail4">
+                                        <label for="inputEmail4">Email  <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" 
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('email')?.touched || submitted) && FeedbackForm.get('email')?.invalid,
+                                          'is-valid': FeedbackForm.get('email')?.valid && (FeedbackForm.get('email')?.touched || submitted)
+                                        }"
+                                        formControlName="email" placeholder="name@example.com" id="inputEmail4">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('email')?.touched || submitted) && FeedbackForm.get('email')?.errors?.['required']">
                                           Email is required
                                         </span>
@@ -50,8 +65,13 @@
                                         </span>
                                       </div>
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="inputAddress">Address</label>
-                                        <input type="text" class="form-control" formControlName="address" placeholder="Type your Address" id="inputAddress">
+                                        <label for="inputAddress">Address  <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control"
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('address')?.touched || submitted) && FeedbackForm.get('address')?.invalid,
+                                          'is-valid': FeedbackForm.get('address')?.valid && (FeedbackForm.get('address')?.touched || submitted)
+                                        }"
+                                         formControlName="address" placeholder="Type your Address" id="inputAddress">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('address')?.touched || submitted) && FeedbackForm.get('address')?.errors?.['required']">
                                           Address is required
                                         </span>
@@ -60,8 +80,13 @@
                                   
                                     <div class="row pb-3">
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="inputnumber">Mobile Number</label>
-                                        <input type="number" class="form-control" formControlName="mobileNumber" placeholder="Type your Mobile Number" id="inputnumber">
+                                        <label for="inputnumber">Mobile Number  <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control"
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('mobileNumber')?.touched || submitted) && FeedbackForm.get('mobileNumber')?.invalid,
+                                          'is-valid': FeedbackForm.get('mobileNumber')?.valid && (FeedbackForm.get('mobileNumber')?.touched || submitted)
+                                        }"
+                                         formControlName="mobileNumber" placeholder="Type your Mobile Number" id="inputnumber">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('mobileNumber')?.touched || submitted) && FeedbackForm.get('mobileNumber')?.errors?.['pattern']">
                                           Enter 10 digit valid mobile number
                                         </span>
@@ -70,8 +95,13 @@
                                         </span>
                                       </div>
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="inputAddress">City</label>
-                                        <input type="text" class="form-control" formControlName="city" placeholder="Type your City" id="inputAddress">
+                                        <label for="inputAddress">City <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control"
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('city')?.touched || submitted) && FeedbackForm.get('city')?.invalid,
+                                          'is-valid': FeedbackForm.get('city')?.valid && (FeedbackForm.get('city')?.touched || submitted)
+                                        }"
+                                         formControlName="city" placeholder="Type your City" id="inputAddress">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('city')?.touched || submitted) && FeedbackForm.get('city')?.errors?.['required']">
                                           City is required
                                         </span>
@@ -80,30 +110,45 @@
                                   
                                     <div class="row pb-3">
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="inputSubject">Subject</label>
-                                        <input type="text" class="form-control" formControlName="subject" placeholder="Type Subject" id="inputSubject">
+                                        <label for="inputSubject">Subject  <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control"
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('subject')?.touched || submitted) && FeedbackForm.get('subject')?.invalid,
+                                          'is-valid': FeedbackForm.get('subject')?.valid && (FeedbackForm.get('subject')?.touched || submitted)
+                                        }"
+                                         formControlName="subject" placeholder="Type Subject" id="inputSubject">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('subject')?.touched || submitted) && FeedbackForm.get('subject')?.errors?.['required']">
                                           Subject is required
                                         </span>
                                       </div>
                                   
+                                      <!-- [ngClass]="{
+                                        'is-invalid': (FeedbackForm.get('feedbackTypeId')?.touched || submitted) && FeedbackForm.get('feedbackTypeId')?.invalid,
+                                        'is-valid': FeedbackForm.get('feedbackTypeId')?.valid && (FeedbackForm.get('feedbackTypeId')?.touched || submitted)
+                                      }"  -->
                                       <div class="form-group col-md-6 pt-3">
-                                        <label>Type</label>
+                                        <label>Type  <span class="text-danger">*</span></label>
                                         <div class="d-flex flex-wrap gap-3 pt-2">
                                           <div *ngFor="let feedbackType of FeedbackTypeslist" class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" [value]="feedbackType.feedbackTypeId" formControlName="feedbackTypeId" [id]="'feedbackType-' + feedbackType.feedbackTypeId">
+                                            <input class="form-check-input "
+                                            type="radio" [value]="feedbackType.feedbackTypeId" formControlName="feedbackTypeId" [id]="'feedbackType-' + feedbackType.feedbackTypeId">
                                             <label class="form-check-label" [for]="'feedbackType-' + feedbackType.feedbackTypeId">{{ feedbackType.feedbackTypeName }}</label>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                   
+                                    <!-- [ngClass]="{
+                                      'is-invalid': (FeedbackForm.get('topicId')?.touched || submitted) && FeedbackForm.get('topicId')?.invalid,
+                                      'is-valid': FeedbackForm.get('topicId')?.valid && (FeedbackForm.get('topicId')?.touched || submitted)
+                                    }" -->
                                     <div class="row pb-3">
                                       <div class="form-group col-md-6 pt-3">
-                                        <label>Suggestion On</label>
+                                        <label>Suggestion On  <span class="text-danger">*</span></label>
                                         <div class="d-flex flex-wrap gap-3 pt-2">
                                           <div *ngFor="let topic of Topicslist" class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" [value]="topic.topicId" formControlName="topicId" [id]="'topic-' + topic.topicId">
+                                            <input class="form-check-input" 
+                                            type="radio" [value]="topic.topicId" formControlName="topicId" [id]="'topic-' + topic.topicId">
                                             <label class="form-check-label" [for]="'topic-' + topic.topicId">{{ topic.topicName }}</label>
                                           </div>
                                         </div>
@@ -111,8 +156,13 @@
                                     </div>
                                   
                                     <div class="form-group pb-3">
-                                      <label for="inputComments">Comments / Queries</label>
-                                      <textarea class="form-control" id="inputComments" rows="4" formControlName="comments" placeholder="Type your comments or queries here..."></textarea>
+                                      <label for="inputComments">Comments / Queries  <span class="text-danger">*</span></label>
+                                      <textarea class="form-control" 
+                                      [ngClass]="{
+                                        'is-invalid': (FeedbackForm.get('comments')?.touched || submitted) && FeedbackForm.get('comments')?.invalid,
+                                        'is-valid': FeedbackForm.get('comments')?.valid && (FeedbackForm.get('comments')?.touched || submitted)
+                                      }"
+                                      id="inputComments" rows="4" formControlName="comments" placeholder="Type your comments or queries here..."></textarea>
                                       <span class="text-danger" *ngIf="(FeedbackForm.get('comments')?.touched || submitted) && FeedbackForm.get('comments')?.errors?.['required']">
                                         Comments is required
                                       </span>
@@ -120,8 +170,13 @@
                                   
                                     <div class="row pb-3">
                                       <div class="form-group col-md-6 pt-3">
-                                        <label for="captchaInput">Verification Code</label>
-                                        <input type="text" class="form-control" formControlName="captchaInput" placeholder="Enter Captcha Code" id="captchaInput">
+                                        <label for="captchaInput">Verification Code  <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" 
+                                        [ngClass]="{
+                                          'is-invalid': (FeedbackForm.get('captchaInput')?.touched || submitted) && FeedbackForm.get('captchaInput')?.invalid,
+                                          'is-valid': FeedbackForm.get('captchaInput')?.valid && (FeedbackForm.get('captchaInput')?.touched || submitted)
+                                        }"
+                                        formControlName="captchaInput" placeholder="Enter Captcha Code" id="captchaInput">
                                         <span class="text-danger" *ngIf="(FeedbackForm.get('captchaInput')?.touched || submitted) && FeedbackForm.get('captchaInput')?.errors?.['required']">
                                           Captcha is required
                                         </span>
