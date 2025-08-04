@@ -30,7 +30,8 @@ import { Base } from 'src/app/helper/base';
     RouterModule,
     GoogleMapsModule,
     DivisionOfficeLocationComponent,
-    WarehouseLocationComponent,TranslateModule
+    WarehouseLocationComponent,
+    TranslateModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -48,10 +49,10 @@ export class HomeComponent {
   VisitedContentList: Data_model[] = [];
   AllTenderListNotification: AllCateDrugTenderList[] = [];
   warehouseInfo: WarehouseInfo[] = [];
-  publishingDates: any[]=[];
+  publishingDates: any[] = [];
   sanitizedPdfUrl!: SafeResourceUrl;
   // pauseScroll: boolean = false;
-  crrenterdatetosevendate:any;
+  crrenterdatetosevendate: any;
   card20Pause = false;
   card1Pause = false;
   card2Pause = false;
@@ -68,7 +69,7 @@ export class HomeComponent {
     // lat: 21.136647,
     // lng: 81.7864520,
   };
-  base:any;
+  base: any;
   // currentLanguage: 'en' | 'hi' = 'en';
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
@@ -76,10 +77,13 @@ export class HomeComponent {
   isOnline: boolean = navigator.onLine;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow!: MapInfoWindow;
   constructor(
-    public authService: AuthServiceService,private sanitizer: DomSanitizer,
+    public authService: AuthServiceService,
+    private sanitizer: DomSanitizer,
     private router: Router,
     private ApiService: ApiServiceService,
-    private cdRef: ChangeDetectorRef, private translate: TranslateService,private toastr:ToastrService
+    private cdRef: ChangeDetectorRef,
+    private translate: TranslateService,
+    private toastr: ToastrService
   ) {
     this.base = Base;
     const lang = sessionStorage.getItem('language') || 'en';
@@ -93,7 +97,6 @@ export class HomeComponent {
     //   this.isDefaultDashboardRoute = current === '/dashboard';
     // });
     // https://dpdmis.in/cdn/Videos/presentation/BloodCTScan.mp4
-
   }
   ngOnInit(): void {
     const colorTop = sessionStorage.getItem('selectedTopColor');
@@ -118,19 +121,14 @@ export class HomeComponent {
 
     window.addEventListener('offline', () => {
       this.isOnline = false;
- 
     });
-  
+
     window.addEventListener('online', () => {
       this.isOnline = true;
-    
     });
   }
   openInfo(marker: MapMarker) {
-   
-
-      this.infoWindow.open(marker);
-    
+    this.infoWindow.open(marker);
   }
   onPauseStart(index: any) {
     // debugger;
@@ -146,12 +144,11 @@ export class HomeComponent {
       this.card3Pause = true;
       this.cdRef.detectChanges();
       return;
-    }  else if (index == 4) {
+    } else if (index == 4) {
       this.card20Pause = true;
       this.cdRef.detectChanges();
       return;
-    } 
-    else {
+    } else {
       this.card4Pause = true;
       this.cdRef.detectChanges();
     }
@@ -175,8 +172,7 @@ export class HomeComponent {
       this.card20Pause = false;
       this.cdRef.detectChanges();
       return;
-    } 
-    else {
+    } else {
       this.card4Pause = false;
       this.cdRef.detectChanges();
     }
@@ -184,13 +180,12 @@ export class HomeComponent {
     // this.cdRef.detectChanges();
   }
 
-
-//   https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderList?n=2
-// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetEquipmentList?n=2
-// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetCivilTenderList?n=2
-// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetOtherTenderList?n=2
-// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetMostVisitedContentList?n=2
-// https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=15 for popup
+  //   https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetDrugTenderList?n=2
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetEquipmentList?n=2
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetCivilTenderList?n=2
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetOtherTenderList?n=2
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetMostVisitedContentList?n=2
+  // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=15 for popup
   GetAllTenderLists() {
     // debugger
     const apis = [
@@ -210,8 +205,8 @@ export class HomeComponent {
       (res: any) => {
         if (assignTo == 'DrugTenderList') {
           this.DrugTenderList = res;
-        //  this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
-        //   this.getnewtentar(this.publishingDates);
+          //  this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
+          //   this.getnewtentar(this.publishingDates);
         } else if (assignTo == 'EquipmentList') {
           this.EquipmentList = res;
           // this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
@@ -243,25 +238,27 @@ export class HomeComponent {
   }
 
   onButtonClick(attachment_Id: any, name: string) {
-     const modalElement = document.getElementById('newModaltender');
-      const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
-      modal.hide();
-      // this.router.navigate(['/AttachmentList'], {
-      //   queryParams: { Id: attachment_Id, name: name },
-      // });
+    const modalElement = document.getElementById('newModaltender');
+    const modal =
+      bootstrap.Modal.getInstance(modalElement) ||
+      new bootstrap.Modal(modalElement);
+    modal.hide();
+    // this.router.navigate(['/AttachmentList'], {
+    //   queryParams: { Id: attachment_Id, name: name },
+    // });
 
-      const encryptedId = this.base.encryptUsingAES256(attachment_Id);
-    
-      this.router.navigate(['/AttachmentList'], {
-        queryParams: { Id: encryptedId, name: name },
-      });
+    const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+
+    this.router.navigate(['/AttachmentList'], {
+      queryParams: { Id: encryptedId, name: name },
+    });
   }
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=2
   // GetAllCateDrugTenderList(){
   //   try {
   //     this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
   //       (res: any) => {
-         
+
   //         this.AllTenderListNotification =  res;
   //         console.log('AllTenderListNotification=', res)
   //         this.publishingDates = res.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
@@ -284,26 +281,26 @@ export class HomeComponent {
 
   // wwwwwwwwwwwww
   // GetAllCateDrugTenderList() {
-   
+
   //   try {
   //     this.ApiService.get('GetAllCateDrugTenderList?n=15').subscribe(
   //       (res: any) => {
   //         // First sort the response
   //         const sortedRes = res.sort((a: any, b: any) => {
   //           const aIsNew = this.isNewContent(a.content_Publising_Date);
-  //           const bIsNew = this.isNewContent(b.content_Publising_Date);  
-  
+  //           const bIsNew = this.isNewContent(b.content_Publising_Date);
+
   //           // Show new content first
   //           if (aIsNew && !bIsNew) return -1;
   //           if (!aIsNew && bIsNew) return 1;
-  
+
   //           // If both are same (new or not), sort by publish date descending
   //           return new Date(b.content_Publising_Date).getTime() - new Date(a.content_Publising_Date).getTime();
   //         });
-  
+
   //         this.AllTenderListNotification = sortedRes;
   //         // console.log('Sorted Tender List:', sortedRes);
-  
+
   //         this.publishingDates = sortedRes.map((item: { content_Publising_Date: any; }) => item.content_Publising_Date);
   //         this.getnewtentar(this.publishingDates);
   //       },
@@ -323,15 +320,18 @@ export class HomeComponent {
           const filteredRes = res.filter((item: any) =>
             this.isNewContent(item.content_Publising_Date)
           );
-  
+
           // Sort new items by publish date descending
-          const sortedFilteredRes = filteredRes.sort((a: any, b: any) =>
-            new Date(b.content_Publising_Date).getTime() - new Date(a.content_Publising_Date).getTime()
+          const sortedFilteredRes = filteredRes.sort(
+            (a: any, b: any) =>
+              new Date(b.content_Publising_Date).getTime() -
+              new Date(a.content_Publising_Date).getTime()
           );
-  
+
           this.AllTenderListNotification = sortedFilteredRes;
           this.publishingDates = sortedFilteredRes.map(
-            (item: { content_Publising_Date: any }) => item.content_Publising_Date
+            (item: { content_Publising_Date: any }) =>
+              item.content_Publising_Date
           );
           this.getnewtentar(this.publishingDates);
         },
@@ -343,68 +343,66 @@ export class HomeComponent {
       throw err;
     }
   }
-  
+
   //wwwwwwwwwwwwwwwwwww
   isNewContent(publishDateStr: string): boolean {
     if (!publishDateStr) return false;
-  
+
     const today = new Date();
     const publishDate = new Date(publishDateStr);
-  
+
     if (isNaN(publishDate.getTime())) return false;
-  
+
     const diffInMs = today.getTime() - publishDate.getTime();
     const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-  
-    return diffInDays >= 0 && diffInDays <= 15;
-    // return diffInDays >= -2 && diffInDays <= 15; 
-  }
-  
 
+    return diffInDays >= 0 && diffInDays <= 15;
+    // return diffInDays >= -2 && diffInDays <= 15;
+  }
 
   // isNewContenttt(publishingDate: string): boolean {
- 
 
-    
   //   const published = new Date(publishingDate);
   //   const today = new Date();
-   
 
   //   const diffInMs = today.getTime() - published.getTime();
 
   //   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
   //   return diffInDays <= 7;
   // }
-getnewtentar(publishingDates: string[]) {
-  const today = new Date();
-  const formattedToday = today.toISOString().split('T')[0] + "T00:00:00";
-  const todayDateObj = new Date(formattedToday);
+  getnewtentar(publishingDates: string[]) {
+    const today = new Date();
+    const formattedToday = today.toISOString().split('T')[0] + 'T00:00:00';
+    const todayDateObj = new Date(formattedToday);
 
-  for (let publishingDate of publishingDates) {
-    const publishDateObj = new Date(publishingDate);
-    if (isNaN(publishDateObj.getTime())) {
-      this.toastr.warning(`Invalid publish date=${publishingDate}`,'Warning!')
-      // console.warn("Invalid publish date:", publishingDate);
-      continue;
+    for (let publishingDate of publishingDates) {
+      const publishDateObj = new Date(publishingDate);
+      if (isNaN(publishDateObj.getTime())) {
+        this.toastr.warning(
+          `Invalid publish date=${publishingDate}`,
+          'Warning!'
+        );
+        // console.warn("Invalid publish date:", publishingDate);
+        continue;
+      }
+
+      const diffInMs = todayDateObj.getTime() - publishDateObj.getTime();
+      const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+      // console.log("Publish:", publishingDate, "| Diff Days:", diffInDays);
+
+      if (diffInDays >= 0 && diffInDays <= 20) {
+        const modal = new bootstrap.Modal(
+          document.getElementById('newModaltender')
+        );
+        modal.show();
+        setTimeout(() => {
+          document.body.style.paddingRight = '0px';
+        }, 100);
+        break; // show once only
+      }
     }
-
-    const diffInMs = todayDateObj.getTime() - publishDateObj.getTime();
-    const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-
-    // console.log("Publish:", publishingDate, "| Diff Days:", diffInDays);
-
-    if (diffInDays >= 0 && diffInDays <= 20) {
-      const modal = new bootstrap.Modal(document.getElementById('newModaltender'));
-      modal.show();
-      setTimeout(() => {
-        document.body.style.paddingRight = '0px';
-      }, 100);
-      break; // show once only
-    }
-  
   }
-}
-
 
   carousel_img: string[] = [
     'https://dpdmis.in/cdn/carousel/FirstImg.JPG',
@@ -440,15 +438,15 @@ getnewtentar(publishingDates: string[]) {
     'https://dpdmis.in/cdn/drugs/40.jpeg',
   ];
   Infrastructure: string[] = [
-'https://dpdmis.in/cdn/Infrastructure/Picture4.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture2.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture1.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture5.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture3.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture6.jfif',
-'https://dpdmis.in/cdn/Infrastructure/picture7.jfif',
-'https://dpdmis.in/cdn/Infrastructure/Picture10.png',
-'https://dpdmis.in/cdn/Infrastructure/Picture11.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture4.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture2.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture1.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture5.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture3.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture6.jfif',
+    'https://dpdmis.in/cdn/Infrastructure/picture7.jfif',
+    'https://dpdmis.in/cdn/Infrastructure/Picture10.png',
+    'https://dpdmis.in/cdn/Infrastructure/Picture11.png',
 
     // 'https://dpdmis.in/cdn/Event/DSC_2677.JPG',
     // 'https://dpdmis.in/cdn/Event/photo_5.jpg',
@@ -461,7 +459,7 @@ getnewtentar(publishingDates: string[]) {
     // 'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
   ];
 
-  equipment:string[]=[
+  equipment: string[] = [
     'https://dpdmis.in/cdn/equipment/32%20slice%20CT%20scan.jfif',
     'https://dpdmis.in/cdn/equipment/CT%20SCAN.jpeg',
     'https://dpdmis.in/cdn/equipment/Multipara%20monitor.jpeg',
@@ -479,19 +477,15 @@ getnewtentar(publishingDates: string[]) {
     'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
   ];
   News: string[] = [
-
     'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-08-04%20at%2015.03.00.jpeg',
     'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-08-04%20at%2015.01.38.jpeg',
     'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-08-04%20at%2015.02.03.jpeg',
-'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.44%20(1).jpeg',
-'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.44.jpeg',
-'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.45.jpeg',
-'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.46%20(1).jpeg',
-'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.46.jpeg',
-'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.47.jpeg',
-
-
-
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.44%20(1).jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.44.jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.45.jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.46%20(1).jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.46.jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.47.jpeg',
 
     // 'https://dpdmis.in/cdn/News/48385277-51e6-4dcb-a2ff-5beb3b1f8528.jfif',
     // 'https://dpdmis.in/cdn/News/b2bdb353-f7ed-484b-9d12-f53e2c8cfe85.jfif',
@@ -529,7 +523,9 @@ getnewtentar(publishingDates: string[]) {
   }
   openModaldcivil(index: number) {
     this.selectedIndex = index;
-    const modal = new bootstrap.Modal(document.getElementById('imageModalcivil'));
+    const modal = new bootstrap.Modal(
+      document.getElementById('imageModalcivil')
+    );
     modal.show();
   }
   openModaldrug(index: number) {
@@ -551,7 +547,6 @@ getnewtentar(publishingDates: string[]) {
     const modal = new bootstrap.Modal(document.getElementById('imageModal1'));
     modal.show();
   }
-
 
   prevImage() {
     this.selectedIndex =
@@ -576,7 +571,6 @@ getnewtentar(publishingDates: string[]) {
   // https://dpdmis.in/cdn/Event/
   // https://dpdmis.in/cdn/News/
 
-
   sharePage() {
     if (navigator.share) {
       navigator
@@ -591,8 +585,6 @@ getnewtentar(publishingDates: string[]) {
       alert('Web Share API is not supported in your browser.');
     }
   }
-
-
 
   GetNoticCircular() {
     try {
@@ -629,26 +621,22 @@ getnewtentar(publishingDates: string[]) {
       // throw err;
     }
   }
-  openmarqModal(pdfUrl: string):void  {
+  openmarqModal(pdfUrl: string): void {
     // const modal = new bootstrap.Modal(document.getElementById('marqModal'));
     // modal.show();
-   // Remove '~' from the start of the URL
-  //  const cleanedUrl = 'https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf';
-  //  // console.log('Opening:', cleanedUrl);
-  //  window.open(cleanedUrl);
-   // window.open(cleanedUrl, '_blank');
+    // Remove '~' from the start of the URL
+    //  const cleanedUrl = 'https://cgmsc.gov.in/Upload/Tender%20Document%20-243(R)202507000001.pdf';
+    //  // console.log('Opening:', cleanedUrl);
+    //  window.open(cleanedUrl);
+    // window.open(cleanedUrl, '_blank');
 
-   this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
+    this.sanitizedPdfUrl =
+      this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
 
-  
-   const modalElement = document.getElementById('pdfModal');
-   const modal = new bootstrap.Modal(modalElement!);
-   modal.show();
-
+    const modalElement = document.getElementById('pdfModal');
+    const modal = new bootstrap.Modal(modalElement!);
+    modal.show();
   }
-
- 
-  
 
   // GetDrugTenderList() {
   //   // debugger;
