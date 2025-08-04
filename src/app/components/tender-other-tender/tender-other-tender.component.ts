@@ -11,6 +11,7 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
+import { Base } from 'src/app/helper/base';
 
 // import { MaterialModule } from './material-module';
 // import { MatTableExporterModule } from 'mat-table-exporter';
@@ -37,6 +38,7 @@ export class TenderOtherTenderComponent {
     'sno','subject','caption','content_Publising_Date','action'
   ];
   selectedColor: any;
+  base:any;
   // displayedColumns: string[] = [
   //   'sno', 'url', 'content_Registration_Id', 'attachment_Id', 'caption',
   //   'content_Discription', 'subject', 'content_Subject', 'content_Publising_Date',
@@ -45,6 +47,7 @@ export class TenderOtherTenderComponent {
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,
      private toastr: ToastrService,private spinner: NgxSpinnerService) {
     this.dataSource = new MatTableDataSource<Data_model>([]);
+    this.base=Base;
     }
   
 
@@ -173,10 +176,14 @@ export class TenderOtherTenderComponent {
       onButtonClick(attachment_Id:any){
         // console.log(attachment_Id);
         // this.router.navigate(['/AttachmentList']);
-        this.router.navigate(['/AttachmentList'], { 
-          queryParams: {Id: attachment_Id, name: 'Other Tender (Technical)' } 
+        // this.router.navigate(['/AttachmentList'], { 
+        //   queryParams: {Id: attachment_Id, name: 'Other Tender (Technical)' } 
+        // });
+        const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+    
+        this.router.navigate(['/AttachmentList'], {
+          queryParams: { Id: encryptedId, name: 'Other Tender (Technical)' },
         });
-
       }
 
             // Example: convert "30/05/2025" to Date object

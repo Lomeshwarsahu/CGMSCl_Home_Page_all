@@ -1,23 +1,22 @@
 import { formatDate } from "@angular/common";
 
+import * as CryptoJS from 'crypto-js';
+
+import { environment } from "src/environments/environment";
+
+
 
 export const Base = {
-    imageUrl: 'https://bihav.co.in/Uploads/Restaurant',
-    offerUrl: 'https://bihav.co.in/Uploads/Offer_image',
-    ItemUrl: 'https://bihav.co.in/Uploads/Item_image',
-    logoUrl: 'https://bihav.co.in/Uploads/Restaurant',
-    img_urlseva: 'http://sevagudiadmin.shivaminfosoft.in/uploads/products',
-    adminAppUrl: 'https://bihav.co.in',
-    webAppUrl: 'https://bihav.co.in',
-    // https://rangkar-1.onrender.com
 
 // cgmsc api
     baseUrl: 'https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/',
 
     baseurl_: 'https://www.cgmsc.gov.in/himis_apin/api/',
 
-    // baseUrl: 'http://producttrackingapi.shivaminfosoft.in/api/',
-    userImgUrl: 'http://producttrackingapi.shivaminfosoft.in/Uploads/Users',
+ 
+
+
+    // https://dpdmis.in/cdn/News/
 
     currency: 'INR',
     date_time_validator: 'dd-MMM-yyyy, hh:mm a',
@@ -27,79 +26,47 @@ export const Base = {
     PasswordValidator:'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$',
     decimal_point_in_currency: 2,
 
+
+    key: CryptoJS.enc.Utf8.parse(environment.EncryptKey),
+    iv: CryptoJS.enc.Utf8.parse(environment.EncryptIV),
+
+
+    encryptUsingAES256(text: any): any {
+        var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(text), this.key, {
+          keySize: 128 / 8,
+          iv: this.iv,
+          mode: CryptoJS.mode.CBC,
+          padding: CryptoJS.pad.Pkcs7
+        });
+        return encrypted.toString();
+      },
+      decryptUsingAES256(decString: any) {
+        try {
+          var decrypted = CryptoJS.AES.decrypt(decString, this.key, {
+            keySize: 128 / 8,
+            iv: this.iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+          });
+          return decrypted.toString(CryptoJS.enc.Utf8);
+        } catch (e) {
+        }
+        return null;
+      },
+      convert_HexToString(hex: any) {
+        hex = hex.toString();//force conversion
+        var str = '';
+        for (var i = 0; i < hex.length; i += 2)
+          str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        return str
+      },
+
+    // imageUrl: 'https://bihav.co.in/Uploads/Restaurant',
+    // offerUrl: 'https://bihav.co.in/Uploads/Offer_image',
+    // ItemUrl: 'https://bihav.co.in/Uploads/Item_image',
+    // logoUrl: 'https://bihav.co.in/Uploads/Restaurant',
+    // img_urlseva: 'http://sevagudiadmin.shivaminfosoft.in/uploads/products',
+    // adminAppUrl: 'https://bihav.co.in',
+    // webAppUrl: 'https://bihav.co.in',
     
-    get_date() {
-        //var to_date = new Date().toISOString();
-        //to_date = new Date().toUTCString();
-
-        //  ChangedFormat = pipe.transform(this.to_date, 'dd/MM/YYYY');
-        // mydate = this.datePipe.transform(this.to_date, 'yyyy-MM-dd');
-        //  cValue = formatDate(this.to_date, 'dd-MM-yyyy', 'en-US');
-        //  cValue$ = formatDate(this.to_date, 'dd-MM-yyyy', 'en-US');
-        // var date:string =formatDate(new Date().toISOString(), this.default_date_formate_In_Date, 'en-IN');
-
-        return formatDate(new Date().toISOString(), this.date_time_validator, 'en-IN');
-    },
-    get_status_kot(status: any, delivery_type: string) {
-        switch (delivery_type) {
-            case "Dine In":
-                switch (status) {
-                    case 1: return '<span class=" mr-2 font-weight-bold text-success">Served</span>'; break;
-                    case 2: return '<span class=" mr-2 font-weight-bold text-danger">Deleted</span>'; break;
-                    case 3: return '<span class=" mr-2 font-weight-bold text-secondary">Invoiced</span>'; break;
-                    case -1: return '<span class=" mr-2 font-weight-bold text-warning">Preparing</span>'; break;
-                    default: return '<span class=" mr-2 font-weight-bold text-info">Pending</span>'; break;
-                }
-            default: switch (status) {
-                case 1: return '<span class=" mr-2 font-weight-bold text-success">Served</span>'; break;
-                case 2: return '<span class=" mr-2 font-weight-bold text-danger">Deleted</span>'; break;
-                case 3: return '<span class=" mr-2 font-weight-bold text-secondary">Invoiced</span>'; break;
-                case -1: return '<span class=" mr-2 font-weight-bold text-success">Preparing</span>'; break;
-                default: return '<span class=" mr-2 font-weight-bold text-info">Pending</span>'; break;
-            }
-        }
-
-    },
-    get_stars_html(rating: any) {
-        if (!rating) return '';
-        rating = Math.ceil(rating);
-        switch (rating) {
-            case 1: return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 2: return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 3: return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 4: return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i></li></ul>'; break;
-            case 5: return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star star_active"></i></li></ul>'; break;
-            default: return ''; break;
-        }
-    },
-    redirect_to_module(role: string) {
-        // if (!role) return '';
-        switch (role) {
-            case 'superAdmin': return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 'admin': return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 'Customer': return '<app-otp></app-otp>'; break;
-            case 'kot': return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 'dileveryBoy': return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            case 'hotel': return '<ul class="rating-stars list-unstyled"><li><i class="feather-star star_active"></i><i class="feather-star star_active"></i><i class="feather-star"></i><i class="feather-star"></i><i class="feather-star"></i></li></ul>'; break;
-            default: return ''; break;
-        }
-    }
-//#region 
-// onButtonClick(URL: any) {
-//     if (URL) {
-//       // Remove '~' from the start of the URL
-//       // const cleanedUrl = 'https://cgmsc.gov.in/' + URL.replace(/^~\//, '');
-//       // console.log('Opening:', URL);
-//     return  window.open(URL, '_blank');
-//     } else {
-//      return alert(
-//         '⚠️ Alert: Attachment File Not Found!\n\nThe requested document is missing.\nPlease try again later or contact support.'
-//       );
-//     }
-//   }
-
-//#endregion
-
-
-
 }
