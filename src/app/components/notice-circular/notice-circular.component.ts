@@ -10,6 +10,7 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
+import { Base } from 'src/app/helper/base';
 import { MaterialModule } from 'src/app/material-module';
 import { drugWarehouseInfo, NoticCircular } from 'src/app/model/model';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
@@ -31,6 +32,7 @@ export class NoticeCircularComponent {
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild('sort') sort!: MatSort;
   dispatchData: NoticCircular[] = [];
+  base:any;
   displayedColumns: string[] = [
     'sno','content_Subject','content_Publising_Date','countATT','department','content_Discription','action'
    
@@ -39,7 +41,7 @@ export class NoticeCircularComponent {
     private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService
   ) {
     this.dataSource = new MatTableDataSource<NoticCircular>([]);
-
+this.base=Base;
   }
 
   ngOnInit(): void {
@@ -96,10 +98,14 @@ export class NoticeCircularComponent {
         // this.router.navigate(['/AttachmentList']);
         // alert('file not found')
         // return;
-        this.router.navigate(['/AttachmentList'], { 
-          queryParams: {Id: attachment_Id, name: 'Notice/Circular' } 
+        // this.router.navigate(['/AttachmentList'], { 
+        //   queryParams: {Id: attachment_Id, name: 'Notice/Circular' } 
+        // });
+        const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+    
+        this.router.navigate(['/AttachmentList'], {
+          queryParams: { Id: encryptedId, name: 'Notice/Circular' },
         });
-
       }
 
       // isNewContent(publishingDate: string): boolean {

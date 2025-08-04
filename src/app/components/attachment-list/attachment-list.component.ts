@@ -14,6 +14,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Base } from 'src/app/helper/base';
 // import { NgxSpinnerModule } from 'ngx-spinner';
 @Component({
   standalone: true,
@@ -39,6 +40,7 @@ export class AttachmentListComponent {
   ContentHeader_data: ContentHeader[] = [];
   selectedColor:any;
   Notice:any;
+  base:any;
   // displayedColumns: string[] = ['sno','caption','action'];
   displayedColumns: string[] = [
     'sno',
@@ -58,6 +60,7 @@ export class AttachmentListComponent {
     private route: ActivatedRoute,private spinner: NgxSpinnerService
   ) {
     this.dataSource = new MatTableDataSource<ContentAttachment>([]);
+    this.base=Base;
   }
 
   ngOnInit(): void {
@@ -67,19 +70,31 @@ export class AttachmentListComponent {
     //   // document.documentElement.style.setProperty('--theme-gradient', this.selectedColor);
     //   // this.selectedColor = color;
     // });
-    this.route.queryParams.subscribe((params: { [key: string]: any }) => {
+  //   this.route.queryParams.subscribe((params: { [key: string]: any }) => {
     
-      // console.log(params['Id']);
-      //  var attachment_Id=params['Id'];
-      // console.log(attachment_Id);
-      // name: 'Drug-Technical' 
-    this.name=params['name'];
-    if(this.name == 'Notice/Circular'){
-    this.Notice=this.name
+  //     // console.log(params['Id']);
+  //     //  var attachment_Id=params['Id'];
+  //     // console.log(attachment_Id);
+  //     // name: 'Drug-Technical' 
+  //   this.name=params['name'];
+  //   if(this.name == 'Notice/Circular'){
+  //   this.Notice=this.name
+  //   }
+  //   // console.log('Name',this.name);
+  //   this.GetContentHeader(params['Id']);
+  //   // this.GetContentAttachment(params['Id']);
+  // });
+
+  this.route.queryParams.subscribe((params) => {
+    const encryptedId = params['Id'];
+    const decryptedId = this.base.decryptUsingAES256(encryptedId);
+
+    this.name = params['name'];
+    if (this.name === 'Notice/Circular') {
+      this.Notice = this.name;
     }
-    // console.log('Name',this.name);
-    this.GetContentHeader(params['Id']);
-    // this.GetContentAttachment(params['Id']);
+
+    this.GetContentHeader(decryptedId);  // Now decrypted
   });
   }
 

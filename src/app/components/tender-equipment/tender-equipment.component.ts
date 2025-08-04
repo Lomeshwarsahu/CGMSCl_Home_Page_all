@@ -11,6 +11,7 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
+import { Base } from 'src/app/helper/base';
 interface UiRow extends Data_model {
   rowSpan: number;   
   groupIndex: number;       
@@ -36,6 +37,7 @@ export class TenderEquipmentComponent {
     'sno','subject','caption','content_Publising_Date','action'
   ];
   selectedColor:any;
+  base:any;
   // displayedColumns: string[] = [
   //   'sno', 'url', 'content_Registration_Id', 'attachment_Id', 'caption',
   //   'content_Discription', 'subject', 'content_Subject', 'content_Publising_Date',
@@ -44,6 +46,7 @@ export class TenderEquipmentComponent {
  
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService,private toastr: ToastrService) {
     this.dataSource = new MatTableDataSource<Data_model>([]);
+    this.base=Base;
     }
   
 
@@ -173,10 +176,14 @@ GetEquipmentListAll() {
       onButtonClick(attachment_Id:any){
         // console.log(attachment_Id);
         // this.router.navigate(['/AttachmentList']);
-        this.router.navigate(['/AttachmentList'], { 
-          queryParams: {Id: attachment_Id, name: 'Equipment-Technical' } 
+        // this.router.navigate(['/AttachmentList'], { 
+        //   queryParams: {Id: attachment_Id, name: 'Equipment-Technical' } 
+        // });
+        const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+    
+        this.router.navigate(['/AttachmentList'], {
+          queryParams: { Id: encryptedId, name: 'Equipment-Technical' },
         });
-
       }
 
             // Example: convert "30/05/2025" to Date object
