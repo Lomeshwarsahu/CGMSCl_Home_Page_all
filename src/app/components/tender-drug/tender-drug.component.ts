@@ -14,6 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 // import { MatTableExporterModule } from 'mat-table-exporter';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
 import { map } from 'rxjs';
+import { Base } from 'src/app/helper/base';
 interface UiRow extends Data_model {
 
   rowSpan: number;   
@@ -60,6 +61,7 @@ export class TenderDrugComponent {
     'content_Publising_Date',
     'action',
   ];
+  base:any;
   selectedColor: any;
   // displayedColumns: string[] = [
   //   'sno', 'url', 'content_Registration_Id', 'attachment_Id', 'caption',
@@ -74,6 +76,7 @@ export class TenderDrugComponent {
     private spinner: NgxSpinnerService
   ) {
     this.dataSource = new MatTableDataSource<Data_model>([]);
+    this.base=Base;
   }
 
 
@@ -242,8 +245,14 @@ export class TenderDrugComponent {
   onButtonClick(attachment_Id: any) {
     // console.log(attachment_Id);
     // this.router.navigate(['/AttachmentList']);
+    // this.router.navigate(['/AttachmentList'], {
+    //   queryParams: { Id: attachment_Id, name: 'Drug-Technical' },
+    // });
+
+    const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+    
     this.router.navigate(['/AttachmentList'], {
-      queryParams: { Id: attachment_Id, name: 'Drug-Technical' },
+      queryParams: { Id: encryptedId, name: 'Drug-Technical' },
     });
   }
  

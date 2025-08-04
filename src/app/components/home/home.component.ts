@@ -18,6 +18,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { ToastrService } from 'ngx-toastr';
 import { E } from '@angular/material/error-options.d-CGdTZUYk';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Base } from 'src/app/helper/base';
 // import {  } from '@ngx-translate/core'; 
 @Component({
   selector: 'app-home',
@@ -67,6 +68,7 @@ export class HomeComponent {
     // lat: 21.136647,
     // lng: 81.7864520,
   };
+  base:any;
   // currentLanguage: 'en' | 'hi' = 'en';
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
@@ -79,6 +81,7 @@ export class HomeComponent {
     private ApiService: ApiServiceService,
     private cdRef: ChangeDetectorRef, private translate: TranslateService,private toastr:ToastrService
   ) {
+    this.base = Base;
     const lang = sessionStorage.getItem('language') || 'en';
     this.translate.use(lang);
     // this.currentLanguage = lang === 'hi' ? 'hi' : 'en';
@@ -243,8 +246,14 @@ export class HomeComponent {
      const modalElement = document.getElementById('newModaltender');
       const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
       modal.hide();
+      // this.router.navigate(['/AttachmentList'], {
+      //   queryParams: { Id: attachment_Id, name: name },
+      // });
+
+      const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+    
       this.router.navigate(['/AttachmentList'], {
-        queryParams: { Id: attachment_Id, name: name },
+        queryParams: { Id: encryptedId, name: name },
       });
   }
   // https://www.cgmsc.gov.in/himis_apin/api/WebCgmsc/GetAllCateDrugTenderList?n=2
@@ -470,6 +479,10 @@ getnewtentar(publishingDates: string[]) {
     'https://dpdmis.in/cdn/Event/DSC_4610.JPG',
   ];
   News: string[] = [
+
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-08-04%20at%2015.03.00.jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-08-04%20at%2015.01.38.jpeg',
+    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-08-04%20at%2015.02.03.jpeg',
 'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.44%20(1).jpeg',
 'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.44.jpeg',
 'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-07-30%20at%2011.25.45.jpeg',
@@ -486,9 +499,9 @@ getnewtentar(publishingDates: string[]) {
     // 'https://dpdmis.in/cdn/News/Capture.JPG',
     // 'https://dpdmis.in/cdn/News/cd01d37c-4a6c-486b-b3f6-bc94fb650a96.jfif',
     // 'https://dpdmis.in/cdn/News/img1.jpg.jfif',
-    'https://dpdmis.in/cdn/News/news.JPG',
-    'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-05-19%20at%209.42.17%20PM.jpeg',
-    'https://dpdmis.in/cdn/News/img1.jpg.jfif',
+    // 'https://dpdmis.in/cdn/News/news.JPG',
+    // 'https://dpdmis.in/cdn/News/WhatsApp%20Image%202025-05-19%20at%209.42.17%20PM.jpeg',
+    // 'https://dpdmis.in/cdn/News/img1.jpg.jfif',
   ];
 
   selectedIndex = 0;
@@ -633,6 +646,9 @@ getnewtentar(publishingDates: string[]) {
    modal.show();
 
   }
+
+ 
+  
 
   // GetDrugTenderList() {
   //   // debugger;

@@ -19,11 +19,11 @@
       <div class="carousel-inner" >
         <div *ngFor="let group of groupedNews; let i = index" class="carousel-item" [class.active]="i === 0">
           <div class="row justify-content-center">
-            <div *ngFor="let img of group " class="col-md-4 mb-3">
+            <div *ngFor="let img of group; let j = index" class="col-md-4 mb-3">
               <div class="card h-100 shadow-md border-0 theme-navbarr card-hover-zoom"
                 style="background-color: rgb(185, 186, 187);">
                 <img [src]="img" class="card-img-top border-0 p-1" alt="News Image"
-                  style="height: 200px; object-fit: cover;" (click)="openModal(i)" loading="lazy">
+                  style="height: 200px; object-fit: cover;" (click)="openModal(i * 3 + j)" loading="lazy">
                 <!-- <div class="card-body">
                           <h6 class="card-title text-center">News {{ i * 3 + group.indexOf(img) + 1 }}</h6>
                         </div> -->
