@@ -1,6 +1,7 @@
 import { CommonModule, NgClass, NgFor } from '@angular/common';
 import { ChangeDetectorRef, Component ,HostListener} from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CollapseModule } from 'src/app/collapse';
@@ -9,7 +10,7 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 declare var bootstrap: any;
 @Component({
   standalone: true,
-  imports: [NavbarComponent, NgFor, NgClass, CollapseModule, CommonModule],
+  imports: [NavbarComponent, NgFor, NgClass, CollapseModule, CommonModule,TranslateModule],
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css',
@@ -26,8 +27,10 @@ export class GalleryComponent {
     private cdr: ChangeDetectorRef,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+    private translate: TranslateService,) {
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);}
 
   ngOnInit(): void {
     this.selectedColor = sessionStorage.getItem('selectedColor');
