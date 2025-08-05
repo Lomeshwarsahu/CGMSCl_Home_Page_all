@@ -6,6 +6,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -21,7 +22,7 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
   standalone: true,
     
   imports: [ NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
-    MatTableExporterModule,CommonModule
+    MatTableExporterModule,CommonModule,TranslateModule
   ],
   templateUrl: './notice-circular.component.html',
   styleUrl: './notice-circular.component.css'
@@ -38,10 +39,12 @@ export class NoticeCircularComponent {
    
   ];
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, 
-    private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService
+    private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService,private translate: TranslateService
   ) {
     this.dataSource = new MatTableDataSource<NoticCircular>([]);
 this.base=Base;
+const lang = sessionStorage.getItem('language') || 'en';
+this.translate.use(lang);
   }
 
   ngOnInit(): void {

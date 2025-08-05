@@ -1,19 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthServiceService } from 'src/app/guards/auth-service.service';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 @Component({
   selector: 'app-organogram',
   standalone: true,
-  imports: [NavbarComponent,CommonModule],
+  imports: [NavbarComponent,CommonModule,TranslateModule],
   templateUrl: './organogram.component.html',
   styleUrl: './organogram.component.css'
 })
 export class OrganogramComponent {
   selectedColor:any;
-  constructor(public authService: AuthServiceService, private router: Router,private ApiService:ApiServiceService) {}
+  constructor(public authService: AuthServiceService, private router: Router,private ApiService:ApiServiceService,private translate: TranslateService,) {
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
+  }
 
   ngOnInit(): void {
     // this.ApiService.selectedColor$.subscribe(color => {

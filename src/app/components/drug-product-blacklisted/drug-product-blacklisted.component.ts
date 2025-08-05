@@ -13,13 +13,14 @@ import { BlacklistedFirm, drugProBlacklisted } from 'src/app/model/model';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-drug-product-blacklisted',
   standalone:true,
   imports: [NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, 
-  MatTableModule, NgSelectModule,FormsModule,MatTableExporterModule,CommonModule
+  MatTableModule, NgSelectModule,FormsModule,MatTableExporterModule,CommonModule,TranslateModule
 ],
 
   templateUrl: './drug-product-blacklisted.component.html',
@@ -46,9 +47,9 @@ export class DrugProductBlacklistedComponent {
 
 
    constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,
-    private spinner: NgxSpinnerService,private toastr: ToastrService
-
-   ) {
+    private spinner: NgxSpinnerService,private toastr: ToastrService,private translate: TranslateService,) {
+        const lang = sessionStorage.getItem('language') || 'en';
+        this.translate.use(lang);
     this.dataSource = new MatTableDataSource<drugProBlacklisted>([]);
     }
 
