@@ -12,10 +12,11 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blacklisted-firm',
-  imports: [  NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,MatTableExporterModule,CommonModule],
+  imports: [  NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule,TranslateModule, MatTableModule, NgSelectModule, FormsModule,MatTableExporterModule,CommonModule],
   templateUrl: './blacklisted-firm.component.html',
   styleUrl: './blacklisted-firm.component.css'
 })
@@ -36,8 +37,10 @@ dataSource!: MatTableDataSource<BlacklistedFirm>;
   selectedColor:any;
 
 
-   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
-    this.dataSource = new MatTableDataSource<BlacklistedFirm>([]);
+   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService,private translate: TranslateService) {
+       const lang = sessionStorage.getItem('language') || 'en';
+       this.translate.use(lang);
+       this.dataSource = new MatTableDataSource<BlacklistedFirm>([]);
     }
 
      ngOnInit(): void {

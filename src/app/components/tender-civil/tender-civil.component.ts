@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 // import {  } from 'ngx-toastr';
 import {ToastrModule, ToastrService } from 'ngx-toastr';
 import { Base } from 'src/app/helper/base';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 interface UiRow extends Data_model {
   rowSpan: number;   
   groupIndex: number;       
@@ -21,7 +22,7 @@ interface UiRow extends Data_model {
   standalone: true,
   selector: 'app-tender-civil',
   imports: [ NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
-    MatTableExporterModule,CommonModule,ToastrModule
+    MatTableExporterModule,CommonModule,ToastrModule,TranslateModule
   ],
   templateUrl: './tender-civil.component.html',
   styleUrl: './tender-civil.component.css'
@@ -46,7 +47,9 @@ export class TenderCivilComponent {
   // ];
  
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,
-     private spinner: NgxSpinnerService,private toastr: ToastrService) {
+     private spinner: NgxSpinnerService,private toastr: ToastrService, private translate: TranslateService,) {
+         const lang = sessionStorage.getItem('language') || 'en';
+         this.translate.use(lang);
     this.dataSource = new MatTableDataSource<Data_model>([]);
     this.base=Base;
     }

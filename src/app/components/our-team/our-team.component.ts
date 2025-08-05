@@ -12,12 +12,13 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-our-team',
   standalone: true,
     
     imports: [NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
-      MatTableExporterModule,CommonModule
+      MatTableExporterModule,CommonModule,TranslateModule
     ],
   templateUrl: './our-team.component.html',
   styleUrl: './our-team.component.css'
@@ -42,8 +43,10 @@ export class OurTeamComponent {
   coreDepts: any  = 'All';
   department:Employee_dpt[]=[];
   // Employee:Employee[]=[];
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService,private translate: TranslateService,) {
     this.dataSource = new MatTableDataSource<Employee>([]);
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
     }
   
 
