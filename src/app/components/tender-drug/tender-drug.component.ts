@@ -15,6 +15,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService,ToastrModule } from 'ngx-toastr';
 import { map } from 'rxjs';
 import { Base } from 'src/app/helper/base';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 interface UiRow extends Data_model {
 
   rowSpan: number;   
@@ -39,7 +40,7 @@ interface UiRow extends Data_model {
     MatTableModule,
     MatTableExporterModule,
     CommonModule,
-    ToastrModule,
+    ToastrModule,TranslateModule
   ],
   templateUrl: './tender-drug.component.html',
   styleUrl: './tender-drug.component.css',
@@ -73,8 +74,11 @@ export class TenderDrugComponent {
     private cdr: ChangeDetectorRef,
     private router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
-  ) {
+    private spinner: NgxSpinnerService,
+    private translate: TranslateService,) {
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
+
     this.dataSource = new MatTableDataSource<Data_model>([]);
     this.base=Base;
   }

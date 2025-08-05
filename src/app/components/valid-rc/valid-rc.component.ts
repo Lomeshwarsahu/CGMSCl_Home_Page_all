@@ -12,11 +12,12 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-valid-rc',
   imports: [NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
-    MatTableExporterModule, CommonModule],
+    MatTableExporterModule, CommonModule,TranslateModule],
   templateUrl: './valid-rc.component.html',
   styleUrl: './valid-rc.component.css'
 })
@@ -56,7 +57,9 @@ export class ValidRcComponent {
   tenderData: TenderData[] = []; 
 
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router
-    , private spinner: NgxSpinnerService) {
+    , private spinner: NgxSpinnerService,private translate: TranslateService,) {
+        const lang = sessionStorage.getItem('language') || 'en';
+        this.translate.use(lang);
     this.dataSource = new MatTableDataSource<DeptCategory>([]);
   }
 

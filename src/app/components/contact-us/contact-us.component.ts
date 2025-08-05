@@ -8,6 +8,7 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { DivisionOfficeLocationComponent } from '../division-office-location/division-office-location.component';
 import { WarehouseLocationComponent } from '../warehouse-location/warehouse-location.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
@@ -19,7 +20,7 @@ import { WarehouseLocationComponent } from '../warehouse-location/warehouse-loca
     RouterModule,
     GoogleMapsModule,
     DivisionOfficeLocationComponent,
-    WarehouseLocationComponent,
+    WarehouseLocationComponent,TranslateModule
   ],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
@@ -39,7 +40,10 @@ export class ContactUsComponent {
   };
   isOnline: boolean = navigator.onLine;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow!: MapInfoWindow;
-  constructor(public authService: AuthServiceService, private router: Router, private ApiService:ApiServiceService) {}
+  constructor(public authService: AuthServiceService, private router: Router, private ApiService:ApiServiceService,private translate: TranslateService) {
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
+  }
 
   
 

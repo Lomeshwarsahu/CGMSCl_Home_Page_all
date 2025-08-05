@@ -15,13 +15,14 @@ import { ApiServiceService } from '../service/api-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { GoogleMap, GoogleMapsModule, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 declare var bootstrap: any;
 @Component({
   selector: 'app-drug-warehouses',
   standalone: true,
     
   imports: [ NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,GoogleMapsModule,
-    MatTableExporterModule,CommonModule
+    MatTableExporterModule,CommonModule,TranslateModule
   ],
   templateUrl: './drug-warehouses.component.html',
   styleUrl: './drug-warehouses.component.css'
@@ -64,9 +65,11 @@ export class DrugWarehousesComponent {
   ];
   selectedColor:any;
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, 
-    private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService
+    private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService,private translate:TranslateService
   ) {
     this.dataSource = new MatTableDataSource<drugWarehouseInfo>([]);
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
     }
   
 

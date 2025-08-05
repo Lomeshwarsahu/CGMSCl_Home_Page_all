@@ -13,11 +13,13 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import {  ToastrService } from 'ngx-toastr';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Base } from 'src/app/helper/base';
 
 @Component({
   selector: 'app-other-dept-recruitment',
   imports: [NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
-    MatTableExporterModule, CommonModule],
+    MatTableExporterModule, CommonModule,TranslateModule],
   templateUrl: './other-dept-recruitment.component.html',
   styleUrl: './other-dept-recruitment.component.css'
 })
@@ -45,9 +47,12 @@ export class OtherDeptRecruitmentComponent {
   Category_Name = '0';
   coreCategory: any = '0';
   categoryData: CategoryData[] = [];
-
+base:any;
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router
-    , private spinner: NgxSpinnerService,private toastr: ToastrService) {
+    , private spinner: NgxSpinnerService,private toastr: ToastrService,private translate: TranslateService,) {
+      this.base=Base;
+        const lang = sessionStorage.getItem('language') || 'en';
+        this.translate.use(lang);
     this.dataSource = new MatTableDataSource<DeptCategory>([]);
   }
 
@@ -205,8 +210,13 @@ export class OtherDeptRecruitmentComponent {
         // this.router.navigate(['/AttachmentList']);
         // alert('file not found')
         // return;
-        this.router.navigate(['/AttachmentList'], { 
-          queryParams: {Id: attachment_Id, name: 'Recruitment Notice' } 
+        // this.router.navigate(['/AttachmentList'], { 
+        //   queryParams: {Id: attachment_Id, name: 'Recruitment Notice' } 
+        // });
+        const encryptedId = this.base.encryptUsingAES256(attachment_Id);
+    
+        this.router.navigate(['/AttachmentList'], {
+          queryParams: { Id: encryptedId, name: 'Notice/Circular' },
         });
 
       }

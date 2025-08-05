@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
 import { Base } from 'src/app/helper/base';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 interface UiRow extends Data_model {
   rowSpan: number;   
   groupIndex: number;       
@@ -20,7 +21,7 @@ interface UiRow extends Data_model {
   standalone: true,
   selector: 'app-tender-equipment',
   imports: [NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule, 
-    MatTableExporterModule,CommonModule,ToastrModule
+    MatTableExporterModule,CommonModule,ToastrModule,TranslateModule
   ],
   templateUrl: './tender-equipment.component.html',
   styleUrl: './tender-equipment.component.css'
@@ -44,7 +45,10 @@ export class TenderEquipmentComponent {
   //   'expiry_Date_of', 'expiry_DateOnNotice_Board', 'displayNew'
   // ];
  
-  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,private spinner: NgxSpinnerService,private toastr: ToastrService) {
+  constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, private router: Router,
+    private spinner: NgxSpinnerService,private toastr: ToastrService,private translate: TranslateService,) {
+        const lang = sessionStorage.getItem('language') || 'en';
+        this.translate.use(lang);
     this.dataSource = new MatTableDataSource<Data_model>([]);
     this.base=Base;
     }

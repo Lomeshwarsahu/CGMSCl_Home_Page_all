@@ -6,6 +6,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -22,7 +23,7 @@ export interface RTI {
    standalone: true,
    selector: 'app-rti',
    imports: [ NavbarComponent,MaterialModule, MatSortModule, MatPaginatorModule,MatTableModule,NgSelectModule,FormsModule,
-    MatTableExporterModule,CommonModule],
+    MatTableExporterModule,TranslateModule,CommonModule],
   templateUrl: './rti.component.html',
   styleUrl: './rti.component.css'
 })
@@ -38,7 +39,9 @@ export class RTIComponent {
   ];
   constructor(public Service: ApiServiceService, private cdr: ChangeDetectorRef, 
     private router: Router,private spinner: NgxSpinnerService,private toastr:ToastrService
-  ) {
+,private translate: TranslateService,) {
+    const lang = sessionStorage.getItem('language') || 'en';
+    this.translate.use(lang);
  
   }
 
