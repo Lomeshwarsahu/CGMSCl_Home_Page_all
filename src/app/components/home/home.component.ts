@@ -19,7 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 import { E } from '@angular/material/error-options.d-CGdTZUYk';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Base } from 'src/app/helper/base';
-// import {  } from '@ngx-translate/core'; 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -427,6 +427,7 @@ export class HomeComponent {
     './assets/cgmsc imgs/bird-8788491_640.jpg',
   ];
   drugs: string[] = [
+    'https://dpdmis.in/cdn/drugs/drug_sukh.jpeg',
     'https://dpdmis.in/cdn/drugs/2.jpg',
     'https://dpdmis.in/cdn/drugs/4.jpeg',
     'https://dpdmis.in/cdn/drugs/8.jpeg',
@@ -435,7 +436,7 @@ export class HomeComponent {
     'https://dpdmis.in/cdn/drugs/19.jpeg',
     'https://dpdmis.in/cdn/drugs/37.jpeg',
     'https://dpdmis.in/cdn/drugs/27.jpeg',
-    'https://dpdmis.in/cdn/drugs/40.jpeg',
+    // 'https://dpdmis.in/cdn/drugs/40.jpeg',
   ];
   Infrastructure: string[] = [
     'https://dpdmis.in/cdn/Infrastructure/Picture4.png',
@@ -460,6 +461,8 @@ export class HomeComponent {
   ];
 
   equipment: string[] = [
+    'https://dpdmis.in/cdn/equipment/equipLeader.jpeg',
+    'https://dpdmis.in/cdn/equipment/equipLeader1.jpeg',
     'https://dpdmis.in/cdn/equipment/32%20slice%20CT%20scan.jfif',
     'https://dpdmis.in/cdn/equipment/CT%20SCAN.jpeg',
     'https://dpdmis.in/cdn/equipment/Multipara%20monitor.jpeg',

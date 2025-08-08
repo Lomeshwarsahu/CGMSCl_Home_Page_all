@@ -282,7 +282,7 @@
      </li>
       <!-- Gallery menu for Desktop -->
         <li class="nav-item hover-dropdown"><a class="nav-link"  [routerLink]="['/Gallery']" [routerLinkActive]="['active']">{{ 'GALLERY' | translate }}</a></li>
-         <!-- equipment menu for Desktop -->
+         <!-- Recruitment menu for Desktop -->
         <li class="nav-item dropdown hover-dropdown">
           <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
             [ngClass]="{'active': isCGMSCLActive('RECRUITMENT'),'text-dark': isCGMSCLActive('RECRUITMENT'),
@@ -290,9 +290,10 @@
         
           </a>
           <ul class="dropdown-menu theme-navbar fade-up" aria-labelledby="servicesDropdown">
-            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i
+   
+            <li><a class="dropdown-item" routerLink="/ResultsNoticeRecruitment" routerLinkActive="active"><i
                   class="bi bi-play-fill me-2"></i>{{ 'Results and Notice' | translate }}</a></li>
-            <li><a class="dropdown-item" routerLink="/infrastructure" routerLinkActive="active"><i
+            <li><a class="dropdown-item" routerLink="/RecruitmentArchive" routerLinkActive="active"><i
                   class="bi bi-play-fill me-2"></i>{{ 'Recruitment Archive' | translate }}</a></li>
             <li><a class="dropdown-item" routerLink="/otherDeptRecruitment" routerLinkActive="active"><i
                   class="bi bi-play-fill me-2"></i>{{ 'Other Department' | translate }}</a></li>
@@ -705,16 +706,17 @@
               
               <i class="bi" [ngClass]="isRecruitmentOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
             </a>
-      
+              
             <div class="custom-collapse ps-3" [class.show]="isRecruitmentOpen" id="RecruitmentCollapseMobile">
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" routerLink="/drug" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                <li class="nav-item"><a class="nav-link" routerLink="/ResultsNoticeRecruitment" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
                   {{ 'Results and Notice' | translate }} </a>
                 </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/equipment" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
-                  {{ 'Other Department' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/infrastructure" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                <li class="nav-item"><a class="nav-link" routerLink="/RecruitmentArchive" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
                   {{ 'Recruitment Archive' | translate }} </a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/otherDeptRecruitment" routerLinkActive="active" data-bs-dismiss="offcanvas"><i class="bi bi-play-fill me-2"></i>
+                  {{ 'Other Department' | translate }}</a></li>
+                
               </ul>
             </div>
       

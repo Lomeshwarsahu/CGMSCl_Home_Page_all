@@ -209,8 +209,8 @@ export class NavbarComponent {
     }else if (section === 'RECRUITMENT') {
       const childRoutes = [
         '/otherDeptRecruitment',
-        '/equipmentr',
-        '/infrastructurer'
+        '/RecruitmentArchive',
+        '/ResultsNoticeRecruitment'
       ];
       return childRoutes.some(route => this.router.url.startsWith(route));
     }else if (section === 'TENDERS') {

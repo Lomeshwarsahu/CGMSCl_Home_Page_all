@@ -88,6 +88,7 @@
    "Priyanka Shukla":"Dr.Priyanka Shukla (IAS) Commissioner-cum-Director of Health Services",
    "Shikha Rajput Tiwari":"Shikha Rajput Tiwari (IAS) Chhattisgarh GOVT. Commissioner, Med. Edu. , CG.",
    "Padmini Bhoi Sahu":"Smt.Padmini Bhoi Sahu (IAS) Managing Director CGMSCL",
+   "Ritesh Kumar Aggarwal IAS":"Shri Ritesh Kumar Aggarwal (IAS) Managing Director CGMSCL",
    "Chhattisgarh Govt":" Chhattisgarh Govt.",
    "CG Health":"CG Health",
    "Procurement":"CG - e-Procurement",
@@ -191,10 +192,12 @@
       "Equipment_Tenders":"Equipment Tenders",
       "Other_Tenders":"Other Tenders",
       "Right_To_Information_Details":"Right To Information Details",
-    "Gallery":"Gallery",
-    "EVENT":"EVENT",
-    "NEWS":"NEWS",
-    "Other_Department_Recruitment":"Other Department Recruitment"
+       "Gallery":"Gallery",
+      "EVENT":"EVENT",
+      "NEWS":"NEWS",
+      "Other_Department_Recruitment":"Other Department Recruitment",
+      "Results_Notice_Recruitment":"Recruitment Results and Notice",
+      "Archive_Recruitment":"Recruitment Archive"
   }
   
   

@@ -87,6 +87,7 @@
    "Priyanka Shukla":"डॉ. प्रियंका शुक्ला (आईएएस) आयुक्त-सह-संचालक, स्वास्थ्य सेवाएं",
    "Shikha Rajput Tiwari":"शिखा राजपूत तिवारी (आईएएस) छ.ग. शासन आयुक्त, चिकित्सा शिक्षा,छत्तीसगढ़",
    "Padmini Bhoi Sahu":"श्रीमती पद्मिनी भोई साहू (आईएएस) प्रबंध निदेशक सीजीएमएससीएल",
+   "Ritesh Kumar Aggarwal IAS":"श्री रितेश कुमार अग्रवाल (आईएएस) प्रबंध निदेशक सीजीएमएससीएल",
    "Chhattisgarh Govt":"छत्तीसगढ़ सरकार.",
    "CG Health":"सीजी स्वास्थ्य",
    "Procurement":"सीजी - ई-प्रोक्योरमेंट",
@@ -194,6 +195,8 @@
          "Gallery":"गैलरी",
          "EVENT":"आयोजन",
          "NEWS":"समाचार",
-         "Other_Department_Recruitment":"अन्य विभाग भर्ती"
+         "Other_Department_Recruitment":"अन्य विभाग भर्ती",
+         "Results_Notice_Recruitment":"भर्ती परिणाम और सूचना",
+         "Archive_Recruitment":"भभर्ती संग्रह"
   }
   
