@@ -238,3 +238,34 @@ export interface TenderRCData {
   is_extended: any
   contract_new_end_date: any
 }
+
+export interface results_notice_recruitment {
+  sno:number;
+  countATT: string
+  categoryCodeMaster: string
+  categoryCodeContent: string
+  contentRegistrationId: string
+  contentSubject: string
+  displayNew: string
+  expiryYear: string
+  currentYear: string
+  department: any
+  contentDescription: string
+  contentPublishingDate: string
+  expiryDateOnNoticeBoard: string
+  expiryDateOnDepartmentBoard: string
+  status: string
+  dateTimeStamp: string
+  ip: any
+  systemInfo: any
+  createrUserName: string
+  contentCategoryName: string
+}
+export interface ContentCategory {
+  contentCategoryCode: any;
+  contentCategoryName: string;
+  // {
+  //   "contentCategoryCode": "1",
+  //   "contentCategoryName": "Recruitment Notice(HRA)"
+  // },
+}
