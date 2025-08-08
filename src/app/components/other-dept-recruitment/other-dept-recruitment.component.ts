@@ -18,6 +18,7 @@ import { Base } from 'src/app/helper/base';
 
 @Component({
   selector: 'app-other-dept-recruitment',
+  standalone: true, 
   imports: [NavbarComponent, MaterialModule, MatSortModule, MatPaginatorModule, MatTableModule, NgSelectModule, FormsModule,
     MatTableExporterModule, CommonModule,TranslateModule],
   templateUrl: './other-dept-recruitment.component.html',
@@ -74,7 +75,7 @@ base:any;
           (res) => {
             this.schemeData = [{ recruitmentId: '0', recruitmentScheme: 'All Scheme' }, ...res];
             this.coreScheme = '0'; // Set default value
-            console.log(' this.scheme =', this.schemeData);
+            // console.log(' this.scheme =', this.schemeData);
             this.spinner.hide();
           },
           (error) => {
@@ -102,7 +103,7 @@ base:any;
           (res) => {
             this.categoryData = [{ contentCategoryCode: '0', contentCategoryName: 'All Category' }, ...res];
             this.coreCategory = '0'; // Set default value
-            console.log(' this.category = ', this.categoryData);
+            // console.log(' this.category = ', this.categoryData);
             this.spinner.hide();
           },
           (error) => {
@@ -139,7 +140,7 @@ base:any;
                 sno: index + 1,
               })
             );
-            console.log('GetDeptCategory=:', this.dispatchData);
+            // console.log('GetDeptCategory=:', this.dispatchData);
              
             this.dataSource.data = this.dispatchData;
             this.dataSource.paginator = this.paginator;
@@ -216,7 +217,7 @@ base:any;
         const encryptedId = this.base.encryptUsingAES256(attachment_Id);
     
         this.router.navigate(['/AttachmentList'], {
-          queryParams: { Id: encryptedId, name: 'Notice/Circular' },
+          queryParams: { Id: encryptedId, name: 'Other Department Recruitment' },
         });
 
       }
