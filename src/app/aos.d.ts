@@ -11,7 +11,7 @@
 
 //   function init(options?: AosOptions): void;
 
-//   export = {
-//     init,
-//   };
+// //   export = {
+// //     init,
+// //   };
 // }

@@ -26,6 +26,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RTIComponent } from './components/rti/rti.component';
 import { CAREERSComponent } from './components/careers/careers.component';
+import { ResultsNoticeRecruitmentComponent } from './components/results-notice-recruitment/results-notice-recruitment.component';
+import { RecruitmentArchiveComponent } from './components/recruitment-archive/recruitment-archive.component';
 
 
 
@@ -36,7 +38,6 @@ const routes: Routes = [
   // {path:'login',component:LoginComponent},
 
   { path: 'dashboard', component: HomeComponent },
-  // { path: 'AboutCGMSC', component: AboutCGMSCComponent },
   {path: 'AboutCGMSC', component: AboutCGMSCComponent, },
   { path: 'AttachmentList', component: AttachmentListComponent },
   { path: 'TenderDrug', component: TenderDrugComponent },
@@ -58,6 +59,8 @@ const routes: Routes = [
   { path: 'Gallery', component: GalleryComponent },
   { path: 'RTI', component: RTIComponent },
   { path: 'CAREERS', component: CAREERSComponent },
+  { path: 'ResultsNoticeRecruitment', component: ResultsNoticeRecruitmentComponent },
+  { path: 'RecruitmentArchive', component: RecruitmentArchiveComponent },
   
   { path: 'login', component: LoginComponent },
   { path: 'validRC', component: ValidRcComponent },
@@ -82,18 +85,3 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 
-// const routes: Routes = [
-//   { path: '', redirectTo: 'login', pathMatch: 'full' },
-
-//   { path: 'login', component: LoginComponent },
-
-//   {
-//     path: 'dashboard',
-//     component: HomeComponent,
-//     children: [
-//       { path: 'AboutCGMSC', component: AboutCGMSCComponent },
-//       { path: 'AttachmentList', component: AttachmentListComponent },
-//       { path: 'TenderDrug', component: TenderDrugComponent }
-//     ]
-//   }
-// ];

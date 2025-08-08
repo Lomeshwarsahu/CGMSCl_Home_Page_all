@@ -179,7 +179,13 @@ export class AttachmentListComponent {
   }
   exportToPDF() {}
   onButtonClick(fileName: any, URL: any) {
-    if (fileName && URL) {
+   
+    if(fileName=="Apply Online"){
+      // const cleanedUrl = 'https://cgmsc.gov.in/cgmscl/' + URL.replace(/^~\//, '');
+      // console.log('Opening:', cleanedUrl);
+      window.open(URL, '_blank');
+    }
+   else if (fileName && URL) {
       // Remove '~' from the start of the URL
       const cleanedUrl = 'https://cgmsc.gov.in/cgmscl/' + URL.replace(/^~\//, '');
       // console.log('Opening:', cleanedUrl);

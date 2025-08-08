@@ -109,13 +109,14 @@ export class GalleryComponent {
     'https://dpdmis.in/cdn/Event/ev1.jpeg',
     'https://dpdmis.in/cdn/Event/ev2.jpeg',
     'https://dpdmis.in/cdn/Event/ev3.jpeg',
-    'https://dpdmis.in/cdn/Event/ev4.jpeg',
+    // 'https://dpdmis.in/cdn/Event/ev4.jpeg',
     'https://dpdmis.in/cdn/Event/ev5.jpeg',
     'https://dpdmis.in/cdn/Event/ev6.jpeg',
     'https://dpdmis.in/cdn/Event/ev7.jpeg',
     // '',
   ];
   drugs: string[] = [
+    'https://dpdmis.in/cdn/drugs/drug_sukh.jpeg',
     'https://dpdmis.in/cdn/drugs/2.jpg',
     'https://dpdmis.in/cdn/drugs/4.jpeg',
     'https://dpdmis.in/cdn/drugs/8.jpeg',
@@ -126,7 +127,7 @@ export class GalleryComponent {
     'https://dpdmis.in/cdn/drugs/27.jpeg',
     'https://dpdmis.in/cdn/drugs/40.jpeg',
     'https://dpdmis.in/cdn/drugs/36.jpeg',
-    'https://dpdmis.in/cdn/drugs/WhatsApp%20Image%202025-07-02%20at%2010.59.45%20(1).jpeg',
+    // 'https://dpdmis.in/cdn/drugs/WhatsApp%20Image%202025-07-02%20at%2010.59.45%20(1).jpeg',
     'https://dpdmis.in/cdn/drugs/WhatsApp%20Image%202025-07-02%20at%2010.59.46.jpeg',
     'https://dpdmis.in/cdn/drugs/WhatsApp%20Image%202025-07-02%20at%2010.59.49%20(2).jpeg',
     'http://dpdmis.in/cdn/drugs/WhatsApp%20Image%202025-07-02%20at%2010.59.49.jpeg',
@@ -146,6 +147,8 @@ export class GalleryComponent {
     'https://dpdmis.in/cdn/Event/WhatsApp%20Image%202025-07-02%20at%2010.59.51%20(2).jpeg',
   ];
   equipment: string[] = [
+    'https://dpdmis.in/cdn/equipment/equipLeader.jpeg',
+    'https://dpdmis.in/cdn/equipment/equipLeader1.jpeg',
     'https://dpdmis.in/cdn/equipment/32%20slice%20CT%20scan.jfif',
     'https://dpdmis.in/cdn/equipment/CT%20SCAN.jpeg',
     'https://dpdmis.in/cdn/equipment/Multipara%20monitor.jpeg',
