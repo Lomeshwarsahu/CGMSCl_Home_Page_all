@@ -428,14 +428,14 @@
           <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3 pb-2 pt-1 text-center gradient-heading "><strong> {{'Drug Tenders' | translate }}</strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" *ngIf="DrugTenderList.length > 0;else OtherDatadrug">
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" >
                 <!-- <div
                   class="scroll-container"
                   [class.paused]="card1Pause"
                   (mouseenter)="card1Pause = true"
                   (mouseleave)="card1Pause = false"
                   (touchstart)="card1Pause = true"
-                  (touchend)="card1Pause = false" > -->
+                  (touchend)="card1Pause = false" > *ngIf="DrugTenderList.length > 0;else OtherDatadrug"-->
                   <div
                   class="scroll-container"
                   [class.paused]="card1Pause"
@@ -459,13 +459,13 @@
                   </div>
                 </div>
               </div>
-              <ng-template #OtherDatadrug class="tab-content pt-4" > 
+              <!-- <ng-template #OtherDatadrug class="tab-content pt-4" > 
                 <div class="card text-center">
                   <div class="card-body">
                     <h3 class="card-title mb-0">No data available at the moment.</h3>
                   </div>
                 </div>
-              </ng-template>
+              </ng-template> -->
             </div>
           </div>
          
@@ -473,10 +473,10 @@
           <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Equipment Tenders' | translate }}</strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" *ngIf="EquipmentList.length > 0;else OtherDataequi">
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" >
                 <!-- <div class="scroll-container" [class.paused]="card2Pause" 
                 (mouseenter)="card2Pause = true" (mouseleave)="card2Pause = false" 
-                 > -->
+                 >*ngIf="EquipmentList.length > 0;else OtherDataequi" -->
                 <!-- (touchend)="resumeScrollWithDelay()" -->
               <!-- <div
                 class="scroll-container"
@@ -506,13 +506,13 @@
                   </div>
                 </div>
               </div>
-              <ng-template #OtherDataequi class="tab-content pt-4" > 
+              <!-- <ng-template #OtherDataequi class="tab-content pt-4" > 
                 <div class="card text-center">
                   <div class="card-body">
                     <h3 class="card-title mb-0">No data available at the moment.</h3>
                   </div>
                 </div>
-              </ng-template>
+              </ng-template> -->
             </div>
           </div>
           
@@ -520,8 +520,8 @@
           <div class="col-12 col-md-6 col-lg-3"  >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Infrastructure Tenders' | translate }} </strong></h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" *ngIf="CivilTenderList.length > 0;else OtherDatacivil">
-                <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;" >
+                <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> *ngIf="CivilTenderList.length > 0;else OtherDatacivil"-->
                   <!-- <div
                   class="scroll-container"
                   [class.paused]="card3Pause"
@@ -548,13 +548,13 @@
                   </div>
                 </div>
               </div>
-              <ng-template #OtherDatacivil class="tab-content pt-4" > 
+              <!-- <ng-template #OtherDatacivil class="tab-content pt-4" > 
                 <div class="card text-center">
                   <div class="card-body">
                     <h3 class="card-title mb-0">No data available at the moment.</h3>
                   </div>
                 </div>
-              </ng-template>
+              </ng-template> -->
             </div>
           </div>
         
@@ -562,8 +562,8 @@
           <div class="col-12 col-md-6 col-lg-3" >
             <div class="card shadow-lg p-4 border bg-white rounded h-100">
               <h5 class="card-title border-bottom border-3  pb-2 pt-1 text-center gradient-heading "><strong>{{'Other Tenders' | translate }} </strong> </h5>
-              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;"  *ngIf="OtherTenderList.length > 0;else OtherData">
-                <!-- <div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
+              <div class="card-body px-0 pt-2 pb-3" style="height: 300px; overflow: hidden; position: relative;"  >
+                <!-- *ngIf="OtherTenderList.length > 0;else OtherData"<div class="scroll-container" [class.paused]="pauseScroll" (mouseenter)="pauseScroll = true" (mouseleave)="pauseScroll = false"> -->
                   <!-- <div
                   class="scroll-container"
                   [class.paused]="card4Pause"
@@ -589,13 +589,13 @@
                   </div>
                 </div>
               </div>
-              <ng-template #OtherData class="tab-content pt-4" > 
+              <!-- <ng-template #OtherData class="tab-content pt-4" > 
                 <div class="card text-center">
                   <div class="card-body">
                     <h3 class="card-title mb-0">No data available at the moment.</h3>
                   </div>
                 </div>
-              </ng-template>
+              </ng-template> -->
             </div>
           </div>
           
